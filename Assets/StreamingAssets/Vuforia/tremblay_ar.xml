@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="halloween_target_corrected_14" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_13" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_12" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_11" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_10" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_09" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_08" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_07" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_06" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_05" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_04" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_03" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_02" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_01" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_30" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_29" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_28" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_27" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_26" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_25" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_24" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_23" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_22" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_21" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_20" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_19" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_18" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_17" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_16" size="0.200000 0.200000" />
+    <ImageTarget name="halloween_target_corrected_15" size="0.200000 0.200000" />
+  </Tracking>
+</QCARConfig>

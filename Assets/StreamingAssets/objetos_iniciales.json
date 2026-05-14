@@ -1,0 +1,927 @@
+{
+    "objetos": [
+        {
+            "id": "vela",
+            "nombreEspanol": "Vela",
+            "nombreIngles": "Candle",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/vela.mp3",
+            "audioNombreIngles": "Sounds/vela.mp3",
+            "audioColorEspanol": "Sounds/vela.mp3",
+            "audioColorIngles": "Sounds/vela.mp3",
+            "prefab3DPath": "Prefabs/halloween/vela",
+            "sprite2DPath": "Images/halloween/vela",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "vela_tutorial",
+            "nombreEspanol": "Vela",
+            "nombreIngles": "Candle",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/vela.mp3",
+            "audioNombreIngles": "Sounds/vela.mp3",
+            "audioColorEspanol": "Sounds/vela.mp3",
+            "audioColorIngles": "Sounds/vela.mp3",
+            "prefab3DPath": "Prefabs/halloween/vela",
+            "sprite2DPath": "Images/halloween/vela",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "tutorial"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "arana",
+            "nombreEspanol": "Araña",
+            "nombreIngles": "Spider",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/arana.mp3",
+            "audioNombreIngles": "Sounds/arana.mp3",
+            "audioColorEspanol": "Sounds/arana.mp3",
+            "audioColorIngles": "Sounds/arana.mp3",
+            "prefab3DPath": "Prefabs/halloween/arana",
+            "sprite2DPath": "Images/halloween/arana",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "arbol",
+            "nombreEspanol": "Árbol",
+            "nombreIngles": "Tree",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/arbol.mp3",
+            "audioNombreIngles": "Sounds/arbol.mp3",
+            "audioColorEspanol": "Sounds/arbol.mp3",
+            "audioColorIngles": "Sounds/arbol.mp3",
+            "prefab3DPath": "Prefabs/halloween/arbol",
+            "sprite2DPath": "Images/halloween/arbol",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "ataud",
+            "nombreEspanol": "Ataúd",
+            "nombreIngles": "Coffin",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/ataud.mp3",
+            "audioNombreIngles": "Sounds/ataud.mp3",
+            "audioColorEspanol": "Sounds/ataud.mp3",
+            "audioColorIngles": "Sounds/ataud.mp3",
+            "prefab3DPath": "Prefabs/halloween/ataud",
+            "sprite2DPath": "Images/halloween/ataud",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "calabaza",
+            "nombreEspanol": "Calabaza",
+            "nombreIngles": "Pumpkin",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/calabaza.mp3",
+            "audioNombreIngles": "Sounds/calabaza.mp3",
+            "audioColorEspanol": "Sounds/calabaza.mp3",
+            "audioColorIngles": "Sounds/calabaza.mp3",
+            "prefab3DPath": "Prefabs/halloween/calabaza",
+            "sprite2DPath": "Images/halloween/calabaza",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "calabaza_tutorial",
+            "nombreEspanol": "Calabaza",
+            "nombreIngles": "Pumpkin",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/calabaza.mp3",
+            "audioNombreIngles": "Sounds/calabaza.mp3",
+            "audioColorEspanol": "Sounds/calabaza.mp3",
+            "audioColorIngles": "Sounds/calabaza.mp3",
+            "prefab3DPath": "Prefabs/halloween/calabaza",
+            "sprite2DPath": "Images/halloween/calabaza",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "tutorial"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "craneo",
+            "nombreEspanol": "Cráneo",
+            "nombreIngles": "Skull",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/craneo.mp3",
+            "audioNombreIngles": "Sounds/craneo.mp3",
+            "audioColorEspanol": "Sounds/craneo.mp3",
+            "audioColorIngles": "Sounds/craneo.mp3",
+            "prefab3DPath": "Prefabs/halloween/craneo",
+            "sprite2DPath": "Images/halloween/craneo",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "escoba",
+            "nombreEspanol": "Escoba",
+            "nombreIngles": "Broom",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/escoba.mp3",
+            "audioNombreIngles": "Sounds/escoba.mp3",
+            "audioColorEspanol": "Sounds/escoba.mp3",
+            "audioColorIngles": "Sounds/escoba.mp3",
+            "prefab3DPath": "Prefabs/halloween/escoba",
+            "sprite2DPath": "Images/halloween/escoba",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "farol",
+            "nombreEspanol": "Farol",
+            "nombreIngles": "Lantern",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/farol.mp3",
+            "audioNombreIngles": "Sounds/farol.mp3",
+            "audioColorEspanol": "Sounds/farol.mp3",
+            "audioColorIngles": "Sounds/farol.mp3",
+            "prefab3DPath": "Prefabs/halloween/farol",
+            "sprite2DPath": "Images/halloween/farol",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": true,
+            "posicionAgarradoPersonalizada": {
+                "x": -0.03999999910593033,
+                "y": -0.3400000035762787,
+                "z": 0.7400000095367432
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 18.02199935913086
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "gato",
+            "nombreEspanol": "Gato",
+            "nombreIngles": "Cat",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/gato.mp3",
+            "audioNombreIngles": "Sounds/gato.mp3",
+            "audioColorEspanol": "Sounds/gato.mp3",
+            "audioColorIngles": "Sounds/gato.mp3",
+            "prefab3DPath": "Prefabs/halloween/gato",
+            "sprite2DPath": "Images/halloween/gato",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "gorro",
+            "nombreEspanol": "Gorro",
+            "nombreIngles": "Hat",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/gorro.mp3",
+            "audioNombreIngles": "Sounds/gorro.mp3",
+            "audioColorEspanol": "Sounds/gorro.mp3",
+            "audioColorIngles": "Sounds/gorro.mp3",
+            "prefab3DPath": "Prefabs/halloween/gorro",
+            "sprite2DPath": "Images/halloween/gorro",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "hongo",
+            "nombreEspanol": "Hongo",
+            "nombreIngles": "Mushroom",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/hongo.mp3",
+            "audioNombreIngles": "Sounds/hongo.mp3",
+            "audioColorEspanol": "Sounds/hongo.mp3",
+            "audioColorIngles": "Sounds/hongo.mp3",
+            "prefab3DPath": "Prefabs/halloween/hongo",
+            "sprite2DPath": "Images/halloween/hongo",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "lampara",
+            "nombreEspanol": "Lámpara",
+            "nombreIngles": "Lamp",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/lampara.mp3",
+            "audioNombreIngles": "Sounds/lampara.mp3",
+            "audioColorEspanol": "Sounds/lampara.mp3",
+            "audioColorIngles": "Sounds/lampara.mp3",
+            "prefab3DPath": "Prefabs/halloween/lampara",
+            "sprite2DPath": "Images/halloween/lampara",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": true,
+            "posicionAgarradoPersonalizada": {
+                "x": -0.23000000417232514,
+                "y": -1.4800000190734864,
+                "z": 2.5199999809265138
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": -2.5899999141693117,
+                "y": 18.474000930786134,
+                "z": 13.223999977111817
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "lapida",
+            "nombreEspanol": "Lápida",
+            "nombreIngles": "Tombstone",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/lapida.mp3",
+            "audioNombreIngles": "Sounds/lapida.mp3",
+            "audioColorEspanol": "Sounds/lapida.mp3",
+            "audioColorIngles": "Sounds/lapida.mp3",
+            "prefab3DPath": "Prefabs/halloween/lapida",
+            "sprite2DPath": "Images/halloween/lapida",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "mano",
+            "nombreEspanol": "Mano",
+            "nombreIngles": "Hand",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/mano.mp3",
+            "audioNombreIngles": "Sounds/mano.mp3",
+            "audioColorEspanol": "Sounds/mano.mp3",
+            "audioColorIngles": "Sounds/mano.mp3",
+            "prefab3DPath": "Prefabs/halloween/mano",
+            "sprite2DPath": "Images/halloween/mano",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "mausoleo",
+            "nombreEspanol": "Mausoleo",
+            "nombreIngles": "Mausoleum",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/mausoleo.mp3",
+            "audioNombreIngles": "Sounds/mausoleo.mp3",
+            "audioColorEspanol": "Sounds/mausoleo.mp3",
+            "audioColorIngles": "Sounds/mausoleo.mp3",
+            "prefab3DPath": "Prefabs/halloween/mausoleo",
+            "sprite2DPath": "Images/halloween/mausoleo",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "murcielago",
+            "nombreEspanol": "Murciélago",
+            "nombreIngles": "Bat",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/murcielago.mp3",
+            "audioNombreIngles": "Sounds/murcielago.mp3",
+            "audioColorEspanol": "Sounds/murcielago.mp3",
+            "audioColorIngles": "Sounds/murcielago.mp3",
+            "prefab3DPath": "Prefabs/halloween/murcielago",
+            "sprite2DPath": "Images/halloween/murcielago",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "pala",
+            "nombreEspanol": "Pala",
+            "nombreIngles": "Shovel",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/pala.mp3",
+            "audioNombreIngles": "Sounds/pala.mp3",
+            "audioColorEspanol": "Sounds/pala.mp3",
+            "audioColorIngles": "Sounds/pala.mp3",
+            "prefab3DPath": "Prefabs/halloween/pala",
+            "sprite2DPath": "Images/halloween/pala",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "reja",
+            "nombreEspanol": "Reja",
+            "nombreIngles": "Gate",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/reja.mp3",
+            "audioNombreIngles": "Sounds/reja.mp3",
+            "audioColorEspanol": "Sounds/reja.mp3",
+            "audioColorIngles": "Sounds/reja.mp3",
+            "prefab3DPath": "Prefabs/halloween/reja",
+            "sprite2DPath": "Images/halloween/reja",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "tumba",
+            "nombreEspanol": "Tumba",
+            "nombreIngles": "Tomb",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/tumba.mp3",
+            "audioNombreIngles": "Sounds/tumba.mp3",
+            "audioColorEspanol": "Sounds/tumba.mp3",
+            "audioColorIngles": "Sounds/tumba.mp3",
+            "prefab3DPath": "Prefabs/halloween/tumba",
+            "sprite2DPath": "Images/halloween/tumba",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "mesa",
+            "nombreEspanol": "Mesa",
+            "nombreIngles": "Table",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/mesa.mp3",
+            "audioNombreIngles": "Sounds/mesa.mp3",
+            "audioColorEspanol": "Sounds/mesa.mp3",
+            "audioColorIngles": "Sounds/mesa.mp3",
+            "prefab3DPath": "Prefabs/halloween/mesa",
+            "sprite2DPath": "Images/halloween/mesa",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "libro",
+            "nombreEspanol": "Libro",
+            "nombreIngles": "Book",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/libro.mp3",
+            "audioNombreIngles": "Sounds/libro.mp3",
+            "audioColorEspanol": "Sounds/libro.mp3",
+            "audioColorIngles": "Sounds/libro.mp3",
+            "prefab3DPath": "Prefabs/halloween/libro",
+            "sprite2DPath": "Images/halloween/libro",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "bruja",
+            "nombreEspanol": "Bruja",
+            "nombreIngles": "Witch",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/bruja.mp3",
+            "audioNombreIngles": "Sounds/bruja.mp3",
+            "audioColorEspanol": "Sounds/bruja.mp3",
+            "audioColorIngles": "Sounds/bruja.mp3",
+            "prefab3DPath": "Prefabs/halloween/bruja",
+            "sprite2DPath": "Images/halloween/bruja",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "flor",
+            "nombreEspanol": "Flor",
+            "nombreIngles": "Flower",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/flor.mp3",
+            "audioNombreIngles": "Sounds/flor.mp3",
+            "audioColorEspanol": "Sounds/flor.mp3",
+            "audioColorIngles": "Sounds/flor.mp3",
+            "prefab3DPath": "Prefabs/halloween/flor",
+            "sprite2DPath": "Images/halloween/flor",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "caldero",
+            "nombreEspanol": "Caldero",
+            "nombreIngles": "Cauldron",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/caldero.mp3",
+            "audioNombreIngles": "Sounds/caldero.mp3",
+            "audioColorEspanol": "Sounds/caldero.mp3",
+            "audioColorIngles": "Sounds/caldero.mp3",
+            "prefab3DPath": "Prefabs/halloween/caldero",
+            "sprite2DPath": "Images/halloween/caldero",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        },
+        {
+            "id": "salchicha",
+            "nombreEspanol": "Salchicha",
+            "nombreIngles": "Sausage",
+            "colorEspanol": "Anaranjado",
+            "colorIngles": "Orange",
+            "audioNombreEspanol": "Sounds/salchicha.mp3",
+            "audioNombreIngles": "Sounds/salchicha.mp3",
+            "audioColorEspanol": "Sounds/salchicha.mp3",
+            "audioColorIngles": "Sounds/salchicha.mp3",
+            "prefab3DPath": "Prefabs/halloween/salchicha",
+            "sprite2DPath": "Images/halloween/salchicha",
+            "guardadoPorJugador": false,
+            "cuentos": [
+                "halloween"
+            ],
+            "usarConfiguracionPersonalizada": false,
+            "posicionAgarradoPersonalizada": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.5
+            },
+            "rotacionAgarradaPersonalizada": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "escalaAgarradaPersonalizada": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "notasConfiguracion": "Configuración por defecto"
+        }
+    ],
+    "misiones": {
+        "descifradas": [
+        ],
+        "completadas": []
+    }
+}

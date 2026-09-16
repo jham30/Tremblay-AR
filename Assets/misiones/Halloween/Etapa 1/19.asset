@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 19
   m_EditorClassIdentifier: 
-  descripcion: "Caza la ara\xF1a con la escoba y el gorro."
+  descripcion: "Caza la ara\xF1a <sprite name=\"arana\"> con la escoba <sprite name=\"escoba\">
+    y el gorro <sprite name=\"gorro\">."
   partes:
   - tipo: 0
     texto: Caza la
@@ -39,6 +40,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 19
+  cuentos: []
   idObjetoDestino: arana
   idsObjetosCorrectos:
   - escoba
@@ -46,3 +48,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 89980acda2b10c94abd8c11a88dc7676, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

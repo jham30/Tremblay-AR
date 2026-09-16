@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 1bd620ebadbf76342879541be258762d, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nI can\u2019t see anything... I need some light...\r\nThere\u2019s
+  textoFragmento: "[Child]\r\nI can\u2019t see anything... I need some light...\r\nThere\u2019s
     a candle here... Come on, light already\u2026\r\nThat\u2019s it, now the lantern...\r\nGood...
     at least I can see a little.\r\r"
   duracionTotal: 0

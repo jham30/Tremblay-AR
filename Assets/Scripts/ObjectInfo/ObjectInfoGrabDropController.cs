@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
@@ -8,6 +10,19 @@ using System.Collections.Generic;
 /// </summary>
 public class ObjectInfoGrabDropController : MonoBehaviour
 {
+    // 🎃 Se dispara al agarrar un objeto para llevarlo a completar (calabaza reactiva).
+    // Estático porque este componente no es singleton (mismo patrón que VuforiaTargetTracker).
+    public static event Action<string> OnObjetoAgarrado;
+
+    /// <summary>
+    /// Se dispara al COLOCAR con éxito el objeto agarrado sobre un destino.
+    /// Parámetros: (objetoID colocado, objetoDestinoID). Estático por el mismo motivo que
+    /// OnObjetoAgarrado. Lo usa el tutorial: el onClick del botón Colocar NO sirve porque
+    /// ObjectInfoUIManager.ConfigurarBotonesDinamicos hace RemoveAllListeners() y borraría
+    /// el listener del tutorial en cuanto se refrescan los botones.
+    /// </summary>
+    public static event Action<string, string> OnObjetoColocado;
+
     [Header("Grab Drop Configuration")]
     [SerializeField] private GameObject panelObjetoAgarrado;
     [SerializeField] private TextMeshProUGUI textoObjetoAgarrado;
@@ -15,11 +30,25 @@ public class ObjectInfoGrabDropController : MonoBehaviour
     
     [Header("Debug Configuration")]
     [SerializeField] private bool debugAgarrarDetallado = true;
-    
+
+    [Header("Panel Objeto Agarrado - Posición/Transparencia")]
+    [Tooltip("Desplazamiento (en X e Y) aplicado al panel cuando NO está en el Image Target donde se agarró el objeto")]
+    [SerializeField] private Vector2 offsetPanelLateral = new Vector2(-400f, 0f);
+    [Tooltip("Transparencia del panel cuando está desplazado")]
+    [SerializeField] private float alphaPanelLateral = 0.4f;
+    [SerializeField] private float duracionTransicionPanel = 0.3f;
+
     // Estado del sistema
     private string objetoAgarradoID = "";
+    private string objetoIDOrigenAgarre = "";
     private GameObject objetoClonAgarrado;
     private Dictionary<string, List<string>> objetosColocadosEnDestino = new Dictionary<string, List<string>>();
+
+    private RectTransform panelObjetoAgarradoRect;
+    private CanvasGroup panelObjetoAgarradoCanvasGroup;
+    private Vector2 posicionPanelCentral;
+    private Coroutine transicionPanelCR;
+    private bool panelCentrado = true;
     
     // Referencias a otros componentes
     private ObjectInfoUIManager mainManager;
@@ -29,14 +58,29 @@ public class ObjectInfoGrabDropController : MonoBehaviour
     void Awake()
     {
         mainManager = GetComponent<ObjectInfoUIManager>();
-        gameObjectManager = FindObjectOfType<GameObjectManager>();
+        gameObjectManager = GameObjectManager.Instance;
         missionPanel = GetComponent<ObjectInfoMissionPanel>();
     }
     
     void Start()
     {
         ConfigurarBotonAbandonar();
+        InicializarPanelObjetoAgarrado();
         OcultarPanelObjetoAgarrado();
+    }
+
+    private void InicializarPanelObjetoAgarrado()
+    {
+        if (panelObjetoAgarrado == null) return;
+
+        panelObjetoAgarradoRect = panelObjetoAgarrado.GetComponent<RectTransform>();
+
+        panelObjetoAgarradoCanvasGroup = panelObjetoAgarrado.GetComponent<CanvasGroup>();
+        if (panelObjetoAgarradoCanvasGroup == null)
+            panelObjetoAgarradoCanvasGroup = panelObjetoAgarrado.AddComponent<CanvasGroup>();
+
+        if (panelObjetoAgarradoRect != null)
+            posicionPanelCentral = panelObjetoAgarradoRect.anchoredPosition;
     }
     
     private void ConfigurarBotonAbandonar()
@@ -80,6 +124,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
 
         // 4. GUARDAR EL ID DEL OBJETO AGARRADO
         objetoAgarradoID = objetoID;
+        objetoIDOrigenAgarre = objetoID;
         Debug.Log($"✅ [GrabDrop] ID del objeto agarrado guardado: '{objetoAgarradoID}'");
 
         // 5. Verificar y cargar prefab
@@ -120,6 +165,13 @@ public class ObjectInfoGrabDropController : MonoBehaviour
         {
             GlobalAudioManager.Instance.ReproducirSonidoAgarrarItem();
         }
+
+        // 🎃 Notificar a la calabaza reactiva (objeto agarrado para completar)
+        OnObjetoAgarrado?.Invoke(objetoID);
+
+        // 🔄 Refrescar botones: el de "agarrar" debe ocultarse ahora que llevas el objeto
+        if (mainManager != null)
+            mainManager.ActualizarBotonesDinamicamente();
 
         Debug.Log($"🎯 [GrabDrop] ===== PROCESO COMPLETADO =====");
     }
@@ -217,6 +269,21 @@ public class ObjectInfoGrabDropController : MonoBehaviour
             objetosColocadosEnDestino[objetoDestinoID] = new List<string>();
         }
 
+        // 🚫 No duplicar: un objeto solo puede estar UNA vez en cada destino.
+        // Si ya está, se mantiene agarrado (no se destruye) y se avisa.
+        if (objetosColocadosEnDestino[objetoDestinoID].Contains(objetoAgarradoID))
+        {
+            Debug.Log($"🚫 [GrabDrop] '{objetoAgarradoID}' ya está colocado en {objetoDestinoID} — no se duplica");
+
+            if (GlobalAudioManager.Instance != null)
+                GlobalAudioManager.Instance.ReproducirSonidoSoltarFallido();
+
+            if (mainManager != null)
+                mainManager.MostrarMensajeMision("You already placed that one.");
+
+            return; // el objeto sigue en la mano; el jugador puede llevarlo a otro lado o abandonarlo
+        }
+
         objetosColocadosEnDestino[objetoDestinoID].Add(objetoAgarradoID);
 
         Debug.Log($"📦 [GrabDrop] Objeto {objetoAgarradoID} colocado en {objetoDestinoID}");
@@ -233,6 +300,9 @@ public class ObjectInfoGrabDropController : MonoBehaviour
         {
             GlobalAudioManager.Instance.ReproducirSonidoSoltarExitoso();
         }
+
+        // 🎓 Tutorial: avisar de la colocación ANTES de limpiar objetoAgarradoID (se vacía abajo).
+        OnObjetoColocado?.Invoke(objetoAgarradoID, objetoDestinoID);
 
         // Limpiar objeto 3D agarrado
         Debug.Log($"🧹 [GrabDrop] Destruyendo objeto 3D visual");
@@ -291,8 +361,23 @@ public class ObjectInfoGrabDropController : MonoBehaviour
 
         if (textoObjetoAgarrado != null)
         {
-            textoObjetoAgarrado.text = $"Objeto: {nombreObjeto}";
+            textoObjetoAgarrado.text = nombreObjeto;
         }
+
+        // Al agarrar, el panel siempre arranca centrado y opaco
+        if (transicionPanelCR != null)
+        {
+            StopCoroutine(transicionPanelCR);
+            transicionPanelCR = null;
+        }
+
+        if (panelObjetoAgarradoRect != null)
+            panelObjetoAgarradoRect.anchoredPosition = posicionPanelCentral;
+
+        if (panelObjetoAgarradoCanvasGroup != null)
+            panelObjetoAgarradoCanvasGroup.alpha = 1f;
+
+        panelCentrado = true;
     }
 
     /// <summary>
@@ -300,10 +385,80 @@ public class ObjectInfoGrabDropController : MonoBehaviour
     /// </summary>
     private void OcultarPanelObjetoAgarrado()
     {
+        if (transicionPanelCR != null)
+        {
+            StopCoroutine(transicionPanelCR);
+            transicionPanelCR = null;
+        }
+
         if (panelObjetoAgarrado != null)
         {
             panelObjetoAgarrado.SetActive(false);
         }
+
+        // Resetear posición/alpha para el próximo agarre
+        if (panelObjetoAgarradoRect != null)
+            panelObjetoAgarradoRect.anchoredPosition = posicionPanelCentral;
+
+        if (panelObjetoAgarradoCanvasGroup != null)
+            panelObjetoAgarradoCanvasGroup.alpha = 1f;
+
+        panelCentrado = true;
+        objetoIDOrigenAgarre = "";
+    }
+
+    /// <summary>
+    /// Llamado cuando el jugador enfoca un Image Target distinto.
+    /// Si hay un objeto agarrado y el target enfocado NO es donde se agarró,
+    /// el panel se desliza a la izquierda y se vuelve semitransparente
+    /// (sigue disponible/usable, pero indica que no aplica aquí).
+    /// Si vuelve al target de origen, el panel regresa al centro y opaco.
+    /// </summary>
+    public void NotificarObjetoEnfocado(string objetoID)
+    {
+        if (!TieneObjetoAgarrado()) return;
+        if (panelObjetoAgarrado == null || !panelObjetoAgarrado.activeSelf) return;
+
+        bool debeCentrarse = (objetoID == objetoIDOrigenAgarre);
+        if (debeCentrarse == panelCentrado) return;
+
+        panelCentrado = debeCentrarse;
+
+        if (transicionPanelCR != null)
+            StopCoroutine(transicionPanelCR);
+
+        transicionPanelCR = StartCoroutine(AnimarPanelObjetoAgarrado(debeCentrarse));
+    }
+
+    private IEnumerator AnimarPanelObjetoAgarrado(bool centrar)
+    {
+        if (panelObjetoAgarradoRect == null || panelObjetoAgarradoCanvasGroup == null)
+        {
+            transicionPanelCR = null;
+            yield break;
+        }
+
+        Vector2 posicionInicial = panelObjetoAgarradoRect.anchoredPosition;
+        Vector2 posicionFinal = centrar ? posicionPanelCentral : posicionPanelCentral + offsetPanelLateral;
+
+        float alphaInicial = panelObjetoAgarradoCanvasGroup.alpha;
+        float alphaFinal = centrar ? 1f : alphaPanelLateral;
+
+        float tiempo = 0f;
+        while (tiempo < duracionTransicionPanel)
+        {
+            tiempo += Time.deltaTime;
+            float t = Mathf.Clamp01(tiempo / duracionTransicionPanel);
+
+            panelObjetoAgarradoRect.anchoredPosition = Vector2.Lerp(posicionInicial, posicionFinal, t);
+            panelObjetoAgarradoCanvasGroup.alpha = Mathf.Lerp(alphaInicial, alphaFinal, t);
+
+            yield return null;
+        }
+
+        panelObjetoAgarradoRect.anchoredPosition = posicionFinal;
+        panelObjetoAgarradoCanvasGroup.alpha = alphaFinal;
+        transicionPanelCR = null;
     }
     
     /// <summary>
@@ -313,6 +468,12 @@ public class ObjectInfoGrabDropController : MonoBehaviour
     {
         return !string.IsNullOrEmpty(objetoAgarradoID) && objetoClonAgarrado != null;
     }
+
+    /// <summary>
+    /// ID del objeto del que se agarró el objeto actual (su origen). Se usa para NO mostrar
+    /// el botón "colocar" sobre el mismo objeto del que se tomó.
+    /// </summary>
+    public string ObjetoIDOrigenAgarre => objetoIDOrigenAgarre;
     
     /// <summary>
     /// Obtiene la lista de objetos colocados en un destino específico
@@ -335,6 +496,24 @@ public class ObjectInfoGrabDropController : MonoBehaviour
         Debug.Log("[GrabDrop] Objetos colocados limpiados");
     }
     
+    /// <summary>
+    /// Retira UN objeto colocado de un destino (para poder quitarlo del panel de comprobación
+    /// si se puso mal). No lo vuelve a agarrar: solo lo saca de la lista.
+    /// </summary>
+    public bool RetirarObjetoColocado(string objetoDestinoID, string objetoID)
+    {
+        if (string.IsNullOrEmpty(objetoDestinoID) || string.IsNullOrEmpty(objetoID)) return false;
+
+        if (objetosColocadosEnDestino.TryGetValue(objetoDestinoID, out var lista))
+        {
+            bool removido = lista.Remove(objetoID);
+            if (removido)
+                Debug.Log($"[GrabDrop] Objeto retirado del panel: {objetoID} (destino {objetoDestinoID})");
+            return removido;
+        }
+        return false;
+    }
+
     /// <summary>
     /// Limpia los objetos colocados de un destino específico
     /// </summary>

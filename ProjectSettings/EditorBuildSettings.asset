@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Cemetery Scene.unity
-    guid: 7417d8220501ca24597985def6130a54
+    path: Assets/Scenes/Inicio.unity
+    guid: b8db8ee7629e9a8419cc972ac86dd3a5
   - enabled: 1
-    path: Assets/Scenes/halloween tutoril.unity
-    guid: 6c317dabe1ebf40458f91d7940d5ae08
+    path: Assets/Scenes/halloween-tuto1.unity
+    guid: b703a958c8aa7934a992a7a95d452cf8
   - enabled: 1
     path: Assets/Scenes/halloween.unity
     guid: ae8e0bf3c74ed644ab0e379411275b4e
@@ -19,4 +19,5 @@ EditorBuildSettings:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0051c84254a69cb4b86075acc5f6ff70, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: efe064a13b0df324fb756e5cb95d9a50, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9fe9667ef9436d34fa738b7658d53e46, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 11
   m_EditorClassIdentifier: 
-  descripcion: "Golpear la mano con la v.\r"
+  descripcion: "Golpear la mano <sprite name=\"mano\"> con la pala <sprite name=\"pala\">.\r"
   partes:
   - tipo: 0
     texto: 'Golpear la '
@@ -33,9 +33,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 11
+  cuentos: []
   idObjetoDestino: mano
   idsObjetosCorrectos:
   - pala
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 442a251a7a448a14393aa6d87df50254, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

@@ -16,9 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 71b77f67dbc324345900a7d1f8a5fdba, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "witch\r\nGive back what\u2019s mine!\n\r\nChild.\r\nYou won\u2019t
-    get close \u2014 I\u2019ve got my pumpkin right here! Take this!\n\r\nwitch\r\nThat
-    light! Put it out!\n\r\nChild.\r\nStay right there... don\u2019t come any closer...\r\n"
+  textoFragmento: "<color=#BEFF7A>\r\n[Witch]\r\nGive back what\u2019s mine!</color>\r\n\r\n[Child]\r\nYou
+    won\u2019t get close \u2014 I\u2019ve got my pumpkin right here! Take this!\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nThat
+    light! Put it out!</color>\r\n\r\n[Child]\r\nStay right there... don\u2019t come
+    any closer...\r\n"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5

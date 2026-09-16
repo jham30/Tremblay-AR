@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 25
   m_EditorClassIdentifier: 
-  descripcion: "Usa la escoba para apartar la ara\xF1a del farol.\r"
+  descripcion: "Usa la escoba <sprite name=\"escoba\"> para apartar la ara\xF1a <sprite
+    name=\"arana\"> del farol <sprite name=\"farol\">.\r"
   partes:
   - tipo: 0
     texto: Usa la
@@ -39,6 +40,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 25
+  cuentos: []
   idObjetoDestino: farol
   idsObjetosCorrectos:
   - arana
@@ -46,3 +48,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

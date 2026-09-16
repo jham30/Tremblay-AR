@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 8a03ffd05a9e02c40bb1bdc3ec62373c, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nLooks like the kitchen.\r\nHmm... that\u2019s strange...
+  textoFragmento: "[Child]\r\nLooks like the kitchen.\r\nHmm... that\u2019s strange...
     it smells like soil... and smoke.\r\nWhat are these mushrooms?... toadstools?...
     weird... they look freshly cut.\r\nAnd those pumpkins... they all have smiling
     faces...\r\nHmm... the witch is making something with these...\r\nI\u2019d better
@@ -24,12 +24,12 @@ MonoBehaviour:
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
-  avanceAutomatico: 0
+  avanceAutomatico: 1
   colorFondo: {r: 0, g: 0, b: 0, a: 0.85}
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 10
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: f9cd108eda02f27439da5b55c64ca135, type: 3}
   "intensidadVi\xF1eta": 0.3

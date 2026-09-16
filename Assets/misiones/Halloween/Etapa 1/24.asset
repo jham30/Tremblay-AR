@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 24
   m_EditorClassIdentifier: 
-  descripcion: "Lleva la calabaza, la vela y el farol al \xE1rbol.\r"
+  descripcion: "Lleva la calabaza <sprite name=\"calabaza\">, la vela <sprite name=\"vela\">
+    y el farol <sprite name=\"farol\"> al \xE1rbol <sprite name=\"arbol\">.\r"
   partes:
   - tipo: 0
     texto: Lleva la
@@ -45,6 +46,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 24
+  cuentos: []
   idObjetoDestino: arbol
   idsObjetosCorrectos:
   - calabaza
@@ -53,3 +55,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 3c49b108ed55a294cb7968f45da5d533, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

@@ -1,11 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DropSocketAvanzado : MonoBehaviour, IDropHandler
 {
+    /// <summary>
+    /// Se dispara cada vez que se suelta un objeto del inventario en un socket de misión.
+    /// Parámetros: (objetoID arrastrado, idCorrecto del socket, si acertó).
+    /// Es ESTÁTICO porque los sockets los instancia MissionManager dinámicamente al armar la
+    /// misión: no son singleton ni se pueden arrastrar al Inspector (mismo patrón que
+    /// VuforiaTargetTracker.OnTargetFound).
+    /// </summary>
+    public static event Action<string, string, bool> OnObjetoSoltadoEnSocket;
+
     [Header("Configuración")]
-    public string idCorrecto; 
+    public string idCorrecto;
 
     [Header("Feedback visual")]
     public Image socketImage;
@@ -64,6 +74,9 @@ public class DropSocketAvanzado : MonoBehaviour, IDropHandler
             
             // Notificar al manager para actualizar UI
             ObjectInfoUIManager.Instance?.ActualizarEstadoMisiones();
+
+            // 🎓 Tutorial: avisar del drag & drop (para el paso ObjetoSoltadoEnSocket)
+            OnObjetoSoltadoEnSocket?.Invoke(nuevoObjeto.objetoID, idCorrecto, esCorrecto);
         }
     }
 

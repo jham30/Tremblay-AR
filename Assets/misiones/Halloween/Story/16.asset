@@ -16,8 +16,8 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 74bb2d80a638a844693c218c68640ed4, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nIf the hand belongs to the witch...\r\nThen... she must
-    also be afraid of spiders.\r\nYeah... of course... it\u2019s part of her.\r\nIf
+  textoFragmento: "[Child]\r\nIf the hand belongs to the witch...\r\nThen... she
+    must also be afraid of spiders.\r\nYeah... of course... it\u2019s part of her.\r\nIf
     I can get a few of them close to her\u2026 maybe she\u2019ll get scared and let
     go of the chain.\r\nI just need something to pick them up without touching them.\r\nThe
     broom... and the hat.\r\nPerfect... that should work.\r\nOkay, let\u2019s go...

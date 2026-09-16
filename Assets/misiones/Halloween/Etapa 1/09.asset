@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 09
   m_EditorClassIdentifier: 
-  descripcion: "Poner la vela en el cr\xE1neo.\r"
+  descripcion: "Poner la vela <sprite name=\"vela\"> en el cr\xE1neo <sprite name=\"craneo\">.\r"
   partes:
   - tipo: 0
     texto: Poner la
@@ -33,9 +33,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 09
+  cuentos: []
   idObjetoDestino: craneo
   idsObjetosCorrectos:
   - vela
   fragmentoAlDescifrar: {fileID: 11400000, guid: c60166f5a12813147a84b1e649611ab5, type: 2}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

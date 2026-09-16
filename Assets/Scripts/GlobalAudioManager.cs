@@ -20,6 +20,9 @@ public class GlobalAudioManager : MonoBehaviour
     [SerializeField] private AudioClip sonidoMisionCompletadaAR;       // 🏆 Misión completada en AR
     [SerializeField] private AudioClip sonidoNuevaMisionDisponible;    // 🆕 Nueva misión desbloqueada
     
+    [Header("📖 Sonidos de Libro")]
+    [SerializeField] private AudioClip sonidoPasarHoja;
+
     [Header("🎮 Sonidos de UI")]
     [SerializeField] private AudioClip sonidoClickBoton;
     [SerializeField] private AudioClip sonidoTogglePanel;
@@ -36,10 +39,20 @@ public class GlobalAudioManager : MonoBehaviour
     [SerializeField] private float volumenMaster = 1f;
     [SerializeField] private float volumenUI = 0.8f;
     [SerializeField] private float volumenSFX = 1f;
+    [SerializeField] private float volumenMusica = 0.7f;
     [SerializeField] private float volumenMisiones = 0.9f; // 🆕 Volumen específico para misiones
 
     [Header("Debug")]
     [SerializeField] private bool mostrarDebugLogs = true;
+
+    // 🔊 Estado de silencio (mute) y persistencia del panel de configuración de audio
+    private bool musicaSilenciada = false;
+    private bool efectosSilenciados = false;
+    private float _defMusica, _defEfectos;   // defaults del Inspector (para "Restablecer")
+    private const string KEY_MUS      = "audio_vol_musica";
+    private const string KEY_EF       = "audio_vol_efectos";
+    private const string KEY_MUS_MUTE = "audio_mute_musica";
+    private const string KEY_EF_MUTE  = "audio_mute_efectos";
 
     void Awake()
     {
@@ -57,6 +70,7 @@ public class GlobalAudioManager : MonoBehaviour
 
         Debug.Log("🎵 [GlobalAudioManager] Inicializado correctamente");
 
+        CargarPreferenciasAudio();   // 🔊 cargar volúmenes/mute guardados antes de aplicar
         ConfigurarAudioSources();
     }
 
@@ -79,6 +93,15 @@ public class GlobalAudioManager : MonoBehaviour
             audioSourceSFX.playOnAwake = false;
         }
 
+        if (audioSourceAmbient == null)
+        {
+            GameObject ambientObj = new GameObject("AmbientAudioSource");
+            ambientObj.transform.SetParent(transform);
+            audioSourceAmbient = ambientObj.AddComponent<AudioSource>();
+            audioSourceAmbient.playOnAwake = false;
+            audioSourceAmbient.loop = true;
+        }
+
         ActualizarVolumenes();
         
         if (mostrarDebugLogs)
@@ -89,11 +112,16 @@ public class GlobalAudioManager : MonoBehaviour
 
     private void ActualizarVolumenes()
     {
+        float efMul = efectosSilenciados ? 0f : 1f;
+
         if (audioSourceUI != null)
-            audioSourceUI.volume = volumenMaster * volumenUI;
-            
+            audioSourceUI.volume = volumenMaster * volumenUI * efMul;
+
         if (audioSourceSFX != null)
-            audioSourceSFX.volume = volumenMaster * volumenSFX;
+            audioSourceSFX.volume = volumenMaster * volumenSFX * efMul;
+
+        if (audioSourceAmbient != null)
+            audioSourceAmbient.volume = musicaSilenciada ? 0f : volumenMaster * volumenMusica;
     }
 
     // ==============================================
@@ -196,6 +224,41 @@ public class GlobalAudioManager : MonoBehaviour
         ReproducirSonidoUI(sonidoSoltarFallido);
     }
 
+    // ==============================================
+    // 🎵 MÉTODOS DE MÚSICA
+    // ==============================================
+
+    public void ReproducirMusica(AudioClip clip)
+    {
+        if (audioSourceAmbient == null || clip == null) return;
+        if (audioSourceAmbient.clip == clip && audioSourceAmbient.isPlaying) return;
+
+        audioSourceAmbient.clip = clip;
+        audioSourceAmbient.loop = true;
+        audioSourceAmbient.volume = musicaSilenciada ? 0f : volumenMaster * volumenMusica;
+        audioSourceAmbient.Play();
+
+        if (mostrarDebugLogs) Debug.Log($"🎵 [GlobalAudioManager] Música: {clip.name}");
+    }
+
+    public void DetenerMusica()
+    {
+        if (audioSourceAmbient != null)
+            audioSourceAmbient.Stop();
+    }
+
+    public void CambiarVolumenMusica(float nuevoVolumen)
+    {
+        volumenMusica = Mathf.Clamp01(nuevoVolumen);
+        ActualizarVolumenes();
+        GuardarPreferenciasAudio();
+    }
+
+    public void ReproducirSonidoPasarHoja()
+    {
+        ReproducirSonidoSFX(sonidoPasarHoja);
+    }
+
     public void ReproducirSonidoClickBoton()
     {
         ReproducirSonidoUI(sonidoClickBoton);
@@ -283,6 +346,97 @@ public class GlobalAudioManager : MonoBehaviour
     public void CambiarVolumenMisiones(float nuevoVolumen)
     {
         volumenMisiones = Mathf.Clamp01(nuevoVolumen);
+    }
+
+    // ==============================================
+    // 🔊 PANEL DE CONFIGURACIÓN DE AUDIO (música / efectos)
+    // ==============================================
+
+    /// <summary>
+    /// Un solo control de "efectos": mueve UI + SFX + misiones a la vez.
+    /// </summary>
+    public void CambiarVolumenEfectos(float nuevoVolumen)
+    {
+        float c = Mathf.Clamp01(nuevoVolumen);
+        volumenUI = c;
+        volumenSFX = c;
+        volumenMisiones = c;
+        ActualizarVolumenes();
+        GuardarPreferenciasAudio();
+    }
+
+    public void SilenciarMusica(bool silenciar)
+    {
+        musicaSilenciada = silenciar;
+        ActualizarVolumenes();
+        GuardarPreferenciasAudio(true);
+    }
+
+    public void SilenciarEfectos(bool silenciar)
+    {
+        efectosSilenciados = silenciar;
+        ActualizarVolumenes();
+        GuardarPreferenciasAudio(true);
+    }
+
+    public void ToggleMuteMusica()  => SilenciarMusica(!musicaSilenciada);
+    public void ToggleMuteEfectos() => SilenciarEfectos(!efectosSilenciados);
+
+    public void RestablecerVolumenes()
+    {
+        volumenMusica = _defMusica;
+        volumenUI = _defEfectos;
+        volumenSFX = _defEfectos;
+        volumenMisiones = _defEfectos;
+        musicaSilenciada = false;
+        efectosSilenciados = false;
+        ActualizarVolumenes();
+        GuardarPreferenciasAudio(true);
+    }
+
+    // Getters para inicializar la UI del panel de audio
+    public float VolumenMusica      => volumenMusica;
+    public float VolumenEfectos     => volumenSFX;
+    public bool  MusicaSilenciada   => musicaSilenciada;
+    public bool  EfectosSilenciados => efectosSilenciados;
+
+    private void CargarPreferenciasAudio()
+    {
+        // Capturar los valores del Inspector como "por defecto" ANTES de sobreescribir
+        _defMusica  = volumenMusica;
+        _defEfectos = volumenSFX;
+
+        volumenMusica = PlayerPrefs.GetFloat(KEY_MUS, volumenMusica);
+        float ef = PlayerPrefs.GetFloat(KEY_EF, volumenSFX);
+        volumenUI = ef;
+        volumenSFX = ef;
+        volumenMisiones = ef;
+
+        musicaSilenciada   = PlayerPrefs.GetInt(KEY_MUS_MUTE, 0) == 1;
+        efectosSilenciados = PlayerPrefs.GetInt(KEY_EF_MUTE, 0) == 1;
+    }
+
+    /// <summary>
+    /// Guarda en PlayerPrefs. Por defecto solo en memoria (barato); con flush=true escribe a disco.
+    /// Los sliders llaman sin flush (evita escribir en cada frame de arrastre); mute/reset con flush.
+    /// </summary>
+    private void GuardarPreferenciasAudio(bool flush = false)
+    {
+        PlayerPrefs.SetFloat(KEY_MUS, volumenMusica);
+        PlayerPrefs.SetFloat(KEY_EF, volumenSFX);
+        PlayerPrefs.SetInt(KEY_MUS_MUTE, musicaSilenciada ? 1 : 0);
+        PlayerPrefs.SetInt(KEY_EF_MUTE, efectosSilenciados ? 1 : 0);
+        if (flush) PlayerPrefs.Save();
+    }
+
+    void OnApplicationPause(bool pausado)
+    {
+        if (pausado) PlayerPrefs.Save();
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.Save();
     }
 
     // ==============================================

@@ -16,16 +16,16 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 39be9316732faa84f81731413a75963d, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nCome on, come on! I have to get out of here...\r\nAhhh!\u2026
-    cobwebs\u2026 they\u2019re everywhere\u2026\n\r\nwitch\r\nSpiders\u2026! There
-    are spiders everywhere!\r\nKeep them away from me! Spiders, noooo!.\n\r\nChild.\r\nThe
+  textoFragmento: "[Child]\r\nCome on, come on! I have to get out of here...\r\nAhhh!\u2026
+    cobwebs\u2026 they\u2019re everywhere\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nSpiders\u2026!
+    There are spiders everywhere!\r\nKeep them away from me! Spiders, noooo!.</color>\r\n\r\n[Child]\r\nThe
     witch... she\u2019s afraid of them?\r\nWell\u2026 that\u2019s something I didn\u2019t
     expect...\r\nMaybe... that could come in handy later.\r\nAll right... time to
     get out before she comes back!\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
-  avanceAutomatico: 0
+  avanceAutomatico: 1
   colorFondo: {r: 0, g: 0, b: 0, a: 0.85}
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24

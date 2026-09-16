@@ -16,7 +16,11 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 2542386048859e54bb5edd422f1cd05f, type: 3}
   volumenAudio: 0.8
-  textoFragmento: 
+  textoFragmento: "Ugh... where am I?\r\nI\u2019d better turn on the flashlight...\r\nOkay
+    okay... calm down...\r\nWhat are those portraits?... and those faces... they
+    look like they\u2019re staring at me...\r\nHmm... what a strange hat. A broom,
+    candles, lanterns...\r\nThis place is creepy.\r\nI\u2019ll call the guys... \r\nNo...
+    no way... my phone\u2019s out of battery."
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
@@ -25,7 +29,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 10
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: 9605a70f44977934c936a75d5d503ac7, type: 3}
   "intensidadVi\xF1eta": 0.3

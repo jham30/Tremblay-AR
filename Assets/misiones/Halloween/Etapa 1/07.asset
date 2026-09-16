@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 07
   m_EditorClassIdentifier: 
-  descripcion: "Pon el farol en la escoba y enciende la l\xE1mpara."
+  descripcion: "Pon el farol <sprite name=\"farol\"> en la escoba <sprite name=\"escoba\">
+    y enciende la l\xE1mpara <sprite name=\"lampara\">."
   partes:
   - tipo: 0
     texto: Pon el
@@ -39,6 +40,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 07
+  cuentos: []
   idObjetoDestino: lampara
   idsObjetosCorrectos:
   - farol
@@ -46,3 +48,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 11400000, guid: ff05fd2b9cf3f794592c10a296543a9f, type: 2}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

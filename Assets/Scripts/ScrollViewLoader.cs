@@ -22,7 +22,7 @@ public class ScrollViewLoader : MonoBehaviour
         if (debugAndroid) Debug.Log("[ScrollViewLoader] Start - Buscando GameObjectManager...");
 
         if (gameObjectManager == null)
-            gameObjectManager = FindObjectOfType<GameObjectManager>();
+            gameObjectManager = GameObjectManager.Instance;
 
         if (gameObjectManager != null)
         {
@@ -181,6 +181,9 @@ public class ScrollViewLoader : MonoBehaviour
                     }
                 }
             }
+
+            // 🔍 Refrescar el botón de info (aparece cuando el objeto pasa a "encontrado")
+            ConfigurarBotonInfo(item, data);
         }
         catch (System.Exception e)
         {
@@ -239,6 +242,33 @@ public class ScrollViewLoader : MonoBehaviour
                     : new Color(0.5f, 0.5f, 0.5f, 0.7f);
             }
         }
+
+        // 🔍 Botón de info (panel con sprite + nombre + audio)
+        ConfigurarBotonInfo(item, data);
+    }
+
+    // 🔍 NUEVO: Engancha el botoncito "BotonInfo" del item. Solo visible en items ya
+    // encontrados (guardadoPorJugador). Al pulsarlo abre el ItemInfoPanel compartido.
+    private void ConfigurarBotonInfo(GameObject item, GameObjectData data)
+    {
+        Transform t = item.transform.Find("BotonInfo");
+        if (t == null) return;
+
+        Button botonInfo = t.GetComponent<Button>();
+        if (botonInfo == null) return;
+
+        // Solo disponible en objetos ya encontrados
+        botonInfo.gameObject.SetActive(data.guardadoPorJugador);
+
+        botonInfo.onClick.RemoveAllListeners();
+        string id = data.id; // capturar por valor para el closure
+        botonInfo.onClick.AddListener(() =>
+        {
+            if (gameObjectManager == null) return;
+            GameObjectData d = gameObjectManager.BuscarObjetoPorId(id);
+            if (d != null && ItemInfoPanel.Instance != null)
+                ItemInfoPanel.Instance.Mostrar(d);
+        });
     }
 
     public void RefrescarSprites()

@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 48bb32ee2092a4c4888c2bd07a8d397d, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nBrrrrr... the air feels colder.\r\nWhat\u2019s that...
+  textoFragmento: "[Child]\r\nBrrrrr... the air feels colder.\r\nWhat\u2019s that...
     in the fog?...\r\nThere it is \u2014 the tree.\r\nIt\u2019s huge... I just need
     to figure out how to open this old gate, covered in roots... it\u2019s stuck.\r"
   duracionTotal: 0

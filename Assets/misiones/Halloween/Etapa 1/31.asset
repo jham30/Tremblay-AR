@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 31
   m_EditorClassIdentifier: 
-  descripcion: "Pon la l\xE1mpara y la calabaza junto al \xE1rbol para espantar al
-    murci\xE9lago.\r"
+  descripcion: "Pon la l\xE1mpara <sprite name=\"lampara\">  y la calabaza <sprite
+    name=\"calabaza\"> junto al \xE1rbol <sprite name=\"arbol\"> para espantar al
+    murci\xE9lago <sprite name=\"murcielago\">.\r"
   partes:
   - tipo: 0
     texto: Pon la
@@ -46,6 +47,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 31
+  cuentos: []
   idObjetoDestino: arbol
   idsObjetosCorrectos:
   - lampara
@@ -53,3 +55,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 02
   m_EditorClassIdentifier: 
-  descripcion: " Saca la ara\xF1a con la escoba.\r"
+  descripcion: " Saca la ara\xF1a <sprite name=\"arana\"> con la escoba <sprite name=\"escoba\">.\r"
   partes:
   - tipo: 0
     texto: Saca la
@@ -30,7 +30,7 @@ MonoBehaviour:
   objetosRequeridos: []
   misionRequeridaID: 01
   bloqueada: 1
-  descifrada: 0
+  descifrada: 1
   completada: 0
   misionID: 02
   cuentos: []
@@ -40,3 +40,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 26b70d16df97da045a633403718169eb, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,8 @@ public class ObjectInfoUIManager : MonoBehaviour
     public event Action OnBotonColorPulsado;
     public event Action OnBotonGuardarPulsado;
     public event Action OnBotonCerrarPulsado;
+    /// <summary>Se dispara cada vez que se toca un objeto 3D en AR y se abre su panel de info (parámetro = objetoID).</summary>
+    public event Action<string> OnObjetoTocado;
 
     [Header("🎯 Canvas Estático (en jerarquía)")]
     [Tooltip("Canvas que ya existe en la jerarquía y se mostrará/ocultará")]
@@ -72,6 +75,17 @@ public class ObjectInfoUIManager : MonoBehaviour
     [SerializeField] private Button botonCerrar;
     [SerializeField] private Transform panelMisiones;
 
+    [Header("💬 Feedback al Completar Misión (AR)")]
+    [Tooltip("Texto donde se muestra el mensaje de fallo al pulsar 'done' sin los objetos correctos.")]
+    [SerializeField] private TextMeshProUGUI textoResultadoMision;
+    [SerializeField] private float duracionMensajeResultado = 3f;
+
+    [Header("💾 Animación botón Guardar")]
+    [Tooltip("Cuánto sube el botón en el brinquito (px).")]
+    [SerializeField] private float guardarBrincoAltura = 25f;
+    [SerializeField] private float guardarBrincoDuracion = 0.35f;
+    [SerializeField] private AnimationCurve guardarBrincoCurva = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
     [Header("🎨 Mission Panel Controller")]
     [SerializeField] private ObjectInfoMissionPanel missionPanel;
 
@@ -83,9 +97,17 @@ public class ObjectInfoUIManager : MonoBehaviour
     private ScrollViewLoader scrollViewLoader;
     private MissionManager missionManager;
     private string objetoActualID;
+    private GameObject objetoActualGO;
     private bool canvasActivo = false;
     private CanvasGroup canvasGroup;
     private Coroutine animacionActual;
+    private Coroutine ocultarResultadoCR;
+
+    // Estado de la animación del botón Guardar
+    private CanvasGroup guardarCanvasGroup;
+    private Vector2 guardarPosBase;
+    private bool guardarBaseCapturada = false;
+    private bool guardarAnimando = false;
 
     // ✅ Propiedades públicas para acceso externo
     public string ObjetoActualID => objetoActualID;
@@ -133,9 +155,9 @@ public class ObjectInfoUIManager : MonoBehaviour
     private void InicializarSistema()
     {
         // Buscar managers
-        gameObjectManager = FindObjectOfType<GameObjectManager>();
+        gameObjectManager = GameObjectManager.Instance;
         scrollViewLoader = FindObjectOfType<ScrollViewLoader>();
-        missionManager = FindObjectOfType<MissionManager>();
+        missionManager = MissionManager.Instance;
 
         // Inicializar audio controller
         if (audioController == null)
@@ -388,6 +410,14 @@ public class ObjectInfoUIManager : MonoBehaviour
         }
 
         objetoActualID = datos.id;
+        objetoActualGO = objeto;
+
+        // Avisar al GrabDrop si el objeto agarrado debe mostrarse centrado/lateral
+        if (grabDropController != null)
+            grabDropController.NotificarObjetoEnfocado(datos.id);
+
+        // 🆕 Tutorial: notificar que se tocó/mostró este objeto (abre el panel con sus botones)
+        OnObjetoTocado?.Invoke(datos.id);
 
         // Asegurar que el canvas esté visible
         if (!canvasEstatico.gameObject.activeInHierarchy)
@@ -464,17 +494,22 @@ public class ObjectInfoUIManager : MonoBehaviour
     private void ConfigurarBotonesDinamicos(GameObjectData datos)
     {
         // Botón Guardar
-        if (botonGuardar != null)
+        if (botonGuardar != null && !guardarAnimando)
         {
             botonGuardar.onClick.RemoveAllListeners();
             botonGuardar.onClick.AddListener(() => { GuardarObjeto(datos.id, botonGuardar); OnBotonGuardarPulsado?.Invoke(); });
-            
+
             if (datos.guardadoPorJugador)
-                ActualizarBotonGuardado(botonGuardar);
+            {
+                // Ya guardado → el botón desaparece (no vuelve a mostrarse en gris).
+                botonGuardar.gameObject.SetActive(false);
+            }
             else
+            {
                 RestaurarBotonGuardar(botonGuardar);
-            
-            botonGuardar.gameObject.SetActive(true);
+                ResetVisualBotonGuardar();
+                botonGuardar.gameObject.SetActive(true);
+            }
         }
 
         // Botón Audio Nombre
@@ -818,7 +853,10 @@ public class ObjectInfoUIManager : MonoBehaviour
     private bool DebeActivarBotonAgarrar(string objetoID)
     {
         if (missionManager == null) return false;
-        
+
+        // Si ya tienes un objeto agarrado, ocultar el botón de agarrar (reaparece al abandonar).
+        if (grabDropController != null && grabDropController.TieneObjetoAgarrado()) return false;
+
         // Buscar si hay misiones descifradas que requieran este objeto
         var misionesDescifradas = missionManager.MisionesDescifradas;
         var misionesCompletadas = missionManager.MisionesCompletadas;
@@ -834,8 +872,14 @@ public class ObjectInfoUIManager : MonoBehaviour
 
     private bool DebeActivarBotonColocar(string objetoDestinoID)
     {
-        if (grabDropController == null) return false;
-        return grabDropController.TieneObjetoAgarrado();
+        if (grabDropController == null || missionManager == null) return false;
+        if (!grabDropController.TieneObjetoAgarrado()) return false;
+
+        // NO sobre el MISMO objeto del que se agarró.
+        if (objetoDestinoID == grabDropController.ObjetoIDOrigenAgarre) return false;
+
+        // Solo en objetos que SON destino de alguna misión descifrada pendiente.
+        return missionManager.TieneMisionesDescifradasPendientes(objetoDestinoID);
     }
 
     private bool DebeActivarBotonCompletarMision(string objetoDestinoID)
@@ -847,15 +891,89 @@ public class ObjectInfoUIManager : MonoBehaviour
     private void GuardarObjeto(string objetoID, Button boton)
     {
         if (gameObjectManager == null) return;
-        
+
         bool exitoso = gameObjectManager.MarcarComoGuardado(objetoID);
         if (exitoso)
         {
-            ActualizarBotonGuardado(boton);
+            // 💾 Brinquito + fade y desaparece (marca guardarAnimando=true al arrancar,
+            // así ActualizarEstadoMisiones no re-toca el botón mientras se anima).
+            StartCoroutine(AnimarGuardarYOcultar(boton));
+
             if (scrollViewLoader != null)
                 scrollViewLoader.ActualizarItemPorID(objetoID);
             ActualizarEstadoMisiones();
         }
+    }
+
+    // 💾 Anima el botón Guardar: sube un poco, baja y se desvanece; luego se oculta.
+    private System.Collections.IEnumerator AnimarGuardarYOcultar(Button boton)
+    {
+        if (boton == null) yield break;
+
+        RectTransform rt = boton.GetComponent<RectTransform>();
+        if (rt == null) { boton.gameObject.SetActive(false); yield break; }
+
+        if (guardarCanvasGroup == null || guardarCanvasGroup.gameObject != boton.gameObject)
+        {
+            guardarCanvasGroup = boton.GetComponent<CanvasGroup>();
+            if (guardarCanvasGroup == null) guardarCanvasGroup = boton.gameObject.AddComponent<CanvasGroup>();
+        }
+
+        if (!guardarBaseCapturada)
+        {
+            guardarPosBase = rt.anchoredPosition;
+            guardarBaseCapturada = true;
+        }
+        rt.anchoredPosition = guardarPosBase;
+
+        guardarAnimando = true;
+        boton.interactable = false;
+
+        Vector2 pico = guardarPosBase + new Vector2(0f, guardarBrincoAltura);
+        float subida = Mathf.Max(0.01f, guardarBrincoDuracion * 0.4f);
+        float bajada = Mathf.Max(0.01f, guardarBrincoDuracion * 0.6f);
+
+        // Subir
+        float t = 0f;
+        while (t < subida)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = guardarBrincoCurva.Evaluate(t / subida);
+            rt.anchoredPosition = Vector2.Lerp(guardarPosBase, pico, k);
+            yield return null;
+        }
+
+        // Bajar + desvanecer
+        t = 0f;
+        while (t < bajada)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = guardarBrincoCurva.Evaluate(t / bajada);
+            rt.anchoredPosition = Vector2.Lerp(pico, guardarPosBase, k);
+            guardarCanvasGroup.alpha = 1f - k;
+            yield return null;
+        }
+
+        // Ocultar y dejar el botón listo (visualmente) para el próximo objeto
+        boton.gameObject.SetActive(false);
+        ResetVisualBotonGuardar();
+        boton.interactable = true;
+        guardarAnimando = false;
+    }
+
+    // Restaura posición/opacidad del botón Guardar (tras animar o al mostrar otro objeto).
+    private void ResetVisualBotonGuardar()
+    {
+        if (botonGuardar == null) return;
+
+        if (guardarBaseCapturada)
+        {
+            RectTransform rt = botonGuardar.GetComponent<RectTransform>();
+            if (rt != null) rt.anchoredPosition = guardarPosBase;
+        }
+
+        if (guardarCanvasGroup != null && guardarCanvasGroup.gameObject == botonGuardar.gameObject)
+            guardarCanvasGroup.alpha = 1f;
     }
 
     private void ActualizarBotonGuardado(Button boton)
@@ -874,13 +992,12 @@ public class ObjectInfoUIManager : MonoBehaviour
 
     private void CompletarMisionEnDestino(string objetoDestinoID)
     {
-        if (missionManager == null) return;
-        if (grabDropController == null || grabDropController.ObtenerObjetosColocados(objetoDestinoID).Count == 0) return;
+        if (missionManager == null || grabDropController == null) return;
 
         List<string> objetosColocados = grabDropController.ObtenerObjetosColocados(objetoDestinoID);
         Debug.Log($"Verificando misión en {objetoDestinoID} con objetos: [{string.Join(", ", objetosColocados)}]");
 
-        // Buscar misión que coincida con los objetos colocados
+        // Buscar misión que coincida EXACTAMENTE con los objetos colocados
         var misionesDescifradas = missionManager.MisionesDescifradas;
         var misionesCompletadas = missionManager.MisionesCompletadas;
         var misiones = missionManager.misiones;
@@ -896,14 +1013,15 @@ public class ObjectInfoUIManager : MonoBehaviour
 
         if (misionACompletar == null)
         {
+            // ❌ FALLO: nada colocado o los objetos no coinciden → audio de error + mensaje detallado.
             Debug.LogWarning($"No se encontró misión completable para {objetoDestinoID}");
+            MostrarFeedbackFalloCompletar(objetoDestinoID, objetosColocados);
             return;
         }
 
         // Completar la misión
         Debug.Log($"¡Misión {misionACompletar.misionID} completada exitosamente!");
-        missionManager.CompletarMisionAR(misionACompletar.misionID);
-        
+
         // Audio feedback
         if (GlobalAudioManager.Instance != null)
         {
@@ -913,14 +1031,294 @@ public class ObjectInfoUIManager : MonoBehaviour
         // Limpiar objetos colocados
         grabDropController.LimpiarObjetosColocadosDestino(objetoDestinoID);
 
-        // Actualizar UI
-        if (objetoActualID == objetoDestinoID && panelMisiones != null && missionPanel != null)
+        // Ocultar panel de misiones de inmediato
+        if (panelMisiones != null)
         {
-            missionPanel.ConfigurarPanelMisionesVisual(objetoActualID, "", panelMisiones);
+            panelMisiones.gameObject.SetActive(false);
+        }
+
+        PlayableDirector timelineMision = BuscarTimelineMision(misionACompletar.nombreTimelineAlCompletar);
+        if (timelineMision != null)
+        {
+            // Marcar la misión como completada pero esperar a que termine el timeline
+            // antes de reproducir el fragmento de historia (si tiene uno).
+            missionManager.CompletarMisionAR(misionACompletar.misionID, false);
+
+            StartCoroutine(ReproducirTimelineDeMision(
+                timelineMision, misionACompletar.misionID, objetoDestinoID));
+
+            Debug.Log($"[ObjectInfoUI] 🎬 Reproduciendo timeline '{misionACompletar.nombreTimelineAlCompletar}' al completar misión");
+        }
+        else
+        {
+            missionManager.CompletarMisionAR(misionACompletar.misionID);
+            ActualizarPanelMisionesTrasCompletar(objetoDestinoID);
         }
 
         // Actualizar botones
         ActualizarBotonesDinamicamente();
+    }
+
+    // ❌ Feedback cuando se pulsa "done" pero los objetos no completan ninguna misión.
+    private void MostrarFeedbackFalloCompletar(string objetoDestinoID, List<string> objetosColocados)
+    {
+        // Audio de error (el mismo que al fallar el descifrado)
+        if (GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoMisionDescifradaError();
+
+        MostrarTextoResultadoMision(ConstruirMensajeFalloCompletar(objetoDestinoID, objetosColocados));
+    }
+
+    /// <summary>
+    /// Arma el mensaje (inglés, con conteos) comparando lo colocado contra la misión pendiente
+    /// más cercana (la de más aciertos) del objeto destino. La comprobación en AR es por conjunto:
+    /// correctos = colocados∩requeridos, faltan = requeridos no traídos, sobran = colocados que no van.
+    /// </summary>
+    private string ConstruirMensajeFalloCompletar(string objetoDestinoID, List<string> objetosColocados)
+    {
+        var pendientes = missionManager.misiones.Where(m =>
+            m != null &&
+            m.idObjetoDestino == objetoDestinoID &&
+            missionManager.MisionesDescifradas.Contains(m.misionID) &&
+            !missionManager.MisionesCompletadas.Contains(m.misionID) &&
+            m.idsObjetosCorrectos != null).ToList();
+
+        if (pendientes.Count == 0)
+            return "There's no active mission for this object.";
+
+        var colocadosSet = new HashSet<string>(objetosColocados);
+
+        // Misión objetivo = la que más aciertos tiene con lo colocado
+        Mission objetivo = pendientes
+            .OrderByDescending(m => m.idsObjetosCorrectos.Count(req => colocadosSet.Contains(req)))
+            .First();
+
+        var requeridos = objetivo.idsObjetosCorrectos;
+        int total = requeridos.Count;
+        int correctos = requeridos.Count(req => colocadosSet.Contains(req));
+        int faltan = total - correctos;
+        int sobran = objetosColocados.Count(o => !requeridos.Contains(o));
+
+        if (objetosColocados.Count == 0)
+            return $"This mission needs {total} object{(total == 1 ? "" : "s")}. You haven't brought any yet.";
+
+        var partes = new List<string> { $"This mission needs {total} object{(total == 1 ? "" : "s")}." };
+
+        if (faltan > 0)
+            partes.Add($"You still need to bring {faltan} object{(faltan == 1 ? "" : "s")}.");
+        if (sobran > 0)
+            partes.Add($"{sobran} object{(sobran == 1 ? "" : "s")} {(sobran == 1 ? "doesn't" : "don't")} belong here.");
+
+        partes.Add($"Correct: {correctos} of {total}.");
+        return string.Join(" ", partes);
+    }
+
+    /// <summary>
+    /// Muestra un mensaje en el texto de resultado de misión (AR). Público para que otros
+    /// componentes (ej. el grab controller al rechazar un duplicado) lo usen.
+    /// </summary>
+    public void MostrarMensajeMision(string mensaje) => MostrarTextoResultadoMision(mensaje);
+
+    private void MostrarTextoResultadoMision(string mensaje)
+    {
+        if (textoResultadoMision == null) return;
+
+        textoResultadoMision.text = mensaje;
+        textoResultadoMision.gameObject.SetActive(true);
+
+        if (ocultarResultadoCR != null) StopCoroutine(ocultarResultadoCR);
+        ocultarResultadoCR = StartCoroutine(OcultarResultadoMisionTras(duracionMensajeResultado));
+    }
+
+    private System.Collections.IEnumerator OcultarResultadoMisionTras(float segundos)
+    {
+        yield return new WaitForSeconds(segundos);
+        if (textoResultadoMision != null) textoResultadoMision.gameObject.SetActive(false);
+        ocultarResultadoCR = null;
+    }
+
+    /// <summary>
+    /// Refresca el panel de misiones del objeto destino (puede volver a mostrarse
+    /// si quedan otras misiones descifradas pendientes para este objeto).
+    /// </summary>
+    private void ActualizarPanelMisionesTrasCompletar(string objetoDestinoID)
+    {
+        if (objetoActualID == objetoDestinoID && panelMisiones != null && missionPanel != null)
+        {
+            missionPanel.ConfigurarPanelMisionesVisual(objetoActualID, "", panelMisiones);
+        }
+    }
+
+    /// <summary>
+    /// Pose local de un Transform, guardada para restaurarla cuando termine un
+    /// Timeline de misión.
+    /// </summary>
+    private struct PoseTransform
+    {
+        public Transform transform;
+        public Vector3 posicionLocal;
+        public Quaternion rotacionLocal;
+        public Vector3 escalaLocal;
+    }
+
+    // Pose de los modelos capturada ANTES de la primera reproducción de cada Timeline.
+    // Es la pose base a la que hay que volver al terminar cada animación de misión.
+    private readonly Dictionary<PlayableDirector, List<PoseTransform>> posesBaseTimelines =
+        new Dictionary<PlayableDirector, List<PoseTransform>>();
+
+    /// <summary>
+    /// Guarda la pose de todos los modelos vinculados a un Timeline, antes de reproducirlo
+    /// por primera vez. Solo captura una vez por director: en reproducciones posteriores la
+    /// pose actual ya podría estar alterada por la animación anterior.
+    /// </summary>
+    private void CapturarPoseBaseTimeline(PlayableDirector director)
+    {
+        if (director == null || director.playableAsset == null) return;
+        if (posesBaseTimelines.ContainsKey(director)) return;
+
+        var poses = new List<PoseTransform>();
+
+        foreach (PlayableBinding binding in director.playableAsset.outputs)
+        {
+            if (binding.sourceObject == null) continue;
+
+            UnityEngine.Object bindeado = director.GetGenericBinding(binding.sourceObject);
+
+            Transform raiz = null;
+            if (bindeado is Animator animator) raiz = animator.transform;
+            else if (bindeado is GameObject go) raiz = go.transform;
+            else if (bindeado is Component componente) raiz = componente.transform;
+
+            if (raiz == null) continue;
+
+            // Se guarda toda la jerarquía: el clip puede animar huesos/hijos, no solo la raíz.
+            foreach (Transform t in raiz.GetComponentsInChildren<Transform>(true))
+            {
+                poses.Add(new PoseTransform
+                {
+                    transform = t,
+                    posicionLocal = t.localPosition,
+                    rotacionLocal = t.localRotation,
+                    escalaLocal = t.localScale
+                });
+            }
+        }
+
+        posesBaseTimelines[director] = poses;
+        Debug.Log($"[ObjectInfoUI] 🎬 Pose base capturada para '{director.name}' ({poses.Count} transforms)");
+    }
+
+    /// <summary>
+    /// Reproduce el Timeline de una misión, espera a que termine, devuelve los modelos a su
+    /// pose base y recién entonces dispara el fragmento de historia y refresca el panel.
+    ///
+    /// No se usa el evento 'stopped' del PlayableDirector: con Wrap Mode = Hold el director
+    /// se queda sosteniendo el último fotograma y el evento no llega, así que la espera se
+    /// hace consultando su estado.
+    /// </summary>
+    private System.Collections.IEnumerator ReproducirTimelineDeMision(
+        PlayableDirector director, string misionID, string objetoDestinoID)
+    {
+        CapturarPoseBaseTimeline(director);
+
+        director.time = 0d;
+        director.Play();
+
+        // Un frame para que el director entre en estado Playing antes de empezar a medir.
+        yield return null;
+
+        while (director != null &&
+               director.state == PlayState.Playing &&
+               director.time < director.duration)
+        {
+            yield return null;
+        }
+
+        if (director == null) yield break;
+
+        RestaurarPoseBaseTimeline(director);
+
+        missionManager.ReproducirFragmentoCompletado(misionID);
+        ActualizarPanelMisionesTrasCompletar(objetoDestinoID);
+    }
+
+    /// <summary>
+    /// Devuelve los modelos vinculados a un Timeline de misión a la pose que tenían antes
+    /// de reproducirlo.
+    ///
+    /// No basta con Stop() + Evaluate(0): al detener el director, Timeline deja los
+    /// transforms con los últimos valores que escribió y no los revierte en runtime. Por eso
+    /// la pose base se captura antes de reproducir y se reescribe a mano aquí.
+    /// </summary>
+    private void RestaurarPoseBaseTimeline(PlayableDirector director)
+    {
+        // Suelta el grafo: mientras siga vivo, la Animation Track pisa cualquier valor que
+        // escribamos (y si el modelo tiene Animator Controller, le devuelve el control).
+        director.Stop();
+
+        // Rebind() devuelve al Animator los valores que tenía al vincularse. Sin esto, un
+        // Animator sin Controller se queda sosteniendo el último fotograma de Timeline.
+        foreach (Animator animator in ObtenerAnimatoresDelTimeline(director))
+        {
+            if (animator == null) continue;
+
+            animator.Rebind();
+            animator.Update(0f);
+        }
+
+        if (!posesBaseTimelines.TryGetValue(director, out List<PoseTransform> poses))
+        {
+            Debug.LogWarning($"[ObjectInfoUI] ⚠️ Sin pose base guardada para '{director.name}'");
+            return;
+        }
+
+        foreach (PoseTransform pose in poses)
+        {
+            if (pose.transform == null) continue;
+
+            pose.transform.localPosition = pose.posicionLocal;
+            pose.transform.localRotation = pose.rotacionLocal;
+            pose.transform.localScale = pose.escalaLocal;
+        }
+
+        Debug.Log($"[ObjectInfoUI] 🎬 Timeline '{director.name}' devuelto a su pose base");
+    }
+
+    /// <summary>
+    /// Animators vinculados a las pistas de animación de un Timeline.
+    /// </summary>
+    private List<Animator> ObtenerAnimatoresDelTimeline(PlayableDirector director)
+    {
+        var animatores = new List<Animator>();
+        if (director == null || director.playableAsset == null) return animatores;
+
+        foreach (PlayableBinding binding in director.playableAsset.outputs)
+        {
+            if (binding.sourceObject == null) continue;
+
+            if (director.GetGenericBinding(binding.sourceObject) is Animator animator)
+                animatores.Add(animator);
+        }
+
+        return animatores;
+    }
+
+    /// <summary>
+    /// Busca un PlayableDirector dentro del objeto AR actual cuyo nombre de GameObject
+    /// o de PlayableAsset coincida con el indicado en la misión.
+    /// </summary>
+    private PlayableDirector BuscarTimelineMision(string nombreTimeline)
+    {
+        if (string.IsNullOrEmpty(nombreTimeline) || objetoActualGO == null) return null;
+
+        PlayableDirector[] directores = objetoActualGO.GetComponentsInChildren<PlayableDirector>(true);
+        foreach (var director in directores)
+        {
+            if (director.gameObject.name == nombreTimeline) return director;
+            if (director.playableAsset != null && director.playableAsset.name == nombreTimeline) return director;
+        }
+
+        return null;
     }
 
     public void ActualizarEstadoMisiones()
@@ -942,6 +1340,24 @@ public class ObjectInfoUIManager : MonoBehaviour
     public void ActualizarBotonesDinamicamente()
     {
         ActualizarEstadoMisiones();
+    }
+
+    /// <summary>
+    /// Retira un objeto colocado del panel de comprobación (lo llama el botón X de cada sprite).
+    /// Solo lo saca de la lista; el jugador puede volver al image target y agarrarlo de nuevo.
+    /// </summary>
+    public void RetirarObjetoColocado(string objetoDestinoID, string objetoID)
+    {
+        if (grabDropController == null) return;
+
+        bool ok = grabDropController.RetirarObjetoColocado(objetoDestinoID, objetoID);
+        if (!ok) return;
+
+        if (GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        // Refresca botones (el botón "done" puede cambiar de estado)
+        ActualizarBotonesDinamicamente();
     }
 
     #endregion

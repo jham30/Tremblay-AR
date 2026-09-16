@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,8 +29,15 @@ public class TutorialHighlighter : MonoBehaviour
     [Header("🔲 Configuración Borde (Para Paneles)")]
     [Tooltip("Color del borde que aparece alrededor del panel")]
     [SerializeField] private Color colorBorde = Color.yellow;
+    [Tooltip("Grosor del marco en px. El marco es HUECO: rodea al elemento por fuera sin taparlo.")]
     [SerializeField] private float grosorBorde = 5f;
+    [Tooltip("OPCIONAL. Sprite de marco con bordes 9-slice configurados en su import. Si se asigna, " +
+             "se usa ese sprite (Image.Type.Sliced) en vez de construir el marco con 4 barras. " +
+             "Un sprite con los bordes difuminados da un glow suave de verdad.")]
+    [SerializeField] private Sprite spriteBorde;
     [SerializeField] private bool bordeAnimado = true;
+    [Tooltip("El Glow usa el mismo marco pero más grueso y traslúcido. Multiplica el grosor.")]
+    [SerializeField] private float glowMultiplicadorGrosor = 2.5f;
     
     [Header("✨ Efectos")]
     [SerializeField] private bool usarAnimacion = true;
@@ -43,7 +51,8 @@ public class TutorialHighlighter : MonoBehaviour
     private GameObject flechaObjeto;
     private GameObject bordeObjeto;
     private Image imagenFlecha;
-    private Image imagenBorde;
+    // El marco puede ser 1 Image (sprite 9-slice) o 4 barras (marco hueco construido a mano).
+    private readonly List<Image> imagenesBorde = new List<Image>();
     private RectTransform rectElemento;
     private Canvas canvasUI;
     
@@ -141,7 +150,7 @@ public class TutorialHighlighter : MonoBehaviour
                 CrearFlecha();
                 break;
             case TipoResaltado.Borde:
-                CrearBorde();
+                CrearBorde(grosorBorde);
                 break;
             case TipoResaltado.Glow:
                 CrearGlow();
@@ -159,19 +168,21 @@ public class TutorialHighlighter : MonoBehaviour
     /// </summary>
     public void OcultarResaltado()
     {
+        // Destroy (no DestroyImmediate): DestroyImmediate es para el editor y en runtime
+        // puede romper si se llama a media ejecución de un frame.
         if (flechaObjeto != null)
         {
-            DestroyImmediate(flechaObjeto);
+            Destroy(flechaObjeto);
             flechaObjeto = null;
             imagenFlecha = null;
         }
-        
+
         if (bordeObjeto != null)
         {
-            DestroyImmediate(bordeObjeto);
+            Destroy(bordeObjeto);
             bordeObjeto = null;
-            imagenBorde = null;
         }
+        imagenesBorde.Clear();
         
         resaltadoActivo = false;
         
@@ -194,8 +205,11 @@ public class TutorialHighlighter : MonoBehaviour
         flechaObjeto = new GameObject("TutorialFlecha");
         flechaObjeto.transform.SetParent(canvasUI.transform, false);
         
-        // Configurar RectTransform
+        // Configurar RectTransform — anclado al CENTRO del canvas para que anchoredPosition
+        // sea una coordenada absoluta dentro del canvas (ver CalcularRectEnCanvas).
         RectTransform rectFlecha = flechaObjeto.AddComponent<RectTransform>();
+        rectFlecha.anchorMin = rectFlecha.anchorMax = new Vector2(0.5f, 0.5f);
+        rectFlecha.pivot = new Vector2(0.5f, 0.5f);
         rectFlecha.sizeDelta = new Vector2(tamañoFlecha, tamañoFlecha);
         
         // Configurar Image
@@ -232,62 +246,111 @@ public class TutorialHighlighter : MonoBehaviour
     }
 
     /// <summary>
-    /// Crear borde alrededor del elemento
+    /// Crear borde alrededor del elemento.
+    /// El marco es HUECO: rodea al elemento por fuera sin taparlo.
+    /// OJO: un Image NO tiene "borde" como propiedad — pintar un Image sin sprite da un
+    /// rectángulo SÓLIDO que tapa el elemento (y Image.Type.Sliced se ignora si no hay sprite).
+    /// Por eso el marco se construye con 4 barras finas, o con un sprite 9-slice si se asigna.
     /// </summary>
-    private void CrearBorde()
+    private void CrearBorde(float grosor)
     {
         if (rectElemento == null || canvasUI == null)
         {
             Debug.LogError("[TutorialHighlighter] No se puede crear borde - falta rectElemento o canvasUI");
             return;
         }
-        
-        // Crear GameObject para el borde
+
+        // Contenedor del marco (sin Image propio): su rect es el CONTORNO EXTERIOR.
         bordeObjeto = new GameObject("TutorialBorde");
         bordeObjeto.transform.SetParent(canvasUI.transform, false);
-        
-        // Configurar RectTransform
+
+        // Configurar RectTransform — anclado al centro del canvas y colocado con la
+        // conversión de coordenadas (el elemento puede estar anidado varios niveles).
         RectTransform rectBorde = bordeObjeto.AddComponent<RectTransform>();
-        
-        // Copiar posición y tamaño del elemento objetivo
-        rectBorde.position = rectElemento.position;
-        rectBorde.sizeDelta = rectElemento.sizeDelta + Vector2.one * grosorBorde * 2;
-        rectBorde.anchorMin = rectElemento.anchorMin;
-        rectBorde.anchorMax = rectElemento.anchorMax;
-        rectBorde.anchoredPosition = rectElemento.anchoredPosition;
-        
-        // Configurar Image como borde
-        imagenBorde = bordeObjeto.AddComponent<Image>();
-        imagenBorde.raycastTarget = false;
-        imagenBorde.color = colorBorde;
-        
-        // Crear efecto de borde hueco
-        imagenBorde.type = Image.Type.Sliced;
-        
-        // Guardar color original para animación
+        rectBorde.anchorMin = rectBorde.anchorMax = new Vector2(0.5f, 0.5f);
+        rectBorde.pivot = new Vector2(0.5f, 0.5f);
+
+        if (CalcularRectEnCanvas(out Vector2 centroBorde, out Vector2 tamanoBorde))
+        {
+            rectBorde.anchoredPosition = centroBorde;
+            rectBorde.sizeDelta = tamanoBorde + Vector2.one * grosor * 2f;
+        }
+        else
+        {
+            Debug.LogWarning("[TutorialHighlighter] No se pudo calcular el rect del elemento para el borde");
+            rectBorde.sizeDelta = rectElemento.sizeDelta + Vector2.one * grosor * 2f;
+        }
+
         colorOriginalBorde = colorBorde;
-        
-        // Posicionar detrás del elemento objetivo pero al frente de otros
+        imagenesBorde.Clear();
+
+        if (spriteBorde != null)
+        {
+            // Camino A: sprite de marco con 9-slice. Aquí Image.Type.Sliced SÍ funciona
+            // (el sprite debe traer los bordes definidos en su import settings).
+            Image img = bordeObjeto.AddComponent<Image>();
+            img.raycastTarget = false;
+            img.color = colorBorde;
+            img.sprite = spriteBorde;
+            img.type = Image.Type.Sliced;
+            imagenesBorde.Add(img);
+        }
+        else
+        {
+            // Camino B: marco hueco con 4 barras (arriba/abajo a lo ancho; izq/der recortadas
+            // en vertical para no pintar dos veces las esquinas y que no se vean más oscuras).
+            CrearBarraBorde("Arriba",   new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, grosor));
+            CrearBarraBorde("Abajo",    new Vector2(0f, 0f), new Vector2(1f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, grosor));
+            CrearBarraBorde("Izquierda", new Vector2(0f, 0f), new Vector2(0f, 1f), new Vector2(0f, 0.5f), new Vector2(grosor, -grosor * 2f));
+            CrearBarraBorde("Derecha",   new Vector2(1f, 0f), new Vector2(1f, 1f), new Vector2(1f, 0.5f), new Vector2(grosor, -grosor * 2f));
+        }
+
+        // Al frente: como el marco es hueco, no tapa el elemento.
         bordeObjeto.transform.SetAsLastSibling();
-        
+
         if (mostrarDebug)
-            Debug.Log($"[TutorialHighlighter] 🔲 Borde creado en Canvas: {canvasUI.name}");
+            Debug.Log($"[TutorialHighlighter] 🔲 Borde creado ({(spriteBorde != null ? "sprite 9-slice" : "4 barras")}, " +
+                      $"grosor {grosor}) en Canvas: {canvasUI.name}");
     }
 
     /// <summary>
-    /// Crear efecto glow (brillo suave)
+    /// Crea una de las 4 barras del marco hueco, anclada a un lado del contenedor
+    /// (así se estira sola con el tamaño del marco).
+    /// </summary>
+    private void CrearBarraBorde(string nombre, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 sizeDelta)
+    {
+        GameObject barra = new GameObject(nombre);
+        barra.transform.SetParent(bordeObjeto.transform, false);
+
+        RectTransform rt = barra.AddComponent<RectTransform>();
+        rt.anchorMin = anchorMin;
+        rt.anchorMax = anchorMax;
+        rt.pivot = pivot;
+        rt.sizeDelta = sizeDelta;
+        rt.anchoredPosition = Vector2.zero;
+
+        Image img = barra.AddComponent<Image>();
+        img.raycastTarget = false;
+        img.color = colorBorde;
+        imagenesBorde.Add(img);
+    }
+
+    /// <summary>
+    /// Crear efecto glow (brillo suave): el mismo marco, más grueso y traslúcido.
+    /// Para un glow realmente difuminado, asigna un 'spriteBorde' con los bordes suavizados.
     /// </summary>
     private void CrearGlow()
     {
-        // Implementación básica de glow
-        CrearBorde();
-        if (imagenBorde != null)
+        CrearBorde(grosorBorde * Mathf.Max(1f, glowMultiplicadorGrosor));
+
+        foreach (Image img in imagenesBorde)
         {
-            imagenBorde.color = new Color(colorBorde.r, colorBorde.g, colorBorde.b, 0.5f);
-            
-            if (mostrarDebug)
-                Debug.Log($"[TutorialHighlighter] ✨ Glow creado en Canvas: {canvasUI.name}");
+            if (img != null)
+                img.color = new Color(colorBorde.r, colorBorde.g, colorBorde.b, 0.5f);
         }
+
+        if (mostrarDebug)
+            Debug.Log($"[TutorialHighlighter] ✨ Glow creado en Canvas: {canvasUI.name}");
     }
 
     /// <summary>
@@ -306,37 +369,62 @@ public class TutorialHighlighter : MonoBehaviour
     }
 
     /// <summary>
-    /// Posicionar flecha según dirección
+    /// Calcula el centro y el tamaño del elemento objetivo EN EL ESPACIO LOCAL DEL CANVAS.
+    /// Necesario porque el resaltado se crea como hijo del Canvas raíz, mientras que el
+    /// elemento puede estar anidado varios niveles (su anchoredPosition es relativa a SU padre,
+    /// no al Canvas). Sin esta conversión el resaltado aparecía fuera de pantalla.
+    /// </summary>
+    private bool CalcularRectEnCanvas(out Vector2 centroLocal, out Vector2 tamano)
+    {
+        centroLocal = Vector2.zero;
+        tamano = Vector2.zero;
+
+        if (rectElemento == null || canvasUI == null) return false;
+
+        RectTransform canvasRect = canvasUI.transform as RectTransform;
+        if (canvasRect == null) return false;
+
+        Camera cam = canvasUI.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvasUI.worldCamera;
+
+        // Esquinas del elemento en mundo → pantalla → local del canvas
+        Vector3[] esquinas = new Vector3[4];
+        rectElemento.GetWorldCorners(esquinas);
+
+        Vector2 pantallaMin = RectTransformUtility.WorldToScreenPoint(cam, esquinas[0]); // inferior-izq
+        Vector2 pantallaMax = RectTransformUtility.WorldToScreenPoint(cam, esquinas[2]); // superior-der
+
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, pantallaMin, cam, out Vector2 localMin)) return false;
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, pantallaMax, cam, out Vector2 localMax)) return false;
+
+        centroLocal = (localMin + localMax) * 0.5f;
+        tamano = new Vector2(Mathf.Abs(localMax.x - localMin.x), Mathf.Abs(localMax.y - localMin.y));
+        return true;
+    }
+
+    /// <summary>
+    /// Posicionar flecha según dirección (en espacio del Canvas)
     /// </summary>
     private void PosicionarFlecha(RectTransform rectFlecha)
     {
-        if (rectElemento == null) return;
-        
-        Vector2 posicionObjetivo = rectElemento.anchoredPosition;
-        Vector2 tamañoObjetivo = rectElemento.sizeDelta;
-        
+        if (!CalcularRectEnCanvas(out Vector2 centro, out Vector2 tamano))
+        {
+            Debug.LogWarning("[TutorialHighlighter] No se pudo calcular la posición del elemento en el Canvas");
+            return;
+        }
+
+        Vector2 offset = Vector2.zero;
         switch (direccionFlecha)
         {
-            case DireccionFlecha.Izquierda:
-                rectFlecha.anchoredPosition = new Vector2(posicionObjetivo.x - tamañoObjetivo.x/2 - distanciaFlecha, posicionObjetivo.y);
-                break;
-            case DireccionFlecha.Derecha:
-                rectFlecha.anchoredPosition = new Vector2(posicionObjetivo.x + tamañoObjetivo.x/2 + distanciaFlecha, posicionObjetivo.y);
-                break;
-            case DireccionFlecha.Arriba:
-                rectFlecha.anchoredPosition = new Vector2(posicionObjetivo.x, posicionObjetivo.y + tamañoObjetivo.y/2 + distanciaFlecha);
-                break;
-            case DireccionFlecha.Abajo:
-                rectFlecha.anchoredPosition = new Vector2(posicionObjetivo.x, posicionObjetivo.y - tamañoObjetivo.y/2 - distanciaFlecha);
-                break;
+            case DireccionFlecha.Izquierda: offset = new Vector2(-(tamano.x / 2f + distanciaFlecha), 0f); break;
+            case DireccionFlecha.Derecha:   offset = new Vector2( (tamano.x / 2f + distanciaFlecha), 0f); break;
+            case DireccionFlecha.Arriba:    offset = new Vector2(0f,  (tamano.y / 2f + distanciaFlecha)); break;
+            case DireccionFlecha.Abajo:     offset = new Vector2(0f, -(tamano.y / 2f + distanciaFlecha)); break;
         }
-        
-        // Configurar anclaje igual al elemento objetivo
-        rectFlecha.anchorMin = rectElemento.anchorMin;
-        rectFlecha.anchorMax = rectElemento.anchorMax;
-        
+
+        rectFlecha.anchoredPosition = centro + offset;
+
         if (mostrarDebug)
-            Debug.Log($"[TutorialHighlighter] 📍 Flecha posicionada: {rectFlecha.anchoredPosition} (Dirección: {direccionFlecha})");
+            Debug.Log($"[TutorialHighlighter] 📍 Flecha en {rectFlecha.anchoredPosition} (centro elemento: {centro}, dir: {direccionFlecha})");
     }
 
     /// <summary>
@@ -355,11 +443,16 @@ public class TutorialHighlighter : MonoBehaviour
             flechaObjeto.transform.localScale = escalaOriginalFlecha * factorPulso;
         }
         
-        // Animar borde
-        if (bordeObjeto != null && imagenBorde != null && bordeAnimado)
+        // Animar borde (todas las barras del marco a la vez)
+        if (bordeObjeto != null && bordeAnimado && imagenesBorde.Count > 0)
         {
             float alpha = Mathf.Lerp(0.5f, 1f, (Mathf.Sin(tiempoAnimacion) + 1f) / 2f);
-            imagenBorde.color = new Color(colorOriginalBorde.r, colorOriginalBorde.g, colorOriginalBorde.b, alpha);
+            Color c = new Color(colorOriginalBorde.r, colorOriginalBorde.g, colorOriginalBorde.b, alpha);
+
+            foreach (Image img in imagenesBorde)
+            {
+                if (img != null) img.color = c;
+            }
         }
     }
 

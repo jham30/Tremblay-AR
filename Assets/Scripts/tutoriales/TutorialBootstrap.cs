@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,27 +9,23 @@ using UnityEngine.SceneManagement;
 [DefaultExecutionOrder(-1000)]
 public class TutorialBootstrap : MonoBehaviour
 {
-    [SerializeField] private string nombreEscenaPrincipal = "MainScene";
-    [SerializeField] private string archivoProgreso = "tutorial_completado.json";
+    [SerializeField] private string nombreEscenaPrincipal = "halloween";
     [SerializeField] private bool debug = true;
 
     void Awake()
     {
-        string ruta = Path.Combine(Application.persistentDataPath, archivoProgreso);
-        if (File.Exists(ruta))
+        if (TutorialProgreso.EstaCompletado())
         {
             if (debug) Debug.Log($"[TutorialBootstrap] Tutorial ya completado → cargando {nombreEscenaPrincipal}");
 
-            // Desactivar los demás roots para que sus Start() no corran
+            // Desactivar los demás roots para que sus Start() no corran.
+            // Esto corre en Awake (order -1000), ANTES de que Vuforia inicie,
+            // así que no hay motor AR que deinicializar: se carga directo.
             foreach (GameObject go in gameObject.scene.GetRootGameObjects())
             {
                 if (go != gameObject)
                     go.SetActive(false);
             }
-
-            // Limpiar cualquier objeto DDOL que haya podido quedar de sesiones anteriores
-            // (Vuforia [Debug Updater], GlobalAudioManager, StoryManager, etc.)
-            LimpiarDontDestroyOnLoad();
 
             SceneManager.LoadScene(nombreEscenaPrincipal);
         }
@@ -40,29 +35,10 @@ public class TutorialBootstrap : MonoBehaviour
         }
     }
 
-    private void LimpiarDontDestroyOnLoad()
-    {
-        var objetos = new System.Collections.Generic.List<GameObject>();
-        foreach (GameObject go in FindObjectsOfType<GameObject>(true))
-        {
-            if (go.scene.name == "DontDestroyOnLoad")
-                objetos.Add(go);
-        }
-        foreach (GameObject go in objetos)
-        {
-            if (debug) Debug.Log($"[TutorialBootstrap] 🗑️ Destruyendo DDOL: {go.name}");
-            Destroy(go);
-        }
-    }
-
     [ContextMenu("🔄 Borrar progreso del tutorial")]
     public void ResetearProgreso()
     {
-        string ruta = Path.Combine(Application.persistentDataPath, archivoProgreso);
-        if (File.Exists(ruta))
-        {
-            File.Delete(ruta);
-            Debug.Log("[TutorialBootstrap] Progreso del tutorial borrado");
-        }
+        TutorialProgreso.Borrar();
+        Debug.Log("[TutorialBootstrap] Progreso del tutorial borrado");
     }
 }

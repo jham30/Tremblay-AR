@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 08
   m_EditorClassIdentifier: 
-  descripcion: "Poner el hongo en el gorro.\r"
+  descripcion: "Poner el hongo <sprite name=\"hongo\"> en el gorro <sprite name=\"gorro\">.\r"
   partes:
   - tipo: 0
     texto: Poner el
@@ -33,9 +33,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 08
+  cuentos: []
   idObjetoDestino: gorro
   idsObjetosCorrectos:
   - hongo
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 67063169e4dcf364d80192a64b34e6dc, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 23d257c1d3f6e1e48ae9d22e4bdc06a2, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nThere it is... the hand... still holding the chain.\r\nAll
+  textoFragmento: "[Child]\r\nThere it is... the hand... still holding the chain.\r\nAll
     right... now.\r\nIt\u2019s loose!\r\nIt worked... yes... it worked!\r\nNo...
-    not that cat again!\r\nShhh... please... be quiet\u2026\n\r\nwitch\r\nDid you
-    find her, Mittens? Hahaha! I\u2019ll catch you!\r"
+    not that cat again!\r\nShhh... please... be quiet\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nDid
+    you find her, Mittens? Hahaha! I\u2019ll catch you!</color>\r\n\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5

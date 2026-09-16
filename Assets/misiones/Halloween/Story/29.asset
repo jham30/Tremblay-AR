@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 56d2b891083a44e45ad17ba3c167bdea, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nMittens?\u2026\r\nSo you\u2019re still around, huh?\r\nDon\u2019t
+  textoFragmento: "[Child]\r\nMittens?\u2026\r\nSo you\u2019re still around, huh?\r\nDon\u2019t
     think I\u2019ve forgotten all the scares you gave me, little furball\u2026 I
     almost gave a heart attack.\r\nAlright, alright\u2026 peace between us.\r\nI\u2019ll
     bring you some food every day, deal?\r\nBut promise me you won\u2019t give me

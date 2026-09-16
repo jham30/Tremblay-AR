@@ -16,21 +16,21 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: e62e1590002e6c44581154eded235243, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nThere it is... the main door.\r\nFinally... I can get
+  textoFragmento: "[Child]\r\nThere it is... the main door.\r\nFinally... I can get
     out.\r\nCome on, open up!\r\nWhat...?\r\nNo... that can\u2019t be...\r\nA hand?
     Please let it be a toy... old... wrinkled... it\u2019s holding a chain...\r\nIt\u2019s
     moving!\r\nLet go... let go!\r\nNothing... I can\u2019t... it\u2019s gripping
-    too tight\u2026\r\n\r\nwitch\r\nSomeone\u2019s turned on the light! There are
-    intruders in my house!\r"
+    too tight\u2026\r\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nSomeone\u2019s turned on
+    the light! There are intruders in my house!</color>\r\n\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
-  avanceAutomatico: 0
+  avanceAutomatico: 1
   colorFondo: {r: 0, g: 0, b: 0, a: 0.85}
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 12
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: a0a52e8cc7c10184da7b3d028eb0e8ae, type: 3}
   "intensidadVi\xF1eta": 0.3

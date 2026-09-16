@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: e8d44eef8c73a7845bc2ae38154b186f, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nIn the shock... I didn\u2019t see this book before.\r\n\u201CMausoleum...
+  textoFragmento: "[Child]\r\nIn the shock... I didn\u2019t see this book before.\r\n\u201CMausoleum...
     tree... guardian of rest...\u201D\r\nA tree guarding the grave? Hmm...\r\n\u201COnly
     the light of a lit pumpkin reveals the place of rest.\u201D\r\nPumpkins... like
     the ones in the kitchen... with faces and candles inside.\r\nSo... if I light

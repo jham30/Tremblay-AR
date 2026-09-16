@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 28
   m_EditorClassIdentifier: 
-  descripcion: "Empuja la reja con la escoba.\r"
+  descripcion: "Empuja la reja <sprite name=\"reja\"> con la escoba <sprite name=\"escoba\">.\r"
   partes:
   - tipo: 0
     texto: Empuja la
@@ -33,9 +33,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 28
+  cuentos: []
   idObjetoDestino: reja
   idsObjetosCorrectos:
   - escoba
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: 1c4168aa6c789b04c8d40b9f81980631, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

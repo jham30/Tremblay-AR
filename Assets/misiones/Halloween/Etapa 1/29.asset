@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 29
   m_EditorClassIdentifier: 
-  descripcion: "Coloca la l\xE1mpara sobre la tumba y enci\xE9ndela con la vela.\r"
+  descripcion: "Coloca la l\xE1mpara <sprite name=\"lampara\"> sobre la tumba <sprite
+    name=\"tumba\"> y enci\xE9ndela con la vela <sprite name=\"vela\">.\r"
   partes:
   - tipo: 0
     texto: Coloca la
@@ -39,6 +40,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 29
+  cuentos: []
   idObjetoDestino: tumba
   idsObjetosCorrectos:
   - lampara
@@ -46,3 +48,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

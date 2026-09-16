@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// 🔄 StoryUIController - VERSIÓN INTEGRADA CON CANVAS EXISTENTE
@@ -61,8 +62,24 @@ public class StoryUIController : MonoBehaviour
     [SerializeField] private float tiempoEsperaExtra = 0.5f;
     [SerializeField] private bool usarSincronizacionAudio = true;
 
+    [Header("🔗 Transición entre fragmentos encadenados")]
+    [Tooltip("Duración del crossfade del contenido (texto/imagen) cuando un fragmento está encadenado al siguiente, sin ocultar el panel completo")]
+    [SerializeField] private float duracionTransicionContenido = 0.25f;
+
     private bool esMobil;
     private AudioSource audioActual;
+
+    // ✅ Persisten durante toda una cadena de fragmentos encadenados, para
+    // ocultar otros UI al inicio de la cadena y restaurarlos solo al final.
+    private bool inventarioEstabaAbierto = false;
+    private bool objectInfoEstabaAbierto = false;
+
+    /// <summary>
+    /// True si, al terminar el último MostrarFragmento, el panel quedó visible
+    /// esperando un crossfade de contenido hacia fragmento.siguienteFragmento
+    /// (es decir, no se hizo fade out ni se ocultó la UI).
+    /// </summary>
+    public bool PanelListoParaContinuacion { get; private set; }
     
     // ✅ Referencias a otros componentes de UI que NO deben ser afectados
     private InventarioToggleController inventarioToggle;
@@ -120,7 +137,7 @@ public class StoryUIController : MonoBehaviour
         }
         
         // Buscar referencias a otros sistemas
-        inventarioToggle = FindObjectOfType<InventarioToggleController>();
+        inventarioToggle = InventarioToggleController.Instance;
         objectInfoUI = ObjectInfoUIManager.Instance;
         
         Debug.Log($"📖 [StoryUI] Referencias encontradas - Inventario: {inventarioToggle != null} | ObjectInfo: {objectInfoUI != null}");
@@ -142,53 +159,65 @@ public class StoryUIController : MonoBehaviour
                  $"Diagonal: {diagonal:F1}\" | Resolución: {Screen.width}x{Screen.height}");
     }
 
-    public IEnumerator MostrarFragmento(StoryFragment fragmento)
+    public IEnumerator MostrarFragmento(StoryFragment fragmento, bool esContinuacion = false)
     {
         if (fragmento == null || !fragmento.EsValido())
         {
             Debug.LogWarning("📖 [StoryUI] ⚠️ Fragmento inválido");
             yield break;
         }
-        
+
         fragmentoActual = fragmento;
         fragmentoCompleto = false;
         saltado = false;
         audioActual = null;
-        
-        Debug.Log($"📖 [StoryUI] 🎬 MOSTRANDO FRAGMENTO: {fragmento.fragmentID}");
-        
+
+        Debug.Log($"📖 [StoryUI] 🎬 MOSTRANDO FRAGMENTO: {fragmento.fragmentID} (continuación: {esContinuacion})");
+
         // ✅ GESTIÓN INTELIGENTE DE OTROS UI
-        bool inventarioEstabAbierto = false;
-        bool objectInfoEstabAbierto = false;
-        
-        if (respetarOtrosCanvas)
+        // Solo al inicio de una cadena: si es continuación, los otros UI ya
+        // fueron ocultados por el fragmento anterior y no deben volver a tocarse.
+        if (!esContinuacion && respetarOtrosCanvas)
         {
+            inventarioEstabaAbierto = false;
+            objectInfoEstabaAbierto = false;
+
             // Verificar y cerrar temporalmente otros UI si están abiertos
             if (inventarioToggle != null && inventarioToggle.EstaPanelVisible())
             {
-                inventarioEstabAbierto = true;
+                inventarioEstabaAbierto = true;
                 inventarioToggle.OcultarPanel();
                 Debug.Log("📖 [StoryUI] Inventario temporalmente cerrado para mostrar historia");
             }
-            
+
             if (objectInfoUI != null && objectInfoUI.TieneCanvasActivo())
             {
-                objectInfoEstabAbierto = true;
+                objectInfoEstabaAbierto = true;
                 objectInfoUI.OcultarCanvasTemporalmente();
                 Debug.Log("📖 [StoryUI] ObjectInfo temporalmente oculto para mostrar historia");
             }
         }
-        
-        // Configurar y mostrar fragmento
-        ConfigurarParaFragmento(fragmento);
-        
-        yield return StartCoroutine(FadeIn(fragmento.tiempoFadeIn));
-        
+
+        if (esContinuacion)
+        {
+            // El panel ya está visible (alpha = 1): hacer un crossfade del
+            // contenido (texto/imagen) en lugar de ocultar y volver a mostrar el panel.
+            yield return StartCoroutine(FadeOutContenido(duracionTransicionContenido));
+            ConfigurarParaFragmento(fragmento);
+            yield return StartCoroutine(FadeInContenido(duracionTransicionContenido));
+        }
+        else
+        {
+            ConfigurarParaFragmento(fragmento);
+            yield return StartCoroutine(FadeIn(fragmento.tiempoFadeIn));
+        }
+
+        float tiempoInicioAudio = Time.time;
         if (fragmento.audioNarracion != null)
         {
             ReproducirAudio(fragmento);
         }
-        
+
         if (!string.IsNullOrEmpty(fragmento.textoFragmento))
         {
             if (fragmento.usarTypewriter)
@@ -202,15 +231,15 @@ public class StoryUIController : MonoBehaviour
             }
             else
             {
-                textoFragmento.text = fragmento.textoFragmento;
+                textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmento.textoFragmento);
             }
         }
-        
+
         fragmentoCompleto = true;
-        
+
         if (fragmento.avanceAutomatico)
         {
-            yield return StartCoroutine(EsperarFinalizacionFragmento(fragmento));
+            yield return StartCoroutine(EsperarFinalizacionFragmento(fragmento, tiempoInicioAudio));
         }
         else
         {
@@ -218,39 +247,84 @@ public class StoryUIController : MonoBehaviour
             yield return StartCoroutine(EsperarBotonContinuar());
         }
         
-        if (!saltado)
+        bool hayContinuacion = !saltado && fragmento.siguienteFragmento != null;
+        PanelListoParaContinuacion = hayContinuacion;
+
+        if (hayContinuacion)
         {
-            yield return StartCoroutine(FadeOut(fragmento.tiempoFadeOut));
-        }
-        
-        OcultarUI();
-        
-        // ✅ RESTAURAR OTROS UI SI ESTABAN ABIERTOS
-        if (respetarOtrosCanvas)
-        {
-            if (inventarioEstabAbierto && inventarioToggle != null)
+            // El siguiente fragmento de la cadena hará el crossfade de contenido,
+            // así que el panel se mantiene visible (sin fade out ni ocultar UI).
+            // Solo se libera el audio de este fragmento.
+            if (audioActual != null)
             {
-                yield return new WaitForSeconds(0.2f); // Pequeña pausa
-                inventarioToggle.MostrarPanel();
-                Debug.Log("📖 [StoryUI] Inventario restaurado después de la historia");
-            }
-            
-            if (objectInfoEstabAbierto && objectInfoUI != null)
-            {
-                objectInfoUI.MostrarCanvasTemporalmente();
-                Debug.Log("📖 [StoryUI] ObjectInfo restaurado después de la historia");
+                Destroy(audioActual.gameObject);
+                audioActual = null;
             }
         }
-        
+        else
+        {
+            if (!saltado)
+            {
+                yield return StartCoroutine(FadeOut(fragmento.tiempoFadeOut));
+            }
+
+            OcultarUI();
+
+            // ✅ RESTAURAR OTROS UI SI ESTABAN ABIERTOS (fin de la cadena)
+            if (respetarOtrosCanvas)
+            {
+                if (inventarioEstabaAbierto && inventarioToggle != null)
+                {
+                    yield return new WaitForSeconds(0.2f); // Pequeña pausa
+                    inventarioToggle.MostrarPanel();
+                    Debug.Log("📖 [StoryUI] Inventario restaurado después de la historia");
+                }
+
+                if (objectInfoEstabaAbierto && objectInfoUI != null)
+                {
+                    objectInfoUI.MostrarCanvasTemporalmente();
+                    Debug.Log("📖 [StoryUI] ObjectInfo restaurado después de la historia");
+                }
+
+                inventarioEstabaAbierto = false;
+                objectInfoEstabaAbierto = false;
+            }
+        }
+
         fragmentoActual = null;
     }
     
-    private IEnumerator EsperarFinalizacionFragmento(StoryFragment fragmento)
+    private IEnumerator EsperarFinalizacionFragmento(StoryFragment fragmento, float tiempoInicioAudio)
     {
-        if (fragmento.audioNarracion != null && esperarFinAudio && usarSincronizacionAudio)
+        if (fragmento.duracionTotal > 0f)
         {
+            // El usuario definió una duración explícita: respetarla sin importar el audio.
+            // Se descuenta lo que ya transcurrió desde que empezó a sonar el audio
+            // (fade-in + typewriter) para que el tiempo total visible coincida con duracionTotal.
+            float yaTranscurrido = Time.time - tiempoInicioAudio;
+            float tiempoEspera = Mathf.Max(0f, fragmento.duracionTotal - yaTranscurrido);
+
             float elapsed = 0f;
-            float duracion = fragmento.audioNarracion.length;
+            while (elapsed < tiempoEspera && !saltado)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            // Si el audio sigue sonando y la duración configurada es menor, cortarlo
+            if (audioActual != null && audioActual.isPlaying)
+            {
+                audioActual.Stop();
+            }
+        }
+        else if (fragmento.audioNarracion != null && esperarFinAudio && usarSincronizacionAudio)
+        {
+            // Sin duración explícita: esperar a que termine el audio (descontando lo ya
+            // transcurrido mientras se mostraba el typewriter, etc.)
+            float yaTranscurrido = Time.time - tiempoInicioAudio;
+            float duracion = Mathf.Max(0f, fragmento.audioNarracion.length - yaTranscurrido);
+
+            float elapsed = 0f;
             while (elapsed < duracion && !saltado)
             {
                 elapsed += Time.deltaTime;
@@ -324,7 +398,10 @@ public class StoryUIController : MonoBehaviour
         if (targetImage != null)
         {
             targetImage.sprite = fragmento.imagenFondo;
-            
+
+            // Solo estirar la imagen a pantalla completa si se pidió explícitamente.
+            // Si está desactivado, se respeta la posición/anchors configurados a mano
+            // en el Inspector (p. ej. alineada arriba dejando espacio abajo para el texto).
             if (mostrarImagenFondoCompleta)
             {
                 RectTransform rectTransform = targetImage.GetComponent<RectTransform>();
@@ -335,10 +412,12 @@ public class StoryUIController : MonoBehaviour
                     rectTransform.sizeDelta = Vector2.zero;
                     rectTransform.anchoredPosition = Vector2.zero;
                 }
-                
-                targetImage.type = Image.Type.Simple;
-                targetImage.preserveAspect = esMobil;
             }
+
+            // El tipo y el preserveAspect se aplican siempre, para que la imagen
+            // se vea correcta tanto estirada como con layout manual.
+            targetImage.type = Image.Type.Simple;
+            targetImage.preserveAspect = esMobil;
             
             Color colorImagen = Color.white;
             if (usarTransparenciaAdaptiva)
@@ -398,19 +477,193 @@ public class StoryUIController : MonoBehaviour
     private IEnumerator MostrarTextoTypewriter(string texto, float velocidad)
     {
         if (textoFragmento == null) yield break;
-        
-        textoFragmento.text = "";
+
+        List<SegmentoTexto> segmentos = ParsearTexto(texto);
+
+        int totalAnimados = 0;
+        var pausas = new Dictionary<int, float>();
+
+        foreach (var seg in segmentos)
+        {
+            if (seg.tipo == TipoSegmentoTexto.Animado)
+            {
+                totalAnimados++;
+            }
+            else if (seg.tipo == TipoSegmentoTexto.Pausa)
+            {
+                float duracion = 0f;
+                float.TryParse(seg.contenido, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out duracion);
+
+                pausas.TryGetValue(totalAnimados, out float acumulado);
+                pausas[totalAnimados] = acumulado + duracion;
+            }
+        }
+
         float tiempoPorCaracter = 1f / velocidad;
-        
-        for (int i = 0; i <= texto.Length; i++)
+
+        textoFragmento.text = ConstruirTextoVisible(segmentos, 0);
+
+        for (int i = 0; i <= totalAnimados; i++)
         {
             if (saltado) break;
-            
-            textoFragmento.text = texto.Substring(0, i);
+
+            textoFragmento.text = ConstruirTextoVisible(segmentos, i);
+
+            if (pausas.TryGetValue(i, out float duracionPausa) && duracionPausa > 0f)
+            {
+                float elapsed = 0f;
+                while (elapsed < duracionPausa && !saltado)
+                {
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+
+            if (saltado) break;
+
             yield return new WaitForSeconds(tiempoPorCaracter);
         }
-        
-        textoFragmento.text = texto;
+
+        textoFragmento.text = ConstruirTextoVisible(segmentos, totalAnimados);
+    }
+
+    private enum TipoSegmentoTexto { Tag, Instantaneo, Animado, Pausa }
+
+    private struct SegmentoTexto
+    {
+        public TipoSegmentoTexto tipo;
+        public string contenido;
+    }
+
+    /// <summary>
+    /// Divide el texto del fragmento en segmentos:
+    /// - "[Nombre]" → texto instantáneo (sin animación), se muestra desde el inicio.
+    /// - "&lt;tag&gt;" → etiquetas de rich text de TMP (color, bold, etc.), siempre presentes.
+    /// - resto → caracteres animados por el typewriter, uno por uno.
+    /// </summary>
+    private List<SegmentoTexto> ParsearTexto(string texto)
+    {
+        var segmentos = new List<SegmentoTexto>();
+        int i = 0;
+
+        while (i < texto.Length)
+        {
+            char c = texto[i];
+
+            if (c == '[')
+            {
+                int cierre = texto.IndexOf(']', i + 1);
+                if (cierre >= 0)
+                {
+                    string contenido = texto.Substring(i + 1, cierre - i - 1);
+                    segmentos.Add(new SegmentoTexto { tipo = TipoSegmentoTexto.Instantaneo, contenido = contenido });
+                    i = cierre + 1;
+                    continue;
+                }
+            }
+
+            if (c == '<')
+            {
+                int cierre = texto.IndexOf('>', i + 1);
+                if (cierre >= 0)
+                {
+                    string tag = texto.Substring(i, cierre - i + 1);
+                    segmentos.Add(new SegmentoTexto { tipo = TipoSegmentoTexto.Tag, contenido = tag });
+                    i = cierre + 1;
+                    continue;
+                }
+            }
+
+            if (c == '{')
+            {
+                int cierre = texto.IndexOf('}', i + 1);
+                if (cierre >= 0)
+                {
+                    string contenido = texto.Substring(i + 1, cierre - i - 1);
+                    segmentos.Add(new SegmentoTexto { tipo = TipoSegmentoTexto.Pausa, contenido = contenido });
+                    i = cierre + 1;
+                    continue;
+                }
+            }
+
+            segmentos.Add(new SegmentoTexto { tipo = TipoSegmentoTexto.Animado, contenido = c.ToString() });
+            i++;
+        }
+
+        return segmentos;
+    }
+
+    /// <summary>
+    /// Construye el texto visible (con tags de rich text válidos) revelando
+    /// solo "caracteresRevelados" caracteres animados. Las etiquetas abiertas
+    /// que aún no llegaron a su cierre se cierran automáticamente para que
+    /// TMP no rompa el formato a mitad del typewriter.
+    /// </summary>
+    private string ConstruirTextoVisible(List<SegmentoTexto> segmentos, int caracteresRevelados)
+    {
+        var sb = new System.Text.StringBuilder();
+        var pilaCierres = new Stack<string>();
+        int revelados = 0;
+
+        foreach (var seg in segmentos)
+        {
+            switch (seg.tipo)
+            {
+                case TipoSegmentoTexto.Tag:
+                    sb.Append(seg.contenido);
+
+                    if (seg.contenido.StartsWith("</"))
+                    {
+                        if (pilaCierres.Count > 0) pilaCierres.Pop();
+                    }
+                    else if (!seg.contenido.EndsWith("/>"))
+                    {
+                        pilaCierres.Push(ObtenerTagCierre(seg.contenido));
+                    }
+                    break;
+
+                case TipoSegmentoTexto.Instantaneo:
+                    sb.Append(seg.contenido);
+                    break;
+
+                case TipoSegmentoTexto.Animado:
+                    if (revelados < caracteresRevelados)
+                    {
+                        sb.Append(seg.contenido);
+                        revelados++;
+                    }
+                    else
+                    {
+                        while (pilaCierres.Count > 0)
+                            sb.Append(pilaCierres.Pop());
+
+                        return sb.ToString();
+                    }
+                    break;
+            }
+        }
+
+        return sb.ToString();
+    }
+
+    private string ObtenerTagCierre(string tagApertura)
+    {
+        int finNombre = tagApertura.IndexOfAny(new[] { '=', ' ', '>' });
+        if (finNombre <= 1) return "";
+
+        string nombre = tagApertura.Substring(1, finNombre - 1);
+        return $"</{nombre}>";
+    }
+
+    /// <summary>
+    /// Quita los marcadores "[ ]" (texto instantáneo) y "{ }" (pausas del
+    /// typewriter), dejando solo el contenido visible. Usado cuando el texto
+    /// se muestra de una sola vez (sin typewriter) o al saltar el fragmento.
+    /// </summary>
+    private string LimpiarMarcadoresInstantaneos(string texto)
+    {
+        texto = System.Text.RegularExpressions.Regex.Replace(texto, @"\{[^}]*\}", "");
+        return texto.Replace("[", "").Replace("]", "");
     }
     
     private IEnumerator FadeIn(float duracion)
@@ -466,10 +719,104 @@ public class StoryUIController : MonoBehaviour
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
-        
+
         Debug.Log("📖 [StoryUI] ✅ FadeOut completado");
     }
-    
+
+    /// <summary>
+    /// Gráficos visuales del contenido (texto/imágenes) usados para el crossfade
+    /// entre fragmentos encadenados. No incluye los botones.
+    /// </summary>
+    private List<Graphic> ObtenerGraficosContenido()
+    {
+        var graficos = new List<Graphic>();
+
+        if (textoFragmento != null) graficos.Add(textoFragmento);
+        if (textoNombreFragmento != null && textoNombreFragmento.gameObject.activeSelf) graficos.Add(textoNombreFragmento);
+        if (imagenFondo != null) graficos.Add(imagenFondo);
+        if (imagenFondoSprite != null && imagenFondoSprite.gameObject.activeSelf) graficos.Add(imagenFondoSprite);
+        if (imagenAdicional != null && imagenAdicional.gameObject.activeSelf) graficos.Add(imagenAdicional);
+        if (viñeta != null) graficos.Add(viñeta);
+
+        return graficos;
+    }
+
+    /// <summary>
+    /// Crossfade de salida: atenúa el contenido actual a alpha 0 (el panel
+    /// completo permanece visible).
+    /// </summary>
+    private IEnumerator FadeOutContenido(float duracion)
+    {
+        var graficos = ObtenerGraficosContenido();
+        var alfaInicial = new float[graficos.Count];
+        for (int i = 0; i < graficos.Count; i++) alfaInicial[i] = graficos[i].color.a;
+
+        float tiempo = 0f;
+        while (tiempo < duracion)
+        {
+            tiempo += Time.deltaTime;
+            float t = duracion > 0f ? Mathf.Clamp01(tiempo / duracion) : 1f;
+
+            for (int i = 0; i < graficos.Count; i++)
+            {
+                Color c = graficos[i].color;
+                c.a = Mathf.Lerp(alfaInicial[i], 0f, t);
+                graficos[i].color = c;
+            }
+
+            yield return null;
+        }
+
+        for (int i = 0; i < graficos.Count; i++)
+        {
+            Color c = graficos[i].color;
+            c.a = 0f;
+            graficos[i].color = c;
+        }
+    }
+
+    /// <summary>
+    /// Crossfade de entrada: lleva el contenido recién configurado (ya con sus
+    /// colores/alphas finales asignados por ConfigurarParaFragmento) desde
+    /// alpha 0 hasta su valor objetivo.
+    /// </summary>
+    private IEnumerator FadeInContenido(float duracion)
+    {
+        var graficos = ObtenerGraficosContenido();
+        var alfaObjetivo = new float[graficos.Count];
+        for (int i = 0; i < graficos.Count; i++)
+        {
+            alfaObjetivo[i] = graficos[i].color.a;
+
+            Color c = graficos[i].color;
+            c.a = 0f;
+            graficos[i].color = c;
+        }
+
+        float tiempo = 0f;
+        while (tiempo < duracion)
+        {
+            tiempo += Time.deltaTime;
+            float t = duracion > 0f ? Mathf.Clamp01(tiempo / duracion) : 1f;
+
+            for (int i = 0; i < graficos.Count; i++)
+            {
+                Color c = graficos[i].color;
+                c.a = Mathf.Lerp(0f, alfaObjetivo[i], t);
+                graficos[i].color = c;
+            }
+
+            yield return null;
+        }
+
+        for (int i = 0; i < graficos.Count; i++)
+        {
+            Color c = graficos[i].color;
+            c.a = alfaObjetivo[i];
+            graficos[i].color = c;
+        }
+    }
+
     private IEnumerator EsperarBotonContinuar()
     {
         bool continuarPresionado = false;
@@ -498,7 +845,7 @@ public class StoryUIController : MonoBehaviour
             audioActual.Stop();
 
         if (fragmentoActual != null && textoFragmento != null)
-            textoFragmento.text = fragmentoActual.textoFragmento;
+            textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmentoActual.textoFragmento);
 
         Debug.Log("📖 [StoryUI] ⏭️ Fragmento saltado");
     }

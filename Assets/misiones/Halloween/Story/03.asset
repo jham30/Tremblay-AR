@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 54bc5f091a63cf947af3fa67a1691354, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nNo... no, the house isn\u2019t abandoned...\r\nThe stories
-    are true... someone lives here...\r\nIt\u2019s... it\u2019s a witch\u2019s house.\n\r\nwitch\r\nMittens,
-    I\u2019ll go down to the basement for my broom and my hat.\r\nTonight, I must
-    complete the ritual!\r\n"
+  textoFragmento: "[Child.]\r\nNo... no, the house isn\u2019t abandoned...{7}\r\nThe
+    stories are true... someone lives here...\r\nIt\u2019s... it\u2019s a witch\u2019s
+    house.\n<color=#BEFF7A>\r\n[Witch]\nMittens, I\u2019ll go down to the basement
+    for my broom and my hat.\r\nTonight, I must complete the ritual!</color>\r\n"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
@@ -28,7 +28,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 11
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: e712766adca2b2843bc5627563e74602, type: 3}
   "intensidadVi\xF1eta": 0.3

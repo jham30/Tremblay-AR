@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
@@ -14,6 +15,18 @@ public class VuforiaTargetTracker : MonoBehaviour
 {
     public static event Action<string> OnTargetFound;
     public static event Action<string> OnTargetLost;
+
+    // Targets visibles AHORA MISMO. Vuforia solo avisa en los CAMBIOS de estado, así que si un
+    // paso del tutorial empieza con el target ya enfocado, el evento no se repetiría y el paso
+    // se quedaría atascado. Con este registro se puede consultar el estado actual.
+    private static readonly HashSet<string> targetsActivos = new HashSet<string>();
+
+    /// <summary>True si ese target está siendo detectado en este momento.</summary>
+    public static bool EstaTargetActivo(string id) =>
+        !string.IsNullOrEmpty(id) && targetsActivos.Contains(id);
+
+    /// <summary>True si hay CUALQUIER target detectado en este momento.</summary>
+    public static bool HayAlgunTargetActivo() => targetsActivos.Count > 0;
 
     [Tooltip("ID lógico del target (ej: 'vela', 'calabaza'). Si vacío, usa el TargetName del ObserverBehaviour.")]
     [SerializeField] private string targetID;
@@ -39,6 +52,10 @@ public class VuforiaTargetTracker : MonoBehaviour
     {
         if (observer != null)
             observer.OnTargetStatusChanged -= OnStatusChanged;
+
+        // Al desactivarse (o al cambiar de escena) este target deja de estar visible.
+        if (!string.IsNullOrEmpty(targetID))
+            targetsActivos.Remove(targetID);
     }
 
     private void OnStatusChanged(ObserverBehaviour b, TargetStatus status)
@@ -47,7 +64,15 @@ public class VuforiaTargetTracker : MonoBehaviour
                        status.Status == Status.EXTENDED_TRACKED ||
                        status.Status == Status.LIMITED;
 
-        if (tracked) OnTargetFound?.Invoke(targetID);
-        else         OnTargetLost?.Invoke(targetID);
+        if (tracked)
+        {
+            targetsActivos.Add(targetID);
+            OnTargetFound?.Invoke(targetID);
+        }
+        else
+        {
+            targetsActivos.Remove(targetID);
+            OnTargetLost?.Invoke(targetID);
+        }
     }
 }

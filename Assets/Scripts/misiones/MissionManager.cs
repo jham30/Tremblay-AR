@@ -11,11 +11,20 @@ public class MissionManager : MonoBehaviour
     public static MissionManager Instance { get; private set; }
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        // Last-wins: ver comentario en InputRouter.Awake(). Antes, si Instance
+        // quedaba "viva" (por compartir GameObject con StoryManager, que es
+        // DontDestroyOnLoad), esta instancia nueva nunca se registraba y el
+        // juego seguía usando el MissionManager viejo de la escena anterior.
+        if (Instance != null && Instance != this)
+            Destroy(Instance.gameObject);
+        Instance = this;
     }
 
     public event Action<string> OnMisionDescifrada;
     public event Action<string> OnMisionCompletada;
+    // 🎃 Eventos para la calabaza reactiva
+    public event Action OnMisionFallida;                   // al fallar la comprobación de descifrado
+    public event Action<Mission> OnNuevaMisionDisponible;  // al desbloquearse una misión nueva
     [Header("Misiones")]
     public List<Mission> misiones = new List<Mission>();
     private int indiceMisionActual = 0;
@@ -46,6 +55,10 @@ public class MissionManager : MonoBehaviour
     private HashSet<string> misionesCompletadas = new HashSet<string>();
     private HashSet<string> misionesDescifradas = new HashSet<string>();
 
+    // 🎃 Para detectar misiones recién desbloqueadas (calabaza reactiva)
+    private readonly HashSet<string> _idsDisponiblesPrevios = new HashSet<string>();
+    private bool _primeraEvaluacionMisiones = true;
+
     public event System.Action OnMisionesActualizadas;
     public IReadOnlyCollection<Mission> MisionesDisponibles => misionesDisponibles;
     public IReadOnlyCollection<string> MisionesCompletadas => misionesCompletadas;
@@ -64,7 +77,7 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
         if (gameObjectManager == null)
-            gameObjectManager = FindObjectOfType<GameObjectManager>();
+            gameObjectManager = GameObjectManager.Instance;
 
         if (gameObjectManager != null)
         {
@@ -199,6 +212,22 @@ public void CargarMisionSeleccionada(int indice)
                 Debug.Log($"[MissionManager] Misión disponible: {mision.misionID} - {mision.descripcion}");
             }
         }
+
+        // 🎃 Detectar misiones recién desbloqueadas y avisar a la calabaza reactiva.
+        // Se omite la primera evaluación para no reaccionar al arrancar la escena.
+        if (!_primeraEvaluacionMisiones)
+        {
+            foreach (Mission mision in misionesDisponibles)
+            {
+                if (mision != null && !_idsDisponiblesPrevios.Contains(mision.misionID))
+                    OnNuevaMisionDisponible?.Invoke(mision);
+            }
+        }
+        _primeraEvaluacionMisiones = false;
+
+        _idsDisponiblesPrevios.Clear();
+        foreach (Mission mision in misionesDisponibles)
+            if (mision != null) _idsDisponiblesPrevios.Add(mision.misionID);
     }
 
     private bool EvaluarCondicionesActivacion(Mission mision)
@@ -411,7 +440,15 @@ private IEnumerator CargarMisionConLayout(Mission mision)
 public void ComprobarMision()
 {
     int total = socketsEnMision.Count;
-    int correctos = 0;
+
+    // IDs que la misión espera en CUALQUIERA de sus sockets (para detectar "mal colocado":
+    // un objeto que sí pertenece a esta misión, pero está en el socket equivocado).
+    var idsEsperados = new HashSet<string>();
+    foreach (var s in socketsEnMision)
+        if (s != null && !string.IsNullOrEmpty(s.idCorrecto))
+            idsEsperados.Add(s.idCorrecto);
+
+    int correctos = 0, malColocados = 0, incorrectos = 0, vacios = 0;
 
     foreach (var socket in socketsEnMision)
     {
@@ -424,11 +461,17 @@ public void ComprobarMision()
             if (drag != null) { colocado = drag; break; }
         }
 
-        if (colocado != null && colocado.objetoID == socket.idCorrecto)
+        if (colocado == null)
+            vacios++;
+        else if (colocado.objetoID == socket.idCorrecto)
             correctos++;
+        else if (idsEsperados.Contains(colocado.objetoID))
+            malColocados++;   // pertenece a la misión, pero en el socket equivocado
+        else
+            incorrectos++;    // no pertenece a esta misión en absoluto
     }
 
-    MostrarResultado(correctos, total, correctos == total);
+    MostrarResultado(correctos, malColocados, incorrectos, vacios, total, correctos == total);
 
     if (correctos == total && total > 0)
     {
@@ -459,6 +502,9 @@ public void ComprobarMision()
         {
             GlobalAudioManager.Instance.ReproducirSonidoMisionDescifradaError();
         }
+
+        // 🎃 Notificar a la calabaza reactiva (comprobación fallida)
+        OnMisionFallida?.Invoke();
     }
 }
 
@@ -542,7 +588,7 @@ public void ComprobarMision()
         );
     }
 
-    public void CompletarMisionAR(string misionID)
+    public void CompletarMisionAR(string misionID, bool reproducirFragmento = true)
     {
         if (string.IsNullOrEmpty(misionID)) return;
 
@@ -555,16 +601,15 @@ public void ComprobarMision()
                 mision.descifrada = true;
                 misionesDescifradas.Add(misionID);
             }
-            
+
             mision.completada = true;
             OnMisionCompletada?.Invoke(misionID);
-            if (mision.fragmentoAlCompletar != null && StoryManager.Instance != null)
+            if (reproducirFragmento)
             {
-                Debug.Log($"[MissionManager] 📖 Reproduciendo fragmento completado");
-                StoryManager.Instance.OnMisionCompletada(mision, mision.fragmentoAlCompletar);
+                ReproducirFragmentoCompletado(misionID);
             }
             misionesCompletadas.Add(misionID);
-            
+
             GuardarEstadosMisiones();
             Debug.Log($"[MissionManager] Misión COMPLETADA en AR: {misionID}");
 
@@ -573,23 +618,69 @@ public void ComprobarMision()
         }
     }
 
-    private void MostrarResultado(int correctos, int total, bool completo)
+    /// <summary>
+    /// Reproduce el fragmento de historia asociado a "completar" la misión, si existe.
+    /// Se llama automáticamente desde CompletarMisionAR, o de forma diferida (por ejemplo,
+    /// después de que termine un Timeline de animación en AR).
+    /// </summary>
+    public void ReproducirFragmentoCompletado(string misionID)
+    {
+        Mission mision = misiones.Find(m => m.misionID == misionID);
+        if (mision == null) return;
+
+        if (mision.fragmentoAlCompletar != null && StoryManager.Instance != null)
+        {
+            Debug.Log($"[MissionManager] 📖 Reproduciendo fragmento completado");
+            StoryManager.Instance.OnMisionCompletada(mision, mision.fragmentoAlCompletar);
+        }
+    }
+
+    private void MostrarResultado(int correctos, int malColocados, int incorrectos, int vacios, int total, bool completo)
     {
         if (resultadoTMP == null) return;
 
-        if (completo)
-            resultadoTMP.text = $"¡Completado! ({total}/{total})";
-        else
-        {
-            int faltan = Mathf.Max(0, total - correctos);
-            resultadoTMP.text = $"Correctos {correctos}/{total} • Faltan {faltan}";
-        }
-
+        resultadoTMP.text = ConstruirMensajeResultado(correctos, malColocados, incorrectos, vacios, total);
         resultadoTMP.gameObject.SetActive(true);
 
         if (ocultarCR != null) StopCoroutine(ocultarCR);
         if (autoOcultar && !completo)
             ocultarCR = StartCoroutine(AutoOcultarResultado());
+    }
+
+    /// <summary>
+    /// Arma un párrafo de feedback explicando POR QUÉ falló la comprobación:
+    /// si no se colocó nada, si faltan objetos, si hay objetos correctos pero en el
+    /// socket equivocado (mal colocados), o si hay objetos que no pertenecen a la misión.
+    /// </summary>
+    private string ConstruirMensajeResultado(int correctos, int malColocados, int incorrectos, int vacios, int total)
+    {
+        if (correctos == total && total > 0)
+            return $"Complete! ({total}/{total})";
+
+        var partes = new List<string>
+        {
+            $"This mission needs {total} object{(total == 1 ? "" : "s")}."
+        };
+
+        int colocados = total - vacios;
+        if (colocados == 0)
+        {
+            partes.Add("You haven't placed any objects yet.");
+            return string.Join(" ", partes);
+        }
+
+        if (vacios > 0)
+            partes.Add($"You still need to place {vacios} more object{(vacios == 1 ? "" : "s")}.");
+
+        if (malColocados > 0)
+            partes.Add($"{malColocados} object{(malColocados == 1 ? "" : "s")} {(malColocados == 1 ? "is" : "are")} in the wrong spot.");
+
+        if (incorrectos > 0)
+            partes.Add($"{incorrectos} object{(incorrectos == 1 ? "" : "s")} {(incorrectos == 1 ? "doesn't" : "don't")} belong to this mission.");
+
+        partes.Add($"Correct: {correctos} of {total}.");
+
+        return string.Join(" ", partes);
     }
 
     private IEnumerator AutoOcultarResultado()
@@ -720,6 +811,28 @@ public Mission ObtenerMisionActual()
         return indiceMisionActual >= 0 && indiceMisionActual < misiones.Count;
     }
 
+    /// <summary>
+    /// True si TODAS las misiones del cuento actual están completadas (fin del juego).
+    /// Filtra por cuento igual que EvaluarTodasLasMisiones, para no exigir misiones de otros cuentos.
+    /// </summary>
+    public bool TodasMisionesCompletadas()
+    {
+        if (misiones == null) return false;
+
+        string cuentoActual = CuentoActual.GetCuentoActual();
+        bool hayAlguna = false;
+
+        foreach (var m in misiones)
+        {
+            if (m == null) continue;
+            if (!m.PerteneceACuento(cuentoActual)) continue; // solo las de este cuento
+            hayAlguna = true;
+            if (!misionesCompletadas.Contains(m.misionID)) return false;
+        }
+
+        return hayAlguna;
+    }
+
     private void RegresarDraggablesAlPanel()
     {
         if (panelLista == null) return;
@@ -760,6 +873,94 @@ public Mission ObtenerMisionActual()
             
             misionesDisponiblesTMP.text = $"Misiones: {completadas}/{total} completadas | {descifradas} descifradas | {disponibles} disponibles";
         }
+    }
+
+    /// <summary>
+    /// Reinicia TODO el progreso de misiones EN MEMORIA (no solo el JSON). Lo usa el reset:
+    /// limpia los HashSet de descifradas/completadas y los bools de cada Mission, resetea el estado
+    /// de selección y vuelve a evaluar desde cero. Sin esto, tras un reset el estado en memoria
+    /// seguía "completo" y el panel de fin de juego se disparaba en bucle.
+    /// </summary>
+    public void ReiniciarProgresoMisiones()
+    {
+        Debug.Log("[MissionManager] Reiniciando progreso de misiones (memoria)...");
+
+        misionesCompletadas.Clear();
+        misionesDescifradas.Clear();
+
+        foreach (var m in misiones)
+        {
+            if (m == null) continue;
+            m.descifrada = false;
+            m.completada = false;
+        }
+
+        misionSeleccionadaIndex = -1;
+        indiceMisionActual = 0;
+        misionSeleccionadaManualmente = false;
+
+        // Que la 1ª reevaluación tras el reset NO dispare "nueva misión disponible" (calabaza).
+        _idsDisponiblesPrevios.Clear();
+        _primeraEvaluacionMisiones = true;
+
+        GuardarEstadosMisiones();          // persistir el estado limpio
+        EvaluarTodasLasMisiones();
+        CargarPrimeraMisionDisponible();
+        ActualizarContadorMisiones();
+        OnMisionesActualizadas?.Invoke();  // el panel de fin de juego reevalúa → se oculta
+    }
+
+    /// <summary>
+    /// Reinicia SOLO las misiones indicadas (memoria + JSON), dejándolas sin descifrar ni completar.
+    /// Lo usa el TUTORIAL para arrancar siempre desde un estado limpio sin tocar el progreso del
+    /// resto de cuentos: el tutorial enseña TRANSICIONES (no-descifrada → descifrada → completada),
+    /// así que si su misión ya está en el estado final no queda nada que enseñar y el jugador se
+    /// queda atascado (los botones Agarrar/Guardar ni siquiera aparecen).
+    /// </summary>
+    public void ReiniciarMisionesEspecificas(IEnumerable<string> misionIDs)
+    {
+        if (misionIDs == null) return;
+
+        int reiniciadas = 0;
+
+        foreach (string id in misionIDs)
+        {
+            if (string.IsNullOrEmpty(id)) continue;
+
+            Mission m = misiones.Find(x => x != null && x.misionID == id);
+            if (m == null)
+            {
+                Debug.LogWarning($"[MissionManager] ReiniciarMisionesEspecificas: no hay ninguna misión " +
+                                 $"con ID '{id}'. ¿Está bien escrito y asignado el misionID en el ScriptableObject?");
+                continue;
+            }
+
+            bool eraDescifrada = misionesDescifradas.Remove(id);
+            bool eraCompletada = misionesCompletadas.Remove(id);
+
+            m.descifrada = false;
+            m.completada = false;
+            reiniciadas++;
+
+            if (eraDescifrada || eraCompletada)
+                Debug.Log($"[MissionManager] Misión '{id}' reiniciada (estaba descifrada={eraDescifrada}, completada={eraCompletada})");
+        }
+
+        if (reiniciadas == 0) return;
+
+        misionSeleccionadaIndex = -1;
+        indiceMisionActual = 0;
+        misionSeleccionadaManualmente = false;
+
+        // Que la reevaluación no dispare "nueva misión disponible" (calabaza) por este reset.
+        _idsDisponiblesPrevios.Clear();
+        _primeraEvaluacionMisiones = true;
+
+        GuardarEstadosMisiones();
+        EvaluarTodasLasMisiones();
+        CargarPrimeraMisionDisponible();
+        ActualizarContadorMisiones();
+        OnMisionesActualizadas?.Invoke();
     }
 
     public void ReevaluarMisiones()

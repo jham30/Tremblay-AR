@@ -16,12 +16,12 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: ea34f64122c6d2441961b9febf014433, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nNo... I can\u2019t stay here...\r\nI have to get out!\r\nThe
+  textoFragmento: "[Child]\r\nNo... I can\u2019t stay here...\r\nI have to get out!\r\nThe
     yard... yes... it\u2019s the backyard.\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
-  avanceAutomatico: 0
+  avanceAutomatico: 1
   colorFondo: {r: 0, g: 0, b: 0, a: 0.85}
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24

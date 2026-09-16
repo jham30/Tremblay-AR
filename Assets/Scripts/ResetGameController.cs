@@ -10,6 +10,7 @@ public class ResetGameController : MonoBehaviour
     [SerializeField] private MissionManager missionManager;
     [SerializeField] private ScrollViewLoader scrollViewLoader;
     [SerializeField] private ObjectInfoUIManager objectInfoUIManager;
+    [SerializeField] private StoryManager storyManager;
     
     [Header("Confirmación")]
     [SerializeField] private GameObject panelConfirmacion;
@@ -19,7 +20,7 @@ public class ResetGameController : MonoBehaviour
     
     [Header("Configuración")]
     [SerializeField] private bool requierConfirmacion = true;
-    [SerializeField] private string mensajeConfirmacion = "¿Estás seguro de que quieres reiniciar el juego? Se perderá todo el progreso.";
+    [SerializeField] private string mensajeConfirmacion = "Are you sure you want to reset the game? All progress will be lost.";
 
     // 🆕 NUEVOS ELEMENTOS PARA PANEL DE CONFIGURACIÓN
     [Header("🎛️ Panel de Configuración")]
@@ -54,16 +55,19 @@ public class ResetGameController : MonoBehaviour
     {
         // Buscar automáticamente si no están asignadas
         if (gameObjectManager == null)
-            gameObjectManager = FindObjectOfType<GameObjectManager>();
-            
+            gameObjectManager = GameObjectManager.Instance;
+
         if (missionManager == null)
-            missionManager = FindObjectOfType<MissionManager>();
+            missionManager = MissionManager.Instance;
             
         if (scrollViewLoader == null)
             scrollViewLoader = FindObjectOfType<ScrollViewLoader>();
             
         if (objectInfoUIManager == null)
             objectInfoUIManager = FindObjectOfType<ObjectInfoUIManager>();
+
+        if (storyManager == null)
+            storyManager = StoryManager.Instance != null ? StoryManager.Instance : FindObjectOfType<StoryManager>();
     }
 
     private void ConfigurarBotones()
@@ -80,8 +84,8 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetCompleto.onClick.RemoveAllListeners();
             botonResetCompleto.onClick.AddListener(() => SolicitarConfirmacion(
-                "🔄 ¿Reiniciar TODO el progreso del juego?\n\nEsto eliminará:\n• Todos los objetos guardados\n• Progreso de misiones\n• Configuraciones",
-                () => EjecutarReset("Completo", () => EjecutarResetCompleto())
+                "🔄 Reset ALL game progress?\n\nThis will delete:\n• All saved objects\n• Mission progress\n• Settings",
+                () => EjecutarReset("Full", () => EjecutarResetCompleto())
             ));
         }
 
@@ -89,8 +93,8 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetObjetos.onClick.RemoveAllListeners();
             botonResetObjetos.onClick.AddListener(() => SolicitarConfirmacion(
-                "📦 ¿Reiniciar solo los objetos guardados?\n\nEsto eliminará:\n• Objetos marcados como guardados\n• Progreso de recolección",
-                () => EjecutarReset("Objetos", () => ResetSoloObjetos())
+                "📦 Reset only saved objects?\n\nThis will delete:\n• Objects marked as saved\n• Collection progress",
+                () => EjecutarReset("Objects", () => ResetSoloObjetos())
             ));
         }
 
@@ -98,8 +102,8 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetMisiones.onClick.RemoveAllListeners();
             botonResetMisiones.onClick.AddListener(() => SolicitarConfirmacion(
-                "🧩 ¿Reiniciar solo el progreso de misiones?\n\nEsto eliminará:\n• Misiones descifradas\n• Misiones completadas",
-                () => EjecutarReset("Misiones", () => ResetSoloMisiones())
+                "🧩 Reset only mission progress?\n\nThis will delete:\n• Deciphered missions\n• Completed missions",
+                () => EjecutarReset("Missions", () => ResetSoloMisiones())
             ));
         }
 
@@ -191,7 +195,7 @@ public class ResetGameController : MonoBehaviour
         }
         
         accionPendiente = null;
-        MostrarUltimaAccion("❌ Acción cancelada");
+        MostrarUltimaAccion("❌ Action cancelled");
         
         Debug.Log("[ResetGame] Reset cancelado por el usuario");
         
@@ -211,7 +215,7 @@ public class ResetGameController : MonoBehaviour
             
             resetAction?.Invoke();
             
-            MostrarUltimaAccion($"✅ Reset {tipo} completado exitosamente");
+            MostrarUltimaAccion($"✅ {tipo} reset completed successfully");
             ActualizarEstadisticas();
             
             // 🎵 Sonido de éxito
@@ -224,7 +228,7 @@ public class ResetGameController : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            string errorMsg = $"❌ Error en Reset {tipo}: {e.Message}";
+            string errorMsg = $"❌ {tipo} reset error: {e.Message}";
             MostrarUltimaAccion(errorMsg);
             Debug.LogError($"[ResetGame] {errorMsg}");
             
@@ -248,11 +252,14 @@ public class ResetGameController : MonoBehaviour
             
             // 2. Reset de misiones
             ResetMisiones();
-            
+
             // 3. Limpiar objetos colocados en UI
             LimpiarObjetosColocados();
-            
-            // 4. Actualizar interfaces
+
+            // 4. Reset del progreso de historia (fragmentos vistos)
+            ResetHistoria();
+
+            // 5. Actualizar interfaces
             ActualizarInterfaces();
             
             Debug.Log("[ResetGame] ✅ RESET COMPLETO EXITOSO");
@@ -309,15 +316,39 @@ public class ResetGameController : MonoBehaviour
         
         // Guardar datos limpios
         gameObjectManager.GuardarMisiones(datosMisionesLimpios);
-        
-        // Reset de misiones en MissionManager si existe
+
+        // Reset de misiones en MissionManager si existe.
+        // ⚠️ IMPORTANTE: ReiniciarProgresoMisiones limpia el estado EN MEMORIA (HashSets + bools),
+        // no solo el JSON. Con ReevaluarMisiones el estado en memoria seguía "completo" tras el
+        // reset y el panel de fin de juego se disparaba en bucle.
         if (missionManager != null)
         {
-            missionManager.ReevaluarMisiones();
-            Debug.Log("[ResetGame] MissionManager reevaluado");
+            missionManager.ReiniciarProgresoMisiones();
+            Debug.Log("[ResetGame] MissionManager: progreso reiniciado en memoria");
         }
         
         Debug.Log("[ResetGame] ✅ Misiones reseteadas");
+    }
+
+    private void ResetHistoria()
+    {
+        if (storyManager == null)
+            storyManager = StoryManager.Instance;
+
+        if (storyManager != null)
+        {
+            storyManager.ResetearProgreso();
+
+            // Volver a lanzar el prólogo/intro (la escena no se recarga, así que su Start no corre).
+            // Como ResetearProgreso limpió los fragmentos vistos, el prólogo se reproduce de nuevo.
+            storyManager.ReproducirPrologo();
+
+            Debug.Log("[ResetGame] ✅ Historia reseteada y prólogo relanzado");
+        }
+        else
+        {
+            Debug.LogWarning("[ResetGame] StoryManager no encontrado; no se reseteó la historia");
+        }
     }
 
     private void LimpiarObjetosColocados()
@@ -404,21 +435,21 @@ public class ResetGameController : MonoBehaviour
             int objetosGuardados = gameObjectManager.ObtenerObjetosGuardados()?.Count ?? 0;
             float progreso = totalObjetos > 0 ? (objetosGuardados * 100f / totalObjetos) : 0f;
             
-            string estadisticas = $"📦 OBJETOS\n";
+            string estadisticas = $"📦 OBJECTS\n";
             estadisticas += $"Total: {totalObjetos}\n";
-            estadisticas += $"Guardados: {objetosGuardados}\n";
-            estadisticas += $"Progreso: {progreso:F1}%\n\n";
-            
+            estadisticas += $"Saved: {objetosGuardados}\n";
+            estadisticas += $"Progress: {progreso:F1}%\n\n";
+
             if (missionManager != null)
             {
-                estadisticas += $"🧩 MISIONES\n";
-                estadisticas += $"Descifradas: {missionManager.MisionesDescifradas?.Count ?? 0}\n";
-                estadisticas += $"Completadas: {missionManager.MisionesCompletadas?.Count ?? 0}\n";
-                estadisticas += $"Disponibles: {missionManager.MisionesDisponibles?.Count ?? 0}\n\n";
-                
+                estadisticas += $"🧩 MISSIONS\n";
+                estadisticas += $"Deciphered: {missionManager.MisionesDescifradas?.Count ?? 0}\n";
+                estadisticas += $"Completed: {missionManager.MisionesCompletadas?.Count ?? 0}\n";
+                estadisticas += $"Available: {missionManager.MisionesDisponibles?.Count ?? 0}\n\n";
+
                 if (missionManager.MisionesCompletadas?.Count > 0)
                 {
-                    estadisticas += $"🏆 ¡{missionManager.MisionesCompletadas.Count} misiones completadas!";
+                    estadisticas += $"🏆 {missionManager.MisionesCompletadas.Count} missions completed!";
                 }
             }
 
@@ -426,10 +457,10 @@ public class ResetGameController : MonoBehaviour
         }
         else
         {
-            textoEstadisticas.text = "❌ No se pudieron cargar las estadísticas\n\nVerifica que GameObjectManager esté en la escena.";
+            textoEstadisticas.text = "❌ Could not load statistics\n\nMake sure GameObjectManager is in the scene.";
         }
 
-        MostrarUltimaAccion("📊 Estadísticas actualizadas");
+        MostrarUltimaAccion("📊 Statistics updated");
         
         // 🎵 Sonido de progreso
         if (usarSonidos && GlobalAudioManager.Instance != null)
@@ -472,14 +503,14 @@ public class ResetGameController : MonoBehaviour
 
     public string ObtenerEstadisticasTexto()
     {
-        if (gameObjectManager == null) return "No hay datos disponibles";
-        
+        if (gameObjectManager == null) return "No data available";
+
         int totalObjetos = gameObjectManager.listaObjetos?.Count ?? 0;
         int objetosGuardados = gameObjectManager.ObtenerObjetosGuardados()?.Count ?? 0;
         int misionesDescifradas = missionManager?.MisionesDescifradas?.Count ?? 0;
         int misionesCompletadas = missionManager?.MisionesCompletadas?.Count ?? 0;
-        
-        return $"Objetos: {objetosGuardados}/{totalObjetos} | Misiones: {misionesCompletadas}/{misionesDescifradas}";
+
+        return $"Objects: {objetosGuardados}/{totalObjetos} | Missions: {misionesCompletadas}/{misionesDescifradas}";
     }
 
     // Context menu para testing

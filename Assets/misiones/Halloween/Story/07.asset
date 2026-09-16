@@ -16,9 +16,9 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 53372280a265dd64c91c180c6c2b6b6c, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\n Wow... everything\u2019s covered in cobwebs.\r\n I
-    try to move forward, but they stick to my face...\r\n Okay... with this broom
-    I can push them away.\r\n There... step by step... I can finally see the inside
+  textoFragmento: "[Child]\r\n{1}Wow...{1} everything\u2019s covered in cobwebs.\r\nI
+    try to move forward, but they stick to my face...{4}\r\nOkay... with this broom
+    I can push them away.\r\nThere...{1} step by step... I can finally see the inside
     of the house."
   duracionTotal: 0
   tiempoFadeIn: 0.5
@@ -28,7 +28,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 12
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: 45245e81dd2103941ab60139aed362b2, type: 3}
   "intensidadVi\xF1eta": 0.3

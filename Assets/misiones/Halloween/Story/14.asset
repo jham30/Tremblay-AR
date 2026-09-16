@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: bf7716531dc90fa4189e302a85551251, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nAn open grave... I hope there\u2019s nothing in there.
+  textoFragmento: "[Child]\r\nAn open grave... I hope there\u2019s nothing in there.
     Okay... easy... just look...\r\nIt\u2019s... empty.\r\nAhhh! Bats!\r\nGet out,
     get out!\r\nThere\u2019s something written here...\r"
   duracionTotal: 0

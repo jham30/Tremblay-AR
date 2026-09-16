@@ -5,6 +5,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+// 🗂️ Estados por los que se puede filtrar la lista de misiones.
+// El orden de los valores DEBE coincidir con el array 'botonesFiltro' del Inspector.
+public enum FiltroMision
+{
+    Todas = 0,
+    Disponible = 1,
+    Descifrada = 2,
+    Completada = 3,
+    Bloqueada = 4
+}
+
 public class MissionListUI : MonoBehaviour
 {
     [Header("Referencias")]
@@ -66,6 +77,15 @@ private GameObject itemMisionActual; // Referencia al item actualmente seleccion
     [SerializeField] private string mensajeBloqueada = "Bloqueada";
     [SerializeField] private string mensajeDesconocido = "Desconocido";
 
+    [Header("🗂️ Filtros por Estado")]
+    [Tooltip("Botones de filtro EN ESTE ORDEN: [0]Todas, [1]Disponibles, [2]Descifradas, [3]Completadas, [4]Bloqueadas.")]
+    [SerializeField] private Button[] botonesFiltro;
+    [Tooltip("Color del borde que resalta el filtro activo (NO toca el color de fondo del botón).")]
+    [SerializeField] private Color colorBordeActivo = new Color(1f, 0.84f, 0f, 1f); // dorado
+    [SerializeField] private float grosorBordeActivo = 4f;
+
+    private FiltroMision filtroActual = FiltroMision.Todas;
+
     void Start()
     {
         InicializarComponentes();
@@ -84,7 +104,10 @@ private GameObject itemMisionActual; // Referencia al item actualmente seleccion
 
         // Configurar estado inicial (visible)
         ConfigurarEstadoInicial();
-        
+
+        // 🗂️ Dejar marcado el filtro inicial (Todas)
+        ActualizarResaltadoFiltros();
+
         // Primera carga con delay
         Invoke(nameof(ActualizarLista), 0.1f);
     }
@@ -263,9 +286,12 @@ private int ObtenerPrioridadOrdenamiento(Mission mision)
 
             if (canvasGroupPanel != null)
             {
-                canvasGroupPanel.alpha = 0f;
-                canvasGroupPanel.interactable = false;
-                canvasGroupPanel.blocksRaycasts = false;
+                // No se desvanece: el panel solo se desliza hacia arriba y la
+                // parte que sobresale (el botón/persiana) debe seguir visible
+                // y clickeable aunque esté "cerrado".
+                canvasGroupPanel.alpha = 1f;
+                canvasGroupPanel.interactable = true;
+                canvasGroupPanel.blocksRaycasts = true;
             }
         }
         else
@@ -320,12 +346,13 @@ private int ObtenerPrioridadOrdenamiento(Mission mision)
         
         Vector2 posicionInicial = mostrar ? posicionOculta : posicionVisible;
         Vector2 posicionFinal = mostrar ? posicionVisible : posicionOculta;
-        
-        float alphaInicial = mostrar ? 0f : 1f;
-        float alphaFinal = mostrar ? 1f : 0f;
 
-        if (mostrar && canvasGroupPanel != null)
+        // El panel nunca se desvanece: se mantiene visible e interactuable en
+        // todo momento para que la parte que sobresale (botón/persiana) siga
+        // clickeable. Solo animamos el deslizamiento.
+        if (canvasGroupPanel != null)
         {
+            canvasGroupPanel.alpha = 1f;
             canvasGroupPanel.interactable = true;
             canvasGroupPanel.blocksRaycasts = true;
         }
@@ -341,28 +368,12 @@ private int ObtenerPrioridadOrdenamiento(Mission mision)
                 rectTransformPanel.anchoredPosition = Vector2.Lerp(posicionInicial, posicionFinal, curveValue);
             }
 
-            if (canvasGroupPanel != null)
-            {
-                canvasGroupPanel.alpha = Mathf.Lerp(alphaInicial, alphaFinal, curveValue);
-            }
-
             yield return null;
         }
 
         if (rectTransformPanel != null)
         {
             rectTransformPanel.anchoredPosition = posicionFinal;
-        }
-        
-        if (canvasGroupPanel != null)
-        {
-            canvasGroupPanel.alpha = alphaFinal;
-        }
-
-        if (!mostrar && canvasGroupPanel != null)
-        {
-            canvasGroupPanel.interactable = false;
-            canvasGroupPanel.blocksRaycasts = false;
         }
 
         animacionActual = null;
@@ -391,8 +402,9 @@ private int ObtenerPrioridadOrdenamiento(Mission mision)
         .Where(x => x.m != null)
         .ToDictionary(x => x.m, x => x.i);
 
-    // 🎯 ORDENAR MISIONES POR PRIORIDAD DE ESTADO
+    // 🎯 ORDENAR MISIONES POR PRIORIDAD DE ESTADO (filtradas por el estado activo)
     var misionesOrdenadas = indiceOriginal.Keys
+        .Where(CoincideConFiltro)                       // 🗂️ filtro por estado
         .OrderBy(m => ObtenerPrioridadOrdenamiento(m))
         .ThenBy(m => indiceOriginal[m])
         .ToList();
@@ -641,6 +653,78 @@ private void ConfigurarIndicadorEstado(GameObject item, Mission mision)
         return colorBloqueada;
     }
 
+    // ================= 🗂️ FILTROS POR ESTADO =================
+
+    /// <summary>
+    /// Clasifica una misión en su estado (reutiliza las mismas comprobaciones que ObtenerColorEstado).
+    /// </summary>
+    private FiltroMision EstadoDe(Mission mision)
+    {
+        if (missionManager == null) return FiltroMision.Bloqueada;
+
+        if (missionManager.MisionesCompletadas.Contains(mision.misionID))
+            return FiltroMision.Completada;
+
+        if (missionManager.MisionesDescifradas.Contains(mision.misionID))
+            return FiltroMision.Descifrada;
+
+        if (missionManager.MisionesDisponibles.Contains(mision))
+            return FiltroMision.Disponible;
+
+        return FiltroMision.Bloqueada;
+    }
+
+    private bool CoincideConFiltro(Mission mision)
+    {
+        return filtroActual == FiltroMision.Todas || EstadoDe(mision) == filtroActual;
+    }
+
+    /// <summary>
+    /// Aplica un filtro y refresca la lista. El filtro se mantiene aunque la lista se refresque
+    /// luego por OnMisionesActualizadas (porque filtroActual es un campo persistente).
+    /// </summary>
+    public void AplicarFiltro(FiltroMision filtro)
+    {
+        filtroActual = filtro;
+
+        if (GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        ActualizarResaltadoFiltros();
+        ActualizarLista();
+
+        Debug.Log($"[MissionListUI] Filtro aplicado: {filtro}");
+    }
+
+    // Envoltorios para enlazar cómodamente desde el Inspector (Button ▸ OnClick)
+    public void FiltrarTodas()       => AplicarFiltro(FiltroMision.Todas);
+    public void FiltrarDisponibles() => AplicarFiltro(FiltroMision.Disponible);
+    public void FiltrarDescifradas() => AplicarFiltro(FiltroMision.Descifrada);
+    public void FiltrarCompletadas() => AplicarFiltro(FiltroMision.Completada);
+    public void FiltrarBloqueadas()  => AplicarFiltro(FiltroMision.Bloqueada);
+
+    /// <summary>
+    /// Resalta el botón del filtro activo con un borde (Outline), sin tocar su color de fondo
+    /// (que el usuario pone a mano). El índice del botón debe coincidir con el valor del enum.
+    /// </summary>
+    private void ActualizarResaltadoFiltros()
+    {
+        if (botonesFiltro == null) return;
+
+        for (int i = 0; i < botonesFiltro.Length; i++)
+        {
+            if (botonesFiltro[i] == null) continue;
+
+            Outline outline = botonesFiltro[i].GetComponent<Outline>();
+            if (outline == null)
+                outline = botonesFiltro[i].gameObject.AddComponent<Outline>();
+
+            outline.effectColor = colorBordeActivo;
+            outline.effectDistance = new Vector2(grosorBordeActivo, grosorBordeActivo);
+            outline.enabled = ((int)filtroActual == i); // solo el activo muestra el borde
+        }
+    }
+
     // 👈 NUEVOS: Métodos públicos simplificados
     public void MostrarPanel()
     {
@@ -674,6 +758,12 @@ private void ConfigurarIndicadorEstado(GameObject item, Mission mision)
     {
         ActualizarLista();
     }
+
+    /// <summary>
+    /// True si el panel de misiones está desplegado/visible. Lo usa InputRouter para NO
+    /// disparar el raycast del AR cuando este panel (casi pantalla completa) tapa la cámara.
+    /// </summary>
+    public bool EstaPanelVisible() => panelVisible;
 
     public void RecalcularPosiciones()
     {

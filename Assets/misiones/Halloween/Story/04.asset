@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 37fe058aa123c1c4aa41cd0063fb9f78, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\n Think... think... she needs her hat and her broom...\r\n
+  textoFragmento: "[Child]\r\n Think... think... she needs her hat and her broom...{3}\r\n
     There they are... the hat... and the broom...\r\n I\u2019ll put them here...
     on the little table... yes... right here.\r\n If she finds them... maybe she\u2019ll
-    leave...\r\n Come on, witch... just take your things and go... please...\r"
+    leave...{2}\r\n Come on, witch... just take your things and go... please...\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
@@ -28,7 +28,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 15
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: 15b36737c268a334394f00189bc4e9ec, type: 3}
   "intensidadVi\xF1eta": 0.3

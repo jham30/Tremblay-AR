@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,6 +32,17 @@ public class SettingsPanelManager : MonoBehaviour
     [Header("🔊 Audio")]
     [SerializeField] private bool usarSonidos = true;
 
+    [Header("🚪 Salir a selección de cuentos")]
+    [SerializeField] private Button botonSalir;
+    [Tooltip("Escena del selector de cuentos (debe estar en Build Settings).")]
+    [SerializeField] private string nombreEscenaSeleccion = "Inicio";
+
+    [Header("🎓 Repetir tutorial")]
+    [Tooltip("Botón opcional. Borra la marca de 'tutorial completado' y carga la escena del tutorial.")]
+    [SerializeField] private Button botonRepetirTutorial;
+    [Tooltip("Escena del tutorial (debe estar en Build Settings).")]
+    [SerializeField] private string nombreEscenaTutorial = "halloween-tuto1";
+
     // Estado
     private bool panelVisible = false;
     private RectTransform rectTransformPanel;
@@ -45,6 +57,14 @@ public class SettingsPanelManager : MonoBehaviour
     // Botones de navegación creados dinámicamente
     private Dictionary<SettingsPanel, Button> botonesNavegacion = new Dictionary<SettingsPanel, Button>();
 
+    /// <summary>
+    /// Se dispara cada vez que se muestra un panel de configuración. Las UI de los paneles
+    /// (por ejemplo AudioSettingsUI) lo usan para sincronizarse aunque su script viva en el
+    /// GameController y no en el GameObject del panel, así que su OnEnable no se repite.
+    /// Es estático para no obligar a cablear referencias entre escenas.
+    /// </summary>
+    public static event System.Action<SettingsPanel> PanelMostrado;
+
     public enum TipoSlideSettings
     {
         ArribaAbajo,        // Panel se desliza desde arriba
@@ -57,9 +77,63 @@ public class SettingsPanelManager : MonoBehaviour
     {
         InicializarComponentes();
         ConfigurarBotonToggle();
+        ConfigurarBotonSalir();
+        ConfigurarBotonRepetirTutorial();
         CrearBotonesNavegacion();
         CalcularPosiciones();
         ConfigurarEstadoInicial();
+    }
+
+    private void ConfigurarBotonSalir()
+    {
+        if (botonSalir == null) return;
+
+        botonSalir.onClick.RemoveAllListeners();
+        botonSalir.onClick.AddListener(SalirASeleccionCuentos);
+    }
+
+    public void SalirASeleccionCuentos()
+    {
+        if (usarSonidos && GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        if (string.IsNullOrEmpty(nombreEscenaSeleccion))
+        {
+            Debug.LogWarning("[SettingsPanelManager] nombreEscenaSeleccion vacío; no se pudo cambiar de escena.");
+            return;
+        }
+
+        SceneManager.LoadScene(nombreEscenaSeleccion);
+    }
+
+    private void ConfigurarBotonRepetirTutorial()
+    {
+        if (botonRepetirTutorial == null) return;
+
+        botonRepetirTutorial.onClick.RemoveAllListeners();
+        botonRepetirTutorial.onClick.AddListener(RepetirTutorial);
+    }
+
+    /// <summary>
+    /// Vuelve a pasar por el tutorial: borra la marca de completado (así el menú también
+    /// volverá a mandar al tutorial) y carga su escena. Pública para poder engancharla
+    /// desde el onClick del Inspector en cualquier escena.
+    /// </summary>
+    public void RepetirTutorial()
+    {
+        if (usarSonidos && GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        TutorialProgreso.Borrar();
+
+        if (string.IsNullOrEmpty(nombreEscenaTutorial))
+        {
+            Debug.LogWarning("[SettingsPanelManager] nombreEscenaTutorial vacío; progreso borrado pero no se cambió de escena.");
+            return;
+        }
+
+        Debug.Log($"[SettingsPanelManager] 🎓 Repetir tutorial → cargando '{nombreEscenaTutorial}'");
+        SceneManager.LoadScene(nombreEscenaTutorial);
     }
 
     private void InicializarComponentes()
@@ -345,7 +419,9 @@ public class SettingsPanelManager : MonoBehaviour
         }
 
         ActualizarBotonesNavegacion();
-        
+
+        PanelMostrado?.Invoke(panel);
+
         Debug.Log($"[SettingsPanelManager] Panel mostrado: {panel.nombrePanel}");
     }
 

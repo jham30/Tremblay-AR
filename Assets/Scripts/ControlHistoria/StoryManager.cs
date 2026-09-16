@@ -16,6 +16,11 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private bool reproducirFragmentosAutomaticamente = true;
     [SerializeField] private bool permitirSaltarFragmentos = true;
     [SerializeField] private float delayEntreFragmentos = 0.5f;
+
+    [Header("🎬 Prólogo")]
+    [Tooltip("Fragmento que se reproduce automáticamente al iniciar el juego (solo la primera vez)")]
+    [SerializeField] private StoryFragment fragmentoPrologo;
+    [SerializeField] private float delayPrologo = 1f;
     
     [Header("💾 Sistema de Guardado")]
     [SerializeField] private string nombreArchivoProgreso = "story_progress.json";
@@ -30,16 +35,21 @@ public class StoryManager : MonoBehaviour
     
     void Awake()
     {
-        // Singleton "last wins": la nueva escena reemplaza al viejo DDOL
-        // para evitar que queden referencias de inspector colgando.
+        // StoryManager es POR-ESCENA: cada cuento tiene su propia narrativa
+        // (fragmentos, prólogo, referencias de inspector distintas), así que NO
+        // debe persistir entre escenas. Se destruye con la escena y la siguiente
+        // crea el suyo desde cero. El ÚNICO manager que persiste (DontDestroyOnLoad)
+        // es GlobalAudioManager, y debe vivir en su propio GameObject dedicado,
+        // separado de todos los managers por-escena.
         if (Instance != null && Instance != this)
         {
-            Destroy(Instance.gameObject);
+            // Duplicado dentro de la misma escena (setup erróneo): descartar solo
+            // este componente, sin tocar el GameObject compartido.
+            Destroy(this);
+            return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         InicializarSistema();
     }
     
@@ -48,6 +58,20 @@ public class StoryManager : MonoBehaviour
         BuscarReferencias();
         SuscribirseAEventos();
         CargarProgreso();
+        ReproducirPrologo();
+    }
+
+    /// <summary>
+    /// Reproduce el fragmento-prólogo inicial (la intro que encadena otros) si no se ha visto.
+    /// Se llama en Start y también tras un reset (Play Again), para que la intro vuelva a
+    /// reproducirse sin recargar la escena.
+    /// </summary>
+    public void ReproducirPrologo()
+    {
+        if (fragmentoPrologo == null) return;
+        if (FragmentoYaVisto(fragmentoPrologo.fragmentID)) return;
+
+        StartCoroutine(ReproducirConDelay(fragmentoPrologo, delayPrologo));
     }
     
     private void InicializarSistema()
@@ -61,10 +85,10 @@ public class StoryManager : MonoBehaviour
     private void BuscarReferencias()
     {
         if (missionManager == null)
-            missionManager = FindObjectOfType<MissionManager>();
-        
+            missionManager = MissionManager.Instance;
+
         if (gameObjectManager == null)
-            gameObjectManager = FindObjectOfType<GameObjectManager>();
+            gameObjectManager = GameObjectManager.Instance;
         
         if (storyUI == null)
             storyUI = FindObjectOfType<StoryUIController>();
@@ -118,43 +142,54 @@ public class StoryManager : MonoBehaviour
         reproduccionActual = StartCoroutine(ReproducirFragmentoCoroutine(fragmento));
     }
     
-    private IEnumerator ReproducirFragmentoCoroutine(StoryFragment fragmento)
+    private IEnumerator ReproducirFragmentoCoroutine(StoryFragment fragmento, bool esContinuacion = false)
     {
         reproduciendoFragmento = true;
         fragmentoActual = fragmento;
-        
+
         if (debugMode)
-            Debug.Log($"📖 [StoryManager] ▶️ Reproduciendo: {fragmento.fragmentID}");
-        
-        PausarGameplay(true);
-        
+            Debug.Log($"📖 [StoryManager] ▶️ Reproduciendo: {fragmento.fragmentID} (continuación: {esContinuacion})");
+
+        if (!esContinuacion)
+            PausarGameplay(true);
+
         if (storyUI != null)
         {
-            yield return StartCoroutine(storyUI.MostrarFragmento(fragmento));
+            yield return StartCoroutine(storyUI.MostrarFragmento(fragmento, esContinuacion));
         }
         else
         {
             yield return StartCoroutine(ReproducirSoloAudio(fragmento));
         }
-        
+
         MarcarFragmentoVisto(fragmento.fragmentID);
         GuardarProgreso();
-        PausarGameplay(false);
-        
-        if (fragmento.siguienteFragmento != null)
+
+        if (fragmento.siguienteFragmento != null && fragmento.siguienteFragmento.EsValido())
         {
+            // Si el panel quedó visible esperando un crossfade, el siguiente
+            // fragmento se reproduce como continuación (sin fade del panel completo).
+            bool continuarConCrossfade = storyUI != null && storyUI.PanelListoParaContinuacion;
+
             yield return new WaitForSeconds(fragmento.delayAntesSiguiente);
-            ReproducirFragmento(fragmento.siguienteFragmento);
+            yield return StartCoroutine(ReproducirFragmentoCoroutine(fragmento.siguienteFragmento, continuarConCrossfade));
         }
-        
-        reproduciendoFragmento = false;
-        fragmentoActual = null;
-        
-        if (colaFragmentos.Count > 0)
+        else
         {
-            yield return new WaitForSeconds(delayEntreFragmentos);
-            StoryFragment siguiente = colaFragmentos.Dequeue();
-            ReproducirFragmento(siguiente);
+            PausarGameplay(false);
+        }
+
+        if (!esContinuacion)
+        {
+            reproduciendoFragmento = false;
+            fragmentoActual = null;
+
+            if (colaFragmentos.Count > 0)
+            {
+                yield return new WaitForSeconds(delayEntreFragmentos);
+                StoryFragment siguiente = colaFragmentos.Dequeue();
+                ReproducirFragmento(siguiente);
+            }
         }
     }
     
@@ -221,6 +256,21 @@ public class StoryManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Ruta del archivo de progreso, namespaciada por cuento. Cada cuento lleva
+    /// su propia narrativa (story_progress_halloween.json, story_progress_christmas.json…)
+    /// para que los fragmentos vistos de un cuento no afecten a otro. Si no hay
+    /// CuentoActual en la escena, usa el nombre base (compat hacia atrás).
+    /// </summary>
+    private string RutaProgreso()
+    {
+        string cuento = CuentoActual.GetCuentoActual();
+        string archivo = string.IsNullOrEmpty(cuento)
+            ? nombreArchivoProgreso
+            : $"{System.IO.Path.GetFileNameWithoutExtension(nombreArchivoProgreso)}_{cuento}.json";
+        return System.IO.Path.Combine(Application.persistentDataPath, archivo);
+    }
+
     public void GuardarProgreso()
     {
         // Guard: si este era el duplicado destruido en Awake, progresoActual es null
@@ -230,9 +280,9 @@ public class StoryManager : MonoBehaviour
         {
             progresoActual.fragmentosVistos = fragmentosVistos.ToList();
             progresoActual.ultimaActualizacion = System.DateTime.Now.ToString();
-            
+
             string json = JsonUtility.ToJson(progresoActual, true);
-            string ruta = System.IO.Path.Combine(Application.persistentDataPath, nombreArchivoProgreso);
+            string ruta = RutaProgreso();
             System.IO.File.WriteAllText(ruta, json);
             
             if (debugMode)
@@ -248,8 +298,8 @@ public class StoryManager : MonoBehaviour
     {
         try
         {
-            string ruta = System.IO.Path.Combine(Application.persistentDataPath, nombreArchivoProgreso);
-            
+            string ruta = RutaProgreso();
+
             if (System.IO.File.Exists(ruta))
             {
                 string json = System.IO.File.ReadAllText(ruta);
@@ -285,6 +335,12 @@ public class StoryManager : MonoBehaviour
     {
         return fragmentosVistos.Contains(fragmentoID);
     }
+
+    /// <summary>
+    /// True si en este momento se está reproduciendo un fragmento de narración.
+    /// Lo usa el panel de fin de juego para esperar a que termine antes de aparecer.
+    /// </summary>
+    public bool EstaReproduciendo => reproduciendoFragmento;
     
     public void SaltarFragmentoActual()
     {
@@ -342,11 +398,26 @@ public class StoryManager : MonoBehaviour
     [ContextMenu("🔄 Resetear Progreso")]
     public void ResetearProgreso()
     {
+        // 1) Limpiar estado EN MEMORIA (para que los fragmentos se repitan en esta misma sesión)
         fragmentosVistos.Clear();
         progresoActual = new StoryProgressData();
+
+        // 2) Escribir vacío en el archivo del cuento actual
         GuardarProgreso();
-        
-        Debug.Log("📖 [StoryManager] Progreso reseteado");
+
+        // 3) Borrar también el archivo base (sin cuento) por limpieza, si existe y es distinto
+        try
+        {
+            string rutaBase = System.IO.Path.Combine(Application.persistentDataPath, nombreArchivoProgreso);
+            if (System.IO.File.Exists(rutaBase) && rutaBase != RutaProgreso())
+                System.IO.File.Delete(rutaBase);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning($"📖 [StoryManager] No se pudo borrar el progreso base: {e.Message}");
+        }
+
+        Debug.Log("📖 [StoryManager] Progreso de historia reseteado");
     }
     
     private void CrearUIBasico()
@@ -360,11 +431,15 @@ public class StoryManager : MonoBehaviour
     
     void OnDestroy()
     {
+        // Liberar el singleton al destruirse con la escena, para que la siguiente
+        // escena registre su propio StoryManager sin referencias colgantes.
+        if (Instance == this) Instance = null;
+
         if (missionManager != null)
         {
             missionManager.OnMisionesActualizadas -= HandleMisionesActualizadas;
         }
-        
+
         GuardarProgreso();
     }
 }

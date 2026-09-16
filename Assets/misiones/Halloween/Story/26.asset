@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: f5b57b6d0c14add4e8b3c1eee0695b70, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "witch\r\nThank you, child... I don\u2019t like waking up.\r\nSomeone
-    took my hand... and forced me to wander.\n\r\nChild.\r\ndon't worried miss. Let\u2019s
-    go back to the house... I\u2019ll make you some tea... and go back to sleep,
-    peacefully.\r"
+  textoFragmento: "<color=#BEFF7A>\r\n[Witch]\r\nThank you, child... I don\u2019t
+    like waking up.\r\nSomeone took my hand... and forced me to wander.</color>\r\n\r\n[Child]\r\ndon't
+    worried miss. Let\u2019s go back to the house... I\u2019ll make you some tea...
+    and go back to sleep, peacefully.\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5

@@ -16,9 +16,9 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 887cf9fa109fce8499c3d1418535666d, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "\rChild.\nI have to get out of here.\r\nWhere are the stairs?...
+  textoFragmento: "[Child]\nI have to get out of here.\r\nWhere are the stairs?...
     I think that way...\r\nWas that... a footstep?...\r\nYeah... someone\u2019s up
-    there.\n\r\nwitch.\r\n\u2014Mittens! Mittens, come here!"
+    there.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\n\u2014Mittens! Mittens, come here!</color>"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5
@@ -27,7 +27,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 10
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: c4bba6c62a160b14ea1d37dad1fc0cb3, type: 3}
   "intensidadVi\xF1eta": 0.3

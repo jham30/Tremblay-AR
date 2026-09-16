@@ -33,8 +33,8 @@ public class ObjectInfoMissionPanel : MonoBehaviour
     void Awake()
     {
         mainManager = GetComponent<ObjectInfoUIManager>();
-        missionManager = FindObjectOfType<MissionManager>();
-        gameObjectManager = FindObjectOfType<GameObjectManager>();
+        missionManager = MissionManager.Instance;
+        gameObjectManager = GameObjectManager.Instance;
     }
     
     /// <summary>
@@ -152,7 +152,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             tituloItem.transform.SetParent(contenedor, false);
             
             TextMeshProUGUI texto = tituloItem.AddComponent<TextMeshProUGUI>();
-            texto.text = "Misiones disponibles:";
+            texto.text = "Available missions:";
             texto.fontSize = 18;
             texto.fontStyle = FontStyles.Bold;
         }
@@ -342,7 +342,38 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             texto.text = datos.nombreEspanol;
         }
 
+        // 🗑️ Botón "X" para retirar este objeto del panel de comprobación (si el prefab lo tiene)
+        ConfigurarBotonQuitarSprite(spriteItem, objetoID);
+
         Debug.Log($"[MissionPanel] Sprite creado para {datos.nombreEspanol}");
+    }
+
+    /// <summary>
+    /// Engancha el botón "BotonQuitar" del sprite colocado para retirar ESE objeto del panel.
+    /// El destino es el objeto que se está mostrando ahora (mainManager.ObjetoActualID).
+    /// </summary>
+    private void ConfigurarBotonQuitarSprite(GameObject spriteItem, string objetoID)
+    {
+        if (spriteItem == null) return;
+
+        Transform btnT = spriteItem.transform.Find("BotonQuitar");
+        if (btnT == null) return;
+
+        Button botonQuitar = btnT.GetComponent<Button>();
+        if (botonQuitar == null) return;
+
+        string idCapturado = objetoID;
+        GameObject spriteRef = spriteItem;
+
+        botonQuitar.onClick.RemoveAllListeners();
+        botonQuitar.onClick.AddListener(() =>
+        {
+            string destino = mainManager != null ? mainManager.ObjetoActualID : null;
+            if (mainManager != null && !string.IsNullOrEmpty(destino))
+                mainManager.RetirarObjetoColocado(destino, idCapturado);
+
+            if (spriteRef != null) Destroy(spriteRef);
+        });
     }
     
     /// <summary>

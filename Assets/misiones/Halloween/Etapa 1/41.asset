@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 41
   m_EditorClassIdentifier: 
-  descripcion: "Lleva el hongo y la calabaza a la cocina para preparar el t\xE9.\r"
+  descripcion: "Lleva el hongo <sprite name=\"hongo\"> y la calabaza <sprite name=\"calabaza\">
+    a la cocina para preparar el t\xE9.\r"
   partes:
   - tipo: 0
     texto: 'Lleva el '
@@ -42,6 +43,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 41
+  cuentos: []
   idObjetoDestino: caldero
   idsObjetosCorrectos:
   - hongo
@@ -49,3 +51,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

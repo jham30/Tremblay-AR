@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 43
   m_EditorClassIdentifier: 
-  descripcion: "Lleva la pala y el cr\xE1neo a la tumba para cavar y colocarlo dentro.\r"
+  descripcion: "Lleva la pala <sprite name=\"pala\"> y el cr\xE1neo <sprite name=\"craneo\">
+    a la tumba <sprite name=\"tumba\"> para cavar y colocarlo dentro.\r"
   partes:
   - tipo: 0
     texto: Lleva la
@@ -42,6 +43,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 43
+  cuentos: []
   idObjetoDestino: tumba
   idsObjetosCorrectos:
   - pala
@@ -49,3 +51,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

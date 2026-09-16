@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
@@ -18,13 +19,23 @@ public class InputRouter : MonoBehaviour
 
     private Camera mainCamera;
     private InventarioToggleController inventarioToggle;
+    private MissionListUI missionListUI;
+    private SettingsPanelManager settingsManager;
+
+    // Reutilizado en el chequeo de UI para no generar basura en cada toque
+    private static readonly List<RaycastResult> _uiHits = new List<RaycastResult>();
 
     void Awake()
     {
+        // Last-wins: si Instance es una referencia vieja que sigue "viva" (p.ej.
+        // porque comparte GameObject con un componente DontDestroyOnLoad como
+        // StoryManager, lo que la mantiene fuera del ciclo normal de destrucción
+        // de escena), destruirla en vez de autodestruir esta instancia nueva.
+        // Con first-wins, esta instancia nueva se autodestruía y se llevaba
+        // consigo TODO el GameController de la escena (incluido Vuforia/AR).
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(Instance.gameObject);
         }
         Instance = this;
 
@@ -46,7 +57,9 @@ public class InputRouter : MonoBehaviour
 
     void Start()
     {
-        inventarioToggle = FindObjectOfType<InventarioToggleController>();
+        inventarioToggle = InventarioToggleController.Instance;
+        missionListUI = FindObjectOfType<MissionListUI>();
+        settingsManager = FindObjectOfType<SettingsPanelManager>();
 
         if (mainCamera == null)
             mainCamera = FindObjectOfType<Camera>();
@@ -55,19 +68,42 @@ public class InputRouter : MonoBehaviour
     private bool EstaInventarioAbierto()
     {
         if (inventarioToggle == null)
-            inventarioToggle = FindObjectOfType<InventarioToggleController>();
+            inventarioToggle = InventarioToggleController.Instance;
         return inventarioToggle != null && inventarioToggle.EstaPanelVisible();
+    }
+
+    private bool EstaMisionesAbierto()
+    {
+        if (missionListUI == null)
+            missionListUI = FindObjectOfType<MissionListUI>();
+        return missionListUI != null && missionListUI.EstaPanelVisible();
+    }
+
+    private bool EstaSettingsAbierto()
+    {
+        if (settingsManager == null)
+            settingsManager = FindObjectOfType<SettingsPanelManager>();
+        return settingsManager != null && settingsManager.EstaPanelVisible();
+    }
+
+    /// <summary>
+    /// ¿Hay algún elemento de UI (con Raycast Target) bajo este punto de pantalla?
+    /// Fiable con el nuevo Input System (a diferencia de IsPointerOverGameObject(touchId),
+    /// cuyo touchId no coincide con el pointerId interno del EventSystem y solía fallar).
+    /// </summary>
+    private bool EstaSobreUI(Vector2 posicionPantalla)
+    {
+        if (EventSystem.current == null) return false;
+
+        var ped = new PointerEventData(EventSystem.current) { position = posicionPantalla };
+        _uiHits.Clear();
+        EventSystem.current.RaycastAll(ped, _uiHits);
+        return _uiHits.Count > 0;
     }
 
     private void OnTouchPress(InputAction.CallbackContext ctx)
     {
-        var touchscreen = Touchscreen.current;
-        if (touchscreen == null) return;
-
-        int touchId = touchscreen.primaryTouch.touchId.ReadValue();
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touchId))
-            return;
-
+        if (Touchscreen.current == null) return;
         DetectarYRutar(touchPositionAction.ReadValue<Vector2>());
     }
 
@@ -76,15 +112,19 @@ public class InputRouter : MonoBehaviour
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
             return;
 
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return;
-
         DetectarYRutar(mousePositionAction.ReadValue<Vector2>());
     }
 
     private void DetectarYRutar(Vector2 posicionPantalla)
     {
+        // No rutear al AR si un panel (casi pantalla completa) está abierto…
         if (EstaInventarioAbierto()) return;
+        if (EstaMisionesAbierto()) return;
+        if (EstaSettingsAbierto()) return;
+
+        // …ni si el dedo/cursor está sobre cualquier elemento de UI.
+        if (EstaSobreUI(posicionPantalla)) return;
+
         if (mainCamera == null) return;
 
         Ray ray = mainCamera.ScreenPointToRay(posicionPantalla);

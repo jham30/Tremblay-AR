@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 15
   m_EditorClassIdentifier: 
-  descripcion: "Lleva el cr\xE1neo y la vela al mausoleo para alumbrar la l\xE1pida.\r"
+  descripcion: "Lleva el cr\xE1neo <sprite name=\"craneo\"> y la vela <sprite name=\"vela\">
+    al mausoleo <sprite name=\"mausoleo\"> para alumbrar la l\xE1pida <sprite name=\"lapida\">.\r"
   partes:
   - tipo: 0
     texto: Lleva el
@@ -39,6 +40,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 15
+  cuentos: []
   idObjetoDestino: lapida
   idsObjetosCorrectos:
   - craneo
@@ -46,3 +48,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 11400000, guid: c75c40308d009bc4e88381dbd69cce94, type: 2}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

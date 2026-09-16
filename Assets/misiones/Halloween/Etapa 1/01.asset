@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 01
   m_EditorClassIdentifier: 
-  descripcion: "Enciende el farol con la vela.\r"
+  descripcion: "Enciende el farol <sprite name=\"farol\"> con la vela <sprite name=\"vela\">.\r"
   partes:
   - tipo: 0
     texto: 'Enciende el '
@@ -26,16 +26,19 @@ MonoBehaviour:
   - tipo: 1
     texto: vela
     idCorrecto: vela
-  tipoActivacion: 0
-  objetosRequeridos: []
+  tipoActivacion: 2
+  objetosRequeridos:
+  - 
   misionRequeridaID: 
   bloqueada: 1
   descifrada: 1
   completada: 1
   misionID: 01
+  cuentos: []
   idObjetoDestino: farol
   idsObjetosCorrectos:
   - vela
   fragmentoAlDescifrar: {fileID: 11400000, guid: 22c13c69a6381744a909fddc0e21b95c, type: 2}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: AnimacionFarolTimeline

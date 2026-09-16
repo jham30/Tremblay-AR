@@ -17,7 +17,7 @@ MonoBehaviour:
     ufoLicenseKey: QVhlTzdNbi8vLy8vQUFBQUtKY1hkUGd1L0V3b2pqcERKSklDc0xoMXp2Q1hPaHNaSkZnTE0zczlsaEMyOVZ6bVJGNHc5SThWd1lGY054V084L3h3Y0tZTDNuQ3Zoblc1VFZSOENGT3BRLzFVN0VVbXZJUFZ0cjA3SldIcURDYS8zcGQweTV6eUtkcjQ1ZWFKY2dHMUNjQnRHdWg5cUwrcGxGMytyMXRtajhyMjNKTHNBNllmcy9xblhoanB0bDhrQXZQQndxa1Q0MkZEMEVqdjNlTmdOelZMS3UvZmdzRkpGd1BTQTMxTk9LUGpsTWZCOEMvV2MrSGZZRDJUWjhiQVV1ZndKRGxTT3RNUzBWeCtBdC9yTmlnS2M1WU5mVkNBR0ZRK0QvQmZtc0lwZERyZndEZm9CdlN5c0ZGSHNzcVg2ZmZ0VUxHVWlrcEJQdDkrWmZLeCtKZkxoazFpTjBuQXdEbWhNNlZjUG5IdGF5dXo5SHBhREhSeWZIK1I=
     delayedInitialization: 0
     cameraFocusModeSetting: 2
-    cameraDeviceModeSetting: -1
+    cameraDeviceModeSetting: -3
     maxSimultaneousImageTargets: 3
     virtualSceneScaleFactor: 1
     modelTargetRecoWhileExtendedTracked: 1
@@ -47,7 +47,7 @@ MonoBehaviour:
     thirdPartyARCoreClientDetected: 0
   playmode:
     mRecordingPath: 
-    playModeType: 1
+    playModeType: 0
     mSimulatorInputActionAsset: {fileID: -944628639613478452, guid: eae7022f5cfd04e8189b1f372421b225, type: 3}
   webcam:
     renderTextureLayer: 30

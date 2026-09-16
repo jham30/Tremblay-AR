@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 26072b8ca4514034f87e0c19eab27215, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nI promise I won\u2019t come into your house without
-    permission.\n\r\nwitch\r\nMittens would know.\n\r\nChild.\r\nSleep well. And\u2026
-    thanks for not turning me into a frog.\n\r\nwitch\r\nHa! I didn\u2019t even think
-    of that one! \r"
+  textoFragmento: "[Child]\r\nI promise I won\u2019t come into your house without
+    permission.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nMittens would know.</color>\r\n\r\n[Child]\r\nSleep
+    well. And\u2026 thanks for not turning me into a frog.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nHa!
+    I didn\u2019t even think of that one! </color>\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5

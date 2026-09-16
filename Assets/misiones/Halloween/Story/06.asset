@@ -16,8 +16,8 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: dbd9d0a144145ba4ba3964d92760d944, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nI think... she\u2019s gone.\r\nYeah... it\u2019s quiet
-    now...\r\nI can finally get out of here.\r\nEvery step creaks... but it doesn\u2019t
+  textoFragmento: "[Child]\r\nI think... she\u2019s gone.\r\nYeah... it\u2019s quiet
+    now...\r\nI can finally get out of here.{2}\r\nEvery step creaks... but it doesn\u2019t
     matter, I have to see what\u2019s upstairs.\r\n"
   duracionTotal: 0
   tiempoFadeIn: 0.5
@@ -27,7 +27,7 @@ MonoBehaviour:
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
   "tama\xF1oFuente": 24
   usarTypewriter: 1
-  velocidadTypewriter: 40
+  velocidadTypewriter: 10
   efectoVisualPrefab: {fileID: 0}
   imagenFondo: {fileID: 21300000, guid: d067861f89d91fd428f218aacfeff041, type: 3}
   "intensidadVi\xF1eta": 0.3

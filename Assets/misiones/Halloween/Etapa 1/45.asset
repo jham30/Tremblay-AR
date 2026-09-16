@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 45
   m_EditorClassIdentifier: 
-  descripcion: "Lleva el gorro y el farol a la bruja para que despida su \xFAltima
-    noche.\r"
+  descripcion: "Lleva el gorro <sprite name=\"gorro\"> y el farol <sprite name=\"farol\">
+    a la bruja <sprite name=\"bruja\"> para que despida su \xFAltima noche.\r"
   partes:
   - tipo: 0
     texto: Lleva el
@@ -43,6 +43,7 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 45
+  cuentos: []
   idObjetoDestino: bruja
   idsObjetosCorrectos:
   - farol
@@ -50,3 +51,4 @@ MonoBehaviour:
   fragmentoAlDescifrar: {fileID: 11400000, guid: 7cb383ee13f045e4c97f5bc124a8cd1c, type: 2}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

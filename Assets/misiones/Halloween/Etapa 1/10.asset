@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 10
   m_EditorClassIdentifier: 
-  descripcion: "Asustar el murci\xE9lago con la escoba.\r"
+  descripcion: "Asustar el murci\xE9lago <sprite name=\"murcielago\"> con la escoba
+    <sprite name=\"escoba\">.\r"
   partes:
   - tipo: 0
     texto: Asustar el
@@ -33,9 +34,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 10
+  cuentos: []
   idObjetoDestino: murcielago
   idsObjetosCorrectos:
   - escoba
   fragmentoAlDescifrar: {fileID: 0}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

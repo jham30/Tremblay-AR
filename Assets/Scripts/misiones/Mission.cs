@@ -59,6 +59,10 @@ public class Mission : ScriptableObject
     [Tooltip("Reproducir fragmento automáticamente o esperar confirmación")]
     public bool reproducirFragmentoAutomaticamente = true;
 
+    [Header("🎬 Animación al Completar (AR)")]
+    [Tooltip("Nombre del Timeline (PlayableDirector) a reproducir en el objeto destino al completar esta misión. Debe coincidir con el nombre del GameObject que tiene el PlayableDirector, o con el nombre del PlayableAsset asignado. Si está vacío, el fragmento (si existe) se reproduce inmediatamente.")]
+    public string nombreTimelineAlCompletar;
+
     /// <summary>
     /// Verifica si esta misión tiene fragmentos de historia asociados
     /// </summary>

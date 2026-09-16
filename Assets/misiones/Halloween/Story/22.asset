@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: f6018c5c09033ed4c9ec05670fa7233f, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nWow... this tree is creepy \u2014 it almost looks like
+  textoFragmento: "[Child]\r\nWow... this tree is creepy \u2014 it almost looks like
     it has a face.\r\n Hmm... I\u2019ll light the pumpkin, just like the book said.\r\n
     \u201CThe light of a lit pumpkin reveals the place of rest.\u201D\r"
   duracionTotal: 0

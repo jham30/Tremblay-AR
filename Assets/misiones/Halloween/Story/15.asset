@@ -16,7 +16,7 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 9bc9c473b95e9914ab3d5dd438c1e738, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\n\u201CFor the witch to rest in peace, her body must
+  textoFragmento: "[Child]\r\n\u201CFor the witch to rest in peace, her body must
     be complete in her coffin... and offer her mushroom tea.\u201D\r\nHer body...
     complete...?\r\nThen...\r\nThe hand... the hand is hers...\r\nOf course... the
     hand holding the chain.\r\nYes... now I know what to do.\r"

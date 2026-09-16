@@ -83,6 +83,8 @@ public class GameSaveData
 
 public class GameObjectManager : MonoBehaviour
 {
+    public static GameObjectManager Instance { get; private set; }
+
     [Header("Configuración del Sistema")]
     public string nombreArchivo = "objetos_guardados.json";
     public string archivoInicialStreamingAssets = "objetos_iniciales.json";
@@ -98,6 +100,8 @@ public class GameObjectManager : MonoBehaviour
     public MissionManager missionManager;
 
     public event Action OnDatosCargados;
+    // 🎃 Se dispara al guardar un objeto en el inventario (feedback de la calabaza reactiva)
+    public event Action<string> OnObjetoGuardado;
     public bool datosCargados { get; private set; } = false;
 
     private string rutaArchivo;
@@ -124,6 +128,17 @@ public class GameObjectManager : MonoBehaviour
 
     void Awake()
     {
+        // Last-wins: ver comentario en InputRouter.Awake(). GameObjectManager
+        // se buscaba en toda la escena con FindObjectOfType<GameObjectManager>()
+        // desde StoryManager, MissionManager, ObjectInfoUIManager, etc. — sin
+        // singleton, esa búsqueda podía devolver la instancia vieja (todavía
+        // viva ese mismo frame por compartir GameObject con StoryManager DDOL)
+        // en vez de la nueva, dejando toda la escena nueva sin inicializar
+        // correctamente (paneles sin ocultar, fragmentos de historia sin disparar).
+        if (Instance != null && Instance != this)
+            Destroy(Instance.gameObject);
+        Instance = this;
+
         if (debugAndroid) Debug.Log("[GameObjectManager] Awake - Iniciando carga de datos...");
         StartCoroutine(InicializarDatos());
     }
@@ -275,6 +290,10 @@ public class GameObjectManager : MonoBehaviour
             }
 
             NotificarObjetoGuardado(id);
+
+            // 🎃 Notificar a la calabaza reactiva (solo al guardar, no al desmarcar)
+            OnObjetoGuardado?.Invoke(id);
+
             return true;
         }
         Debug.LogWarning($"No se encontró objeto con ID '{id}'.");
@@ -428,7 +447,7 @@ public class GameObjectManager : MonoBehaviour
         }
         else
         {
-            missionManager = FindObjectOfType<MissionManager>();
+            missionManager = MissionManager.Instance;
             if (missionManager != null)
             {
                 missionManager.ReevaluarMisiones();
@@ -617,5 +636,10 @@ public class GameObjectManager : MonoBehaviour
         listaObjetos.Clear();
         DatosMisiones = new MissionSaveData();
         GuardarDatos();
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 }

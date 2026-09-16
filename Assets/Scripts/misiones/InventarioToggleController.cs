@@ -502,14 +502,15 @@ public static InventarioToggleController Instance { get; private set; }
 // ✅ OPCIONAL - Método para configurar el singleton en Awake()
 private void Awake()
 {
-    if (Instance == null)
+    // Last-wins: ver comentario en InputRouter.Awake() — evita que esta
+    // instancia nueva se autodestruya (y se lleve consigo todo el
+    // GameController de la escena) cuando Instance quedó "viva" por
+    // compartir GameObject con un componente DontDestroyOnLoad.
+    if (Instance != null && Instance != this)
     {
-        Instance = this;
+        Destroy(Instance.gameObject);
     }
-    else
-    {
-        Destroy(gameObject);
-    }
+    Instance = this;
 }
     public void RecalcularPosiciones()
     {

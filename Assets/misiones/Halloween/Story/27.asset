@@ -16,10 +16,10 @@ MonoBehaviour:
   nombreFragmento: 
   audioNarracion: {fileID: 8300000, guid: 1ab998a4790620a4ea8e6e329e3882cc, type: 3}
   volumenAudio: 0.8
-  textoFragmento: "Child.\r\nThere... is that better? I put some flowers to decorate.\n\r\nwitch\r\nThank
-    you, child...\r\nI\u2019m sorry I scared you so much. That wasn\u2019t my intention.\n\r\nChild.\r\nWell...
-    it\u2019s not every day you meet a witch who\u2019s afraid of spiders.\n\r\nwitch\r\nI
-    suppose not.\r"
+  textoFragmento: "[Child]\r\nThere... is that better? I put some flowers to decorate.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nThank
+    you, child...\r\nI\u2019m sorry I scared you so much. That wasn\u2019t my intention.</color>\r\n\r\n[Child]\r\nWell...
+    it\u2019s not every day you meet a witch who\u2019s afraid of spiders.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nI
+    suppose not.</color>\r"
   duracionTotal: 0
   tiempoFadeIn: 0.5
   tiempoFadeOut: 0.5

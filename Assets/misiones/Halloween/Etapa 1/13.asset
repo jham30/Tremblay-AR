@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fd470925eaa884386cbe8d241d6862, type: 3}
   m_Name: 13
   m_EditorClassIdentifier: 
-  descripcion: "Alumbrar el libro con el farol.\r"
+  descripcion: "Alumbrar el libro <sprite name=\"libro\"> con el farol <sprite name=\"farol\">.\r"
   partes:
   - tipo: 0
     texto: Alumbrar el
@@ -33,9 +33,11 @@ MonoBehaviour:
   descifrada: 0
   completada: 0
   misionID: 13
+  cuentos: []
   idObjetoDestino: libro
   idsObjetosCorrectos:
   - farol
   fragmentoAlDescifrar: {fileID: 11400000, guid: 3aac3ef12c06a104f8ff86538dc12a1b, type: 2}
   fragmentoAlCompletar: {fileID: 0}
   reproducirFragmentoAutomaticamente: 1
+  nombreTimelineAlCompletar: 

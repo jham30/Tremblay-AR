@@ -16,7 +16,7 @@ public class ObjectDisplayController : MonoBehaviour
 
     void Start()
     {
-        gameObjectManager = FindObjectOfType<GameObjectManager>();
+        gameObjectManager = GameObjectManager.Instance;
         if (gameObjectManager == null)
         {
             Debug.LogError("No se encontró GameObjectManager en la escena!");

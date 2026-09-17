@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76088ac1946bc434aa974ee8ec6726de, type: 3}
+  m_Name: tumba
+  m_EditorClassIdentifier: Assembly-CSharp::ObjetoData
+  id: tumba
+  nombre:
+    m_TableReference:
+      m_TableCollectionName: GUID:449242646253087458b9314e275643ce
+    m_TableEntryReference:
+      m_KeyId: 206833465667584
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  color:
+    m_TableReference:
+      m_TableCollectionName: GUID:449242646253087458b9314e275643ce
+    m_TableEntryReference:
+      m_KeyId: 206833465667585
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNombre:
+    m_TableReference:
+      m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
+    m_TableEntryReference:
+      m_KeyId: 206831070720000
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  audioColor:
+    m_TableReference:
+      m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
+    m_TableEntryReference:
+      m_KeyId: 206831070720001
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  prefab3D: {fileID: 8923681436371134190, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
+  sprite2D: {fileID: 21300000, guid: 3b9c4500d8efbf649a8a1352beb8314c, type: 3}
+  cuentos:
+  - halloween
+  usarConfiguracionPersonalizada: 0
+  posicionAgarradoPersonalizada: {x: 0, y: -0.2, z: 0.5}
+  rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
+  escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
+  notasConfiguracion: "Configuraci\xF3n por defecto"
+  references:
+    version: 2
+    RefIds: []

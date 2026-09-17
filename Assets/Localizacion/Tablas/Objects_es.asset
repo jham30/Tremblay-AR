@@ -17,7 +17,223 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 449242646253087458b9314e275643ce, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 206825865588736
+    m_Localized: Vela
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206825907531776
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206826494734336
+    m_Localized: Vela
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206826494734337
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206826826084352
+    m_Localized: "Ara\xF1a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206826826084353
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827186794496
+    m_Localized: "\xC1rbol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827186794497
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827564281856
+    m_Localized: "Ata\xFAd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827564281857
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827920797696
+    m_Localized: Calabaza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827924992000
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828256342016
+    m_Localized: Calabaza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828256342017
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828570914816
+    m_Localized: "Cr\xE1neo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828570914817
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828927430656
+    m_Localized: Escoba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828927430657
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829275557888
+    m_Localized: Farol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829275557889
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829636268032
+    m_Localized: Gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829636268033
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830005366784
+    m_Localized: Gorro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830005366785
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830370271232
+    m_Localized: Hongo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830370271233
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830735175680
+    m_Localized: "L\xE1mpara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830735175681
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831095885824
+    m_Localized: "L\xE1pida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831095885825
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831460790272
+    m_Localized: Mano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831460790273
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831863443456
+    m_Localized: Mausoleo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831863443457
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832245125120
+    m_Localized: "Murci\xE9lago"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832245125121
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832647778304
+    m_Localized: Pala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832647778305
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833054625792
+    m_Localized: Reja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833054625793
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833465667584
+    m_Localized: Tumba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833465667585
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833830572032
+    m_Localized: Mesa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833830572033
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834195476480
+    m_Localized: Libro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834195476481
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834547798016
+    m_Localized: Bruja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834547798017
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834933673984
+    m_Localized: Flor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834933673985
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835290189824
+    m_Localized: Caldero
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835290189825
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835642511360
+    m_Localized: Salchicha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835642511361
+    m_Localized: Anaranjado
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

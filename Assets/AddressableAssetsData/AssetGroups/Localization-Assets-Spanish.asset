@@ -14,7 +14,157 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-Spanish
   m_GUID: d74625faf4ab64c428d4c99827cf3212
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 039a8fcd380ce8a4c9e6258b376b42eb
+    m_Address: mesa
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05b1f2ec2e9e1e64fba970e86b38e9b2
+    m_Address: reja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08f262f2b227849448088f8b16e4bd7e
+    m_Address: mausoleo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10dee6a7a9dba154888aa1c0e1c026e9
+    m_Address: vela
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46300f50ef978344a94b3dfcf3968da1
+    m_Address: lampara
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5069f7e86b74fe34697be234b2c9c759
+    m_Address: gorro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 597f25ff6d882de4f944377e54e1748b
+    m_Address: salchicha
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c759751a041c54438ef5654f5110f2e
+    m_Address: ataud
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7437d19681f6fe64d9bf19bd177f4f25
+    m_Address: flor
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7697963b9cf6df143aa1636ec2f96e88
+    m_Address: gato
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96cbb17bd13275f44a63df80731a33ea
+    m_Address: arana
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a233d0ea3582cec4ba7a0c6e3af0fea2
+    m_Address: lapida
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3cfd50ccf6f2ea4185bc5ec42f70320
+    m_Address: pala
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba42f32092f8f234196a365f367424bc
+    m_Address: murcielago
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bba1e90a72a0a8c46a8e52e96707ed28
+    m_Address: farol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf4dbfb477a11424ea02369ae0519d26
+    m_Address: escoba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1fe1c6062b72e04d8748e758b6f3c95
+    m_Address: tumba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d84a3da99fc5e8c4c9eb31f5d2a67f7c
+    m_Address: hongo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d99ec73d399e2e648994060e838aa0b9
+    m_Address: mano
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e22ad3e369b087744aa9810413b6ec6f
+    m_Address: libro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec371199f5e96a245abe2e1c3109ec5d
+    m_Address: bruja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f16298eeedd58054baa006471c422a37
+    m_Address: calabaza
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f401eb34ddfe0b34e91978d0c28c5116
+    m_Address: craneo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4f82f96ac149994f89fb682c3dc03b0
+    m_Address: caldero
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faf8e896905512e45a1bee7f218d766c
+    m_Address: arbol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c88847caa02b35f489d8f0a8cb231377, type: 2}
   m_SchemaSet:

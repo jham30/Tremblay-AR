@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76088ac1946bc434aa974ee8ec6726de, type: 3}
+  m_Name: lampara
+  m_EditorClassIdentifier: Assembly-CSharp::ObjetoData
+  id: lampara
+  nombre:
+    m_TableReference:
+      m_TableCollectionName: GUID:449242646253087458b9314e275643ce
+    m_TableEntryReference:
+      m_KeyId: 206830735175680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  color:
+    m_TableReference:
+      m_TableCollectionName: GUID:449242646253087458b9314e275643ce
+    m_TableEntryReference:
+      m_KeyId: 206830735175681
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNombre:
+    m_TableReference:
+      m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
+    m_TableEntryReference:
+      m_KeyId: 206828336033792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  audioColor:
+    m_TableReference:
+      m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
+    m_TableEntryReference:
+      m_KeyId: 206828336033793
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  prefab3D: {fileID: 2697965227584190506, guid: 065df652f7951be43937b6a03394c689, type: 3}
+  sprite2D: {fileID: 21300000, guid: 5ca557538822bc245b0875561778f20a, type: 3}
+  cuentos:
+  - halloween
+  usarConfiguracionPersonalizada: 1
+  posicionAgarradoPersonalizada: {x: -0.23, y: -1.48, z: 2.52}
+  rotacionAgarradaPersonalizada: {x: -2.59, y: 18.474, z: 13.224}
+  escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
+  notasConfiguracion: "Configuraci\xF3n por defecto"
+  references:
+    version: 2
+    RefIds: []

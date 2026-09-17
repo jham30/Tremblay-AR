@@ -845,7 +845,7 @@ public class StoryUIController : MonoBehaviour
             audioActual.Stop();
 
         if (fragmentoActual != null && textoFragmento != null)
-            textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmentoActual.textoFragmento);
+            textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmentoActual.TextoNativo);
 
         Debug.Log("📖 [StoryUI] ⏭️ Fragmento saltado");
     }

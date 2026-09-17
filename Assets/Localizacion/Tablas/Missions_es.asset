@@ -17,7 +17,203 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 72e42fbb4b9b59e40b2c568d38ba30af, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 312881799213056
+    m_Localized: Enciende el {farol} con la {vela}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156096
+    m_Localized: Saca la {arana} con la {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156097
+    m_Localized: Pon una {vela} dentro de la {calabaza}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156098
+    m_Localized: Lleva el {gorro} y la {escoba} a la {mesa}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350400
+    m_Localized: Dale {salchicha} al {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350401
+    m_Localized: Tapa al {gato} con el {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350402
+    m_Localized: Pon el {farol} en la {escoba} y enciende la {lampara}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350403
+    m_Localized: Poner el {hongo} en el {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350404
+    m_Localized: Poner la {vela} en el {craneo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350405
+    m_Localized: Asustar el {murcielago} con la {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350406
+    m_Localized: Golpear la {mano} con la {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350407
+    m_Localized: Golpear la {tumba} con la {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350408
+    m_Localized: Alumbrar el {libro} con el {farol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350409
+    m_Localized: Llevar la {craneo} al {mausoleo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350410
+    m_Localized: Lleva el {craneo} y la {vela} para alumbrar la {lapida}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881849544704
+    m_Localized: Encender la {lampara} con la {vela}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739008
+    m_Localized: Abre el {ataud} con la {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739009
+    m_Localized: Pon el {craneo} y la {calabaza} en el {mausoleo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933312
+    m_Localized: Caza la {arana} con la {escoba} y el {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933313
+    m_Localized: Dale un {hongo} al {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127616
+    m_Localized: Pon la {arana} en la {mano}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127617
+    m_Localized: Pon la {mano} en el {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127618
+    m_Localized: Lleva una {vela} a la {reja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321920
+    m_Localized: Lleva la {calabaza} la {vela} y el {farol} al {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321921
+    m_Localized: Usa la {escoba} para apartar la {arana} del {farol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516224
+    m_Localized: Limpia la {lapida} con la {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516225
+    m_Localized: Enciende una {vela} en la {calabaza}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710528
+    m_Localized: Empuja la {reja} con la {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710529
+    m_Localized: "Coloca la {lampara} sobre la {tumba} y enci\xE9ndela con la {vela}."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710530
+    m_Localized: Pon la {calabaza} y el {farol} en el {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710531
+    m_Localized: Pon la {lampara} y la {calabaza} junto al {arbol} para espantar
+      al {murcielago}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904832
+    m_Localized: Abre el {ataud} con la {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904833
+    m_Localized: Pon el {farol} en la {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099136
+    m_Localized: Lleva la {calabaza} a la {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099137
+    m_Localized: Pon la {mano} en el {ataud}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099138
+    m_Localized: Enciende una {vela} para asustar la {bruja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099139
+    m_Localized: Saca la {flor} con la {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099140
+    m_Localized: Pon la {flor} en la {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293440
+    m_Localized: Dale el {gorro} y la {escoba} a la {bruja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293441
+    m_Localized: "Pon la {escoba} junto al {ataud} y c\xFAbrela con el {gorro} de
+      la bruja."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682048
+    m_Localized: "Lleva el {hongo} y la {calabaza} al caldera para preparar el t\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682049
+    m_Localized: Pon el {farol} junto a la {reja} para ver el {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682050
+    m_Localized: Lleva la {pala} y el {craneo} a la {tumba} para cavar y colocarlo
+      dentro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881899876352
+    m_Localized: Coloca el {farol} sobre la {lapida} y pon una {flor}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070656
+    m_Localized: "Lleva el {gorro} y el {farol} a la {bruja} para que despida su
+      \xFAltima noche."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070657
+    m_Localized: Lleva a la {bruja} a la {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459264
+    m_Localized: Dale la {salchicha} al {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459265
+    m_Localized: Pon la {vela_tutorial} dentro de la {calabaza_tutorial}.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -14,7 +14,199 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Missions
   m_TableCollectionNameGuidString: 72e42fbb4b9b59e40b2c568d38ba30af
-  m_Entries: []
+  m_Entries:
+  - m_Id: 312881799213056
+    m_Key: mission.01.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156096
+    m_Key: mission.02.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156097
+    m_Key: mission.03.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156098
+    m_Key: mission.04.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350400
+    m_Key: mission.05.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350401
+    m_Key: mission.06.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350402
+    m_Key: mission.07.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350403
+    m_Key: mission.08.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350404
+    m_Key: mission.09.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350405
+    m_Key: mission.10.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350406
+    m_Key: mission.11.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350407
+    m_Key: mission.12.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350408
+    m_Key: mission.13.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350409
+    m_Key: mission.14.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350410
+    m_Key: mission.15.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881849544704
+    m_Key: mission.16.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739008
+    m_Key: mission.17.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739009
+    m_Key: mission.18.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933312
+    m_Key: mission.19.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933313
+    m_Key: mission.20.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127616
+    m_Key: mission.21.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127617
+    m_Key: mission.22.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127618
+    m_Key: mission.23.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321920
+    m_Key: mission.24.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321921
+    m_Key: mission.25.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516224
+    m_Key: mission.26.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516225
+    m_Key: mission.27.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710528
+    m_Key: mission.28.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710529
+    m_Key: mission.29.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710530
+    m_Key: mission.30.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710531
+    m_Key: mission.31.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904832
+    m_Key: mission.32.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904833
+    m_Key: mission.33.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099136
+    m_Key: mission.34.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099137
+    m_Key: mission.35.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099138
+    m_Key: mission.36.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099139
+    m_Key: mission.37.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099140
+    m_Key: mission.38.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293440
+    m_Key: mission.39.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293441
+    m_Key: mission.40.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682048
+    m_Key: mission.41.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682049
+    m_Key: mission.42.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682050
+    m_Key: mission.43.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881899876352
+    m_Key: mission.44.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070656
+    m_Key: mission.45.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070657
+    m_Key: mission.46.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459264
+    m_Key: mission.47.template
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459265
+    m_Key: mission.t01.template
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834161

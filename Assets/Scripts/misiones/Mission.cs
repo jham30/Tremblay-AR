@@ -4,29 +4,24 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NuevaMision", menuName = "Misiones/Mision")]
 public class Mission : ScriptableObject
 {
-    [Header("Texto (solo si no hay plantilla en la tabla Missions)")]
-    [Tooltip("Obsoleto: la frase sale de la tabla Missions (mission.<id>.template) en idioma meta. Se conserva como respaldo hasta migrar.")]
-    [TextArea(1, 5)]
-    public string descripcion;
+    // La frase vive en la tabla Missions (mission.<misionID>.template), una plantilla por
+    // idioma meta. De ahí salen tanto el puzle (PartesMeta) como la descripción con iconos.
 
-    [Tooltip("Obsoleto: se calcula desde la plantilla. Se conserva como respaldo hasta migrar.")]
-    public MissionPart[] partes;
-
-    /// <summary>Frase con iconos, en idioma meta. Cae a 'descripcion' si la tabla no tiene plantilla.</summary>
+    /// <summary>Frase con iconos, en idioma meta.</summary>
     public string DescripcionMeta
     {
         get
         {
             string plantilla = Plantilla();
-            return plantilla != null ? MissionTemplate.Descripcion(plantilla, NombreMeta) : descripcion;
+            return plantilla != null ? MissionTemplate.Descripcion(plantilla, NombreMeta) : misionID;
         }
     }
 
-    /// <summary>Partes del puzle en idioma meta. Cae a 'partes' si la tabla no tiene plantilla.</summary>
+    /// <summary>Partes del puzle en idioma meta.</summary>
     public MissionPart[] PartesMeta()
     {
         string plantilla = Plantilla();
-        return plantilla != null ? MissionTemplate.Parsear(plantilla, NombreMeta).ToArray() : partes;
+        return plantilla != null ? MissionTemplate.Parsear(plantilla, NombreMeta).ToArray() : new MissionPart[0];
     }
 
     private string Plantilla()
@@ -34,7 +29,10 @@ public class Mission : ScriptableObject
         var lm = LanguageManager.Instance;
         if (lm == null || string.IsNullOrEmpty(misionID)) return null;
         string p = lm.PlantillaMisionMeta(misionID);
-        return MissionTemplate.TienePlaceholders(p) ? p : null;
+        if (MissionTemplate.TienePlaceholders(p)) return p;
+
+        Debug.LogWarning($"[Mission] Sin plantilla en la tabla Missions para '{misionID}'");
+        return null;
     }
 
     private static string NombreMeta(string idObjeto) =>

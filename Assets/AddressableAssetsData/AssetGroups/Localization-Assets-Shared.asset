@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Shared
+  m_GUID: 27fa53fb77a3c99409987d69f3eabc8d
+  m_SerializeEntries:
+  - m_GUID: 08dd93a74b053b14e84597cf9cb26a21
+    m_Address: Assets/Localizacion/Tablas/Story Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1737e3108e61aaa4cabf336371eaa317
+    m_Address: Assets/Localizacion/Tablas/UI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 449242646253087458b9314e275643ce
+    m_Address: Assets/Localizacion/Tablas/Objects Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72e42fbb4b9b59e40b2c568d38ba30af
+    m_Address: Assets/Localizacion/Tablas/Missions Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b61d76604f02b542b70aacdd8e81b03
+    m_Address: Assets/Localizacion/Tablas/ObjectAudio Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4a1e27f2796bad428f2eda75856bd00
+    m_Address: Assets/Localizacion/Tablas/StoryAudio Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c88847caa02b35f489d8f0a8cb231377, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e6a36964e470df548a3b7671f0aebfac, type: 2}
+    - {fileID: 11400000, guid: 0be1dcb5ede26f64dad22e62a232d980, type: 2}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Missions
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: 72e42fbb4b9b59e40b2c568d38ba30af, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: e653d2f208a5c1e4a82a8604d7ce7c99, type: 2}
+  - {fileID: 11400000, guid: 192bc1f6dc3f13545ac848c92b4cb951, type: 2}
+  - {fileID: 11400000, guid: 2baf0ed2a4f527a4a9f3eb2f0b1dafb7, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

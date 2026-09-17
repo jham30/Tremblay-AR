@@ -17,7 +17,48 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 1737e3108e61aaa4cabf336371eaa317, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6463837679616
+    m_Localized: "\xBFQu\xE9 idioma hablas?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463888011264
+    m_Localized: "\xBFQu\xE9 idioma quieres aprender?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205568
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205569
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205570
+    m_Localized: "S\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205571
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205572
+    m_Localized: "Vas a cambiar el idioma que aprendes. Tu progreso en {0} queda
+      guardado y podr\xE1s volver a \xE9l. \xBFContinuar?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205573
+    m_Localized: "espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205574
+    m_Localized: "ingl\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205575
+    m_Localized: "franc\xE9s"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

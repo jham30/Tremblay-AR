@@ -18189,6 +18189,7 @@ GameObject:
   - component: {fileID: 1920031603}
   - component: {fileID: 1920031604}
   - component: {fileID: 1920031601}
+  - component: {fileID: 1920031605}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -19103,6 +19104,7 @@ MonoBehaviour:
   nombreEscenaSeleccion: Inicio
   botonRepetirTutorial: {fileID: 0}
   nombreEscenaTutorial: halloween-tuto1
+  botonCambiarIdiomas: {fileID: 0}
 --- !u!114 &1920031586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19957,6 +19959,19 @@ MonoBehaviour:
   - t01
   idiomaActual: 0
   debug: 1
+--- !u!114 &1920031605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920031576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8666df232286c154691e2e584f0cf564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageManager
+  debugIdiomas: 1
 --- !u!1 &1920600226
 GameObject:
   m_ObjectHideFlags: 0

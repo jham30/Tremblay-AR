@@ -17,7 +17,48 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 1737e3108e61aaa4cabf336371eaa317, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6463837679616
+    m_Localized: What language do you speak?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463888011264
+    m_Localized: What language do you want to learn?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205568
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205569
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205570
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205571
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205572
+    m_Localized: You're about to change the language you're learning. Your {0} progress
+      is saved and you can come back to it. Continue?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205573
+    m_Localized: Spanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205574
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205575
+    m_Localized: French
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

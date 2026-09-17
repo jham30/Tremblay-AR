@@ -14,7 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: UI
   m_TableCollectionNameGuidString: 1737e3108e61aaa4cabf336371eaa317
-  m_Entries: []
+  m_Entries:
+  - m_Id: 6463837679616
+    m_Key: idiomas.titulo_nativo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463888011264
+    m_Key: idiomas.titulo_meta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205568
+    m_Key: idiomas.continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205569
+    m_Key: idiomas.cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205570
+    m_Key: idiomas.si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205571
+    m_Key: idiomas.cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205572
+    m_Key: idiomas.aviso_cambio_meta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205573
+    m_Key: idiomas.nombre_es
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205574
+    m_Key: idiomas.nombre_en
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6463892205575
+    m_Key: idiomas.nombre_fr
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834160

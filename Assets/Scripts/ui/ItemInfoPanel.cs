@@ -121,9 +121,7 @@ public class ItemInfoPanel : MonoBehaviour
         // Sprite
         if (imagenSprite != null)
         {
-            Sprite sprite = string.IsNullOrEmpty(data.sprite2DPath)
-                ? null
-                : Resources.Load<Sprite>(data.sprite2DPath);
+            Sprite sprite = data.Sprite2D;
 
             imagenSprite.sprite = sprite;
             imagenSprite.enabled = sprite != null;

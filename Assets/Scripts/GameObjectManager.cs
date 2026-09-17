@@ -25,6 +25,15 @@ public class GameObjectData
     // Referencia al asset del catálogo cuando la lista se construye desde él. No se serializa.
     [System.NonSerialized] public ObjetoData catalogo;
 
+    // Con catálogo, referencias directas; sin él, la carga por ruta de siempre.
+    public Sprite Sprite2D =>
+        catalogo != null ? catalogo.sprite2D
+        : (string.IsNullOrEmpty(sprite2DPath) ? null : Resources.Load<Sprite>(sprite2DPath));
+
+    public GameObject Prefab3D =>
+        catalogo != null ? catalogo.prefab3D
+        : (string.IsNullOrEmpty(prefab3DPath) ? null : Resources.Load<GameObject>(prefab3DPath));
+
     // === Cuentos a los que pertenece este objeto ===
     // Vacío/null = pertenece a todos los cuentos (compat hacia atrás).
     public string[] cuentos;

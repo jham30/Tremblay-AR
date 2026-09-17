@@ -477,7 +477,7 @@ public class ObjectInfoUIManager : MonoBehaviour
         // Actualizar imagen
         if (imagenObjeto != null && !string.IsNullOrEmpty(datos.sprite2DPath))
         {
-            Sprite sprite = Resources.Load<Sprite>(datos.sprite2DPath);
+            Sprite sprite = datos.Sprite2D;
             if (sprite != null)
             {
                 imagenObjeto.sprite = sprite;

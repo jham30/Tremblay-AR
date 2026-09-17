@@ -127,17 +127,11 @@ public class ObjectInfoGrabDropController : MonoBehaviour
         objetoIDOrigenAgarre = objetoID;
         Debug.Log($"✅ [GrabDrop] ID del objeto agarrado guardado: '{objetoAgarradoID}'");
 
-        // 5. Verificar y cargar prefab
-        if (string.IsNullOrEmpty(datos.prefab3DPath))
-        {
-            Debug.LogError($"❌ [GrabDrop] Ruta del prefab3D está vacía para: {datos.nombreEspanol}");
-            return;
-        }
-
-        GameObject prefab = Resources.Load<GameObject>(datos.prefab3DPath);
+        // 5. Prefab (referencia del catálogo, o carga por ruta si no hay catálogo)
+        GameObject prefab = datos.Prefab3D;
         if (prefab == null)
         {
-            Debug.LogError($"❌ [GrabDrop] No se pudo cargar prefab desde: '{datos.prefab3DPath}'");
+            Debug.LogError($"❌ [GrabDrop] Sin prefab3D para: {datos.id}");
             return;
         }
 

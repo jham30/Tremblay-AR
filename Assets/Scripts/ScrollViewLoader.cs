@@ -162,7 +162,7 @@ public class ScrollViewLoader : MonoBehaviour
                     // Actualizar sprite si es necesario
                     if (!string.IsNullOrEmpty(data.sprite2DPath))
                     {
-                        Sprite sprite = Resources.Load<Sprite>(data.sprite2DPath);
+                        Sprite sprite = data.Sprite2D;
                         if (sprite != null && img.sprite != sprite)
                         {
                             img.sprite = sprite;
@@ -229,7 +229,7 @@ public class ScrollViewLoader : MonoBehaviour
                 // Cargar sprite desde Resources
                 if (!string.IsNullOrEmpty(data.sprite2DPath))
                 {
-                    Sprite sprite = Resources.Load<Sprite>(data.sprite2DPath);
+                    Sprite sprite = data.Sprite2D;
                     if (sprite != null)
                     {
                         img.sprite = sprite;

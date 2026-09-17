@@ -481,14 +481,6 @@ public class ResetGameController : MonoBehaviour
         requierConfirmacion = activar;
     }
 
-    public void CambiarMensajeConfirmacion(string nuevoMensaje)
-    {
-        mensajeConfirmacion = nuevoMensaje;
-        if (textoConfirmacion != null)
-        {
-            textoConfirmacion.text = nuevoMensaje;
-        }
-    }
 
     // 🆕 MÉTODOS PÚBLICOS PARA EL PANEL
     public void RefrescarPanel()

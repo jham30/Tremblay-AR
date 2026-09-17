@@ -17,7 +17,204 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 72e42fbb4b9b59e40b2c568d38ba30af, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 312881799213056
+    m_Localized: Light the {farol} with the {vela}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156096
+    m_Localized: Sweep the {arana} away with the {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156097
+    m_Localized: Put a {vela} inside the {calabaza}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881841156098
+    m_Localized: Bring the {gorro} and the {escoba} to the {mesa}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350400
+    m_Localized: Give the {salchicha} to the {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350401
+    m_Localized: Cover the {gato} with the {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350402
+    m_Localized: Put the {farol} on the {escoba} and light the {lampara}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350403
+    m_Localized: Put the {hongo} in the {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350404
+    m_Localized: Put the {vela} on the {craneo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350405
+    m_Localized: Scare the {murcielago} with the {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350406
+    m_Localized: Hit the {mano} with the {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350407
+    m_Localized: Hit the {tumba} with the {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350408
+    m_Localized: Light up the {libro} with the {farol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350409
+    m_Localized: Bring the {craneo} to the {mausoleo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881845350410
+    m_Localized: Bring the {craneo} and the {vela} to light up the {lapida}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881849544704
+    m_Localized: Light the {lampara} with the {vela}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739008
+    m_Localized: Open the {ataud} with the {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881853739009
+    m_Localized: Put the {craneo} and the {calabaza} in the {mausoleo}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933312
+    m_Localized: Catch the {arana} with the {escoba} and the {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881857933313
+    m_Localized: Give a {hongo} to the {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127616
+    m_Localized: Put the {arana} on the {mano}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127617
+    m_Localized: Put the {mano} in the {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881862127618
+    m_Localized: Bring a {vela} to the {reja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321920
+    m_Localized: Bring the {calabaza}, the {vela} and the {farol} to the {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881866321921
+    m_Localized: Use the {escoba} to move the {arana} away from the {farol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516224
+    m_Localized: Clean the {lapida} with the {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881870516225
+    m_Localized: Light a {vela} in the {calabaza}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710528
+    m_Localized: Push the {reja} with the {escoba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710529
+    m_Localized: Place the {lampara} on the {tumba} and light it with the {vela}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710530
+    m_Localized: Put the {calabaza} and the {farol} in the {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881874710531
+    m_Localized: Put the {lampara} and the {calabaza} next to the {arbol} to scare
+      the {murcielago} away.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904832
+    m_Localized: Open the {ataud} with the {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881878904833
+    m_Localized: Put the {farol} on the {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099136
+    m_Localized: Bring the {calabaza} to the {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099137
+    m_Localized: Put the {mano} in the {ataud}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099138
+    m_Localized: Light a {vela} to scare the {bruja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099139
+    m_Localized: Dig out the {flor} with the {pala}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881883099140
+    m_Localized: Put the {flor} on the {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293440
+    m_Localized: Give the {gorro} and the {escoba} to the {bruja}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881887293441
+    m_Localized: Put the {escoba} next to the {ataud} and cover it with the witch's
+      {gorro}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682048
+    m_Localized: Bring the {hongo} and the {calabaza} to the cauldron to make the
+      tea.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682049
+    m_Localized: Put the {farol} next to the {reja} to see the {arbol}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881895682050
+    m_Localized: Bring the {pala} and the {craneo} to the {tumba} to dig and put
+      it inside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881899876352
+    m_Localized: Place the {farol} on the {lapida} and add a {flor}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070656
+    m_Localized: Bring the {gorro} and the {farol} to the {bruja} so she can say
+      goodbye to her last night.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881904070657
+    m_Localized: Take the {bruja} to the {tumba}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459264
+    m_Localized: Give the {salchicha} to the {gato}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312881912459265
+    m_Localized: Put the {vela_tutorial} inside the {calabaza_tutorial}.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

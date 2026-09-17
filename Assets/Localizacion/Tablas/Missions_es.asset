@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 312881845350409
-    m_Localized: Llevar la {craneo} al {mausoleo}.
+    m_Localized: Lleva el {craneo} al {mausoleo}.
     m_Metadata:
       m_Items: []
   - m_Id: 312881845350410
@@ -181,7 +181,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 312881895682048
-    m_Localized: "Lleva el {hongo} y la {calabaza} al caldera para preparar el t\xE9."
+    m_Localized: "Lleva el {hongo} y la {calabaza} al caldero para preparar el t\xE9."
     m_Metadata:
       m_Items: []
   - m_Id: 312881895682049

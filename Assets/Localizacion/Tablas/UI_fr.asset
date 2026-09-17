@@ -304,6 +304,301 @@ MonoBehaviour:
     m_Localized: Inconnu
     m_Metadata:
       m_Items: []
+  - m_Id: 26948587728896
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948617089024
+    m_Localized: "Commencez l\u2019aventure"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254017
+    m_Localized: "L\xE2cher"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894720
+    m_Localized: "\xC0 propos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320762671104
+    m_Localized: "V\xE9rifier"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642625
+    m_Localized: Fermer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320796225536
+    m_Localized: "Termin\xE9 !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117504
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117506
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117505
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031233
+    m_Localized: Prendre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448322
+    m_Localized: "R\xE9initialiser les missions"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020034
+    m_Localized: "Musique : coup\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320766865408
+    m_Localized: "\xC9tape suivante"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642624
+    m_Localized: "R\xE9initialiser les objets"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031234
+    m_Localized: Poser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547586437120
+    m_Localized: Refaire le tutoriel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020033
+    m_Localized: "R\xE9initialiser"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448321
+    m_Localized: "Tout r\xE9initialiser"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448320
+    m_Localized: "R\xE9initialiser le jeu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894721
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948562563072
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031232
+    m_Localized: Passer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254016
+    m_Localized: Passer le tutoriel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020032
+    m_Localized: "Effets sonores : coup\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642626
+    m_Localized: "Oui, r\xE9initialiser !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20793148813312
+    m_Localized: "1. Salut ! Je suis \xC9liane Tremblay, et voici MON aventure dans
+      la maison de la rue Hollow. Je vais t'apprendre \xE0 jouer, d'accord ? On va
+      bien s'amuser !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809600
+    m_Localized: "2. Ce jeu utilise la R\xE9alit\xE9 Augment\xE9e, ce qui veut dire
+      qu'on va tout voir \xE0 travers la cam\xE9ra de ton t\xE9l\xE9phone. C'est
+      comme ouvrir une fen\xEAtre magique sur l'histoire !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809601
+    m_Localized: "3. Un instant... je r\xE9veille la cam\xE9ra magique."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809602
+    m_Localized: "4. Ce jeu fonctionne avec des cartes sp\xE9ciales. Il faut les
+      avoir imprim\xE9es, ou sur un autre \xE9cran. Si tu ne les as pas encore, t\xE9l\xE9charge-les
+      sur thetremblay.com/downloads"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809603
+    m_Localized: "5. Cherche les 2 cartes o\xF9 il est \xE9crit \xAB TUTORIAL \xBB.
+      Ce sont celles qu'on va utiliser maintenant. Pointe ta cam\xE9ra vers l'une
+      d'elles, comme si tu allais la prendre en photo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809604
+    m_Localized: 6. Regarde ! Une bougie <sprite name="vela"> est apparue sur la
+      carte.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809605
+    m_Localized: "7. Tu peux toucher les objets directement sur l'\xE9cran quand
+      ils apparaissent. Essaie ! Touche la bougie <sprite name=\"vela\">."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809606
+    m_Localized: "8. Tu as entendu comment on le dit en {0} ? Si tu veux l'\xE9couter
+      encore, touche le bouton que je te montre."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809607
+    m_Localized: "9. Tu peux l'\xE9couter autant de fois que tu veux. Moi aussi je
+      le faisais quand j'apprenais ! Touche simplement le bouton encore une fois."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809608
+    m_Localized: 10. Maintenant, on va garder cet objet pour l'utiliser plus tard.
+      Touche le bouton que je te montre pour le mettre dans ton inventaire.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809609
+    m_Localized: "11. Super, il est \xE0 toi maintenant !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809610
+    m_Localized: "12. Maintenant tu peux le fermer en touchant ici. N'oublie pas
+      : quand tu veux revoir un objet, pointe simplement la cam\xE9ra vers lui et
+      touche-le."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809611
+    m_Localized: "13. Vas-y, garde aussi l'autre objet qui est apparu. Pointe ta
+      cam\xE9ra vers l'autre carte que tu as trouv\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809612
+    m_Localized: "14. H\xE9, je vois que tu as trouv\xE9 la citrouille ! <sprite
+      name=\"calabaza\"> C'est l'une de mes pr\xE9f\xE9r\xE9es."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809613
+    m_Localized: 15. Mets-la dans ton inventaire, comme on l'a fait avec la bougie
+      <sprite name="vela">.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809614
+    m_Localized: "16. Parfait ! Maintenant ferme le panneau. Je veux te montrer quelque
+      chose de tr\xE8s important."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809615
+    m_Localized: 17. Tu vois la citrouille <sprite name="calabaza"> en bas ? Je te
+      la montre. Tu peux la toucher, ou glisser vers le haut pour ouvrir ton inventaire.
+      Essaie !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809616
+    m_Localized: "18. Regarde ! Voici les deux objets que tu as gard\xE9s : la bougie
+      <sprite name=\"vela\"> et la citrouille <sprite name=\"calabaza\">. Ils sont
+      \xE0 toi maintenant."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809617
+    m_Localized: "19. En haut, il y a une mission. Je sais que tu ne comprends peut-\xEAtre
+      pas encore tout ce qu'elle dit, mais je parie que tu devines quels objets elle
+      demande."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809618
+    m_Localized: "20. Glisse la bougie <sprite name=\"vela\"> \xE0 l'endroit o\xF9
+      elle va. Si tu ne te souviens plus comment on dit \xAB bougie <sprite name=\"vela\">
+      \xBB, touche le bouton vert \xE0 c\xF4t\xE9 pour l'\xE9couter encore."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809619
+    m_Localized: "21. C'est comme \xE7a qu'on fait !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809620
+    m_Localized: "22. Maintenant glisse la bougie <sprite name=\"vela\"> et la citrouille
+      <sprite name=\"calabaza\">, chacune \xE0 sa place."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809621
+    m_Localized: "23. Tu te d\xE9brouilles tr\xE8s bien ! Maintenant touche le bouton
+      que je te montre pour v\xE9rifier si tu les as bien plac\xE9es."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809622
+    m_Localized: "24. Ouiii ! Tu viens de d\xE9chiffrer la mission. Tu devines ce
+      qu'elle dit ? Ne t'inqui\xE8te pas sinon : avec le temps, tu comprendras plus
+      de mots. Pour l'instant, allons la terminer !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809623
+    m_Localized: "25. Maintenant, apportons vraiment la bougie <sprite name=\"vela\">
+      jusqu'\xE0 la citrouille. Mais d'abord, ferme l'inventaire en glissant vers
+      le bas ou en touchant le bouton que je te montre."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809624
+    m_Localized: "26. Maintenant scanne la carte de la bougie <sprite name=\"vela\">
+      avec ta cam\xE9ra. Tu te souviens laquelle c'est ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809625
+    m_Localized: 27. Tu as vu qu'une main est apparue ? Touche-la pour attraper la
+      bougie.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809626
+    m_Localized: 27a. Ferme le panneau de la bougie.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809627
+    m_Localized: 28. La bougie <sprite name="vela"> est avec toi maintenant ! Va
+      vers la carte de la citrouille <sprite name="calabaza"> et pointe-la.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809628
+    m_Localized: "29. Une main est apparue ici aussi, tu la vois ? \xC7a veut dire
+      que tu peux poser la bougie <sprite name=\"vela\"> sur la citrouille <sprite
+      name=\"calabaza\">."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809629
+    m_Localized: "30. On y est presque. Maintenant touche le bouton que je te montre
+      pour v\xE9rifier que tu as apport\xE9 ce que demandait la mission."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809630
+    m_Localized: "32. Tu sais maintenant ce que demandait la mission ? Exactement
+      : mettre la bougie <sprite name=\"vela\"> dans la citrouille <sprite name=\"calabaza\">.
+      Je crois que tu es pr\xEAt \xE0 jouer tout seul."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809631
+    m_Localized: "33. J'ai failli oublier ! Tu vois cette ic\xF4ne verte ? Touche-la
+      pour voir toutes tes missions. Pour l'instant il n'y en a qu'une, mais quand
+      tu joueras pour de vrai, il y en aura plein d'autres !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809632
+    m_Localized: "34. Une derni\xE8re chose : les missions changent de couleur selon
+      leur \xE9tat. \U0001F534 Rouge : pas encore disponible. \U0001F535 Bleu : pr\xEAte
+      \xE0 d\xE9chiffrer. \U0001F7E1 Jaune : d\xE9j\xE0 d\xE9chiffr\xE9e, il reste
+      \xE0 la terminer avec la cam\xE9ra. \U0001F7E2 Vert : termin\xE9e !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809633
+    m_Localized: 34a. Ferme la liste des missions.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809634
+    m_Localized: 35. C'est tout ! Maintenant va t'amuser et apprendre un peu de {0}
+      avec moi. On se retrouve dans le jeu !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

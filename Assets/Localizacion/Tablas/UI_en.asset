@@ -337,8 +337,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: 8. Did you hear how it's said in Spanish? If you want to hear it
-      again, tap the button I'm pointing at.
+    m_Localized: 8. Did you hear how it's said in {0}? If you want to hear it again,
+      tap the button I'm pointing at.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -480,8 +480,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809634
-    m_Localized: '35. That''s everything! Now go have fun and learn a bit of Spanish
-      with me. See you in the game! '
+    m_Localized: 35. That's everything! Now go have fun and learn a bit of {0} with
+      me. See you in the game!
     m_Metadata:
       m_Items: []
   - m_Id: 26948562563072
@@ -509,7 +509,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26948612894721
-    m_Localized: Setings
+    m_Localized: Settings
     m_Metadata:
       m_Items: []
   - m_Id: 26948617089024
@@ -525,11 +525,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 28320775254016
-    m_Localized: Skip Tuitorial
+    m_Localized: Skip Tutorial
     m_Metadata:
       m_Items: []
   - m_Id: 28320775254017
-    m_Localized: Abandonar
+    m_Localized: Drop it
     m_Metadata:
       m_Items: []
   - m_Id: 28320779448320
@@ -537,7 +537,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 28320779448321
-    m_Localized: Reset Al
+    m_Localized: Reset All
     m_Metadata:
       m_Items: []
   - m_Id: 28320779448322

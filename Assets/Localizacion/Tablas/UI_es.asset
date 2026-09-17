@@ -304,6 +304,293 @@ MonoBehaviour:
       Hollow Street. Te voy a ense\xF1ar a jugar, \xBFvale? \xA1Vamos a pasarlo genial!"
     m_Metadata:
       m_Items: []
+  - m_Id: 26948587728896
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948617089024
+    m_Localized: Comienza la aventura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254017
+    m_Localized: Soltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894720
+    m_Localized: Acerca de
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320762671104
+    m_Localized: Comprobar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642625
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320796225536
+    m_Localized: "\xA1Listo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117504
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117506
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117505
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031233
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448322
+    m_Localized: Reiniciar misiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020034
+    m_Localized: "M\xFAsica: apagada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320766865408
+    m_Localized: Siguiente paso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642624
+    m_Localized: Reiniciar objetos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031234
+    m_Localized: Colocar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547586437120
+    m_Localized: Repetir tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020033
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448321
+    m_Localized: Reiniciar todo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448320
+    m_Localized: Reiniciar juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894721
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948562563072
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031232
+    m_Localized: Saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254016
+    m_Localized: Saltar tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020032
+    m_Localized: 'Efectos: apagados'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642626
+    m_Localized: "\xA1S\xED, reiniciar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809600
+    m_Localized: "2. Este juego usa Realidad Aumentada, o sea que vamos a ver todo
+      a trav\xE9s de la c\xE1mara de tu tel\xE9fono. \xA1Es como abrir una ventana
+      m\xE1gica a la historia!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809601
+    m_Localized: "3. Un momento... estoy despertando la c\xE1mara m\xE1gica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809602
+    m_Localized: "4. Este juego funciona con tarjetas especiales. Tienes que tenerlas
+      impresas o en otra pantalla. Si todav\xEDa no las tienes, desc\xE1rgalas en
+      thetremblay.com/downloads"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809603
+    m_Localized: "5. Busca las 2 tarjetas que dicen \"TUTORIAL\". Esas son las que
+      vamos a usar ahora. Apunta la c\xE1mara a una de ellas, como si fueras a tomarle
+      una foto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809604
+    m_Localized: "6. \xA1Mira! Apareci\xF3 una vela <sprite name=\"vela\"> sobre
+      la tarjeta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809605
+    m_Localized: "7. Puedes tocar los objetos directamente en la pantalla cuando
+      aparecen. \xA1Pru\xE9balo! Toca la vela <sprite name=\"vela\">."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809606
+    m_Localized: "8. \xBFO\xEDste c\xF3mo se dice en {0}? Si quieres escucharlo otra
+      vez, toca el bot\xF3n que te se\xF1alo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809607
+    m_Localized: "9. Puedes escucharlo tantas veces como quieras. \xA1Yo tambi\xE9n
+      lo hac\xEDa cuando estaba aprendiendo! Solo toca el bot\xF3n otra vez."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809608
+    m_Localized: "10. Ahora vamos a guardar este objeto para usarlo despu\xE9s. Toca
+      el bot\xF3n que te muestro para guardarlo en tu inventario."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809609
+    m_Localized: "11. \xA1Genial, ahora es tuyo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809610
+    m_Localized: "12. Ahora puedes cerrarlo tocando aqu\xED. Recuerda: cuando quieras
+      volver a ver un objeto, solo apunta la c\xE1mara hacia \xE9l y t\xF3calo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809611
+    m_Localized: "13. Ahora guarda tambi\xE9n el otro objeto que apareci\xF3. Apunta
+      la c\xE1mara a la otra tarjeta que encontraste."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809612
+    m_Localized: "14. \xA1Oye, veo que encontraste la calabaza! <sprite name=\"calabaza\">
+      Es una de mis favoritas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809613
+    m_Localized: "15. Gu\xE1rdala en tu inventario, igual que hicimos con la vela
+      <sprite name=\"vela\">."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809614
+    m_Localized: "16. \xA1Perfecto! Ahora cierra el panel. Quiero ense\xF1arte algo
+      muy importante."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809615
+    m_Localized: "17. \xBFVes la calabaza <sprite name=\"calabaza\"> ah\xED abajo?
+      Te la estoy se\xF1alando. Puedes tocarla, o deslizar hacia arriba para abrir
+      tu inventario. \xA1Pru\xE9balo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809616
+    m_Localized: "18. \xA1Mira! Aqu\xED est\xE1n los dos objetos que guardaste: la
+      vela <sprite name=\"vela\"> y la calabaza <sprite name=\"calabaza\">. Ahora
+      son tuyos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809617
+    m_Localized: "19. Arriba hay una misi\xF3n. S\xE9 que quiz\xE1 todav\xEDa no
+      entiendas del todo lo que dice, pero seguro que adivinas qu\xE9 objetos pide."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809618
+    m_Localized: "20. Arrastra la vela <sprite name=\"vela\"> al lugar donde va.
+      Si no recuerdas c\xF3mo se dice \"vela <sprite name=\"vela\">\", toca el bot\xF3n
+      verde que tiene al lado para escucharlo otra vez."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809619
+    m_Localized: "21. \xA1As\xED se hace!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809620
+    m_Localized: 22. Ahora arrastra la vela <sprite name="vela"> y la calabaza <sprite
+      name="calabaza">, cada una a su lugar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809621
+    m_Localized: "23. \xA1Lo est\xE1s haciendo muy bien! Ahora toca el bot\xF3n que
+      te se\xF1alo para comprobar si las pusiste bien."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809622
+    m_Localized: "24. \xA1S\xEDii! Acabas de descifrar la misi\xF3n. \xBFAdivinas
+      qu\xE9 dice? No te preocupes si no: con el tiempo entender\xE1s m\xE1s palabras.
+      Por ahora, \xA1vamos a completarla!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809623
+    m_Localized: "25. Ahora s\xED, vamos a llevar la vela <sprite name=\"vela\">
+      hasta la calabaza. Pero primero cierra el inventario deslizando hacia abajo
+      o tocando el bot\xF3n que te se\xF1alo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809624
+    m_Localized: "26. Ahora escanea la tarjeta de la vela <sprite name=\"vela\">
+      con tu c\xE1mara. \xBFRecuerdas cu\xE1l es?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809625
+    m_Localized: "27. \xBFViste que apareci\xF3 una mano? T\xF3cala para agarrar
+      la vela."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809626
+    m_Localized: 27a. Cierra el panel de la vela.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809627
+    m_Localized: "28. \xA1La vela <sprite name=\"vela\"> ya est\xE1 contigo! Ve a
+      la tarjeta de la calabaza <sprite name=\"calabaza\"> y ap\xFAntala."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809628
+    m_Localized: "29. Aqu\xED tambi\xE9n apareci\xF3 una mano, \xBFla ves? Eso significa
+      que puedes soltar la vela <sprite name=\"vela\"> sobre la calabaza <sprite
+      name=\"calabaza\">."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809629
+    m_Localized: "30. Ya casi. Ahora toca el bot\xF3n que te se\xF1alo para comprobar
+      que trajiste lo que ped\xEDa la misi\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809630
+    m_Localized: "32. \xBFAhora sabes qu\xE9 ped\xEDa la misi\xF3n? Eso es: poner
+      la vela <sprite name=\"vela\"> dentro de la calabaza <sprite name=\"calabaza\">.
+      Creo que ya est\xE1s listo para jugar por tu cuenta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809631
+    m_Localized: "33. \xA1Casi lo olvido! \xBFVes ese icono verde? T\xF3calo para
+      ver todas tus misiones. Ahora mismo solo hay una, pero cuando empieces a jugar
+      de verdad, \xA1aparecer\xE1n much\xEDsimas m\xE1s!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809632
+    m_Localized: "34. Una cosa m\xE1s: las misiones cambian de color seg\xFAn su
+      estado. \U0001F534 Rojo: todav\xEDa no disponible. \U0001F535 Azul: lista para
+      descifrar. \U0001F7E1 Amarillo: ya descifrada, falta completarla con la c\xE1mara.
+      \U0001F7E2 Verde: \xA1completada!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809633
+    m_Localized: 34a. Cierra la lista de misiones.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809634
+    m_Localized: "35. \xA1Eso es todo! Ahora ve a divertirte y a aprender un poco
+      de {0} conmigo. \xA1Nos vemos en el juego!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

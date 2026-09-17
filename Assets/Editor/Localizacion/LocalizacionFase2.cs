@@ -440,8 +440,8 @@ public static class LocalizacionFase2
 
                 if (p.audioES != null || p.audioEN != null)
                 {
-                    if (p.audioES != null) audios.AddAssetToTable(localeEs, clave, p.audioES);
-                    if (p.audioEN != null) audios.AddAssetToTable(localeEn, clave, p.audioEN);
+                    if (p.audioES != null) audios.AddAssetToTable(localeEs.Identifier, clave, p.audioES);
+                    if (p.audioEN != null) audios.AddAssetToTable(localeEn.Identifier, clave, p.audioEN);
 
                     var entradaAudio = audios.SharedData.GetEntry(clave);
                     p.audio = new LocalizedAudioClip();

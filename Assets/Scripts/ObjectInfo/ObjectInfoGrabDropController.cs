@@ -143,7 +143,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
 
         // 7. Crear clon y posicionarlo
         objetoClonAgarrado = Instantiate(prefab);
-        objetoClonAgarrado.name = $"AGARRADO_{datos.nombreEspanol}";
+        objetoClonAgarrado.name = $"AGARRADO_{datos.id}";
 
         // 8. Configurar posición del objeto agarrado
         ConfigurarPosicionObjetoAgarrado(datos);
@@ -152,7 +152,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
         ConfigurarColisionesObjetoAgarrado();
 
         // 10. Mostrar panel temporal
-        MostrarPanelObjetoAgarrado(datos.nombreEspanol);
+        MostrarPanelObjetoAgarrado(datos.NombreMeta);
 
         // 11. Audio feedback
         if (GlobalAudioManager.Instance != null)

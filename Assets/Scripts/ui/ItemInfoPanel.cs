@@ -129,7 +129,7 @@ public class ItemInfoPanel : MonoBehaviour
 
         // Nombre en español
         if (textoNombre != null)
-            textoNombre.text = data.nombreEspanol;
+            textoNombre.text = data.NombreMeta;
 
         MostrarPanel();
 

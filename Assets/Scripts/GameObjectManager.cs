@@ -34,6 +34,13 @@ public class GameObjectData
         catalogo != null ? catalogo.prefab3D
         : (string.IsNullOrEmpty(prefab3DPath) ? null : Resources.Load<GameObject>(prefab3DPath));
 
+    // Lo que ve el jugador va en idioma META (el que aprende). Sin LanguageManager, español.
+    public string NombreMeta =>
+        LanguageManager.Instance != null ? LanguageManager.Instance.NombreObjetoMeta(id) : nombreEspanol;
+
+    public string ColorMeta =>
+        LanguageManager.Instance != null ? LanguageManager.Instance.ColorObjetoMeta(id) : colorEspanol;
+
     // === Cuentos a los que pertenece este objeto ===
     // Vacío/null = pertenece a todos los cuentos (compat hacia atrás).
     public string[] cuentos;

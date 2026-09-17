@@ -434,7 +434,7 @@ public class ObjectInfoUIManager : MonoBehaviour
         // Configurar panel de misiones
         if (missionPanel != null && panelMisiones != null)
         {
-            missionPanel.ConfigurarPanelMisionesVisual(datos.id, datos.nombreEspanol, panelMisiones);
+            missionPanel.ConfigurarPanelMisionesVisual(datos.id, datos.NombreMeta, panelMisiones);
         }
 
         // Solo animar si el canvas NO estaba activo previamente
@@ -469,10 +469,10 @@ public class ObjectInfoUIManager : MonoBehaviour
     {
         // Actualizar textos
         if (textoNombre != null)
-            textoNombre.text = datos.nombreEspanol;
+            textoNombre.text = datos.NombreMeta;
         
         if (textoColor != null)
-            textoColor.text = datos.colorEspanol;
+            textoColor.text = datos.ColorMeta;
 
         // Actualizar imagen
         if (imagenObjeto != null)

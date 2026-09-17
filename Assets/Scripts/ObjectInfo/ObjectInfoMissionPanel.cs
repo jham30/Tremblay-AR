@@ -274,7 +274,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             if (gameObjectManager == null) continue;
             
             GameObjectData datos = gameObjectManager.BuscarObjetoPorId(objetoID);
-            if (datos != null && !spritesExistentes.Contains(datos.nombreEspanol))
+            if (datos != null && !spritesExistentes.Contains(datos.id))
             {
                 CrearSpriteObjetoColocado(objetoID);
             }
@@ -309,7 +309,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
         else
         {
             // Crear sprite básico
-            spriteItem = new GameObject($"Sprite_{datos.nombreEspanol}");
+            spriteItem = new GameObject($"Sprite_{datos.id}");
             spriteItem.transform.SetParent(contenedor, false);
             Image img = spriteItem.AddComponent<Image>();
             RectTransform rect = spriteItem.GetComponent<RectTransform>();
@@ -339,7 +339,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
         TextMeshProUGUI texto = spriteItem.GetComponentInChildren<TextMeshProUGUI>();
         if (texto != null)
         {
-            texto.text = datos.nombreEspanol;
+            texto.text = datos.NombreMeta;
         }
 
         // 🗑️ Botón "X" para retirar este objeto del panel de comprobación (si el prefab lo tiene)

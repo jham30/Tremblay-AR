@@ -84,6 +84,15 @@ public class GameSaveData
     public MissionSaveData misiones = new MissionSaveData();
 }
 
+// Estado del jugador cuando el catálogo va en ScriptableObjects: solo lo que cambia en partida.
+// Un archivo por cuento e idioma meta (progreso_<cuento>_<meta>.json).
+[System.Serializable]
+public class ProgresoSaveData
+{
+    public List<string> objetosGuardados = new List<string>();
+    public MissionSaveData misiones = new MissionSaveData();
+}
+
 public class GameObjectManager : MonoBehaviour
 {
     public static GameObjectManager Instance { get; private set; }
@@ -120,6 +129,19 @@ public class GameObjectManager : MonoBehaviour
             if (string.IsNullOrEmpty(rutaArchivo))
                 rutaArchivo = Path.Combine(Application.persistentDataPath, nombreArchivo);
             return rutaArchivo;
+        }
+    }
+
+    // progreso_<cuento>_<meta>.json: cambiar de idioma meta cambia de archivo, nada se pisa.
+    private string RutaProgreso
+    {
+        get
+        {
+            string cuento = CuentoActual.GetCuentoActual();
+            if (string.IsNullOrEmpty(cuento)) cuento = "general";
+            string meta = LanguageManager.CodigoMetaGuardado;
+            if (string.IsNullOrEmpty(meta)) meta = LanguageManager.CodigoEspanol;
+            return Path.Combine(Application.persistentDataPath, $"progreso_{cuento}_{meta}.json");
         }
     }
 
@@ -252,23 +274,38 @@ public class GameObjectManager : MonoBehaviour
             listaObjetos.Add(ConstruirDesdeCatalogo(o, lm));
         }
 
-        GameSaveData estado = LeerEstadoGuardado();
-        if (estado != null)
+        DatosMisiones = new MissionSaveData();
+
+        ProgresoSaveData progreso = LeerProgreso();
+        if (progreso == null)
         {
-            foreach (var e in estado.objetos)
+            // Primera vez con este slot: si hay un archivo del formato viejo, se importa UNA vez.
+            GameSaveData viejo = LeerEstadoGuardado();
+            if (viejo != null)
             {
-                var obj = BuscarObjetoPorId(e.id);
-                if (obj != null) obj.guardadoPorJugador = e.guardadoPorJugador;
+                progreso = new ProgresoSaveData
+                {
+                    objetosGuardados = viejo.objetos.Where(o => o.guardadoPorJugador).Select(o => o.id).ToList(),
+                    misiones = viejo.misiones ?? new MissionSaveData()
+                };
+                try { File.Move(RutaArchivo, RutaArchivo + ".migrado"); }
+                catch (Exception e) { Debug.LogWarning($"[GameObjectManager] No se pudo renombrar el archivo viejo: {e.Message}"); }
+                Debug.Log($"[GameObjectManager] Estado importado desde {nombreArchivo} → {Path.GetFileName(RutaProgreso)}");
             }
-            DatosMisiones = estado.misiones ?? new MissionSaveData();
         }
-        else
+
+        if (progreso != null)
         {
-            DatosMisiones = new MissionSaveData();
+            foreach (var id in progreso.objetosGuardados)
+            {
+                var obj = BuscarObjetoPorId(id);
+                if (obj != null) obj.guardadoPorJugador = true;
+            }
+            DatosMisiones = progreso.misiones ?? new MissionSaveData();
         }
 
         if (debugAndroid)
-            Debug.Log($"[GameObjectManager] Catálogo: {listaObjetos.Count} objetos, " +
+            Debug.Log($"[GameObjectManager] Catálogo: {listaObjetos.Count} objetos, slot {Path.GetFileName(RutaProgreso)}, " +
                       $"{ObtenerObjetosGuardados().Count} guardados, " +
                       $"misiones descifradas {DatosMisiones.descifradas.Count} / completadas {DatosMisiones.completadas.Count}");
 
@@ -300,6 +337,40 @@ public class GameObjectManager : MonoBehaviour
             notasConfiguracion = o.notasConfiguracion,
             guardadoPorJugador = false,
         };
+    }
+
+    private ProgresoSaveData LeerProgreso()
+    {
+        if (!File.Exists(RutaProgreso)) return null;
+        try
+        {
+            var p = JsonUtility.FromJson<ProgresoSaveData>(File.ReadAllText(RutaProgreso));
+            if (p != null && p.objetosGuardados == null) p.objetosGuardados = new List<string>();
+            return p;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[GameObjectManager] Error leyendo progreso: {e.Message}");
+            return null;
+        }
+    }
+
+    private void GuardarProgreso()
+    {
+        try
+        {
+            var p = new ProgresoSaveData
+            {
+                objetosGuardados = listaObjetos.Where(o => o.guardadoPorJugador).Select(o => o.id).ToList(),
+                misiones = DatosMisiones
+            };
+            File.WriteAllText(RutaProgreso, JsonUtility.ToJson(p, true));
+            if (debugAndroid) Debug.Log($"[GameObjectManager] Progreso guardado en: {RutaProgreso}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[GameObjectManager] Error al guardar progreso: {e.Message}");
+        }
     }
 
     private GameSaveData LeerEstadoGuardado()
@@ -480,6 +551,12 @@ public class GameObjectManager : MonoBehaviour
     // === GUARDADO / CARGA ===
     public void GuardarDatos()
     {
+        if (usarCatalogoSO && catalogo != null)
+        {
+            GuardarProgreso();
+            return;
+        }
+
         try
         {
             GameSaveData data = new GameSaveData

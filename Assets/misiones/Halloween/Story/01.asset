@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 01
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 1bd620ebadbf76342879541be258762d, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705711063041
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327706998714368
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 1bd620ebadbf76342879541be258762d, type: 3}
   textoFragmento: "[Child]\r\nI can\u2019t see anything... I need some light...\r\nThere\u2019s
     a candle here... Come on, light already\u2026\r\nThat\u2019s it, now the lantern...\r\nGood...
     at least I can see a little.\r\r"
@@ -35,3 +52,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

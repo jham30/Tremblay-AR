@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 03
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 54bc5f091a63cf947af3fa67a1691354, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705715257345
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707002908673
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 54bc5f091a63cf947af3fa67a1691354, type: 3}
   textoFragmento: "[Child.]\r\nNo... no, the house isn\u2019t abandoned...{7}\r\nThe
     stories are true... someone lives here...\r\nIt\u2019s... it\u2019s a witch\u2019s
     house.\n<color=#BEFF7A>\r\n[Witch]\nMittens, I\u2019ll go down to the basement
@@ -36,3 +53,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

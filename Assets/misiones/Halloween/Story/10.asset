@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 10
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: ea34f64122c6d2441961b9febf014433, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705736228864
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707023880192
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: ea34f64122c6d2441961b9febf014433, type: 3}
   textoFragmento: "[Child]\r\nNo... I can\u2019t stay here...\r\nI have to get out!\r\nThe
     yard... yes... it\u2019s the backyard.\r"
   duracionTotal: 0
@@ -34,3 +51,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

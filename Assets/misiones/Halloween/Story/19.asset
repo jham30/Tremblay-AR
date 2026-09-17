@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 19
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: e8d44eef8c73a7845bc2ae38154b186f, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705757200385
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707044851713
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: e8d44eef8c73a7845bc2ae38154b186f, type: 3}
   textoFragmento: "[Child]\r\nIn the shock... I didn\u2019t see this book before.\r\n\u201CMausoleum...
     tree... guardian of rest...\u201D\r\nA tree guarding the grave? Hmm...\r\n\u201COnly
     the light of a lit pumpkin reveals the place of rest.\u201D\r\nPumpkins... like
@@ -39,3 +56,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

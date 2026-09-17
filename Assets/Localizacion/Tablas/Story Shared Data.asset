@@ -14,7 +14,127 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Story
   m_TableCollectionNameGuidString: 08dd93a74b053b14e84597cf9cb26a21
-  m_Entries: []
+  m_Entries:
+  - m_Id: 327706793193472
+    m_Key: story.00-intro-02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706868690944
+    m_Key: story.00-intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706986131456
+    m_Key: story.00
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706998714368
+    m_Key: story.01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908672
+    m_Key: story.02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908673
+    m_Key: story.03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102976
+    m_Key: story.04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102977
+    m_Key: story.05
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707011297280
+    m_Key: story.06
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707015491584
+    m_Key: story.07
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685888
+    m_Key: story.08
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685889
+    m_Key: story.09
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880192
+    m_Key: story.10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880193
+    m_Key: story.11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074496
+    m_Key: story.13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074497
+    m_Key: story.14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707032268800
+    m_Key: story.15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707036463104
+    m_Key: story.16
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707040657408
+    m_Key: story.17
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851712
+    m_Key: story.18
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851713
+    m_Key: story.19
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707049046016
+    m_Key: story.20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707053240320
+    m_Key: story.21
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707061628928
+    m_Key: story.22
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823232
+    m_Key: story.23
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823233
+    m_Key: story.25
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017536
+    m_Key: story.26
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017537
+    m_Key: story.27
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406144
+    m_Key: story.28
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406145
+    m_Key: story.29
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834163

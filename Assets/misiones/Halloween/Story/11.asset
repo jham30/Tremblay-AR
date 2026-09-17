@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 11
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 39be9316732faa84f81731413a75963d, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705736228865
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707023880193
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 39be9316732faa84f81731413a75963d, type: 3}
   textoFragmento: "[Child]\r\nCome on, come on! I have to get out of here...\r\nAhhh!\u2026
     cobwebs\u2026 they\u2019re everywhere\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nSpiders\u2026!
     There are spiders everywhere!\r\nKeep them away from me! Spiders, noooo!.</color>\r\n\r\n[Child]\r\nThe
@@ -38,3 +55,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

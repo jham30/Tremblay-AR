@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 26
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: f5b57b6d0c14add4e8b3c1eee0695b70, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705782366209
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707070017536
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: f5b57b6d0c14add4e8b3c1eee0695b70, type: 3}
   textoFragmento: "<color=#BEFF7A>\r\n[Witch]\r\nThank you, child... I don\u2019t
     like waking up.\r\nSomeone took my hand... and forced me to wander.</color>\r\n\r\n[Child]\r\ndon't
     worried miss. Let\u2019s go back to the house... I\u2019ll make you some tea...
@@ -36,3 +53,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 17
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 23d257c1d3f6e1e48ae9d22e4bdc06a2, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705753006081
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707040657408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 23d257c1d3f6e1e48ae9d22e4bdc06a2, type: 3}
   textoFragmento: "[Child]\r\nThere it is... the hand... still holding the chain.\r\nAll
     right... now.\r\nIt\u2019s loose!\r\nIt worked... yes... it worked!\r\nNo...
     not that cat again!\r\nShhh... please... be quiet\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nDid
@@ -36,3 +53,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

@@ -17,7 +17,226 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 08dd93a74b053b14e84597cf9cb26a21, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 327706868690944
+    m_Localized: 'It was Halloween night.
+
+      A group of children played around
+      the neighborhood, asking for candy and telling scary stories.
+
+      Among
+      the dares and giggles, one of them challenged a girl to light a candle at the
+      entrance of the old abandoned house at the edge of town.
+
+      The girl, determined
+      to prove her courage, took the candle and walked toward the porch.
+
+      But
+      as she stepped onto the old floorboards, they gave way beneath her feet
+
+      and
+      she fell into the dark cellar of the house.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706986131456
+    m_Localized: "Ugh... where am I?\r\nI\u2019d better turn on the flashlight...\r\nOkay
+      okay... calm down...\r\nWhat are those portraits?... and those faces... they
+      look like they\u2019re staring at me...\r\nHmm... what a strange hat. A broom,
+      candles, lanterns...\r\nThis place is creepy.\r\nI\u2019ll call the guys...
+      \r\nNo... no way... my phone\u2019s out of battery."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706998714368
+    m_Localized: "[Child]\r\nI can\u2019t see anything... I need some light...\r\nThere\u2019s
+      a candle here... Come on, light already\u2026\r\nThat\u2019s it, now the lantern...\r\nGood...
+      at least I can see a little.\r\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908672
+    m_Localized: "[Child]\nI have to get out of here.\r\nWhere are the stairs?...
+      I think that way...\r\nWas that... a footstep?...\r\nYeah... someone\u2019s
+      up there.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\n\u2014Mittens! Mittens, come here!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908673
+    m_Localized: "[Child.]\r\nNo... no, the house isn\u2019t abandoned...{7}\r\nThe
+      stories are true... someone lives here...\r\nIt\u2019s... it\u2019s a witch\u2019s
+      house.\n<color=#BEFF7A>\r\n[Witch]\nMittens, I\u2019ll go down to the basement
+      for my broom and my hat.\r\nTonight, I must complete the ritual!</color>\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102976
+    m_Localized: "[Child]\r\n Think... think... she needs her hat and her broom...{3}\r\n
+      There they are... the hat... and the broom...\r\n I\u2019ll put them here...
+      on the little table... yes... right here.\r\n If she finds them... maybe she\u2019ll
+      leave...{2}\r\n Come on, witch... just take your things and go... please...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102977
+    m_Localized: "[Child]\r\nNo... no... she\u2019s coming down...\r\nMittens...!
+      No, no, no! Quiet!\r\nThe cat saw me... he\u2019s going to give me away...{2}\r\nHere...
+      a piece of meat...{3}\r\nEat, kitty... eat... but be quiet, okay?.\n\n<color=#BEFF7A>\r\n[Witch]\r\nMittens,
+      stop fooling around, I don\u2019t have much time. Come on!!</color>\r\n\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707011297280
+    m_Localized: "[Child]\r\nI think... she\u2019s gone.\r\nYeah... it\u2019s quiet
+      now...\r\nI can finally get out of here.{2}\r\nEvery step creaks... but it
+      doesn\u2019t matter, I have to see what\u2019s upstairs.\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707015491584
+    m_Localized: "[Child]\r\n{1}Wow...{1} everything\u2019s covered in cobwebs.\r\nI
+      try to move forward, but they stick to my face...{4}\r\nOkay... with this broom
+      I can push them away.\r\nThere...{1} step by step... I can finally see the
+      inside of the house."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685888
+    m_Localized: "[Child]\r\nLooks like the kitchen.\r\nHmm... that\u2019s strange...
+      it smells like soil... and smoke.\r\nWhat are these mushrooms?... toadstools?...
+      weird... they look freshly cut.\r\nAnd those pumpkins... they all have smiling
+      faces...\r\nHmm... the witch is making something with these...\r\nI\u2019d
+      better not touch anything... for now.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685889
+    m_Localized: "[Child]\r\nThere it is... the main door.\r\nFinally... I can get
+      out.\r\nCome on, open up!\r\nWhat...?\r\nNo... that can\u2019t be...\r\nA hand?
+      Please let it be a toy... old... wrinkled... it\u2019s holding a chain...\r\nIt\u2019s
+      moving!\r\nLet go... let go!\r\nNothing... I can\u2019t... it\u2019s gripping
+      too tight\u2026\r\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nSomeone\u2019s turned
+      on the light! There are intruders in my house!</color>\r\n\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880192
+    m_Localized: "[Child]\r\nNo... I can\u2019t stay here...\r\nI have to get out!\r\nThe
+      yard... yes... it\u2019s the backyard.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880193
+    m_Localized: "[Child]\r\nCome on, come on! I have to get out of here...\r\nAhhh!\u2026
+      cobwebs\u2026 they\u2019re everywhere\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nSpiders\u2026!
+      There are spiders everywhere!\r\nKeep them away from me! Spiders, noooo!.</color>\r\n\r\n[Child]\r\nThe
+      witch... she\u2019s afraid of them?\r\nWell\u2026 that\u2019s something I didn\u2019t
+      expect...\r\nMaybe... that could come in handy later.\r\nAll right... time
+      to get out before she comes back!\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074496
+    m_Localized: "[Child]\r\nThere... over the table... the skull with a lit candle...\r\nPerfect...
+      this will help me see.\r\n[Frightened] A... cemetery?\r\nGreat... straight
+      into the cemetery...\r\nThere\u2019s no other way out...\r\nCome on... just
+      run...\r\nA mausoleum!... I can hide in there... hurry...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074497
+    m_Localized: "[Child]\r\nAn open grave... I hope there\u2019s nothing in there.
+      Okay... easy... just look...\r\nIt\u2019s... empty.\r\nAhhh! Bats!\r\nGet out,
+      get out!\r\nThere\u2019s something written here...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707032268800
+    m_Localized: "[Child]\r\n\u201CFor the witch to rest in peace, her body must
+      be complete in her coffin... and offer her mushroom tea.\u201D\r\nHer body...
+      complete...?\r\nThen...\r\nThe hand... the hand is hers...\r\nOf course...
+      the hand holding the chain.\r\nYes... now I know what to do.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707036463104
+    m_Localized: "[Child]\r\nIf the hand belongs to the witch...\r\nThen... she must
+      also be afraid of spiders.\r\nYeah... of course... it\u2019s part of her.\r\nIf
+      I can get a few of them close to her\u2026 maybe she\u2019ll get scared and
+      let go of the chain.\r\nI just need something to pick them up without touching
+      them.\r\nThe broom... and the hat.\r\nPerfect... that should work.\r\nOkay,
+      let\u2019s go... carefully...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707040657408
+    m_Localized: "[Child]\r\nThere it is... the hand... still holding the chain.\r\nAll
+      right... now.\r\nIt\u2019s loose!\r\nIt worked... yes... it worked!\r\nNo...
+      not that cat again!\r\nShhh... please... be quiet\u2026\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nDid
+      you find her, Mittens? Hahaha! I\u2019ll catch you!</color>\r\n\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851712
+    m_Localized: "[Child]\r\nThat cat won\u2019t let me leave.\r\nOkay\u2026 think\u2026\r\nI
+      know what I have to do.\r\nI need to return the witch\u2019s hand\u2026 and
+      give her the mushroom tea.\r\nThat\u2019ll make her sleep\u2026\r\nBut\u2026
+      where\u2019s her grave?\r\nThere must be more clues\u2026 inside the mausoleum.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851713
+    m_Localized: "[Child]\r\nIn the shock... I didn\u2019t see this book before.\r\n\u201CMausoleum...
+      tree... guardian of rest...\u201D\r\nA tree guarding the grave? Hmm...\r\n\u201COnly
+      the light of a lit pumpkin reveals the place of rest.\u201D\r\nPumpkins...
+      like the ones in the kitchen... with faces and candles inside.\r\nSo... if
+      I light them up, I can see where the witch is buried.\r\n\u201CIts light keeps
+      the spirits of the tree away.\u201D\r\nPerfect... that\u2019s it.\r\nI need
+      a pumpkin, a candle... and to find that tree.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707049046016
+    m_Localized: "[Child]\r\nBrrrrr... the air feels colder.\r\nWhat\u2019s that...
+      in the fog?...\r\nThere it is \u2014 the tree.\r\nIt\u2019s huge... I just
+      need to figure out how to open this old gate, covered in roots... it\u2019s
+      stuck.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707053240320
+    m_Localized: "[Child]\r\nWow... this tree is creepy \u2014 it almost looks like
+      it has a face.\r\n Hmm... I\u2019ll light the pumpkin, just like the book said.\r\n
+      \u201CThe light of a lit pumpkin reveals the place of rest.\u201D\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707061628928
+    m_Localized: "[Child]\r\nWow... this tree is creepy \u2014 it almost looks like
+      it has a face.\r\n Hmm... I\u2019ll light the pumpkin, just like the book said.\r\n
+      \u201CThe light of a lit pumpkin reveals the place of rest.\u201D\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823232
+    m_Localized: "<color=#BEFF7A>\r\n[Witch]\r\nGive back what\u2019s mine!</color>\r\n\r\n[Child]\r\nYou
+      won\u2019t get close \u2014 I\u2019ve got my pumpkin right here! Take this!\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nThat
+      light! Put it out!</color>\r\n\r\n[Child]\r\nStay right there... don\u2019t
+      come any closer...\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823233
+    m_Localized: "[Child]\r\nOkay... here goes...\r\n I\u2019ll put the hand inside...\r\n
+      Please... let this work.\r\nHuh?...\r\n Everything... it\u2019s quiet now.\r\n
+      The witch...\r\n she\u2019s not screaming... or angry anymore...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017536
+    m_Localized: "<color=#BEFF7A>\r\n[Witch]\r\nThank you, child... I don\u2019t
+      like waking up.\r\nSomeone took my hand... and forced me to wander.</color>\r\n\r\n[Child]\r\ndon't
+      worried miss. Let\u2019s go back to the house... I\u2019ll make you some tea...
+      and go back to sleep, peacefully.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017537
+    m_Localized: "[Child]\r\nThere... is that better? I put some flowers to decorate.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nThank
+      you, child...\r\nI\u2019m sorry I scared you so much. That wasn\u2019t my intention.</color>\r\n\r\n[Child]\r\nWell...
+      it\u2019s not every day you meet a witch who\u2019s afraid of spiders.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nI
+      suppose not.</color>\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406144
+    m_Localized: "[Child]\r\nI promise I won\u2019t come into your house without
+      permission.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nMittens would know.</color>\r\n\r\n[Child]\r\nSleep
+      well. And\u2026 thanks for not turning me into a frog.\n\r\n<color=#BEFF7A>\r\n[Witch]\r\nHa!
+      I didn\u2019t even think of that one! </color>\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406145
+    m_Localized: "[Child]\r\nMittens?\u2026\r\nSo you\u2019re still around, huh?\r\nDon\u2019t
+      think I\u2019ve forgotten all the scares you gave me, little furball\u2026
+      I almost gave a heart attack.\r\nAlright, alright\u2026 peace between us.\r\nI\u2019ll
+      bring you some food every day, deal?\r\nBut promise me you won\u2019t give
+      me away next time there\u2019s a witch around.\r\nDeal, Mittens.\r"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

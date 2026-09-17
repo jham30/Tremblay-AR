@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 08
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 8a03ffd05a9e02c40bb1bdc3ec62373c, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705732034560
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707019685888
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 8a03ffd05a9e02c40bb1bdc3ec62373c, type: 3}
   textoFragmento: "[Child]\r\nLooks like the kitchen.\r\nHmm... that\u2019s strange...
     it smells like soil... and smoke.\r\nWhat are these mushrooms?... toadstools?...
     weird... they look freshly cut.\r\nAnd those pumpkins... they all have smiling
@@ -37,3 +54,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

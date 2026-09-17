@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentID: 29
   nombreFragmento: 
-  audioNarracion: {fileID: 8300000, guid: 56d2b891083a44e45ad17ba3c167bdea, type: 3}
+  audio:
+    m_TableReference:
+      m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+    m_TableEntryReference:
+      m_KeyId: 327705790754817
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
   volumenAudio: 0.8
+  texto:
+    m_TableReference:
+      m_TableCollectionName: GUID:08dd93a74b053b14e84597cf9cb26a21
+    m_TableEntryReference:
+      m_KeyId: 327707078406145
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  audioNarracion: {fileID: 8300000, guid: 56d2b891083a44e45ad17ba3c167bdea, type: 3}
   textoFragmento: "[Child]\r\nMittens?\u2026\r\nSo you\u2019re still around, huh?\r\nDon\u2019t
     think I\u2019ve forgotten all the scares you gave me, little furball\u2026 I
     almost gave a heart attack.\r\nAlright, alright\u2026 peace between us.\r\nI\u2019ll
@@ -37,3 +54,6 @@ MonoBehaviour:
   delayAntesSiguiente: 1
   categoria: 0
   prioridad: 5
+  references:
+    version: 2
+    RefIds: []

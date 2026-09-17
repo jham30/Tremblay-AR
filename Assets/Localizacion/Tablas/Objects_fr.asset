@@ -54,6 +54,114 @@ MonoBehaviour:
     m_Localized: Gris
     m_Metadata:
       m_Items: []
+  - m_Id: 206826826084352
+    m_Localized: "Araign\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827186794496
+    m_Localized: Arbre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827564281856
+    m_Localized: Cercueil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834547798016
+    m_Localized: "Sorci\xE8re"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206827920797696
+    m_Localized: Citrouille
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828256342016
+    m_Localized: Citrouille
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835290189824
+    m_Localized: Chaudron
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828570914816
+    m_Localized: "Cr\xE2ne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206828927430656
+    m_Localized: Balai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829275557888
+    m_Localized: Lanterne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834933673984
+    m_Localized: Fleur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206829636268032
+    m_Localized: Chat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830005366784
+    m_Localized: Chapeau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830370271232
+    m_Localized: Champignon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206830735175680
+    m_Localized: Lampe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831095885824
+    m_Localized: Pierre tombale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206834195476480
+    m_Localized: Livre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831460790272
+    m_Localized: Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206831863443456
+    m_Localized: "Mausol\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833830572032
+    m_Localized: Table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832245125120
+    m_Localized: Chauve-souris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206832647778304
+    m_Localized: Pelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833054625792
+    m_Localized: Grille
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206835642511360
+    m_Localized: Saucisse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206833465667584
+    m_Localized: Tombe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206825865588736
+    m_Localized: Bougie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206826494734336
+    m_Localized: Bougie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

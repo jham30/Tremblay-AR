@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-French
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-French
+  m_GUID: 0723f3ce2c6f6e44d8e4fdcb8a741a0b
+  m_SerializeEntries:
+  - m_GUID: 16ef57c9210d82d4088dd6de3b86dcd8
+    m_Address: fr-hongo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a66f8e79876eb44c8aab0e00c0a659f
+    m_Address: fr-calabaza
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3448c32f0b540b44cbea6be96c413e8a
+    m_Address: fr-arbol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34d0b4307f6c0194ba0eb2ca6caabd0a
+    m_Address: fr-flor
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 368caa99bbedeea4086c7fe16a139f1b
+    m_Address: fr-reja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a95da7676f62104eae6883a36b5f519
+    m_Address: fr-pala
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e6ee23f966c2974e81205c4b9dc70ff
+    m_Address: fr-muircielago
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57e18c1fdea3dc24ea440b8648e7d03e
+    m_Address: fr-salchicha
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67194ab2e22657241ae7d947b090e9fc
+    m_Address: fr-mano
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67c10b2d3b3e52a44b95ab6114773cd7
+    m_Address: fr-caldero
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c801b7ae819301409c2b1b31a5bcbe4
+    m_Address: fr-gato
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96ba02c6417835244827b4fa8803046a
+    m_Address: r-ataud
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 976d03b4e401b5944b57502e881311bf
+    m_Address: fr-libro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97fc266c2a5a52e4fb2073eed9cd8b71
+    m_Address: fr-lampara
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a56df997921a0fa4db013983a6607d8c
+    m_Address: fr-bruja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bba8ccf2a93902540acb88271898dac8
+    m_Address: fr-gorro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce05477f0adbb484e906ed89913e3c66
+    m_Address: fr-lapida
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf680bced1741ff46b4f0126fb174b40
+    m_Address: fr-farol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfcd204ae2fc8ff468f52bcb985fe34d
+    m_Address: fr-craneo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd7e19108f2daf349939a35119470f58
+    m_Address: fr-escoba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0d9ee491953ab341a4d25faaae904f1
+    m_Address: fr-tumba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2e51c5a1833ca240949f23368854bd0
+    m_Address: fr-vela
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3f5bd6e097433949a49a898085437f2
+    m_Address: fr-mausoleo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb84e6cf58abf2c4abb4336b8649636c
+    m_Address: fr-arana
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdf3d8cfc3f905c4ea872d712b856f81
+    m_Address: fr-mesa
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c88847caa02b35f489d8f0a8cb231377, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ecaa54a750227144595bde405c3d6775, type: 2}
+    - {fileID: 11400000, guid: e08d7494fc8c70f47b4310c7330f4d1d, type: 2}

@@ -43,6 +43,10 @@ public class SettingsPanelManager : MonoBehaviour
     [Tooltip("Escena del tutorial (debe estar en Build Settings).")]
     [SerializeField] private string nombreEscenaTutorial = "halloween-tuto1";
 
+    [Header("🌐 Cambiar idiomas")]
+    [Tooltip("Botón opcional. Vuelve a la escena de selección y abre allí el panel de idiomas.")]
+    [SerializeField] private Button botonCambiarIdiomas;
+
     // Estado
     private bool panelVisible = false;
     private RectTransform rectTransformPanel;
@@ -79,6 +83,7 @@ public class SettingsPanelManager : MonoBehaviour
         ConfigurarBotonToggle();
         ConfigurarBotonSalir();
         ConfigurarBotonRepetirTutorial();
+        ConfigurarBotonCambiarIdiomas();
         CrearBotonesNavegacion();
         CalcularPosiciones();
         ConfigurarEstadoInicial();
@@ -134,6 +139,34 @@ public class SettingsPanelManager : MonoBehaviour
 
         Debug.Log($"[SettingsPanelManager] 🎓 Repetir tutorial → cargando '{nombreEscenaTutorial}'");
         SceneManager.LoadScene(nombreEscenaTutorial);
+    }
+
+    private void ConfigurarBotonCambiarIdiomas()
+    {
+        if (botonCambiarIdiomas == null) return;
+
+        botonCambiarIdiomas.onClick.RemoveAllListeners();
+        botonCambiarIdiomas.onClick.AddListener(CambiarIdiomas);
+    }
+
+    /// <summary>
+    /// Los idiomas solo se eligen en la escena de selección: aquí no se cambia nada, se
+    /// vuelve allí con la bandera para que el panel de idiomas se abra solo. El progreso ya
+    /// está guardado porque cada cambio se escribe al momento.
+    /// </summary>
+    public void CambiarIdiomas()
+    {
+        if (usarSonidos && GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        if (string.IsNullOrEmpty(nombreEscenaSeleccion))
+        {
+            Debug.LogWarning("[SettingsPanelManager] nombreEscenaSeleccion vacío; no se pudo ir a cambiar idiomas.");
+            return;
+        }
+
+        LanguageSelectorUI.AbrirAlCargar = true;
+        SceneManager.LoadScene(nombreEscenaSeleccion);
     }
 
     private void InicializarComponentes()

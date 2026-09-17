@@ -20,7 +20,6 @@ public class ResetGameController : MonoBehaviour
     
     [Header("Configuración")]
     [SerializeField] private bool requierConfirmacion = true;
-    [SerializeField] private string mensajeConfirmacion = "Are you sure you want to reset the game? All progress will be lost.";
 
     // 🆕 NUEVOS ELEMENTOS PARA PANEL DE CONFIGURACIÓN
     [Header("🎛️ Panel de Configuración")]
@@ -84,7 +83,7 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetCompleto.onClick.RemoveAllListeners();
             botonResetCompleto.onClick.AddListener(() => SolicitarConfirmacion(
-                "🔄 Reset ALL game progress?\n\nThis will delete:\n• All saved objects\n• Mission progress\n• Settings",
+                LanguageManager.T("reset.confirm.full"),
                 () => EjecutarReset("Full", () => EjecutarResetCompleto())
             ));
         }
@@ -93,7 +92,7 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetObjetos.onClick.RemoveAllListeners();
             botonResetObjetos.onClick.AddListener(() => SolicitarConfirmacion(
-                "📦 Reset only saved objects?\n\nThis will delete:\n• Objects marked as saved\n• Collection progress",
+                LanguageManager.T("reset.confirm.objects"),
                 () => EjecutarReset("Objects", () => ResetSoloObjetos())
             ));
         }
@@ -102,7 +101,7 @@ public class ResetGameController : MonoBehaviour
         {
             botonResetMisiones.onClick.RemoveAllListeners();
             botonResetMisiones.onClick.AddListener(() => SolicitarConfirmacion(
-                "🧩 Reset only mission progress?\n\nThis will delete:\n• Deciphered missions\n• Completed missions",
+                LanguageManager.T("reset.confirm.missions"),
                 () => EjecutarReset("Missions", () => ResetSoloMisiones())
             ));
         }
@@ -126,10 +125,6 @@ public class ResetGameController : MonoBehaviour
             botonCancelar.onClick.AddListener(CancelarReset);
         }
         
-        if (textoConfirmacion != null)
-        {
-            textoConfirmacion.text = mensajeConfirmacion;
-        }
     }
 
     // 🔧 MÉTODO ORIGINAL (mantener compatibilidad)
@@ -139,7 +134,7 @@ public class ResetGameController : MonoBehaviour
         
         if (requierConfirmacion && panelConfirmacion != null)
         {
-            SolicitarConfirmacion(mensajeConfirmacion, () => EjecutarResetCompleto());
+            SolicitarConfirmacion(LanguageManager.T("reset.confirm.full"), () => EjecutarResetCompleto());
         }
         else
         {
@@ -195,7 +190,7 @@ public class ResetGameController : MonoBehaviour
         }
         
         accionPendiente = null;
-        MostrarUltimaAccion("❌ Action cancelled");
+        MostrarUltimaAccion(LanguageManager.T("reset.cancelled"));
         
         Debug.Log("[ResetGame] Reset cancelado por el usuario");
         
@@ -215,7 +210,7 @@ public class ResetGameController : MonoBehaviour
             
             resetAction?.Invoke();
             
-            MostrarUltimaAccion($"✅ {tipo} reset completed successfully");
+            MostrarUltimaAccion(LanguageManager.T("reset.done", LanguageManager.T($"reset.type.{tipo.ToLowerInvariant()}")));
             ActualizarEstadisticas();
             
             // 🎵 Sonido de éxito
@@ -435,32 +430,32 @@ public class ResetGameController : MonoBehaviour
             int objetosGuardados = gameObjectManager.ObtenerObjetosGuardados()?.Count ?? 0;
             float progreso = totalObjetos > 0 ? (objetosGuardados * 100f / totalObjetos) : 0f;
             
-            string estadisticas = $"📦 OBJECTS\n";
-            estadisticas += $"Total: {totalObjetos}\n";
-            estadisticas += $"Saved: {objetosGuardados}\n";
-            estadisticas += $"Progress: {progreso:F1}%\n\n";
+            string estadisticas = LanguageManager.T("stats.objects") + "\n";
+            estadisticas += LanguageManager.T("stats.total", totalObjetos) + "\n";
+            estadisticas += LanguageManager.T("stats.saved", objetosGuardados) + "\n";
+            estadisticas += LanguageManager.T("stats.progress", progreso.ToString("F1")) + "\n\n";
 
             if (missionManager != null)
             {
-                estadisticas += $"🧩 MISSIONS\n";
-                estadisticas += $"Deciphered: {missionManager.MisionesDescifradas?.Count ?? 0}\n";
-                estadisticas += $"Completed: {missionManager.MisionesCompletadas?.Count ?? 0}\n";
-                estadisticas += $"Available: {missionManager.MisionesDisponibles?.Count ?? 0}\n\n";
+                int completadas = missionManager.MisionesCompletadas?.Count ?? 0;
 
-                if (missionManager.MisionesCompletadas?.Count > 0)
-                {
-                    estadisticas += $"🏆 {missionManager.MisionesCompletadas.Count} missions completed!";
-                }
+                estadisticas += LanguageManager.T("stats.missions") + "\n";
+                estadisticas += LanguageManager.T("stats.deciphered", missionManager.MisionesDescifradas?.Count ?? 0) + "\n";
+                estadisticas += LanguageManager.T("stats.completed", completadas) + "\n";
+                estadisticas += LanguageManager.T("stats.available", missionManager.MisionesDisponibles?.Count ?? 0) + "\n\n";
+
+                if (completadas > 0)
+                    estadisticas += LanguageManager.T("stats.congrats", completadas);
             }
 
             textoEstadisticas.text = estadisticas;
         }
         else
         {
-            textoEstadisticas.text = "❌ Could not load statistics\n\nMake sure GameObjectManager is in the scene.";
+            textoEstadisticas.text = LanguageManager.T("stats.error");
         }
 
-        MostrarUltimaAccion("📊 Statistics updated");
+        MostrarUltimaAccion(LanguageManager.T("reset.stats_updated"));
         
         // 🎵 Sonido de progreso
         if (usarSonidos && GlobalAudioManager.Instance != null)

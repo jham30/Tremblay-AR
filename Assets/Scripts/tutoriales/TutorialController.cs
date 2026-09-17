@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;
 
 public enum CondicionAvance
 {
@@ -67,10 +68,16 @@ public enum BloqueoFondo
 [Serializable]
 public class TutorialStep
 {
-    [TextArea(2, 5)] public string textoES;
-    [TextArea(2, 5)] public string textoEN;
-    public AudioClip audioES;
-    public AudioClip audioEN;
+    [Tooltip("Texto del paso (tabla UI, idioma nativo). {0} = nombre del idioma meta.")]
+    public LocalizedString texto;
+    [Tooltip("Narración del paso (tabla StoryAudio, idioma nativo).")]
+    public LocalizedAudioClip audio;
+
+    // Campos antiguos: solo los lee el script de migración (Tremblay > Localización > Fase 2). Se borran en la Fase 3.
+    [HideInInspector] public string textoES;
+    [HideInInspector] public string textoEN;
+    [HideInInspector] public AudioClip audioES;
+    [HideInInspector] public AudioClip audioEN;
     public CondicionAvance condicion;
     [Tooltip("Parámetro para ImageTargetDetectado, ObjetoTocado, ObjetoSoltadoEnSocket, " +
              "ObjetoAgarrado, ObjetoColocado, MisionDescifrada, MisionCompletada (ID esperado).\n" +
@@ -144,8 +151,6 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private Button botonIrAlJuego;
     [Tooltip("Texto del mensaje de cierre (opcional).")]
     [SerializeField] private TextMeshProUGUI textoFinal;
-    [SerializeField] private string mensajeFinalES = "¡Tutorial completado!\n¡Ahora a jugar!";
-    [SerializeField] private string mensajeFinalEN = "Tutorial complete!\nTime to play!";
 
     [Header("Recordatorio del botón Siguiente")]
     [Tooltip("Sacude el botón 'Siguiente' de vez en cuando para llamar la atención del jugador " +
@@ -182,9 +187,6 @@ public class TutorialController : MonoBehaviour
              "OJO: el ScriptableObject de la misión DEBE tener su 'misionID' relleno; si está vacío " +
              "la misión nunca se guarda ni dispara sus eventos.")]
     [SerializeField] private string[] misionesAResetear;
-
-    [Header("Idioma")]
-    [SerializeField] private Idioma idiomaActual = Idioma.Espanol;
 
     [Header("Debug")]
     [SerializeField] private bool debug = true;
@@ -550,9 +552,9 @@ public class TutorialController : MonoBehaviour
         var p = pasos[pasoActual];
 
         if (textoPaso != null)
-            textoPaso.text = idiomaActual == Idioma.Ingles ? p.textoEN : p.textoES;
+            textoPaso.text = TextoDelPaso(p);
 
-        clipPasoActual = idiomaActual == Idioma.Ingles ? p.audioEN : p.audioES;
+        clipPasoActual = AudioDelPaso(p);
         ReproducirNarracionPaso();
 
         // Resaltado: se gestiona con una corrutina que ESPERA a que el elemento esté activo.
@@ -854,9 +856,9 @@ public class TutorialController : MonoBehaviour
             panelFinal.SetActive(true);
 
         if (textoFinal != null)
-            textoFinal.text = idiomaActual == Idioma.Ingles ? mensajeFinalEN : mensajeFinalES;
+            textoFinal.text = LanguageManager.T("tutorial.final");
         else if (textoPaso != null)
-            textoPaso.text = idiomaActual == Idioma.Ingles ? mensajeFinalEN : mensajeFinalES;
+            textoPaso.text = LanguageManager.T("tutorial.final");
 
         if (botonIrAlJuego != null)
             botonIrAlJuego.gameObject.SetActive(true);
@@ -909,23 +911,21 @@ public class TutorialController : MonoBehaviour
     // -----------------------------
     // API pública
     // -----------------------------
-    public void CambiarIdioma(Idioma nuevo)
+    // El idioma nativo manda en el texto y la narración; {0} es el nombre del idioma meta, para
+    // frases como "¿Oíste cómo se dice en {0}?".
+    private static string TextoDelPaso(TutorialStep p)
     {
-        idiomaActual = nuevo;
-        if (pasoActual >= 0 && pasoActual < pasos.Count)
-        {
-            var p = pasos[pasoActual];
-            if (textoPaso != null)
-                textoPaso.text = idiomaActual == Idioma.Ingles ? p.textoEN : p.textoES;
+        if (p.texto == null || p.texto.IsEmpty) return p.textoES;
 
-            // El botón de repetir debe dar el audio del idioma nuevo, no el del anterior.
-            clipPasoActual = idiomaActual == Idioma.Ingles ? p.audioEN : p.audioES;
-            if (botonRepetirAudio != null)
-            {
-                botonRepetirAudio.gameObject.SetActive(clipPasoActual != null);
-                if (repetirAudioCoroutine == null) botonRepetirAudio.interactable = true;
-            }
-        }
+        var lm = LanguageManager.Instance;
+        string nombreMeta = lm != null ? lm.TextoNativo($"idiomas.nombre_{lm.CodigoMeta}") : "";
+        return p.texto.GetLocalizedString(nombreMeta);
+    }
+
+    private static AudioClip AudioDelPaso(TutorialStep p)
+    {
+        if (p.audio == null || p.audio.IsEmpty) return p.audioES;
+        return p.audio.LoadAsset();
     }
 
     [ContextMenu("🧹 Resetear SOLO objetos/misión del tutorial")]

@@ -152,7 +152,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             tituloItem.transform.SetParent(contenedor, false);
             
             TextMeshProUGUI texto = tituloItem.AddComponent<TextMeshProUGUI>();
-            texto.text = "Available missions:";
+            texto.text = LanguageManager.T("ar.available_missions");
             texto.fontSize = 18;
             texto.fontStyle = FontStyles.Bold;
         }

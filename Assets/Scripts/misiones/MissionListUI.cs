@@ -42,10 +42,6 @@ public class MissionListUI : MonoBehaviour
 
 private GameObject itemMisionActual; // Referencia al item actualmente seleccionado
     
-    [Header("Configuración Visual")]
-    [SerializeField] private string textoMostrar = "▼ Mostrar Misiones";
-    [SerializeField] private string textoOcultar = "▲ Ocultar Misiones";
-
     private readonly List<GameObject> itemsInstanciados = new List<GameObject>();
     private bool panelVisible = true; // 👈 CAMBIADO: Por defecto visible
     private RectTransform rectTransformPanel;
@@ -70,13 +66,6 @@ private GameObject itemMisionActual; // Referencia al item actualmente seleccion
     [SerializeField] private Color colorBloqueada = Color.red;
     [SerializeField] private Color colorDesconocido = Color.gray;
     
-    [Header("📝 Configuración de Mensajes de Estado")]
-    [SerializeField] private string mensajeCompletada = "Completada en AR";
-    [SerializeField] private string mensajeDescifrada = "Descifrada - Ve al AR";
-    [SerializeField] private string mensajeDisponible = "Disponible para descifrar";
-    [SerializeField] private string mensajeBloqueada = "Bloqueada";
-    [SerializeField] private string mensajeDesconocido = "Desconocido";
-
     [Header("🗂️ Filtros por Estado")]
     [Tooltip("Botones de filtro EN ESTE ORDEN: [0]Todas, [1]Disponibles, [2]Descifradas, [3]Completadas, [4]Bloqueadas.")]
     [SerializeField] private Button[] botonesFiltro;
@@ -383,7 +372,7 @@ private int ObtenerPrioridadOrdenamiento(Mission mision)
     {
         if (textoBoton != null && usarToggle)
         {
-            textoBoton.text = panelVisible ? textoOcultar : textoMostrar;
+            textoBoton.text = LanguageManager.T(panelVisible ? "missions.hide" : "missions.show");
         }
     }
 
@@ -621,19 +610,19 @@ private void ConfigurarIndicadorEstado(GameObject item, Mission mision)
 
     private string ObtenerEstadoMision(Mission mision)
     {
-        if (missionManager == null) return mensajeDesconocido;
+        if (missionManager == null) return LanguageManager.T("missions.state.unknown");
 
         if (missionManager.MisionesCompletadas.Contains(mision.misionID))
-            return mensajeCompletada;
+            return LanguageManager.T("missions.state.completed");
 
         if (missionManager.MisionesDescifradas.Contains(mision.misionID))
-            return mensajeDescifrada;
+            return LanguageManager.T("missions.state.deciphered");
 
         Mission misionActual = missionManager.misiones.Find(m => m.misionID == mision.misionID);
         if (misionActual != null && missionManager.MisionesDisponibles.Contains(misionActual))
-            return mensajeDisponible;
+            return LanguageManager.T("missions.state.available");
 
-        return mensajeBloqueada;
+        return LanguageManager.T("missions.state.locked");
     }
 
     private Color ObtenerColorEstado(Mission mision)

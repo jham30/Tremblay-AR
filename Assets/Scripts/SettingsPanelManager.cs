@@ -25,10 +25,6 @@ public class SettingsPanelManager : MonoBehaviour
     [SerializeField] private AnimationCurve curvaAnimacion = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] private TipoSlideSettings tipoSlide = TipoSlideSettings.DerechaIzquierda;
     
-    [Header("📝 Textos")]
-    [SerializeField] private string textoMostrar = "⚙️ Configuración";
-    [SerializeField] private string textoOcultar = "❌ Cerrar";
-    
     [Header("🔊 Audio")]
     [SerializeField] private bool usarSonidos = true;
 
@@ -267,7 +263,7 @@ public class SettingsPanelManager : MonoBehaviour
                 TextMeshProUGUI textoBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
                 if (textoBoton != null)
                 {
-                    textoBoton.text = $"{panel.iconoPanel} {panel.nombrePanel}";
+                    textoBoton.text = $"{panel.iconoPanel} {NombrePanelLocalizado(panel)}".Trim();
                 }
                 
                 botonesNavegacion[panel] = boton;
@@ -458,6 +454,18 @@ public class SettingsPanelManager : MonoBehaviour
         Debug.Log($"[SettingsPanelManager] Panel mostrado: {panel.nombrePanel}");
     }
 
+    // nombrePanel sigue siendo el identificador (MostrarPanelPorNombre); para mostrarlo se busca
+    // "settings.panel.<slug>" y, si no existe la clave, se enseña el nombre tal cual.
+    private static string NombrePanelLocalizado(SettingsPanel panel)
+    {
+        if (string.IsNullOrWhiteSpace(panel.nombrePanel)) return "";
+
+        string slug = panel.nombrePanel.Trim().ToLowerInvariant().Replace(' ', '_');
+        string clave = $"settings.panel.{slug}";
+        string texto = LanguageManager.T(clave);
+        return texto == clave ? panel.nombrePanel : texto;
+    }
+
     private void OcultarPanelActivo()
     {
         if (panelActivo != null && panelActivo.panelGameObject != null)
@@ -471,7 +479,7 @@ public class SettingsPanelManager : MonoBehaviour
     {
         if (textoBotonToggle != null)
         {
-            textoBotonToggle.text = panelVisible ? textoOcultar : textoMostrar;
+            textoBotonToggle.text = LanguageManager.T(panelVisible ? "settings.close" : "settings.open");
         }
     }
 

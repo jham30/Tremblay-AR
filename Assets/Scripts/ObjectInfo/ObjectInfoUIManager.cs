@@ -979,14 +979,14 @@ public class ObjectInfoUIManager : MonoBehaviour
     private void ActualizarBotonGuardado(Button boton)
     {
         TextMeshProUGUI textoBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
-        if (textoBoton != null) textoBoton.text = "Got it ✓";
+        if (textoBoton != null) textoBoton.text = LanguageManager.T("ar.got_it");
         boton.interactable = false;
     }
 
     private void RestaurarBotonGuardar(Button boton)
     {
         TextMeshProUGUI textoBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
-        if (textoBoton != null) textoBoton.text = "Guardar";
+        if (textoBoton != null) textoBoton.text = LanguageManager.T("ar.save");
         boton.interactable = true;
     }
 
@@ -1099,17 +1099,20 @@ public class ObjectInfoUIManager : MonoBehaviour
         int faltan = total - correctos;
         int sobran = objetosColocados.Count(o => !requeridos.Contains(o));
 
-        if (objetosColocados.Count == 0)
-            return $"This mission needs {total} object{(total == 1 ? "" : "s")}. You haven't brought any yet.";
+        var partes = new List<string> { LanguageManager.T("check.needs", total) };
 
-        var partes = new List<string> { $"This mission needs {total} object{(total == 1 ? "" : "s")}." };
+        if (objetosColocados.Count == 0)
+        {
+            partes.Add(LanguageManager.T("ar.none_brought"));
+            return string.Join(" ", partes);
+        }
 
         if (faltan > 0)
-            partes.Add($"You still need to bring {faltan} object{(faltan == 1 ? "" : "s")}.");
+            partes.Add(LanguageManager.T("ar.still_need_bring", faltan));
         if (sobran > 0)
-            partes.Add($"{sobran} object{(sobran == 1 ? "" : "s")} {(sobran == 1 ? "doesn't" : "don't")} belong here.");
+            partes.Add(LanguageManager.T("ar.not_belong_here", sobran));
 
-        partes.Add($"Correct: {correctos} of {total}.");
+        partes.Add(LanguageManager.T("check.correct", correctos, total));
         return string.Join(" ", partes);
     }
 

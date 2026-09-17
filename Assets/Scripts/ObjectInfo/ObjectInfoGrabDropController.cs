@@ -279,7 +279,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
                 GlobalAudioManager.Instance.ReproducirSonidoSoltarFallido();
 
             if (mainManager != null)
-                mainManager.MostrarMensajeMision("You already placed that one.");
+                mainManager.MostrarMensajeMision(LanguageManager.T("ar.already_placed"));
 
             return; // el objeto sigue en la mano; el jugador puede llevarlo a otro lado o abandonarlo
         }

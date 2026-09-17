@@ -134,7 +134,7 @@ public void CargarMisionSeleccionada(int indice)
         // Actualizar UI
         if (resultadoTMP != null)
         {
-            resultadoTMP.text = $"Misión seleccionada: {mision.descripcion}";
+            resultadoTMP.text = LanguageManager.T("mission.selected", mision.descripcion);
             resultadoTMP.gameObject.SetActive(true);
             StartCoroutine(AutoOcultarResultado());
         }
@@ -290,7 +290,7 @@ public void CargarMisionSeleccionada(int indice)
         {
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = "🏆 ¡Todas las misiones descifradas! Ve al AR para completarlas.";
+                resultadoTMP.text = LanguageManager.T("mission.all_deciphered");
                 resultadoTMP.gameObject.SetActive(true);
             }
             return;
@@ -314,7 +314,7 @@ public void CargarMisionSeleccionada(int indice)
                     
                     if (textoMisionActual != null)
                     {
-                        textoMisionActual.text = $"Misión Actual: {primeraMision.descripcion}";
+                        textoMisionActual.text = LanguageManager.T("mission.current", primeraMision.descripcion);
                     }
                 }
             }
@@ -322,7 +322,7 @@ public void CargarMisionSeleccionada(int indice)
             {
                 if (resultadoTMP != null)
                 {
-                    resultadoTMP.text = "🏆 ¡Todas las misiones descifradas! Ve al AR para completarlas.";
+                    resultadoTMP.text = LanguageManager.T("mission.all_deciphered");
                     resultadoTMP.gameObject.SetActive(true);
                 }
             }
@@ -332,7 +332,7 @@ public void CargarMisionSeleccionada(int indice)
             Debug.Log("[MissionManager] No hay misiones disponibles");
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = "No hay misiones disponibles. Recolecta más objetos.";
+                resultadoTMP.text = LanguageManager.T("mission.none_available");
                 resultadoTMP.gameObject.SetActive(true);
             }
         }
@@ -488,7 +488,7 @@ public void ComprobarMision()
             
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = $"¡Misión descifrada! Ve al AR para completarla.";
+                resultadoTMP.text = LanguageManager.T("mission.deciphered_go_ar");
                 resultadoTMP.gameObject.SetActive(true);
             }
         }
@@ -552,7 +552,7 @@ public void ComprobarMision()
 
         if (resultadoTMP != null)
         {
-            resultadoTMP.text = "Misión descifrada! Puedes seleccionar otra o continuar automáticamente.";
+            resultadoTMP.text = LanguageManager.T("mission.deciphered_pick_another");
             resultadoTMP.gameObject.SetActive(true);
         }
 
@@ -655,30 +655,27 @@ public void ComprobarMision()
     private string ConstruirMensajeResultado(int correctos, int malColocados, int incorrectos, int vacios, int total)
     {
         if (correctos == total && total > 0)
-            return $"Complete! ({total}/{total})";
+            return LanguageManager.T("check.complete", total);
 
-        var partes = new List<string>
-        {
-            $"This mission needs {total} object{(total == 1 ? "" : "s")}."
-        };
+        var partes = new List<string> { LanguageManager.T("check.needs", total) };
 
         int colocados = total - vacios;
         if (colocados == 0)
         {
-            partes.Add("You haven't placed any objects yet.");
+            partes.Add(LanguageManager.T("check.none_placed"));
             return string.Join(" ", partes);
         }
 
         if (vacios > 0)
-            partes.Add($"You still need to place {vacios} more object{(vacios == 1 ? "" : "s")}.");
+            partes.Add(LanguageManager.T("check.still_need", vacios));
 
         if (malColocados > 0)
-            partes.Add($"{malColocados} object{(malColocados == 1 ? "" : "s")} {(malColocados == 1 ? "is" : "are")} in the wrong spot.");
+            partes.Add(LanguageManager.T("check.wrong_spot", malColocados));
 
         if (incorrectos > 0)
-            partes.Add($"{incorrectos} object{(incorrectos == 1 ? "" : "s")} {(incorrectos == 1 ? "doesn't" : "don't")} belong to this mission.");
+            partes.Add(LanguageManager.T("check.not_belong", incorrectos));
 
-        partes.Add($"Correct: {correctos} of {total}.");
+        partes.Add(LanguageManager.T("check.correct", correctos, total));
 
         return string.Join(" ", partes);
     }
@@ -699,7 +696,7 @@ public void ComprobarMision()
         {
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = "¡Todas las misiones descifradas! Ve al AR para completarlas.";
+                resultadoTMP.text = LanguageManager.T("mission.all_deciphered");
                 resultadoTMP.gameObject.SetActive(true);
             }
             yield break;
@@ -748,7 +745,7 @@ public void ComprobarMision()
 
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = $"Siguiente misión: {siguienteMision.descripcion}";
+                resultadoTMP.text = LanguageManager.T("mission.next", siguienteMision.descripcion);
                 resultadoTMP.gameObject.SetActive(true);
             }
         }
@@ -756,7 +753,7 @@ public void ComprobarMision()
         {
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = "¡Todas las misiones descifradas! Ve al AR para completarlas.";
+                resultadoTMP.text = LanguageManager.T("mission.all_deciphered");
                 resultadoTMP.gameObject.SetActive(true);
             }
         }
@@ -871,7 +868,7 @@ public Mission ObtenerMisionActual()
             int disponibles = misionesDisponibles.Count;
             int total = misiones.Count;
             
-            misionesDisponiblesTMP.text = $"Misiones: {completadas}/{total} completadas | {descifradas} descifradas | {disponibles} disponibles";
+            misionesDisponiblesTMP.text = LanguageManager.T("mission.summary", completadas, total, descifradas, disponibles);
         }
     }
 

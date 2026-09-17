@@ -110,6 +110,10 @@ public class LanguageManager : MonoBehaviour
 
     // === Helpers de lookup. Todo acceso a las tablas pasa por aquí. ===
 
+    /// <summary>Texto de interfaz en nativo. Atajo estático para los mensajes que escribe el código.</summary>
+    public static string T(string clave, params object[] args) =>
+        Instance != null ? Instance.TextoNativo(clave, args) : clave;
+
     public string TextoNativo(string clave, params object[] args) =>
         Texto(TablaUI, clave, LocaleNativo, args);
 

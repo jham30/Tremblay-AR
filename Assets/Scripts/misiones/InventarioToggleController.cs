@@ -20,8 +20,6 @@ public class InventarioToggleController : MonoBehaviour
     [SerializeField] private float alturaPanel = 400f;
     
     [Header("Configuración Visual")]
-    [SerializeField] private string textoMostrar = "Mostrar Inventario";
-    [SerializeField] private string textoOcultar = "Ocultar Inventario";
     
     [Header("Posición del Slide")]
     [SerializeField] private TipoSlide tipoSlide = TipoSlide.AbajoArriba;
@@ -471,7 +469,7 @@ public void TogglePanel()
     {
         if (textoBoton != null)
         {
-            textoBoton.text = panelVisible ? textoOcultar : textoMostrar;
+            textoBoton.text = LanguageManager.T(panelVisible ? "inventory.close" : "inventory.open");
         }
     }
 

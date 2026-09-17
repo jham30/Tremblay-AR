@@ -279,7 +279,7 @@ public void CargarMisionSeleccionada(int indice)
                 MisionesDisponibles.Contains(misionSeleccionada) && 
                 !MisionesDescifradas.Contains(misionSeleccionada.misionID))
             {
-                Debug.Log($"[MissionManager] Manteniendo misión seleccionada: {misionSeleccionada.descripcion}");
+                Debug.Log($"[MissionManager] Manteniendo misión seleccionada: {misionSeleccionada.DescripcionMeta}");
                 return;
             }
         }

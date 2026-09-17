@@ -175,7 +175,7 @@ public void ActualizarMisionSeleccionada(Mission misionActual)
                 itemMisionActual = item;
                 CrearBordeSeleccion(item);
                 
-                Debug.Log($"[MissionListUI] ✅ Misión activa marcada: {misionActual.descripcion}");
+                Debug.Log($"[MissionListUI] ✅ Misión activa marcada: {misionActual.DescripcionMeta}");
                 break;
             }
         }

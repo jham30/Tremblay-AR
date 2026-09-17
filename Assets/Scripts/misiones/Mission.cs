@@ -4,10 +4,41 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NuevaMision", menuName = "Misiones/Mision")]
 public class Mission : ScriptableObject
 {
+    [Header("Texto (solo si no hay plantilla en la tabla Missions)")]
+    [Tooltip("Obsoleto: la frase sale de la tabla Missions (mission.<id>.template) en idioma meta. Se conserva como respaldo hasta migrar.")]
     [TextArea(1, 5)]
     public string descripcion;
-    
+
+    [Tooltip("Obsoleto: se calcula desde la plantilla. Se conserva como respaldo hasta migrar.")]
     public MissionPart[] partes;
+
+    /// <summary>Frase con iconos, en idioma meta. Cae a 'descripcion' si la tabla no tiene plantilla.</summary>
+    public string DescripcionMeta
+    {
+        get
+        {
+            string plantilla = Plantilla();
+            return plantilla != null ? MissionTemplate.Descripcion(plantilla, NombreMeta) : descripcion;
+        }
+    }
+
+    /// <summary>Partes del puzle en idioma meta. Cae a 'partes' si la tabla no tiene plantilla.</summary>
+    public MissionPart[] PartesMeta()
+    {
+        string plantilla = Plantilla();
+        return plantilla != null ? MissionTemplate.Parsear(plantilla, NombreMeta).ToArray() : partes;
+    }
+
+    private string Plantilla()
+    {
+        var lm = LanguageManager.Instance;
+        if (lm == null || string.IsNullOrEmpty(misionID)) return null;
+        string p = lm.PlantillaMisionMeta(misionID);
+        return MissionTemplate.TienePlaceholders(p) ? p : null;
+    }
+
+    private static string NombreMeta(string idObjeto) =>
+        LanguageManager.Instance != null ? LanguageManager.Instance.NombreObjetoMeta(idObjeto) : idObjeto;
 
     [Header("Sistema de Activación")]
     public TipoActivacion tipoActivacion = TipoActivacion.ActivaDesdeInicio;

@@ -189,17 +189,17 @@ public class ObjectInfoMissionPanel : MonoBehaviour
         TextMeshProUGUI tmp = textoItem.GetComponentInChildren<TextMeshProUGUI>();
         if (tmp != null)
         {
-            tmp.text = $"• {mision.descripcion}";
+            tmp.text = $"• {mision.DescripcionMeta}";
         }
 
-        Debug.Log($"📋 [MissionPanel] Texto misión individual {indice + 1}/{total}: {mision.descripcion}");
+        Debug.Log($"📋 [MissionPanel] Texto misión individual {indice + 1}/{total}: {mision.DescripcionMeta}");
     }
     
     private void CrearTextoMision(Mission mision)
     {
         if (mision == null) return;
         
-        Debug.Log($"📦 [MissionPanel] Creando texto para misión: {mision.descripcion}");
+        Debug.Log($"📦 [MissionPanel] Creando texto para misión: {mision.DescripcionMeta}");
 
         Transform contenedor = contenedorTextosMision != null ? contenedorTextosMision : panelMisiones;
         if (contenedor == null) return;
@@ -218,10 +218,10 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             textoItem.transform.SetParent(contenedor, false);
             
             TextMeshProUGUI texto = textoItem.AddComponent<TextMeshProUGUI>();
-            texto.text = mision.descripcion;
+            texto.text = mision.DescripcionMeta;
             texto.fontSize = 16;
             
-            Debug.Log($"📦 [MissionPanel] Texto básico creado: {mision.descripcion}");
+            Debug.Log($"📦 [MissionPanel] Texto básico creado: {mision.DescripcionMeta}");
             return;
         }
 
@@ -229,8 +229,8 @@ public class ObjectInfoMissionPanel : MonoBehaviour
         TextMeshProUGUI tmp = textoItem.GetComponentInChildren<TextMeshProUGUI>();
         if (tmp != null)
         {
-            tmp.text = mision.descripcion;
-            Debug.Log($"📦 [MissionPanel] Texto configurado en prefab: {mision.descripcion}");
+            tmp.text = mision.DescripcionMeta;
+            Debug.Log($"📦 [MissionPanel] Texto configurado en prefab: {mision.DescripcionMeta}");
         }
         else
         {

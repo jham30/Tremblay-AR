@@ -113,17 +113,17 @@ public void CargarMisionSeleccionada(int indice)
         // Verificar que la misión sea seleccionable
         if (!MisionesDisponibles.Contains(mision))
         {
-            Debug.LogWarning($"[MissionManager] Misión no disponible para seleccionar: {mision.descripcion}");
+            Debug.LogWarning($"[MissionManager] Misión no disponible para seleccionar: {mision.DescripcionMeta}");
             return;
         }
 
         if (MisionesDescifradas.Contains(mision.misionID))
         {
-            Debug.LogWarning($"[MissionManager] Misión ya descifrada: {mision.descripcion}");
+            Debug.LogWarning($"[MissionManager] Misión ya descifrada: {mision.DescripcionMeta}");
             return;
         }
 
-        Debug.Log($"[MissionManager] Misión seleccionada manualmente: {mision.descripcion}");
+        Debug.Log($"[MissionManager] Misión seleccionada manualmente: {mision.DescripcionMeta}");
 
         // Marcar como selección manual
         misionSeleccionadaManualmente = true;
@@ -134,7 +134,7 @@ public void CargarMisionSeleccionada(int indice)
         // Actualizar UI
         if (resultadoTMP != null)
         {
-            resultadoTMP.text = LanguageManager.T("mission.selected", mision.descripcion);
+            resultadoTMP.text = LanguageManager.T("mission.selected", mision.DescripcionMeta);
             resultadoTMP.gameObject.SetActive(true);
             StartCoroutine(AutoOcultarResultado());
         }
@@ -209,7 +209,7 @@ public void CargarMisionSeleccionada(int indice)
             if (disponible && !misionesCompletadas.Contains(mision.misionID))
             {
                 misionesDisponibles.Add(mision);
-                Debug.Log($"[MissionManager] Misión disponible: {mision.misionID} - {mision.descripcion}");
+                Debug.Log($"[MissionManager] Misión disponible: {mision.misionID} - {mision.DescripcionMeta}");
             }
         }
 
@@ -314,7 +314,7 @@ public void CargarMisionSeleccionada(int indice)
                     
                     if (textoMisionActual != null)
                     {
-                        textoMisionActual.text = LanguageManager.T("mission.current", primeraMision.descripcion);
+                        textoMisionActual.text = LanguageManager.T("mission.current", primeraMision.DescripcionMeta);
                     }
                 }
             }
@@ -370,7 +370,7 @@ public void CargarMisionSeleccionada(int indice)
 
     if (!misionesDisponibles.Contains(mision))
     {
-        Debug.LogWarning($"[MissionManager] Misión no disponible: {mision.descripcion}");
+        Debug.LogWarning($"[MissionManager] Misión no disponible: {mision.DescripcionMeta}");
         return;
     }
 
@@ -380,16 +380,17 @@ public void CargarMisionSeleccionada(int indice)
 
 private IEnumerator CargarMisionConLayout(Mission mision)
 {
-    if (mision.partes == null || mision.partes.Length == 0)
+    MissionPart[] partes = mision.PartesMeta();
+    if (partes == null || partes.Length == 0)
     {
-        Debug.LogWarning($"[MissionManager] Misión sin partes: {mision.descripcion}");
+        Debug.LogWarning($"[MissionManager] Misión sin partes: {mision.misionID}");
         yield break;
     }
 
-    Debug.Log($"[MissionManager] 📋 Cargando misión: {mision.descripcion}");
+    Debug.Log($"[MissionManager] 📋 Cargando misión: {mision.DescripcionMeta}");
 
     // PASO 1: Crear todas las partes
-    foreach (var parte in mision.partes)
+    foreach (var parte in partes)
     {
         if (parte == null) continue;
 
@@ -745,7 +746,7 @@ public void ComprobarMision()
 
             if (resultadoTMP != null)
             {
-                resultadoTMP.text = LanguageManager.T("mission.next", siguienteMision.descripcion);
+                resultadoTMP.text = LanguageManager.T("mission.next", siguienteMision.DescripcionMeta);
                 resultadoTMP.gameObject.SetActive(true);
             }
         }

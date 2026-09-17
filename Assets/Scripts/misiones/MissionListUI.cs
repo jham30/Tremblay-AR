@@ -459,7 +459,7 @@ private void ConfigurarItemMision(GameObject item, Mission mision)
     var textos = item.GetComponentsInChildren<TextMeshProUGUI>();
     if (textos.Length >= 3)
     {
-        textos[0].text = mision.descripcion;
+        textos[0].text = mision.DescripcionMeta;
         textos[1].text = mision.tipoActivacion.ToString();
         textos[2].text = ObtenerEstadoMision(mision);
         textos[2].color = ObtenerColorEstado(mision);
@@ -575,14 +575,14 @@ private void ConfigurarIndicadorEstado(GameObject item, Mission mision)
         return;
     }
 
-    Debug.Log($"[MissionListUI] Misión seleccionada: {mision.descripcion} (ID: {mision.misionID})");
+    Debug.Log($"[MissionListUI] Misión seleccionada: {mision.DescripcionMeta} (ID: {mision.misionID})");
 
     int indiceMision = missionManager.misiones.IndexOf(mision);
     
     if (indiceMision >= 0)
     {
         missionManager.CargarMisionSeleccionada(indiceMision);
-        Debug.Log($"[MissionListUI] Misión cargada en descifrador: {mision.descripcion}");
+        Debug.Log($"[MissionListUI] Misión cargada en descifrador: {mision.DescripcionMeta}");
         
         // 🆕 NUEVO: Actualizar indicador visual
         ActualizarMisionSeleccionada(mision);
@@ -593,7 +593,7 @@ private void ConfigurarIndicadorEstado(GameObject item, Mission mision)
             OcultarPanel();
         }
         
-        StartCoroutine(MostrarFeedbackSeleccion(mision.descripcion));
+        StartCoroutine(MostrarFeedbackSeleccion(mision.DescripcionMeta));
     }
     else
     {

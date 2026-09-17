@@ -70,11 +70,6 @@ public class ScrollViewLoader : MonoBehaviour
             if (debugAndroid) Debug.Log("[ScrollViewLoader] Datos listos, cargando sprites...");
             RefrescarSprites();
         }
-        else if (gameObjectManager.listaObjetos.Count == 0)
-        {
-            if (debugAndroid) Debug.Log("[ScrollViewLoader] Lista vacía, agregando objetos de ejemplo...");
-            gameObjectManager.AgregarObjetosEjemplo();
-        }
     }
 
     void HandleDatosCargados()
@@ -194,11 +189,11 @@ public class ScrollViewLoader : MonoBehaviour
             ConfigurarItem(item, data);
             itemsCreados[data.id] = item;
             
-            if (debugAndroid) Debug.Log($"[ScrollViewLoader] Nuevo item creado para: {data.nombreEspanol} (ID: {data.id})");
+            if (debugAndroid) Debug.Log($"[ScrollViewLoader] Nuevo item creado para: {data.id} (ID: {data.id})");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[ScrollViewLoader] Error creando nuevo item para {data.nombreEspanol}: {e.Message}");
+            Debug.LogError($"[ScrollViewLoader] Error creando nuevo item para {data.id}: {e.Message}");
         }
     }
 

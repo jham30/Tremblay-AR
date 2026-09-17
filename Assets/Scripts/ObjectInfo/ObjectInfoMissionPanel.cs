@@ -331,7 +331,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
             {
                 imagen.sprite = sprite;
                 imagen.color = colorSpriteColocado;
-                Debug.Log($"✅ [MissionPanel] Sprite asignado a {datos.nombreEspanol}");
+                Debug.Log($"✅ [MissionPanel] Sprite asignado a {datos.id}");
             }
         }
 
@@ -345,7 +345,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
         // 🗑️ Botón "X" para retirar este objeto del panel de comprobación (si el prefab lo tiene)
         ConfigurarBotonQuitarSprite(spriteItem, objetoID);
 
-        Debug.Log($"[MissionPanel] Sprite creado para {datos.nombreEspanol}");
+        Debug.Log($"[MissionPanel] Sprite creado para {datos.id}");
     }
 
     /// <summary>

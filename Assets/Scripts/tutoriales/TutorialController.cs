@@ -72,12 +72,6 @@ public class TutorialStep
     public LocalizedString texto;
     [Tooltip("Narración del paso (tabla StoryAudio, idioma nativo).")]
     public LocalizedAudioClip audio;
-
-    // Campos antiguos: solo los lee el script de migración (Tremblay > Localización > Fase 2). Se borran en la Fase 3.
-    [HideInInspector] public string textoES;
-    [HideInInspector] public string textoEN;
-    [HideInInspector] public AudioClip audioES;
-    [HideInInspector] public AudioClip audioEN;
     public CondicionAvance condicion;
     [Tooltip("Parámetro para ImageTargetDetectado, ObjetoTocado, ObjetoSoltadoEnSocket, " +
              "ObjetoAgarrado, ObjetoColocado, MisionDescifrada, MisionCompletada (ID esperado).\n" +
@@ -915,7 +909,7 @@ public class TutorialController : MonoBehaviour
     // frases como "¿Oíste cómo se dice en {0}?".
     private static string TextoDelPaso(TutorialStep p)
     {
-        if (p.texto == null || p.texto.IsEmpty) return p.textoES;
+        if (p.texto == null || p.texto.IsEmpty) return "";
 
         var lm = LanguageManager.Instance;
         string nombreMeta = lm != null ? lm.TextoNativo($"idiomas.nombre_{lm.CodigoMeta}") : "";
@@ -924,7 +918,7 @@ public class TutorialController : MonoBehaviour
 
     private static AudioClip AudioDelPaso(TutorialStep p)
     {
-        if (p.audio == null || p.audio.IsEmpty) return p.audioES;
+        if (p.audio == null || p.audio.IsEmpty) return null;
         return p.audio.LoadAsset();
     }
 

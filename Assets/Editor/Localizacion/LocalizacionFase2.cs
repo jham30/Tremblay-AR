@@ -10,7 +10,6 @@ using UnityEditor.Localization;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Metadata;
 using UnityEngine.Localization.Tables;
@@ -378,98 +377,6 @@ public static class LocalizacionFase2
         if (escrito) EditorUtility.SetDirty(tabla);
         return escrito ? 1 : 0;
     }
-
-    // ============================================================
-    // Pasos del tutorial
-    // ============================================================
-
-    const string TablaStoryAudio = "StoryAudio";
-
-    // En la escena los campos están cruzados: textoES tiene el inglés y textoEN el español.
-    [MenuItem("Tremblay/Localización/Fase 2 - Migrar pasos del tutorial (escena abierta)")]
-    public static void MigrarPasosTutorial()
-    {
-        var stage = StageUtility.GetCurrentStageHandle();
-        var controladores = stage.FindComponentsOfType<TutorialController>();
-        if (controladores.Length == 0)
-        {
-            Debug.LogError("[Localización] No hay TutorialController en la escena abierta. Abre halloween-tuto1.");
-            return;
-        }
-
-        var textos = LocalizationEditorSettings.GetStringTableCollection(TablaUI);
-        var audios = LocalizationEditorSettings.GetAssetTableCollection(TablaStoryAudio);
-        var localeEs = LocalizationEditorSettings.GetLocale("es");
-        var localeEn = LocalizationEditorSettings.GetLocale("en");
-        if (textos == null || audios == null || localeEs == null || localeEn == null)
-        {
-            Debug.LogError("[Localización] Faltan tablas o locales. Ejecuta antes la Fase 0.");
-            return;
-        }
-
-        var campoPasos = typeof(TutorialController).GetField("pasos",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-        var sb = new StringBuilder();
-        int migrados = 0, conAudio = 0;
-
-        foreach (var tc in controladores)
-        {
-            var pasos = campoPasos.GetValue(tc) as List<TutorialStep>;
-            if (pasos == null) continue;
-
-            Undo.RecordObject(tc, "Migrar pasos del tutorial");
-
-            for (int i = 0; i < pasos.Count; i++)
-            {
-                var p = pasos[i];
-                string clave = $"tutorial.step.{i + 1:00}";
-
-                if (p.texto != null && !p.texto.IsEmpty)
-                {
-                    sb.AppendLine($"   {clave}: ya migrado, se salta");
-                    continue;
-                }
-
-                Poner(textos, "en", clave, p.textoES ?? "");
-                if (!string.IsNullOrWhiteSpace(p.textoEN)) Poner(textos, "es", clave, p.textoEN);
-
-                var entrada = textos.SharedData.GetEntry(clave);
-                p.texto = new LocalizedString();
-                p.texto.SetReference(textos.SharedData.TableCollectionNameGuid, entrada.Id);
-
-                if (p.audioES != null || p.audioEN != null)
-                {
-                    if (p.audioES != null) audios.AddAssetToTable(localeEs.Identifier, clave, p.audioES);
-                    if (p.audioEN != null) audios.AddAssetToTable(localeEn.Identifier, clave, p.audioEN);
-
-                    var entradaAudio = audios.SharedData.GetEntry(clave);
-                    p.audio = new LocalizedAudioClip();
-                    p.audio.SetReference(audios.SharedData.TableCollectionNameGuid, entradaAudio.Id);
-                    conAudio++;
-                    sb.AppendLine($"   {clave}  «{Recortar(p.textoES)}»  audio es={(p.audioES ? p.audioES.name : "-")} en={(p.audioEN ? p.audioEN.name : "-")}");
-                }
-                else
-                {
-                    sb.AppendLine($"   {clave}  «{Recortar(p.textoES)}»");
-                }
-                migrados++;
-            }
-
-            EditorUtility.SetDirty(tc);
-            EditorSceneManager.MarkSceneDirty(tc.gameObject.scene);
-        }
-
-        EditorUtility.SetDirty(textos.SharedData);
-        EditorUtility.SetDirty(audios.SharedData);
-        AssetDatabase.SaveAssets();
-
-        Debug.Log($"[Localización] Tutorial: {migrados} pasos migrados ({conAudio} con audio). " +
-                  "textoES → columna en, textoEN → columna es. Revisa en la tabla los pasos que mencionan el idioma meta y usa {{0}}.\n" + sb);
-    }
-
-    static string Recortar(string s) =>
-        string.IsNullOrEmpty(s) ? "" : (s.Length > 50 ? s.Substring(0, 50) + "…" : s).Replace("\n", " ");
 
     // Si a es/fr le falta una entrada, cae al inglés en vez de mostrar el aviso del paquete.
     static void ConfigurarFallback()

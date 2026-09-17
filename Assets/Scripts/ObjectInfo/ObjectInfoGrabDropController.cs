@@ -187,7 +187,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
             
             if (debugAgarrarDetallado)
             {
-                Debug.Log($"🎮 [GrabDrop] Usando config personalizada para {datos.nombreEspanol}:");
+                Debug.Log($"🎮 [GrabDrop] Usando config personalizada para {datos.id}:");
                 Debug.Log($"   Posición: {posicion}");
                 Debug.Log($"   Rotación: {rotacion}");
                 Debug.Log($"   Escala: {escala}");
@@ -202,7 +202,7 @@ public class ObjectInfoGrabDropController : MonoBehaviour
             
             if (debugAgarrarDetallado)
             {
-                Debug.Log($"🎮 [GrabDrop] Usando config por defecto para {datos.nombreEspanol}");
+                Debug.Log($"🎮 [GrabDrop] Usando config por defecto para {datos.id}");
             }
         }
         

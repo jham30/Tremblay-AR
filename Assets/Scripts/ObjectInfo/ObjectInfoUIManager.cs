@@ -460,7 +460,7 @@ public class ObjectInfoUIManager : MonoBehaviour
         }
 
         canvasActivo = true;
-        Debug.Log($"🎯 [ObjectInfoUI] Canvas estático actualizado para: {datos.nombreEspanol}");
+        Debug.Log($"🎯 [ObjectInfoUI] Canvas estático actualizado para: {datos.id}");
 
         return canvasEstatico.gameObject;
     }
@@ -1441,7 +1441,7 @@ public class ObjectInfoUIManager : MonoBehaviour
         for (int i = 0; i < 3 && i < gameObjectManager.listaObjetos.Count; i++)
         {
             var datos = gameObjectManager.listaObjetos[i];
-            Debug.Log($"🧪 Mostrando objeto {i}: {datos.nombreEspanol}");
+            Debug.Log($"🧪 Mostrando objeto {i}: {datos.id}");
             MostrarSobreObjeto(gameObject, datos);
             yield return new WaitForSeconds(0.1f); // Cambio muy rápido
         }

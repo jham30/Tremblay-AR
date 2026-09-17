@@ -283,7 +283,7 @@ public class ResetGameController : MonoBehaviour
             {
                 objeto.guardadoPorJugador = false;
                 objetosReseteados++;
-                Debug.Log($"[ResetGame] - {objeto.nombreEspanol} marcado como NO guardado");
+                Debug.Log($"[ResetGame] - {objeto.id} marcado como NO guardado");
             }
         }
         

@@ -2,8 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Reproduce el nombre y el color de un objeto en el idioma META (el que se aprende).
-/// El clip sale de la tabla ObjectAudio vía LanguageManager; sin catálogo cae a la ruta de
-/// Resources del JSON (solo mientras dure la migración).
+/// El clip sale de la tabla ObjectAudio vía LanguageManager.
 /// </summary>
 public class ObjectInfoAudioController : MonoBehaviour
 {
@@ -47,16 +46,8 @@ public class ObjectInfoAudioController : MonoBehaviour
     private static AudioClip ObtenerClip(GameObjectData datos, TipoAudio tipo)
     {
         var lm = LanguageManager.Instance;
-        if (lm != null && datos.catalogo != null)
-        {
-            return tipo == TipoAudio.Nombre
-                ? lm.AudioNombreObjetoMeta(datos.id)
-                : lm.AudioColorObjetoMeta(datos.id);
-        }
-
-        string ruta = tipo == TipoAudio.Nombre ? datos.audioNombreEspanol : datos.audioColorEspanol;
-        if (string.IsNullOrEmpty(ruta)) return null;
-        return Resources.Load<AudioClip>(ruta.Replace(".mp3", "").Replace(".wav", "").Replace(".ogg", ""));
+        if (lm == null) return null;
+        return tipo == TipoAudio.Nombre ? lm.AudioNombreObjetoMeta(datos.id) : lm.AudioColorObjetoMeta(datos.id);
     }
 
     public bool UsarSistemaAudio => usarSistemaAudio;

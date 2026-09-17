@@ -50,7 +50,7 @@ public class ObjectDisplayController : MonoBehaviour
     /// </summary>
     private void MostrarInformacionObjeto(GameObjectData datos)
     {
-        if (mostrarDebug) Debug.Log($"🖼 Mostrando información para {datos.nombreEspanol} (ID: {objetoID})");
+        if (mostrarDebug) Debug.Log($"🖼 Mostrando información para {datos.id} (ID: {objetoID})");
 
         // ✅ Simplemente delegar al ObjectInfoUIManager global
         if (ObjectInfoUIManager.Instance != null)

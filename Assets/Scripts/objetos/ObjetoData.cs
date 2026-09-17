@@ -36,15 +36,6 @@ public class ObjetoData : ScriptableObject
     public Vector3 escalaAgarradaPersonalizada = Vector3.one;
     [TextArea(2, 3)] public string notasConfiguracion;
 
-    // Rutas de Resources que aún usan los consumidores que cargan por string (pasos 3d/3e).
-    // Las rellena la migración; se borran en 3f cuando ya nadie las lea.
-    [HideInInspector] public string prefab3DPathLegacy;
-    [HideInInspector] public string sprite2DPathLegacy;
-    [HideInInspector] public string audioNombreEsLegacy;
-    [HideInInspector] public string audioNombreEnLegacy;
-    [HideInInspector] public string audioColorEsLegacy;
-    [HideInInspector] public string audioColorEnLegacy;
-
     public bool PerteneceACuento(string cuentoID)
     {
         if (string.IsNullOrEmpty(cuentoID)) return true;

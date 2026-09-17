@@ -324,7 +324,7 @@ public class ObjectInfoMissionPanel : MonoBehaviour
 
         // Configurar imagen
         Image imagen = spriteItem.GetComponentInChildren<Image>();
-        if (imagen != null && !string.IsNullOrEmpty(datos.sprite2DPath))
+        if (imagen != null)
         {
             Sprite sprite = datos.Sprite2D;
             if (sprite != null)

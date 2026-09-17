@@ -475,7 +475,7 @@ public class ObjectInfoUIManager : MonoBehaviour
             textoColor.text = datos.colorEspanol;
 
         // Actualizar imagen
-        if (imagenObjeto != null && !string.IsNullOrEmpty(datos.sprite2DPath))
+        if (imagenObjeto != null)
         {
             Sprite sprite = datos.Sprite2D;
             if (sprite != null)
@@ -485,7 +485,7 @@ public class ObjectInfoUIManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"🎯 [ObjectInfoUI] ⚠️ Sprite no encontrado: {datos.sprite2DPath}");
+                Debug.LogWarning($"🎯 [ObjectInfoUI] ⚠️ Sprite no encontrado para: {datos.id}");
                 imagenObjeto.gameObject.SetActive(false);
             }
         }

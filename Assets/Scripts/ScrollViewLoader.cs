@@ -159,15 +159,9 @@ public class ScrollViewLoader : MonoBehaviour
                 Image img = spriteTransform.GetComponent<Image>();
                 if (img != null)
                 {
-                    // Actualizar sprite si es necesario
-                    if (!string.IsNullOrEmpty(data.sprite2DPath))
-                    {
-                        Sprite sprite = data.Sprite2D;
-                        if (sprite != null && img.sprite != sprite)
-                        {
-                            img.sprite = sprite;
-                        }
-                    }
+                    Sprite sprite = data.Sprite2D;
+                    if (sprite != null && img.sprite != sprite)
+                        img.sprite = sprite;
 
                     // Actualizar color según estado guardado
                     Color nuevoColor = data.guardadoPorJugador
@@ -226,15 +220,9 @@ public class ScrollViewLoader : MonoBehaviour
             Image img = spriteTransform.GetComponent<Image>();
             if (img != null)
             {
-                // Cargar sprite desde Resources
-                if (!string.IsNullOrEmpty(data.sprite2DPath))
-                {
-                    Sprite sprite = data.Sprite2D;
-                    if (sprite != null)
-                    {
-                        img.sprite = sprite;
-                    }
-                }
+                Sprite sprite = data.Sprite2D;
+                if (sprite != null)
+                    img.sprite = sprite;
 
                 // Configurar color según estado guardado
                 img.color = data.guardadoPorJugador

@@ -255,164 +255,218 @@ MonoBehaviour:
         - m_KeyId: 206823680356352
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206823726493696
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824057843712
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824057843713
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824431136768
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824431136769
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824791846912
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206824800235520
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825169334272
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825169334273
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825517461504
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825525850112
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825819451392
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206825819451393
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826175967232
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826175967233
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826528288768
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826528288769
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826876416000
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206826876416001
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827241320448
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827241320449
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827610419200
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827610419201
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827966935040
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206827966935041
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206828336033792
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206828336033793
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206828692549632
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206828692549633
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829061648384
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829061648385
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829472690176
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829472690177
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829858566144
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206829858566145
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206830252830720
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206830252830721
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206830659678208
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206830659678209
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831070720000
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831070720001
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831435624448
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831435624449
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831792140288
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206831792140289
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832144461824
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832144461825
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832534532096
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832534532097
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832891047936
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206832891047937
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206833243369472
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 206833243369473
           m_TableCodes:
           - es
+          - en
         m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

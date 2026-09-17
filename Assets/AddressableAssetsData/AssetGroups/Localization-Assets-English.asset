@@ -14,7 +14,157 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-English
   m_GUID: 73ea581b54a3abe449cd9d479c4ad7d7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 14efb723c4a07f148b09735241a52e45
+    m_Address: en-lapida
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 263e113e2fe1ba840866d7bb61a857d4
+    m_Address: en-salchicha
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8c28a9575782c47aa624a064b11df4
+    m_Address: en-farol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f646cf14f34ceb4abf160581b346df7
+    m_Address: en-flor
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32d21216adb9d4c489e952cdc5dc86e4
+    m_Address: en-pala
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6469f58822542cd4e983ce51415f31bd
+    m_Address: en-mausoleo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a3ad1de58be4c443a836827ee4eb818
+    m_Address: en-arana
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72bd013725cbb034b8c39b733174bca7
+    m_Address: en-gorro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9553732af30ee3444a6b94b086a75067
+    m_Address: en-ataud
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95b202e054dce594fa5a01a3c2a04f81
+    m_Address: en-vela
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4c74fb6701fba348870b718a24fb1ba
+    m_Address: en-calabaza
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ca548262486014da1f686be79b06ce
+    m_Address: en-libro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7c3b26fb5db4a049b5398116414a9fa
+    m_Address: en-escoba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc7ae0ea565069c4f911b64feafa4e18
+    m_Address: en-craneo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d531d101e323af8498301346e28b0e93
+    m_Address: en-reja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9f1a7cdffb8c0943a369c79a2a08b14
+    m_Address: en-bruja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df89496a4a3500f43adc0f08633a2f39
+    m_Address: en-lampara
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1c27e963134d3e4b9826f960a54d784
+    m_Address: en-murcielago
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e350d66f66e6d5546968873092e2be9e
+    m_Address: en-mano
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e67ae33940895174da10dac21ce87cda
+    m_Address: en-gato
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec2917237a1d17e40ba5c74076454b38
+    m_Address: en-arbol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edc43cfa62314e7408306c9ac1e07c6c
+    m_Address: en-tumba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f380ba3e1d6fd264e9e4e552b1d148c5
+    m_Address: en-caldero
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbbe53abbb166e04db0a5ca2e247bb5b
+    m_Address: en-hongo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcfc09bd6e67e1d4fadb89b3e903c31b
+    m_Address: en-mesa
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c88847caa02b35f489d8f0a8cb231377, type: 2}
   m_SchemaSet:

@@ -123,6 +123,10 @@ public class LanguageManager : MonoBehaviour
     public string TextoHistoria(string clave) =>
         Texto(TablaStory, clave, LocaleNativo);
 
+    /// <summary>Nombre o color de un objeto en un locale concreto (lo usa GameObjectManager para rellenar los campos por idioma).</summary>
+    public string TextoObjetoEn(string idObjeto, string campo, string codigoLocale) =>
+        Texto(TablaObjects, $"obj.{idObjeto}.{campo}", ObtenerLocale(codigoLocale));
+
     public string NombreObjetoMeta(string idObjeto) =>
         Texto(TablaObjects, $"obj.{idObjeto}.nombre", LocaleMeta);
 

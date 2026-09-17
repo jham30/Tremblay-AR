@@ -87,6 +87,13 @@ public static class LocalizacionFase3
             so.escalaAgarradaPersonalizada = d.escalaAgarradaPersonalizada;
             so.notasConfiguracion = d.notasConfiguracion;
 
+            so.prefab3DPathLegacy = d.prefab3DPath;
+            so.sprite2DPathLegacy = d.sprite2DPath;
+            so.audioNombreEsLegacy = d.audioNombreEspanol;
+            so.audioNombreEnLegacy = d.audioNombreIngles;
+            so.audioColorEsLegacy = d.audioColorEspanol;
+            so.audioColorEnLegacy = d.audioColorIngles;
+
             so.prefab3D = Resources.Load<GameObject>(d.prefab3DPath);
             if (so.prefab3D == null) problemas.Add($"{d.id}: prefab no resuelto '{d.prefab3DPath}'");
 

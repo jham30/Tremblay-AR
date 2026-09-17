@@ -22,6 +22,9 @@ public class GameObjectData
     public string sprite2DPath;
     public bool guardadoPorJugador;
 
+    // Referencia al asset del catálogo cuando la lista se construye desde él. No se serializa.
+    [System.NonSerialized] public ObjetoData catalogo;
+
     // === Cuentos a los que pertenece este objeto ===
     // Vacío/null = pertenece a todos los cuentos (compat hacia atrás).
     public string[] cuentos;
@@ -89,6 +92,11 @@ public class GameObjectManager : MonoBehaviour
     public string nombreArchivo = "objetos_guardados.json";
     public string archivoInicialStreamingAssets = "objetos_iniciales.json";
 
+    [Header("Catálogo (Fase 3)")]
+    [Tooltip("Activo: la lista se construye desde el ObjetoCatalogo y el JSON solo aporta el estado del jugador. Desactívalo para volver al JSON completo.")]
+    public bool usarCatalogoSO = false;
+    public ObjetoCatalogo catalogo;
+
     [Header("Lista de Objetos")]
     public List<GameObjectData> listaObjetos = new List<GameObjectData>();
 
@@ -145,6 +153,20 @@ public class GameObjectManager : MonoBehaviour
 
     private IEnumerator InicializarDatos()
     {
+        if (usarCatalogoSO)
+        {
+            if (catalogo == null)
+            {
+                Debug.LogError("[GameObjectManager] usarCatalogoSO activo pero sin ObjetoCatalogo asignado; se usa el JSON.");
+            }
+            else
+            {
+                yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
+                CargarDesdeCatalogo();
+                yield break;
+            }
+        }
+
         if (debugAndroid) Debug.Log($"[GameObjectManager] Verificando archivo en: {RutaArchivo}");
         if (debugAndroid) Debug.Log($"[GameObjectManager] StreamingAssets: {RutaArchivoInicial}");
 
@@ -210,6 +232,89 @@ public class GameObjectManager : MonoBehaviour
                 Debug.LogError($"[GameObjectManager] Error copiando archivo: {e.Message}");
                 CrearDatosIniciales();
             }
+        }
+    }
+
+    // === CATÁLOGO (paso 3b) ===
+    // La lista sale del ObjetoCatalogo; del JSON solo se mezcla el estado (guardado, misiones)
+    // por id. Los consumidores siguen viendo GameObjectData, con las rutas y los nombres por
+    // idioma rellenados desde el asset y las tablas.
+    private void CargarDesdeCatalogo()
+    {
+        var lm = LanguageManager.Instance;
+        if (lm == null)
+            Debug.LogWarning("[GameObjectManager] Sin LanguageManager en la escena: los nombres saldrán como claves.");
+
+        listaObjetos = new List<GameObjectData>();
+        foreach (var o in catalogo.objetos)
+        {
+            if (o == null || string.IsNullOrEmpty(o.id)) continue;
+            listaObjetos.Add(ConstruirDesdeCatalogo(o, lm));
+        }
+
+        GameSaveData estado = LeerEstadoGuardado();
+        if (estado != null)
+        {
+            foreach (var e in estado.objetos)
+            {
+                var obj = BuscarObjetoPorId(e.id);
+                if (obj != null) obj.guardadoPorJugador = e.guardadoPorJugador;
+            }
+            DatosMisiones = estado.misiones ?? new MissionSaveData();
+        }
+        else
+        {
+            DatosMisiones = new MissionSaveData();
+        }
+
+        if (debugAndroid)
+            Debug.Log($"[GameObjectManager] Catálogo: {listaObjetos.Count} objetos, " +
+                      $"{ObtenerObjetosGuardados().Count} guardados, " +
+                      $"misiones descifradas {DatosMisiones.descifradas.Count} / completadas {DatosMisiones.completadas.Count}");
+
+        datosCargados = true;
+        OnDatosCargados?.Invoke();
+    }
+
+    private static GameObjectData ConstruirDesdeCatalogo(ObjetoData o, LanguageManager lm)
+    {
+        return new GameObjectData
+        {
+            id = o.id,
+            catalogo = o,
+            nombreEspanol = lm != null ? lm.TextoObjetoEn(o.id, "nombre", LanguageManager.CodigoEspanol) : o.id,
+            nombreIngles  = lm != null ? lm.TextoObjetoEn(o.id, "nombre", LanguageManager.CodigoIngles)  : o.id,
+            colorEspanol  = lm != null ? lm.TextoObjetoEn(o.id, "color",  LanguageManager.CodigoEspanol) : "",
+            colorIngles   = lm != null ? lm.TextoObjetoEn(o.id, "color",  LanguageManager.CodigoIngles)  : "",
+            audioNombreEspanol = o.audioNombreEsLegacy,
+            audioNombreIngles  = o.audioNombreEnLegacy,
+            audioColorEspanol  = o.audioColorEsLegacy,
+            audioColorIngles   = o.audioColorEnLegacy,
+            prefab3DPath = o.prefab3DPathLegacy,
+            sprite2DPath = o.sprite2DPathLegacy,
+            cuentos = o.cuentos,
+            usarConfiguracionPersonalizada = o.usarConfiguracionPersonalizada,
+            posicionAgarradoPersonalizada = o.posicionAgarradoPersonalizada,
+            rotacionAgarradaPersonalizada = o.rotacionAgarradaPersonalizada,
+            escalaAgarradaPersonalizada = o.escalaAgarradaPersonalizada,
+            notasConfiguracion = o.notasConfiguracion,
+            guardadoPorJugador = false,
+        };
+    }
+
+    private GameSaveData LeerEstadoGuardado()
+    {
+        if (!File.Exists(RutaArchivo)) return null;
+        try
+        {
+            var data = JsonUtility.FromJson<GameSaveData>(File.ReadAllText(RutaArchivo));
+            if (data != null && data.objetos == null) data.objetos = new List<GameObjectData>();
+            return data;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[GameObjectManager] Error leyendo estado guardado: {e.Message}");
+            return null;
         }
     }
 
@@ -395,6 +500,12 @@ public class GameObjectManager : MonoBehaviour
 
     public void CargarDatos()
     {
+        if (usarCatalogoSO && catalogo != null)
+        {
+            CargarDesdeCatalogo();
+            return;
+        }
+
         try
         {
             if (File.Exists(RutaArchivo))

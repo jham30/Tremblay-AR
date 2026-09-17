@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3498954}
   - component: {fileID: 3498956}
   - component: {fileID: 3498955}
+  - component: {fileID: 3498957}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -256,6 +257,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3498953}
   m_CullTransparentMesh: 1
+--- !u!114 &3498957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320792031232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3498955}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &15176979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2124,7 @@ GameObject:
   - component: {fileID: 167980769}
   - component: {fileID: 167980771}
   - component: {fileID: 167980770}
+  - component: {fileID: 167980772}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2209,6 +2251,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167980768}
   m_CullTransparentMesh: 1
+--- !u!114 &167980772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167980768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320796225536
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 167980770}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &170711455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,6 +3666,7 @@ GameObject:
   - component: {fileID: 353413117}
   - component: {fileID: 353413119}
   - component: {fileID: 353413118}
+  - component: {fileID: 353413120}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3710,6 +3793,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353413116}
   m_CullTransparentMesh: 1
+--- !u!114 &353413120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353413116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320779448321
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 353413118}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &361540485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,6 +4030,7 @@ GameObject:
   - component: {fileID: 384234355}
   - component: {fileID: 384234357}
   - component: {fileID: 384234356}
+  - component: {fileID: 384234358}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4033,6 +4157,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384234354}
   m_CullTransparentMesh: 1
+--- !u!114 &384234358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384234354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320779448320
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384234356}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &406312975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,6 +4651,7 @@ GameObject:
   - component: {fileID: 435348950}
   - component: {fileID: 435348952}
   - component: {fileID: 435348951}
+  - component: {fileID: 435348953}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4613,6 +4778,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435348949}
   m_CullTransparentMesh: 1
+--- !u!114 &435348953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435348949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320775254017
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 435348951}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &440347699
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,6 +7555,7 @@ GameObject:
   - component: {fileID: 767912305}
   - component: {fileID: 767912307}
   - component: {fileID: 767912306}
+  - component: {fileID: 767912308}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7476,6 +7682,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767912304}
   m_CullTransparentMesh: 1
+--- !u!114 &767912308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767912304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320792031234
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 767912306}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &787021617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,6 +8236,7 @@ GameObject:
   - component: {fileID: 826842933}
   - component: {fileID: 826842935}
   - component: {fileID: 826842934}
+  - component: {fileID: 826842936}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8116,6 +8363,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826842932}
   m_CullTransparentMesh: 1
+--- !u!114 &826842936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826842932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320779448322
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 826842934}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -8680,6 +8967,7 @@ GameObject:
   - component: {fileID: 902828208}
   - component: {fileID: 902828210}
   - component: {fileID: 902828209}
+  - component: {fileID: 902828211}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8806,6 +9094,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902828207}
   m_CullTransparentMesh: 1
+--- !u!114 &902828211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902828207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320775254016
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 902828209}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &905539755
 GameObject:
   m_ObjectHideFlags: 0
@@ -9071,6 +9399,7 @@ GameObject:
   - component: {fileID: 912531077}
   - component: {fileID: 912531079}
   - component: {fileID: 912531078}
+  - component: {fileID: 912531080}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9197,6 +9526,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912531076}
   m_CullTransparentMesh: 1
+--- !u!114 &912531080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912531076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320766865408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 912531078}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &916697698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11060,6 +11429,7 @@ GameObject:
   - component: {fileID: 1202303181}
   - component: {fileID: 1202303183}
   - component: {fileID: 1202303182}
+  - component: {fileID: 1202303184}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11186,6 +11556,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202303180}
   m_CullTransparentMesh: 1
+--- !u!114 &1202303184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202303180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320783642626
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1202303182}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1227816242
 GameObject:
   m_ObjectHideFlags: 0
@@ -12286,6 +12696,7 @@ GameObject:
   - component: {fileID: 1315839825}
   - component: {fileID: 1315839827}
   - component: {fileID: 1315839826}
+  - component: {fileID: 1315839828}
   m_Layer: 5
   m_Name: Abouit us
   m_TagString: Untagged
@@ -12412,6 +12823,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315839824}
   m_CullTransparentMesh: 1
+--- !u!114 &1315839828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315839824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 26948612894720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1315839826}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1319863675
 GameObject:
   m_ObjectHideFlags: 0
@@ -12519,6 +12970,7 @@ GameObject:
   - component: {fileID: 1331780548}
   - component: {fileID: 1331780550}
   - component: {fileID: 1331780549}
+  - component: {fileID: 1331780551}
   m_Layer: 5
   m_Name: Setings
   m_TagString: Untagged
@@ -12645,6 +13097,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331780547}
   m_CullTransparentMesh: 1
+--- !u!114 &1331780551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331780547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 26948612894721
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1331780549}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1335517627
 GameObject:
   m_ObjectHideFlags: 0
@@ -12749,6 +13241,7 @@ GameObject:
   - component: {fileID: 1340484609}
   - component: {fileID: 1340484611}
   - component: {fileID: 1340484610}
+  - component: {fileID: 1340484612}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -12875,6 +13368,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340484608}
   m_CullTransparentMesh: 1
+--- !u!114 &1340484612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340484608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320792031233
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1340484610}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1344529764
 GameObject:
   m_ObjectHideFlags: 0
@@ -13635,6 +14168,7 @@ GameObject:
   - component: {fileID: 1395760800}
   - component: {fileID: 1395760802}
   - component: {fileID: 1395760801}
+  - component: {fileID: 1395760803}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -13761,6 +14295,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395760799}
   m_CullTransparentMesh: 1
+--- !u!114 &1395760803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395760799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320783642625
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1395760801}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1395765081
 GameObject:
   m_ObjectHideFlags: 0
@@ -13772,6 +14346,7 @@ GameObject:
   - component: {fileID: 1395765082}
   - component: {fileID: 1395765084}
   - component: {fileID: 1395765083}
+  - component: {fileID: 1395765085}
   m_Layer: 5
   m_Name: TextoFinal
   m_TagString: Untagged
@@ -13898,6 +14473,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395765081}
   m_CullTransparentMesh: 1
+--- !u!114 &1395765085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395765081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 26948587728896
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1395765083}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1397360873
 GameObject:
   m_ObjectHideFlags: 0
@@ -16936,6 +17551,7 @@ GameObject:
   - component: {fileID: 1775362807}
   - component: {fileID: 1775362809}
   - component: {fileID: 1775362808}
+  - component: {fileID: 1775362810}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -17062,6 +17678,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775362806}
   m_CullTransparentMesh: 1
+--- !u!114 &1775362810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775362806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320792031233
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1775362808}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1780003069
 GameObject:
   m_ObjectHideFlags: 0
@@ -18898,8 +19554,6 @@ MonoBehaviour:
   colorMisionActiva: {r: 1, g: 0.84, b: 0, a: 1}
   anchoBordeMisionActiva: 4
   nombreBordeSeleccion: BordeSeleccion
-  textoMostrar: Mostrar Misiones
-  textoOcultar: Ocultar Misiones
   nombreIndicadorEstado: IndicadorEstado
   anchoIndicador: 10
   colorMisionSeleccionable: {r: 1, g: 1, b: 1, a: 0}
@@ -18909,11 +19563,6 @@ MonoBehaviour:
   colorDisponible: {r: 0, g: 0.2861428, b: 0.6603774, a: 1}
   colorBloqueada: {r: 0.5, g: 0, b: 0, a: 1}
   colorDesconocido: {r: 0.1273585, g: 1, b: 0.5430894, a: 1}
-  mensajeCompletada: Completada en AR
-  mensajeDescifrada: Descifrada - Ve al AR
-  mensajeDisponible: Disponible para descifrar
-  mensajeBloqueada: Bloqueada
-  mensajeDesconocido: Desconocido
   botonesFiltro: []
   colorBordeActivo: {r: 1, g: 0.84, b: 0, a: 1}
   grosorBordeActivo: 4
@@ -18958,8 +19607,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   alturaPanel: 1400
-  textoMostrar: Open
-  textoOcultar: Close
   tipoSlide: 1
   ocultarCanvasObjetos: 1
   habilitarSwipe: 1
@@ -19020,8 +19667,6 @@ MonoBehaviour:
   botonCancelar: {fileID: 1276512382}
   textoConfirmacion: {fileID: 1157013932}
   requierConfirmacion: 1
-  mensajeConfirmacion: "\xBFEst\xE1s seguro de que quieres reiniciar el juego? Se
-    perder\xE1 todo el progreso."
   botonResetCompleto: {fileID: 523586116}
   botonResetObjetos: {fileID: 988751010}
   botonResetMisiones: {fileID: 1549360321}
@@ -19097,8 +19742,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   tipoSlide: 3
-  textoMostrar: Settings
-  textoOcultar: Close
   usarSonidos: 1
   botonSalir: {fileID: 1455855827}
   nombreEscenaSeleccion: Inicio
@@ -19421,7 +20064,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialController
   pasos:
-  - textoES: 1. Hi! I'm Eliane Tremblay, and this is MY adventure at the house on
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20793148813312
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: GUID:d4a1e27f2796bad428f2eda75856bd00
+      m_TableEntryReference:
+        m_KeyId: 20792058294272
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 1. Hi! I'm Eliane Tremblay, and this is MY adventure at the house on
       Hollow Street. I'm going to teach you how to play, okay? Let's have a blast!
     textoEN: "Hola! Soy Eliane Tremblay, y esta es MI aventura en la casa de Hollow
       Street. Te voy a ense\xF1ar a jugar, \xBFvale? \xA1Vamos a pasarlo genial!"
@@ -19436,7 +20096,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 1
-  - textoES: '2. This game uses Augmented Reality, which means we''ll see everything
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809600
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '2. This game uses Augmented Reality, which means we''ll see everything
       through your phone''s camera. It''s like opening a magic window into the story!
 
 '
@@ -19452,7 +20129,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 3. Just a moment... I'm waking up the magic camera.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809601
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 3. Just a moment... I'm waking up the magic camera.
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19465,7 +20159,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: '4. This game works with special cards. You need to have them printed
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809602
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '4. This game works with special cards. You need to have them printed
       out, or on another screen. If you don''t have them yet, download them in thetremblay.com/downloads '
     textoEN: 
     audioES: {fileID: 0}
@@ -19479,7 +20190,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 5. Look for the 2  cards that say "TUTORIAL." Those are the ones we'll
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809603
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 5. Look for the 2  cards that say "TUTORIAL." Those are the ones we'll
       use now. Point your camera at one of them, like you're about to take its picture.
     textoEN: 
     audioES: {fileID: 0}
@@ -19493,7 +20221,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 6. Look! A candle <sprite name="vela"> or appeared on the card.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809604
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 6. Look! A candle <sprite name="vela"> or appeared on the card.
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19506,7 +20251,24 @@ MonoBehaviour:
     direccionFlecha: 2
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 7. You can tap objects right on the screen when they appear. Try it!
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809605
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 7. You can tap objects right on the screen when they appear. Try it!
       Tap the candle <sprite name="vela">.
     textoEN: 
     audioES: {fileID: 0}
@@ -19520,7 +20282,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 8. Did you hear how it's said in Spanish? If you want to hear it again,
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809606
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 8. Did you hear how it's said in Spanish? If you want to hear it again,
       tap the button I'm pointing at.
     textoEN: 
     audioES: {fileID: 0}
@@ -19534,7 +20313,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: "9. You can listen to it as many times as you want \u2014 I did too
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809607
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: "9. You can listen to it as many times as you want \u2014 I did too
       when I was learning! Just tap the button again."
     textoEN: 
     audioES: {fileID: 0}
@@ -19548,7 +20344,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 2070265775}
     bloqueoFondo: 0
-  - textoES: 10. Now let's save this object so we can use it later. Tap the button
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809608
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 10. Now let's save this object so we can use it later. Tap the button
       I'm showing you to save it in your inventory.
     textoEN: 
     audioES: {fileID: 0}
@@ -19562,7 +20375,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 907288051}
     bloqueoFondo: 0
-  - textoES: 11. Awesome, it's yours now!
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809609
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 11. Awesome, it's yours now!
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19575,7 +20405,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: '12. Now you can close it by tapping here. Remember: whenever you want
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809610
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '12. Now you can close it by tapping here. Remember: whenever you want
       to see an object again, just point the camera at it and tap it.'
     textoEN: 
     audioES: {fileID: 0}
@@ -19589,7 +20436,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
-  - textoES: 13. Go ahead and save the other object that appeared too.  Point your
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809611
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 13. Go ahead and save the other object that appeared too.  Point your
       camera at the other card you found.
     textoEN: 
     audioES: {fileID: 0}
@@ -19603,7 +20467,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809612
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's
       one of my favorites.
     textoEN: 
     audioES: {fileID: 0}
@@ -19617,7 +20498,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 15. Save it in your inventory, just like we did with the candle <sprite
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809613
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 15. Save it in your inventory, just like we did with the candle <sprite
       name="vela">.
     textoEN: 
     audioES: {fileID: 0}
@@ -19631,7 +20529,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 907288051}
     bloqueoFondo: 0
-  - textoES: "16. Perfect! Now close the panel \u2014 I want to show you something
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809614
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: "16. Perfect! Now close the panel \u2014 I want to show you something
       really important."
     textoEN: 
     audioES: {fileID: 0}
@@ -19645,7 +20560,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
-  - textoES: 17. See the pumpkin <sprite name="calabaza"> down there? I'm pointing
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809615
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 17. See the pumpkin <sprite name="calabaza"> down there? I'm pointing
       at it. You can tap it, or swipe up to open your inventory. Try it!
     textoEN: 
     audioES: {fileID: 0}
@@ -19659,7 +20591,24 @@ MonoBehaviour:
     direccionFlecha: 2
     botonEsperado: {fileID: 496359015}
     bloqueoFondo: 0
-  - textoES: '18. Look! Here are the two objects you saved: the candle <sprite name="vela">
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809616
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '18. Look! Here are the two objects you saved: the candle <sprite name="vela">
       and the pumpkin <sprite name="calabaza">. They''re both yours now.'
     textoEN: 
     audioES: {fileID: 0}
@@ -19673,7 +20622,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 19. Up top there's a mission. I know you might not fully understand
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809617
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 19. Up top there's a mission. I know you might not fully understand
       what it says yet, but I bet you can guess which objects it's asking for.
     textoEN: 
     audioES: {fileID: 0}
@@ -19687,7 +20653,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 1
-  - textoES: 20. Drag the candle <sprite name="vela"> to the spot where it belongs.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809618
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 20. Drag the candle <sprite name="vela"> to the spot where it belongs.
       If you don't remember how to say "candle <sprite name="vela">" tap the green
       button next to it to hear it again.
     textoEN: 
@@ -19702,7 +20685,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 21. That's how it's done!
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809619
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 21. That's how it's done!
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19715,7 +20715,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 22. Now drag the candle <sprite name="vela"> and the pumpkin <sprite
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809620
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 22. Now drag the candle <sprite name="vela"> and the pumpkin <sprite
       name="calabaza">, each one to its place.
     textoEN: 
     audioES: {fileID: 0}
@@ -19729,7 +20746,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 23. You're doing great! Now tap the button I'm pointing at to check
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809621
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 23. You're doing great! Now tap the button I'm pointing at to check
       if you placed them right.
     textoEN: 
     audioES: {fileID: 0}
@@ -19743,7 +20777,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: "24. Yesss! You just deciphered the mission. Can you guess what it says?
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809622
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: "24. Yesss! You just deciphered the mission. Can you guess what it says?
       Don't worry if not \u2014 you'll understand more words over time. For now,
       let's go complete it!"
     textoEN: 
@@ -19758,7 +20809,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 25. Let's actually bring the candle <sprite name="vela"> to the pumpkin
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809623
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 25. Let's actually bring the candle <sprite name="vela"> to the pumpkin
       now. But first, close the inventory by swiping down or tapping the button I'm
       pointing at.
     textoEN: 
@@ -19773,7 +20841,24 @@ MonoBehaviour:
     direccionFlecha: 2
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 26. Now scan the candle's <sprite name="vela"> card with your camera.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 26. Now scan the candle's <sprite name="vela"> card with your camera.
       Do you remember which one it is?
     textoEN: 
     audioES: {fileID: 0}
@@ -19787,7 +20872,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 27. Did you see a hand appear? Tap it to grab the candle.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809625
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 27. Did you see a hand appear? Tap it to grab the candle.
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19800,7 +20902,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1231962806}
     bloqueoFondo: 0
-  - textoES: 27a. close ncandle panel
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809626
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 27a. close ncandle panel
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19813,7 +20932,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
-  - textoES: 28. The candle <sprite name="vela"> is with you now! Head over to the
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809627
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 28. The candle <sprite name="vela"> is with you now! Head over to the
       pumpkin's <sprite name="calabaza"> card and point at it.
     textoEN: 
     audioES: {fileID: 0}
@@ -19827,7 +20963,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 29. A hand appeared here too, see it? That means you can drop the candle
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809628
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 29. A hand appeared here too, see it? That means you can drop the candle
       <sprite name="vela"> onto the pumpkin <sprite name="calabaza">.
     textoEN: 
     audioES: {fileID: 0}
@@ -19841,7 +20994,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1863500608}
     bloqueoFondo: 0
-  - textoES: 30. Almost there. Now tap the button I'm pointing at to check that you
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809629
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 30. Almost there. Now tap the button I'm pointing at to check that you
       brought what the mission needed.
     textoEN: 
     audioES: {fileID: 0}
@@ -19855,7 +21025,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: '32. Do you know what the mission was asking for now? That''s right:
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809630
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '32. Do you know what the mission was asking for now? That''s right:
       put the candle <sprite name="vela"> inside the pumpkin <sprite name="calabaza">.
       I think you''re ready to play on your own. '
     textoEN: 
@@ -19870,7 +21057,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 33. Almost forgot! See that green icon? Tap it to see all your missions.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809631
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 33. Almost forgot! See that green icon? Tap it to see all your missions.
       Right now there's only one, but once you start really playing, tons more will
       show up!
     textoEN: 
@@ -19885,7 +21089,24 @@ MonoBehaviour:
     direccionFlecha: 1
     botonEsperado: {fileID: 905539757}
     bloqueoFondo: 0
-  - textoES: "34. One more thing: missions change color depending on their status.
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809632
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: "34. One more thing: missions change color depending on their status.
       \U0001F534 Red: not available yet. \U0001F535 Blue: ready for you to decipher.
       \U0001F7E1 Yellow: already deciphered, still need to complete them with the
       camera. \U0001F7E2 Green: completed!"
@@ -19901,7 +21122,24 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - textoES: 34a. close the mission list
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809633
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: 34a. close the mission list
     textoEN: 
     audioES: {fileID: 0}
     audioEN: {fileID: 0}
@@ -19914,7 +21152,24 @@ MonoBehaviour:
     direccionFlecha: 1
     botonEsperado: {fileID: 905539757}
     bloqueoFondo: 0
-  - textoES: '35. That''s everything! Now go have fun and learn a bit of Spanish
+  - texto:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 20794918809634
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audio:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    textoES: '35. That''s everything! Now go have fun and learn a bit of Spanish
       with me. See you in the game! '
     textoEN: 
     audioES: {fileID: 0}
@@ -19940,10 +21195,6 @@ MonoBehaviour:
   panelFinal: {fileID: 209921101}
   botonIrAlJuego: {fileID: 648658140}
   textoFinal: {fileID: 94803227}
-  mensajeFinalES: Tutorial complete! Time to play!
-  mensajeFinalEN: 'Tutorial complete!
-
-    Time to play!'
   shakeBotonSiguiente: 1
   intervaloShakeSiguiente: 5
   duracionShakeSiguiente: 0.5
@@ -19957,8 +21208,10 @@ MonoBehaviour:
   - vela_tutorial
   misionesAResetear:
   - t01
-  idiomaActual: 0
   debug: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1920031605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20264,6 +21517,7 @@ GameObject:
   - component: {fileID: 1965691802}
   - component: {fileID: 1965691804}
   - component: {fileID: 1965691803}
+  - component: {fileID: 1965691805}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -20390,6 +21644,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965691801}
   m_CullTransparentMesh: 1
+--- !u!114 &1965691805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965691801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320762671104
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1965691803}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1983461705
 GameObject:
   m_ObjectHideFlags: 0
@@ -21532,6 +22826,7 @@ GameObject:
   - component: {fileID: 2105891110}
   - component: {fileID: 2105891112}
   - component: {fileID: 2105891111}
+  - component: {fileID: 2105891113}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -21658,6 +22953,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105891109}
   m_CullTransparentMesh: 1
+--- !u!114 &2105891113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105891109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 28320783642624
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105891111}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2108611269
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,482 @@ MonoBehaviour:
     m_Key: idiomas.nombre_fr
     m_Metadata:
       m_Items: []
+  - m_Id: 20525057290240
+    m_Key: mission.selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233280
+    m_Key: mission.current
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233281
+    m_Key: mission.none_available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233282
+    m_Key: mission.deciphered_go_ar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233283
+    m_Key: mission.deciphered_pick_another
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233284
+    m_Key: mission.all_deciphered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233285
+    m_Key: mission.next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233286
+    m_Key: mission.summary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233287
+    m_Key: check.complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233288
+    m_Key: check.needs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427584
+    m_Key: check.none_placed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427585
+    m_Key: check.still_need
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427586
+    m_Key: check.wrong_spot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427587
+    m_Key: check.not_belong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427588
+    m_Key: check.correct
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427589
+    m_Key: ar.none_brought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427590
+    m_Key: ar.still_need_bring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427591
+    m_Key: ar.not_belong_here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427592
+    m_Key: ar.already_placed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427593
+    m_Key: ar.got_it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427594
+    m_Key: ar.save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427595
+    m_Key: ar.available_missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427596
+    m_Key: stats.objects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427597
+    m_Key: stats.total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427598
+    m_Key: stats.saved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427599
+    m_Key: stats.progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427600
+    m_Key: stats.missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427601
+    m_Key: stats.deciphered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427602
+    m_Key: stats.completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427603
+    m_Key: stats.available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427604
+    m_Key: stats.congrats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427605
+    m_Key: stats.error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427606
+    m_Key: reset.confirm.full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427607
+    m_Key: reset.confirm.objects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427608
+    m_Key: reset.confirm.missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427609
+    m_Key: reset.cancelled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427610
+    m_Key: reset.done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427611
+    m_Key: reset.type.full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427612
+    m_Key: reset.type.objects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427613
+    m_Key: reset.type.missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427614
+    m_Key: reset.stats_updated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427615
+    m_Key: settings.open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427616
+    m_Key: settings.close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427617
+    m_Key: settings.panel.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427618
+    m_Key: settings.panel.reset_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427619
+    m_Key: settings.panel.about_us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427620
+    m_Key: settings.panel.exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427621
+    m_Key: missions.show
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427622
+    m_Key: missions.hide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427623
+    m_Key: inventory.open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427624
+    m_Key: inventory.close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427625
+    m_Key: tutorial.final
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427626
+    m_Key: missions.state.completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427627
+    m_Key: missions.state.deciphered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427628
+    m_Key: missions.state.available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427629
+    m_Key: missions.state.locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427630
+    m_Key: missions.state.unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20793148813312
+    m_Key: tutorial.step.01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809600
+    m_Key: tutorial.step.02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809601
+    m_Key: tutorial.step.03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809602
+    m_Key: tutorial.step.04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809603
+    m_Key: tutorial.step.05
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809604
+    m_Key: tutorial.step.06
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809605
+    m_Key: tutorial.step.07
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809606
+    m_Key: tutorial.step.08
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809607
+    m_Key: tutorial.step.09
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809608
+    m_Key: tutorial.step.10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809609
+    m_Key: tutorial.step.11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809610
+    m_Key: tutorial.step.12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809611
+    m_Key: tutorial.step.13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809612
+    m_Key: tutorial.step.14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809613
+    m_Key: tutorial.step.15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809614
+    m_Key: tutorial.step.16
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809615
+    m_Key: tutorial.step.17
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809616
+    m_Key: tutorial.step.18
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809617
+    m_Key: tutorial.step.19
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809618
+    m_Key: tutorial.step.20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809619
+    m_Key: tutorial.step.21
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809620
+    m_Key: tutorial.step.22
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809621
+    m_Key: tutorial.step.23
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809622
+    m_Key: tutorial.step.24
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809623
+    m_Key: tutorial.step.25
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809624
+    m_Key: tutorial.step.26
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809625
+    m_Key: tutorial.step.27
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809626
+    m_Key: tutorial.step.28
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809627
+    m_Key: tutorial.step.29
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809628
+    m_Key: tutorial.step.30
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809629
+    m_Key: tutorial.step.31
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809630
+    m_Key: tutorial.step.32
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809631
+    m_Key: tutorial.step.33
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809632
+    m_Key: tutorial.step.34
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809633
+    m_Key: tutorial.step.35
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809634
+    m_Key: tutorial.step.36
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948562563072
+    m_Key: ui.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948587728896
+    m_Key: ui.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117504
+    m_Key: ui.english
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117505
+    m_Key: ui.francais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117506
+    m_Key: ui.espanol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894720
+    m_Key: ui.about_us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894721
+    m_Key: ui.setings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948617089024
+    m_Key: ui.begin_adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320762671104
+    m_Key: ui.check
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320766865408
+    m_Key: ui.next_step
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254016
+    m_Key: ui.skip_tuitorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254017
+    m_Key: ui.abandonar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448320
+    m_Key: ui.reset_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448321
+    m_Key: ui.reset_al
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448322
+    m_Key: ui.mission_reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642624
+    m_Key: ui.objects_reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642625
+    m_Key: ui.close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642626
+    m_Key: ui.yes_reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031232
+    m_Key: ui.skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031233
+    m_Key: ui.get_it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031234
+    m_Key: ui.place_it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320796225536
+    m_Key: ui.done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547586437120
+    m_Key: ui.repeat_tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020032
+    m_Key: ui.sound_effects_off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020033
+    m_Key: ui.reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020034
+    m_Key: ui.music_off
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834160

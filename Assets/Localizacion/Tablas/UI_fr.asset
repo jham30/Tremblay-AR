@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: fr
   m_SharedData: {fileID: 11400000, guid: 1737e3108e61aaa4cabf336371eaa317, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5297733280970834188
   m_TableData:
   - m_Id: 6463837679616
     m_Localized: Quelle langue parles-tu ?
@@ -59,6 +60,262 @@ MonoBehaviour:
     m_Localized: "fran\xE7ais"
     m_Metadata:
       m_Items: []
+  - m_Id: 20525057290240
+    m_Localized: 'Mission choisie : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233280
+    m_Localized: 'Mission en cours : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233281
+    m_Localized: Aucune mission disponible. Trouve plus d'objets.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233282
+    m_Localized: "Mission d\xE9chiffr\xE9e ! Va en RA pour la terminer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233283
+    m_Localized: "Mission d\xE9chiffr\xE9e ! Choisis-en une autre ou continue automatiquement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233284
+    m_Localized: "Toutes les missions sont d\xE9chiffr\xE9es ! Va en RA pour les
+      terminer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233285
+    m_Localized: 'Mission suivante : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233286
+    m_Localized: "Missions : {0}/{1} termin\xE9es | {2} d\xE9chiffr\xE9es | {3} disponibles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233287
+    m_Localized: "Termin\xE9e ! ({0}/{0})"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233288
+    m_Localized: Cette mission demande {0} {0:plural:objet|objets}.
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427584
+    m_Localized: "Tu n'as encore plac\xE9 aucun objet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427585
+    m_Localized: "Il te reste {0} {0:plural:objet|objets} \xE0 placer."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427586
+    m_Localized: '{0} {0:plural:objet est|objets sont} au mauvais endroit.'
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427587
+    m_Localized: "{0} {0:plural:objet n'appartient|objets n'appartiennent} pas \xE0
+      cette mission."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427588
+    m_Localized: 'Corrects : {0} sur {1}.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427589
+    m_Localized: "Tu n'en as encore apport\xE9 aucun."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427590
+    m_Localized: "Il te reste {0} {0:plural:objet|objets} \xE0 apporter."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427591
+    m_Localized: '{0} {0:plural:objet ne va|objets ne vont} pas ici.'
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427592
+    m_Localized: "Tu l'as d\xE9j\xE0 plac\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427593
+    m_Localized: "C'est bon \u2713"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427594
+    m_Localized: Prendre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427595
+    m_Localized: 'Missions disponibles :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427596
+    m_Localized: "\U0001F4E6 OBJETS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427597
+    m_Localized: 'Total : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427598
+    m_Localized: "Enregistr\xE9s : {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427599
+    m_Localized: 'Progression : {0} %'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427600
+    m_Localized: "\U0001F9E9 MISSIONS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427601
+    m_Localized: "D\xE9chiffr\xE9es : {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427602
+    m_Localized: "Termin\xE9es : {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427603
+    m_Localized: 'Disponibles : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427604
+    m_Localized: "\U0001F3C6 {0} {0:plural:mission termin\xE9e|missions termin\xE9es}
+      !"
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834188
+  - m_Id: 20525103427605
+    m_Localized: "\u274C Impossible de charger les statistiques."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427606
+    m_Localized: "\U0001F504 R\xE9initialiser TOUTE la progression ?\n\nCela effacera
+      :\n\u2022 Tous les objets enregistr\xE9s\n\u2022 La progression des missions\n\u2022
+      Les r\xE9glages"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427607
+    m_Localized: "\U0001F4E6 R\xE9initialiser seulement les objets enregistr\xE9s
+      ?\n\nCela effacera :\n\u2022 Les objets marqu\xE9s comme enregistr\xE9s\n\u2022
+      La progression de la collection"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427608
+    m_Localized: "\U0001F9E9 R\xE9initialiser seulement la progression des missions
+      ?\n\nCela effacera :\n\u2022 Les missions d\xE9chiffr\xE9es\n\u2022 Les missions
+      termin\xE9es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427609
+    m_Localized: "\u274C Action annul\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427610
+    m_Localized: "\u2705 R\xE9initialisation {0} termin\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427611
+    m_Localized: "compl\xE8te"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427612
+    m_Localized: des objets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427613
+    m_Localized: des missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427614
+    m_Localized: "\U0001F4CA Statistiques mises \xE0 jour"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427615
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427616
+    m_Localized: Fermer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427617
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427618
+    m_Localized: "R\xE9initialiser"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427619
+    m_Localized: "\xC0 propos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427620
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427621
+    m_Localized: Voir les missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427622
+    m_Localized: Masquer les missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427623
+    m_Localized: Ouvrir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427624
+    m_Localized: Fermer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427625
+    m_Localized: "Tutoriel termin\xE9 !\n\xC0 toi de jouer !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427626
+    m_Localized: "Termin\xE9e en RA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427627
+    m_Localized: "D\xE9chiffr\xE9e - Va en RA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427628
+    m_Localized: "Pr\xEAte \xE0 d\xE9chiffrer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427629
+    m_Localized: "Verrouill\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427630
+    m_Localized: Inconnu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5297733280970834188
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 20525099233288
+        - id: 20525103427585
+        - id: 20525103427586
+        - id: 20525103427587
+        - id: 20525103427590
+        - id: 20525103427591
+        - id: 20525103427604

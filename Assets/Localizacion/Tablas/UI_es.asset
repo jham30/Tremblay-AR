@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: es
   m_SharedData: {fileID: 11400000, guid: 1737e3108e61aaa4cabf336371eaa317, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5297733280970834184
   m_TableData:
   - m_Id: 6463837679616
     m_Localized: "\xBFQu\xE9 idioma hablas?"
@@ -59,6 +60,262 @@ MonoBehaviour:
     m_Localized: "franc\xE9s"
     m_Metadata:
       m_Items: []
+  - m_Id: 20525057290240
+    m_Localized: "Misi\xF3n seleccionada: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233280
+    m_Localized: "Misi\xF3n actual: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233281
+    m_Localized: "No hay misiones disponibles. Recolecta m\xE1s objetos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233282
+    m_Localized: "\xA1Misi\xF3n descifrada! Ve al AR para completarla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233283
+    m_Localized: "\xA1Misi\xF3n descifrada! Elige otra o contin\xFAa autom\xE1ticamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233284
+    m_Localized: "\xA1Todas las misiones descifradas! Ve al AR para completarlas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233285
+    m_Localized: "Siguiente misi\xF3n: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233286
+    m_Localized: 'Misiones: {0}/{1} completadas | {2} descifradas | {3} disponibles'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233287
+    m_Localized: "\xA1Completa! ({0}/{0})"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233288
+    m_Localized: "Esta misi\xF3n necesita {0} {0:plural:objeto|objetos}."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427584
+    m_Localized: "A\xFAn no has colocado ning\xFAn objeto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427585
+    m_Localized: "Todav\xEDa te falta colocar {0} {0:plural:objeto|objetos}."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427586
+    m_Localized: "{0} {0:plural:objeto est\xE1|objetos est\xE1n} en el lugar equivocado."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427587
+    m_Localized: "{0} {0:plural:objeto no pertenece|objetos no pertenecen} a esta
+      misi\xF3n."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427588
+    m_Localized: 'Correctos: {0} de {1}.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427589
+    m_Localized: "A\xFAn no has tra\xEDdo ninguno."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427590
+    m_Localized: "Todav\xEDa tienes que traer {0} {0:plural:objeto|objetos} m\xE1s."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427591
+    m_Localized: "{0} {0:plural:objeto no va|objetos no van} aqu\xED."
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427592
+    m_Localized: Ese ya lo colocaste.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427593
+    m_Localized: "\xA1Guardado! \u2713"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427594
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427595
+    m_Localized: 'Misiones disponibles:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427596
+    m_Localized: "\U0001F4E6 OBJETOS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427597
+    m_Localized: 'Total: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427598
+    m_Localized: 'Guardados: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427599
+    m_Localized: 'Progreso: {0}%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427600
+    m_Localized: "\U0001F9E9 MISIONES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427601
+    m_Localized: 'Descifradas: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427602
+    m_Localized: 'Completadas: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427603
+    m_Localized: 'Disponibles: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427604
+    m_Localized: "\U0001F3C6 \xA1{0} {0:plural:misi\xF3n completada|misiones completadas}!"
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834184
+  - m_Id: 20525103427605
+    m_Localized: "\u274C No se pudieron cargar las estad\xEDsticas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427606
+    m_Localized: "\U0001F504 \xBFReiniciar TODO el progreso?\n\nSe borrar\xE1n:\n\u2022
+      Todos los objetos guardados\n\u2022 El progreso de misiones\n\u2022 Los ajustes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427607
+    m_Localized: "\U0001F4E6 \xBFReiniciar solo los objetos guardados?\n\nSe borrar\xE1n:\n\u2022
+      Los objetos marcados como guardados\n\u2022 El progreso de la colecci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427608
+    m_Localized: "\U0001F9E9 \xBFReiniciar solo el progreso de misiones?\n\nSe borrar\xE1n:\n\u2022
+      Las misiones descifradas\n\u2022 Las misiones completadas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427609
+    m_Localized: "\u274C Acci\xF3n cancelada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427610
+    m_Localized: "\u2705 Reinicio {0} completado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427611
+    m_Localized: completo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427612
+    m_Localized: de objetos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427613
+    m_Localized: de misiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427614
+    m_Localized: "\U0001F4CA Estad\xEDsticas actualizadas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427615
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427616
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427617
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427618
+    m_Localized: Reiniciar juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427619
+    m_Localized: Acerca de
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427620
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427621
+    m_Localized: Mostrar misiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427622
+    m_Localized: Ocultar misiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427623
+    m_Localized: Abrir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427624
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427625
+    m_Localized: "\xA1Tutorial completado!\n\xA1Ahora a jugar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427626
+    m_Localized: Completada en AR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427627
+    m_Localized: Descifrada - Ve al AR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427628
+    m_Localized: Disponible para descifrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427629
+    m_Localized: Bloqueada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427630
+    m_Localized: Desconocido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20793148813312
+    m_Localized: "Hola! Soy Eliane Tremblay, y esta es MI aventura en la casa de
+      Hollow Street. Te voy a ense\xF1ar a jugar, \xBFvale? \xA1Vamos a pasarlo genial!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5297733280970834184
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 20525099233288
+        - id: 20525103427585
+        - id: 20525103427586
+        - id: 20525103427587
+        - id: 20525103427590
+        - id: 20525103427591
+        - id: 20525103427604

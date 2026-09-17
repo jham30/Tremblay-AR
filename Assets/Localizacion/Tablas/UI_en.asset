@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 1737e3108e61aaa4cabf336371eaa317, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5297733280970834187
   m_TableData:
   - m_Id: 6463837679616
     m_Localized: What language do you speak?
@@ -59,6 +60,546 @@ MonoBehaviour:
     m_Localized: French
     m_Metadata:
       m_Items: []
+  - m_Id: 20525057290240
+    m_Localized: 'Selected mission: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233280
+    m_Localized: 'Current mission: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233281
+    m_Localized: No missions available. Collect more objects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233282
+    m_Localized: Mission deciphered! Go to AR to complete it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233283
+    m_Localized: Mission deciphered! Pick another one or continue automatically.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233284
+    m_Localized: All missions deciphered! Go to AR to complete them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233285
+    m_Localized: 'Next mission: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233286
+    m_Localized: 'Missions: {0}/{1} completed | {2} deciphered | {3} available'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233287
+    m_Localized: Complete! ({0}/{0})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525099233288
+    m_Localized: This mission needs {0} {0:plural:object|objects}.
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427584
+    m_Localized: You haven't placed any objects yet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427585
+    m_Localized: You still need to place {0} more {0:plural:object|objects}.
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427586
+    m_Localized: '{0} {0:plural:object is|objects are} in the wrong spot.'
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427587
+    m_Localized: '{0} {0:plural:object doesn''t|objects don''t} belong to this mission.'
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427588
+    m_Localized: 'Correct: {0} of {1}.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427589
+    m_Localized: You haven't brought any yet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427590
+    m_Localized: You still need to bring {0} more {0:plural:object|objects}.
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427591
+    m_Localized: '{0} {0:plural:object doesn''t|objects don''t} belong here.'
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427592
+    m_Localized: You already placed that one.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427593
+    m_Localized: "Got it \u2713"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427594
+    m_Localized: Get it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427595
+    m_Localized: 'Available missions:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427596
+    m_Localized: "\U0001F4E6 OBJECTS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427597
+    m_Localized: 'Total: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427598
+    m_Localized: 'Saved: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427599
+    m_Localized: 'Progress: {0}%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427600
+    m_Localized: "\U0001F9E9 MISSIONS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427601
+    m_Localized: 'Deciphered: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427602
+    m_Localized: 'Completed: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427603
+    m_Localized: 'Available: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427604
+    m_Localized: "\U0001F3C6 {0} {0:plural:mission|missions} completed!"
+    m_Metadata:
+      m_Items:
+      - rid: 5297733280970834187
+  - m_Id: 20525103427605
+    m_Localized: "\u274C Could not load statistics."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427606
+    m_Localized: "\U0001F504 Reset ALL game progress?\n\nThis will delete:\n\u2022
+      All saved objects\n\u2022 Mission progress\n\u2022 Settings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427607
+    m_Localized: "\U0001F4E6 Reset only saved objects?\n\nThis will delete:\n\u2022
+      Objects marked as saved\n\u2022 Collection progress"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427608
+    m_Localized: "\U0001F9E9 Reset only mission progress?\n\nThis will delete:\n\u2022
+      Deciphered missions\n\u2022 Completed missions"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427609
+    m_Localized: "\u274C Action cancelled"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427610
+    m_Localized: "\u2705 {0} reset completed successfully"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427611
+    m_Localized: Full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427612
+    m_Localized: Objects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427613
+    m_Localized: Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427614
+    m_Localized: "\U0001F4CA Statistics updated"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427615
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427616
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427617
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427618
+    m_Localized: Reset Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427619
+    m_Localized: About Us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427620
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427621
+    m_Localized: Show Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427622
+    m_Localized: Hide Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427623
+    m_Localized: Open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427624
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427625
+    m_Localized: 'Tutorial complete!
+
+      Time to play!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427626
+    m_Localized: Completed in AR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427627
+    m_Localized: Deciphered - Go to AR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427628
+    m_Localized: Ready to decipher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427629
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20525103427630
+    m_Localized: Unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20793148813312
+    m_Localized: 1. Hi! I'm Eliane Tremblay, and this is MY adventure at the house
+      on Hollow Street. I'm going to teach you how to play, okay? Let's have a blast!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809600
+    m_Localized: '2. This game uses Augmented Reality, which means we''ll see everything
+      through your phone''s camera. It''s like opening a magic window into the story!
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809601
+    m_Localized: 3. Just a moment... I'm waking up the magic camera.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809602
+    m_Localized: '4. This game works with special cards. You need to have them printed
+      out, or on another screen. If you don''t have them yet, download them in thetremblay.com/downloads '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809603
+    m_Localized: 5. Look for the 2  cards that say "TUTORIAL." Those are the ones
+      we'll use now. Point your camera at one of them, like you're about to take
+      its picture.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809604
+    m_Localized: 6. Look! A candle <sprite name="vela"> or appeared on the card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809605
+    m_Localized: 7. You can tap objects right on the screen when they appear. Try
+      it! Tap the candle <sprite name="vela">.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809606
+    m_Localized: 8. Did you hear how it's said in Spanish? If you want to hear it
+      again, tap the button I'm pointing at.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809607
+    m_Localized: "9. You can listen to it as many times as you want \u2014 I did
+      too when I was learning! Just tap the button again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809608
+    m_Localized: 10. Now let's save this object so we can use it later. Tap the button
+      I'm showing you to save it in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809609
+    m_Localized: 11. Awesome, it's yours now!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809610
+    m_Localized: '12. Now you can close it by tapping here. Remember: whenever you
+      want to see an object again, just point the camera at it and tap it.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809611
+    m_Localized: 13. Go ahead and save the other object that appeared too.  Point
+      your camera at the other card you found.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809612
+    m_Localized: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's
+      one of my favorites.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809613
+    m_Localized: 15. Save it in your inventory, just like we did with the candle
+      <sprite name="vela">.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809614
+    m_Localized: "16. Perfect! Now close the panel \u2014 I want to show you something
+      really important."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809615
+    m_Localized: 17. See the pumpkin <sprite name="calabaza"> down there? I'm pointing
+      at it. You can tap it, or swipe up to open your inventory. Try it!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809616
+    m_Localized: '18. Look! Here are the two objects you saved: the candle <sprite
+      name="vela"> and the pumpkin <sprite name="calabaza">. They''re both yours
+      now.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809617
+    m_Localized: 19. Up top there's a mission. I know you might not fully understand
+      what it says yet, but I bet you can guess which objects it's asking for.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809618
+    m_Localized: 20. Drag the candle <sprite name="vela"> to the spot where it belongs.
+      If you don't remember how to say "candle <sprite name="vela">" tap the green
+      button next to it to hear it again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809619
+    m_Localized: 21. That's how it's done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809620
+    m_Localized: 22. Now drag the candle <sprite name="vela"> and the pumpkin <sprite
+      name="calabaza">, each one to its place.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809621
+    m_Localized: 23. You're doing great! Now tap the button I'm pointing at to check
+      if you placed them right.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809622
+    m_Localized: "24. Yesss! You just deciphered the mission. Can you guess what
+      it says? Don't worry if not \u2014 you'll understand more words over time.
+      For now, let's go complete it!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809623
+    m_Localized: 25. Let's actually bring the candle <sprite name="vela"> to the
+      pumpkin now. But first, close the inventory by swiping down or tapping the
+      button I'm pointing at.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809624
+    m_Localized: 26. Now scan the candle's <sprite name="vela"> card with your camera.
+      Do you remember which one it is?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809625
+    m_Localized: 27. Did you see a hand appear? Tap it to grab the candle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809626
+    m_Localized: 27a. close ncandle panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809627
+    m_Localized: 28. The candle <sprite name="vela"> is with you now! Head over to
+      the pumpkin's <sprite name="calabaza"> card and point at it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809628
+    m_Localized: 29. A hand appeared here too, see it? That means you can drop the
+      candle <sprite name="vela"> onto the pumpkin <sprite name="calabaza">.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809629
+    m_Localized: 30. Almost there. Now tap the button I'm pointing at to check that
+      you brought what the mission needed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809630
+    m_Localized: '32. Do you know what the mission was asking for now? That''s right:
+      put the candle <sprite name="vela"> inside the pumpkin <sprite name="calabaza">.
+      I think you''re ready to play on your own. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809631
+    m_Localized: 33. Almost forgot! See that green icon? Tap it to see all your missions.
+      Right now there's only one, but once you start really playing, tons more will
+      show up!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809632
+    m_Localized: "34. One more thing: missions change color depending on their status.
+      \U0001F534 Red: not available yet. \U0001F535 Blue: ready for you to decipher.
+      \U0001F7E1 Yellow: already deciphered, still need to complete them with the
+      camera. \U0001F7E2 Green: completed!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809633
+    m_Localized: 34a. close the mission list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794918809634
+    m_Localized: '35. That''s everything! Now go have fun and learn a bit of Spanish
+      with me. See you in the game! '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948562563072
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948587728896
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117504
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117505
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948596117506
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894720
+    m_Localized: About Us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948612894721
+    m_Localized: Setings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26948617089024
+    m_Localized: Begin Adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320762671104
+    m_Localized: Check
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320766865408
+    m_Localized: Next Step
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254016
+    m_Localized: Skip Tuitorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320775254017
+    m_Localized: Abandonar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448320
+    m_Localized: Reset Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448321
+    m_Localized: Reset Al
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320779448322
+    m_Localized: Mission Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642624
+    m_Localized: Objects Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642625
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320783642626
+    m_Localized: Yes! Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031232
+    m_Localized: Skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031233
+    m_Localized: Get it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320792031234
+    m_Localized: Place it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28320796225536
+    m_Localized: Done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547586437120
+    m_Localized: Repeat Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020032
+    m_Localized: 'Sound Effects: Off'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020033
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547599020034
+    m_Localized: 'Music: Off'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5297733280970834187
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 20525099233288
+        - id: 20525103427585
+        - id: 20525103427586
+        - id: 20525103427587
+        - id: 20525103427590
+        - id: 20525103427591
+        - id: 20525103427604

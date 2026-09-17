@@ -47,7 +47,7 @@ public class ObjectInfoAudioController : MonoBehaviour
     {
         var lm = LanguageManager.Instance;
         if (lm == null) return null;
-        return tipo == TipoAudio.Nombre ? lm.AudioNombreObjetoMeta(datos.id) : lm.AudioColorObjetoMeta(datos.id);
+        return tipo == TipoAudio.Nombre ? lm.AudioNombreObjetoMeta(datos.id) : lm.AudioColorMeta(datos.Color);
     }
 
     public bool UsarSistemaAudio => usarSistemaAudio;

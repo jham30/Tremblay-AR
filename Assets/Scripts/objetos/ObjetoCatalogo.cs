@@ -44,7 +44,6 @@ public class ObjetoCatalogo : ScriptableObject
             if (o.prefab3D == null) problemas.Add($"{o.id}: sin prefab3D");
             if (o.sprite2D == null) problemas.Add($"{o.id}: sin sprite2D");
             if (o.nombre == null || o.nombre.IsEmpty) problemas.Add($"{o.id}: sin entrada de nombre");
-            if (o.color == null || o.color.IsEmpty) problemas.Add($"{o.id}: sin entrada de color");
             if (o.cuentos == null || o.cuentos.Length == 0) problemas.Add($"{o.id}: sin cuento (aparecerá en todos)");
         }
 

@@ -123,15 +123,11 @@ public class LanguageManager : MonoBehaviour
     public string TextoHistoria(string clave) =>
         Texto(TablaStory, clave, LocaleNativo);
 
-    /// <summary>Nombre o color de un objeto en un locale concreto (lo usa GameObjectManager para rellenar los campos por idioma).</summary>
-    public string TextoObjetoEn(string idObjeto, string campo, string codigoLocale) =>
-        Texto(TablaObjects, $"obj.{idObjeto}.{campo}", ObtenerLocale(codigoLocale));
-
     public string NombreObjetoMeta(string idObjeto) =>
         Texto(TablaObjects, $"obj.{idObjeto}.nombre", LocaleMeta);
 
-    public string ColorObjetoMeta(string idObjeto) =>
-        Texto(TablaObjects, $"obj.{idObjeto}.color", LocaleMeta);
+    public string ColorMeta(ColorObjeto color) =>
+        color == ColorObjeto.Ninguno ? "" : Texto(TablaObjects, ClaveColor(color), LocaleMeta);
 
     public string PlantillaMisionMeta(string misionID) =>
         Texto(TablaMissions, $"mission.{misionID}.template", LocaleMeta);
@@ -139,8 +135,10 @@ public class LanguageManager : MonoBehaviour
     public AudioClip AudioNombreObjetoMeta(string idObjeto) =>
         Audio(TablaObjectAudio, $"obj.{idObjeto}.audioNombre", LocaleMeta);
 
-    public AudioClip AudioColorObjetoMeta(string idObjeto) =>
-        Audio(TablaObjectAudio, $"obj.{idObjeto}.audioColor", LocaleMeta);
+    public AudioClip AudioColorMeta(ColorObjeto color) =>
+        color == ColorObjeto.Ninguno ? null : Audio(TablaObjectAudio, ClaveColor(color), LocaleMeta);
+
+    public static string ClaveColor(ColorObjeto color) => "color." + color.ToString().ToLowerInvariant();
 
     public AudioClip AudioHistoriaNativo(string clave) =>
         Audio(TablaStoryAudio, clave, LocaleNativo);

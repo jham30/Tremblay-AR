@@ -16251,7 +16251,6 @@ MonoBehaviour:
   usarSistemaAudio: 1
   volumenAudioObjetos: 0.8
   debugAudio: 1
-  idiomaActual: 0
 --- !u!1 &1564666800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18865,20 +18864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b14ad9a5e5fe7048b4b567c6296e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreArchivo: objetos_guardados.json
-  archivoInicialStreamingAssets: objetos_iniciales.json
+  catalogo: {fileID: 11400000, guid: 83bbec05be7a0c143bd51ba42a243aba, type: 2}
+  nombreArchivoAntiguo: objetos_guardados.json
   listaObjetos:
   - id: vela
-    nombreEspanol: Vela
-    nombreIngles: Candle
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/vela.mp3
-    audioNombreIngles: Sounds/vela.mp3
-    audioColorEspanol: Sounds/vela.mp3
-    audioColorIngles: Sounds/vela.mp3
-    prefab3DPath: Prefabs/halloween/vela
-    sprite2DPath: Images/halloween/vela
     guardadoPorJugador: 1
     cuentos:
     - halloween
@@ -18888,16 +18877,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: vela_tutorial
-    nombreEspanol: Vela
-    nombreIngles: Candle
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/vela.mp3
-    audioNombreIngles: Sounds/vela.mp3
-    audioColorEspanol: Sounds/vela.mp3
-    audioColorIngles: Sounds/vela.mp3
-    prefab3DPath: Prefabs/halloween/vela
-    sprite2DPath: Images/halloween/vela
     guardadoPorJugador: 0
     cuentos:
     - tutorial
@@ -18907,16 +18886,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: arana
-    nombreEspanol: "Ara\xF1a"
-    nombreIngles: Spider
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/arana.mp3
-    audioNombreIngles: Sounds/arana.mp3
-    audioColorEspanol: Sounds/arana.mp3
-    audioColorIngles: Sounds/arana.mp3
-    prefab3DPath: Prefabs/halloween/arana
-    sprite2DPath: Images/halloween/arana
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -18926,16 +18895,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: arbol
-    nombreEspanol: "\xC1rbol"
-    nombreIngles: Tree
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/arbol.mp3
-    audioNombreIngles: Sounds/arbol.mp3
-    audioColorEspanol: Sounds/arbol.mp3
-    audioColorIngles: Sounds/arbol.mp3
-    prefab3DPath: Prefabs/halloween/arbol
-    sprite2DPath: Images/halloween/arbol
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -18945,16 +18904,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: ataud
-    nombreEspanol: "Ata\xFAd"
-    nombreIngles: Coffin
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/ataud.mp3
-    audioNombreIngles: Sounds/ataud.mp3
-    audioColorEspanol: Sounds/ataud.mp3
-    audioColorIngles: Sounds/ataud.mp3
-    prefab3DPath: Prefabs/halloween/ataud
-    sprite2DPath: Images/halloween/ataud
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -18964,16 +18913,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: calabaza
-    nombreEspanol: Calabaza
-    nombreIngles: Pumpkin
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/calabaza.mp3
-    audioNombreIngles: Sounds/calabaza.mp3
-    audioColorEspanol: Sounds/calabaza.mp3
-    audioColorIngles: Sounds/calabaza.mp3
-    prefab3DPath: Prefabs/halloween/calabaza
-    sprite2DPath: Images/halloween/calabaza
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -18983,16 +18922,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: calabaza_tutorial
-    nombreEspanol: Calabaza
-    nombreIngles: Pumpkin
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/calabaza.mp3
-    audioNombreIngles: Sounds/calabaza.mp3
-    audioColorEspanol: Sounds/calabaza.mp3
-    audioColorIngles: Sounds/calabaza.mp3
-    prefab3DPath: Prefabs/halloween/calabaza
-    sprite2DPath: Images/halloween/calabaza
     guardadoPorJugador: 0
     cuentos:
     - tutorial
@@ -19002,16 +18931,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: craneo
-    nombreEspanol: "Cr\xE1neo"
-    nombreIngles: Skull
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/craneo.mp3
-    audioNombreIngles: Sounds/craneo.mp3
-    audioColorEspanol: Sounds/craneo.mp3
-    audioColorIngles: Sounds/craneo.mp3
-    prefab3DPath: Prefabs/halloween/craneo
-    sprite2DPath: Images/halloween/craneo
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19021,16 +18940,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: escoba
-    nombreEspanol: Escoba
-    nombreIngles: Broom
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/escoba.mp3
-    audioNombreIngles: Sounds/escoba.mp3
-    audioColorEspanol: Sounds/escoba.mp3
-    audioColorIngles: Sounds/escoba.mp3
-    prefab3DPath: Prefabs/halloween/escoba
-    sprite2DPath: Images/halloween/escoba
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19040,16 +18949,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: farol
-    nombreEspanol: Farol
-    nombreIngles: Lantern
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/farol.mp3
-    audioNombreIngles: Sounds/farol.mp3
-    audioColorEspanol: Sounds/farol.mp3
-    audioColorIngles: Sounds/farol.mp3
-    prefab3DPath: Prefabs/halloween/farol
-    sprite2DPath: Images/halloween/farol
     guardadoPorJugador: 1
     cuentos:
     - halloween
@@ -19059,16 +18958,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: gato
-    nombreEspanol: Gato
-    nombreIngles: Cat
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/gato.mp3
-    audioNombreIngles: Sounds/gato.mp3
-    audioColorEspanol: Sounds/gato.mp3
-    audioColorIngles: Sounds/gato.mp3
-    prefab3DPath: Prefabs/halloween/gato
-    sprite2DPath: Images/halloween/gato
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19078,16 +18967,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: gorro
-    nombreEspanol: Gorro
-    nombreIngles: Hat
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/gorro.mp3
-    audioNombreIngles: Sounds/gorro.mp3
-    audioColorEspanol: Sounds/gorro.mp3
-    audioColorIngles: Sounds/gorro.mp3
-    prefab3DPath: Prefabs/halloween/gorro
-    sprite2DPath: Images/halloween/gorro
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19097,16 +18976,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: hongo
-    nombreEspanol: Hongo
-    nombreIngles: Mushroom
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/hongo.mp3
-    audioNombreIngles: Sounds/hongo.mp3
-    audioColorEspanol: Sounds/hongo.mp3
-    audioColorIngles: Sounds/hongo.mp3
-    prefab3DPath: Prefabs/halloween/hongo
-    sprite2DPath: Images/halloween/hongo
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19116,16 +18985,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: lampara
-    nombreEspanol: "L\xE1mpara"
-    nombreIngles: Lamp
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/lampara.mp3
-    audioNombreIngles: Sounds/lampara.mp3
-    audioColorEspanol: Sounds/lampara.mp3
-    audioColorIngles: Sounds/lampara.mp3
-    prefab3DPath: Prefabs/halloween/lampara
-    sprite2DPath: Images/halloween/lampara
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19135,16 +18994,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: lapida
-    nombreEspanol: "L\xE1pida"
-    nombreIngles: Tombstone
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/lapida.mp3
-    audioNombreIngles: Sounds/lapida.mp3
-    audioColorEspanol: Sounds/lapida.mp3
-    audioColorIngles: Sounds/lapida.mp3
-    prefab3DPath: Prefabs/halloween/lapida
-    sprite2DPath: Images/halloween/lapida
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19154,16 +19003,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: mano
-    nombreEspanol: Mano
-    nombreIngles: Hand
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/mano.mp3
-    audioNombreIngles: Sounds/mano.mp3
-    audioColorEspanol: Sounds/mano.mp3
-    audioColorIngles: Sounds/mano.mp3
-    prefab3DPath: Prefabs/halloween/mano
-    sprite2DPath: Images/halloween/mano
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19173,16 +19012,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: mausoleo
-    nombreEspanol: Mausoleo
-    nombreIngles: Mausoleum
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/mausoleo.mp3
-    audioNombreIngles: Sounds/mausoleo.mp3
-    audioColorEspanol: Sounds/mausoleo.mp3
-    audioColorIngles: Sounds/mausoleo.mp3
-    prefab3DPath: Prefabs/halloween/mausoleo
-    sprite2DPath: Images/halloween/mausoleo
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19192,16 +19021,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: murcielago
-    nombreEspanol: "Murci\xE9lago"
-    nombreIngles: Bat
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/murcielago.mp3
-    audioNombreIngles: Sounds/murcielago.mp3
-    audioColorEspanol: Sounds/murcielago.mp3
-    audioColorIngles: Sounds/murcielago.mp3
-    prefab3DPath: Prefabs/halloween/murcielago
-    sprite2DPath: Images/halloween/murcielago
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19211,16 +19030,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: pala
-    nombreEspanol: Pala
-    nombreIngles: Shovel
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/pala.mp3
-    audioNombreIngles: Sounds/pala.mp3
-    audioColorEspanol: Sounds/pala.mp3
-    audioColorIngles: Sounds/pala.mp3
-    prefab3DPath: Prefabs/halloween/pala
-    sprite2DPath: Images/halloween/pala
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19230,16 +19039,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: reja
-    nombreEspanol: Reja
-    nombreIngles: Gate
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/reja.mp3
-    audioNombreIngles: Sounds/reja.mp3
-    audioColorEspanol: Sounds/reja.mp3
-    audioColorIngles: Sounds/reja.mp3
-    prefab3DPath: Prefabs/halloween/reja
-    sprite2DPath: Images/halloween/reja
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19249,16 +19048,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: tumba
-    nombreEspanol: Tumba
-    nombreIngles: Tomb
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/tumba.mp3
-    audioNombreIngles: Sounds/tumba.mp3
-    audioColorEspanol: Sounds/tumba.mp3
-    audioColorIngles: Sounds/tumba.mp3
-    prefab3DPath: Prefabs/halloween/tumba
-    sprite2DPath: Images/halloween/tumba
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19268,16 +19057,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: mesa
-    nombreEspanol: Mesa
-    nombreIngles: Table
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/mesa.mp3
-    audioNombreIngles: Sounds/mesa.mp3
-    audioColorEspanol: Sounds/mesa.mp3
-    audioColorIngles: Sounds/mesa.mp3
-    prefab3DPath: Prefabs/halloween/mesa
-    sprite2DPath: Images/halloween/mesa
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19287,16 +19066,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: libro
-    nombreEspanol: Libro
-    nombreIngles: Book
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/libro.mp3
-    audioNombreIngles: Sounds/libro.mp3
-    audioColorEspanol: Sounds/libro.mp3
-    audioColorIngles: Sounds/libro.mp3
-    prefab3DPath: Prefabs/halloween/libro
-    sprite2DPath: Images/halloween/libro
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19306,16 +19075,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: bruja
-    nombreEspanol: Bruja
-    nombreIngles: Witch
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/bruja.mp3
-    audioNombreIngles: Sounds/bruja.mp3
-    audioColorEspanol: Sounds/bruja.mp3
-    audioColorIngles: Sounds/bruja.mp3
-    prefab3DPath: Prefabs/halloween/bruja
-    sprite2DPath: Images/halloween/bruja
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19325,16 +19084,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: flor
-    nombreEspanol: Flor
-    nombreIngles: Flower
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/flor.mp3
-    audioNombreIngles: Sounds/flor.mp3
-    audioColorEspanol: Sounds/flor.mp3
-    audioColorIngles: Sounds/flor.mp3
-    prefab3DPath: Prefabs/halloween/flor
-    sprite2DPath: Images/halloween/flor
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19344,16 +19093,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: caldero
-    nombreEspanol: Caldero
-    nombreIngles: Cauldron
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/caldero.mp3
-    audioNombreIngles: Sounds/caldero.mp3
-    audioColorEspanol: Sounds/caldero.mp3
-    audioColorIngles: Sounds/caldero.mp3
-    prefab3DPath: Prefabs/halloween/caldero
-    sprite2DPath: Images/halloween/caldero
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -19363,16 +19102,6 @@ MonoBehaviour:
     escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
     notasConfiguracion: "Configuraci\xF3n por defecto"
   - id: salchicha
-    nombreEspanol: Salchicha
-    nombreIngles: Sausage
-    colorEspanol: Anaranjado
-    colorIngles: Orange
-    audioNombreEspanol: Sounds/salchicha.mp3
-    audioNombreIngles: Sounds/salchicha.mp3
-    audioColorEspanol: Sounds/salchicha.mp3
-    audioColorIngles: Sounds/salchicha.mp3
-    prefab3DPath: Prefabs/halloween/salchicha
-    sprite2DPath: Images/halloween/salchicha
     guardadoPorJugador: 0
     cuentos:
     - halloween
@@ -20081,12 +19810,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 1. Hi! I'm Eliane Tremblay, and this is MY adventure at the house on
-      Hollow Street. I'm going to teach you how to play, okay? Let's have a blast!
-    textoEN: "Hola! Soy Eliane Tremblay, y esta es MI aventura en la casa de Hollow
-      Street. Te voy a ense\xF1ar a jugar, \xBFvale? \xA1Vamos a pasarlo genial!"
-    audioES: {fileID: 8300000, guid: 1aa9f4200093ba141a5dd1cbf18e004f, type: 3}
-    audioEN: {fileID: 8300000, guid: 1aa9f4200093ba141a5dd1cbf18e004f, type: 3}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20113,13 +19836,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '2. This game uses Augmented Reality, which means we''ll see everything
-      through your phone''s camera. It''s like opening a magic window into the story!
-
-'
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20146,10 +19862,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 3. Just a moment... I'm waking up the magic camera.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 14
     parametro: 
     delaySegundos: 3
@@ -20176,11 +19888,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '4. This game works with special cards. You need to have them printed
-      out, or on another screen. If you don''t have them yet, download them in thetremblay.com/downloads '
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20207,11 +19914,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 5. Look for the 2  cards that say "TUTORIAL." Those are the ones we'll
-      use now. Point your camera at one of them, like you're about to take its picture.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 1
     parametro: ITVela
     delaySegundos: 0
@@ -20238,10 +19940,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 6. Look! A candle <sprite name="vela"> or appeared on the card.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 3
@@ -20268,11 +19966,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 7. You can tap objects right on the screen when they appear. Try it!
-      Tap the candle <sprite name="vela">.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 2
     parametro: vela_tutorial
     delaySegundos: 0
@@ -20299,11 +19992,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 8. Did you hear how it's said in Spanish? If you want to hear it again,
-      tap the button I'm pointing at.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20330,11 +20018,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: "9. You can listen to it as many times as you want \u2014 I did too
-      when I was learning! Just tap the button again."
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 6
     parametro: 
     delaySegundos: 0
@@ -20361,11 +20044,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 10. Now let's save this object so we can use it later. Tap the button
-      I'm showing you to save it in your inventory.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 8
     parametro: 
     delaySegundos: 0
@@ -20392,10 +20070,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 11. Awesome, it's yours now!
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20422,11 +20096,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '12. Now you can close it by tapping here. Remember: whenever you want
-      to see an object again, just point the camera at it and tap it.'
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 9
     parametro: 
     delaySegundos: 0
@@ -20453,11 +20122,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 13. Go ahead and save the other object that appeared too.  Point your
-      camera at the other card you found.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 1
     parametro: ITCalabaza
     delaySegundos: 0
@@ -20484,11 +20148,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's
-      one of my favorites.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 2
     parametro: calabaza_tutorial
     delaySegundos: 0
@@ -20515,11 +20174,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 15. Save it in your inventory, just like we did with the candle <sprite
-      name="vela">.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 8
     parametro: 
     delaySegundos: 0
@@ -20546,11 +20200,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: "16. Perfect! Now close the panel \u2014 I want to show you something
-      really important."
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 9
     parametro: 
     delaySegundos: 0
@@ -20577,11 +20226,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 17. See the pumpkin <sprite name="calabaza"> down there? I'm pointing
-      at it. You can tap it, or swipe up to open your inventory. Try it!
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 10
     parametro: 
     delaySegundos: 0
@@ -20608,11 +20252,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '18. Look! Here are the two objects you saved: the candle <sprite name="vela">
-      and the pumpkin <sprite name="calabaza">. They''re both yours now.'
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20639,11 +20278,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 19. Up top there's a mission. I know you might not fully understand
-      what it says yet, but I bet you can guess which objects it's asking for.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20670,12 +20304,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 20. Drag the candle <sprite name="vela"> to the spot where it belongs.
-      If you don't remember how to say "candle <sprite name="vela">" tap the green
-      button next to it to hear it again.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 3
     parametro: 
     delaySegundos: 0
@@ -20702,10 +20330,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 21. That's how it's done!
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20732,11 +20356,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 22. Now drag the candle <sprite name="vela"> and the pumpkin <sprite
-      name="calabaza">, each one to its place.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 3
     parametro: 
     delaySegundos: 0
@@ -20763,11 +20382,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 23. You're doing great! Now tap the button I'm pointing at to check
-      if you placed them right.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 12
     parametro: 
     delaySegundos: 0
@@ -20794,12 +20408,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: "24. Yesss! You just deciphered the mission. Can you guess what it says?
-      Don't worry if not \u2014 you'll understand more words over time. For now,
-      let's go complete it!"
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -20826,12 +20434,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 25. Let's actually bring the candle <sprite name="vela"> to the pumpkin
-      now. But first, close the inventory by swiping down or tapping the button I'm
-      pointing at.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 11
     parametro: 
     delaySegundos: 0
@@ -20858,11 +20460,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 26. Now scan the candle's <sprite name="vela"> card with your camera.
-      Do you remember which one it is?
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 2
     parametro: vela_tutorial
     delaySegundos: 0
@@ -20889,10 +20486,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 27. Did you see a hand appear? Tap it to grab the candle.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 4
     parametro: 
     delaySegundos: 0
@@ -20919,10 +20512,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 27a. close ncandle panel
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 9
     parametro: 
     delaySegundos: 0
@@ -20949,11 +20538,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 28. The candle <sprite name="vela"> is with you now! Head over to the
-      pumpkin's <sprite name="calabaza"> card and point at it.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 2
     parametro: calabaza_tutorial
     delaySegundos: 0
@@ -20980,11 +20564,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 29. A hand appeared here too, see it? That means you can drop the candle
-      <sprite name="vela"> onto the pumpkin <sprite name="calabaza">.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 5
     parametro: 
     delaySegundos: 0
@@ -21011,11 +20590,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 30. Almost there. Now tap the button I'm pointing at to check that you
-      brought what the mission needed.
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 13
     parametro: 
     delaySegundos: 4
@@ -21042,12 +20616,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '32. Do you know what the mission was asking for now? That''s right:
-      put the candle <sprite name="vela"> inside the pumpkin <sprite name="calabaza">.
-      I think you''re ready to play on your own. '
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -21074,12 +20642,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 33. Almost forgot! See that green icon? Tap it to see all your missions.
-      Right now there's only one, but once you start really playing, tons more will
-      show up!
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 15
     parametro: 
     delaySegundos: 0
@@ -21106,13 +20668,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: "34. One more thing: missions change color depending on their status.
-      \U0001F534 Red: not available yet. \U0001F535 Blue: ready for you to decipher.
-      \U0001F7E1 Yellow: already deciphered, still need to complete them with the
-      camera. \U0001F7E2 Green: completed!"
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0
@@ -21139,10 +20694,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: 34a. close the mission list
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 15
     parametro: 
     delaySegundos: 0
@@ -21169,11 +20720,6 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    textoES: '35. That''s everything! Now go have fun and learn a bit of Spanish
-      with me. See you in the game! '
-    textoEN: 
-    audioES: {fileID: 0}
-    audioEN: {fileID: 0}
     condicion: 0
     parametro: 
     delaySegundos: 0

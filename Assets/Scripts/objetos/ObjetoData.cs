@@ -1,6 +1,20 @@
 using UnityEngine;
 using UnityEngine.Localization;
 
+public enum ColorObjeto
+{
+    Ninguno,
+    Amarillo,
+    Azul,
+    Rojo,
+    Verde,
+    Violeta,
+    Anaranjado,
+    Blanco,
+    Negro,
+    Gris,
+}
+
 /// <summary>
 /// Catálogo: definición fija de un objeto del juego. Lo que el jugador hace con él
 /// (guardarlo, colocarlo) NO vive aquí, va al JSON de progreso.
@@ -13,13 +27,13 @@ public class ObjetoData : ScriptableObject
     [Tooltip("Coincide con los ids de las misiones (idCorrecto, idObjetoDestino) y con los sprites TMP.")]
     public string id;
 
-    [Header("Textos (idioma meta)")]
+    [Header("Nombre (idioma meta)")]
     public LocalizedString nombre;
-    public LocalizedString color;
-
-    [Header("Audio (idioma meta)")]
     public LocalizedAudioClip audioNombre;
-    public LocalizedAudioClip audioColor;
+
+    [Header("Color")]
+    [Tooltip("Vocabulario compartido: texto y audio salen de las entradas color.<nombre> de las tablas.")]
+    public ColorObjeto color = ColorObjeto.Ninguno;
 
     [Header("Assets")]
     public GameObject prefab3D;

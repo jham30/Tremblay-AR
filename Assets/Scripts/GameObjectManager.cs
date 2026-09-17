@@ -24,8 +24,10 @@ public class GameObjectData
     public string NombreMeta =>
         LanguageManager.Instance != null ? LanguageManager.Instance.NombreObjetoMeta(id) : id;
 
+    public ColorObjeto Color => catalogo != null ? catalogo.color : ColorObjeto.Ninguno;
+
     public string ColorMeta =>
-        LanguageManager.Instance != null ? LanguageManager.Instance.ColorObjetoMeta(id) : "";
+        LanguageManager.Instance != null ? LanguageManager.Instance.ColorMeta(Color) : "";
 
     public string[] cuentos;
 

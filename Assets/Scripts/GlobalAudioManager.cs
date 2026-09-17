@@ -65,7 +65,9 @@ public class GlobalAudioManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // Unity 6 lanza una aserción si el objeto ya está en la escena DontDestroyOnLoad.
+        if (gameObject.scene.name != "DontDestroyOnLoad")
+            DontDestroyOnLoad(gameObject);
         gameObject.tag = "GlobalAudio";
 
         Debug.Log("🎵 [GlobalAudioManager] Inicializado correctamente");

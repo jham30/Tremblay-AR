@@ -22,216 +22,144 @@ MonoBehaviour:
     m_Localized: Candle
     m_Metadata:
       m_Items: []
-  - m_Id: 206825907531776
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206826494734336
     m_Localized: Candle
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206826494734337
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206826826084352
     m_Localized: Spider
     m_Metadata:
       m_Items: []
-  - m_Id: 206826826084353
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206827186794496
     m_Localized: Tree
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206827186794497
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206827564281856
     m_Localized: Coffin
     m_Metadata:
       m_Items: []
-  - m_Id: 206827564281857
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206827920797696
     m_Localized: Pumpkin
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206827924992000
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206828256342016
     m_Localized: Pumpkin
     m_Metadata:
       m_Items: []
-  - m_Id: 206828256342017
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206828570914816
     m_Localized: Skull
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206828570914817
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206828927430656
     m_Localized: Broom
     m_Metadata:
       m_Items: []
-  - m_Id: 206828927430657
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206829275557888
     m_Localized: Lantern
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206829275557889
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206829636268032
     m_Localized: Cat
     m_Metadata:
       m_Items: []
-  - m_Id: 206829636268033
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206830005366784
     m_Localized: Hat
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206830005366785
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206830370271232
     m_Localized: Mushroom
     m_Metadata:
       m_Items: []
-  - m_Id: 206830370271233
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206830735175680
     m_Localized: Lamp
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206830735175681
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206831095885824
     m_Localized: Tombstone
     m_Metadata:
       m_Items: []
-  - m_Id: 206831095885825
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206831460790272
     m_Localized: Hand
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206831460790273
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206831863443456
     m_Localized: Mausoleum
     m_Metadata:
       m_Items: []
-  - m_Id: 206831863443457
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206832245125120
     m_Localized: Bat
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206832245125121
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206832647778304
     m_Localized: Shovel
     m_Metadata:
       m_Items: []
-  - m_Id: 206832647778305
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206833054625792
     m_Localized: Gate
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206833054625793
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206833465667584
     m_Localized: Tomb
     m_Metadata:
       m_Items: []
-  - m_Id: 206833465667585
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206833830572032
     m_Localized: Table
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206833830572033
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206834195476480
     m_Localized: Book
     m_Metadata:
       m_Items: []
-  - m_Id: 206834195476481
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206834547798016
     m_Localized: Witch
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206834547798017
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206834933673984
     m_Localized: Flower
     m_Metadata:
       m_Items: []
-  - m_Id: 206834933673985
-    m_Localized: Orange
-    m_Metadata:
-      m_Items: []
   - m_Id: 206835290189824
     m_Localized: Cauldron
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206835290189825
-    m_Localized: Orange
     m_Metadata:
       m_Items: []
   - m_Id: 206835642511360
     m_Localized: Sausage
     m_Metadata:
       m_Items: []
-  - m_Id: 206835642511361
+  - m_Id: 252093386436608
+    m_Localized: Yellow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545472
+    m_Localized: Blue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545473
+    m_Localized: Red
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545474
+    m_Localized: Green
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545475
+    m_Localized: Purple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739776
     m_Localized: Orange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739777
+    m_Localized: White
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739778
+    m_Localized: Black
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739779
+    m_Localized: Gray
     m_Metadata:
       m_Items: []
   references:

@@ -17,7 +17,43 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 449242646253087458b9314e275643ce, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 252093386436608
+    m_Localized: Jaune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545472
+    m_Localized: Bleu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545473
+    m_Localized: Rouge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545474
+    m_Localized: Vert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093453545475
+    m_Localized: Violet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739776
+    m_Localized: Orange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739777
+    m_Localized: Blanc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739778
+    m_Localized: Noir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252093457739779
+    m_Localized: Gris
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

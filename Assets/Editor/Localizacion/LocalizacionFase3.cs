@@ -36,6 +36,57 @@ public static class LocalizacionFase3
         (ColorObjeto.Gris,       "Gris",       "Gray",   "Gris"),
     };
 
+    // Nombres de objeto en francés (id → fr). Género: la/le según el sustantivo.
+    static readonly (string id, string fr)[] NombresFr =
+    {
+        ("arana", "Araignée"),
+        ("arbol", "Arbre"),
+        ("ataud", "Cercueil"),
+        ("bruja", "Sorcière"),
+        ("calabaza", "Citrouille"),
+        ("calabaza_tutorial", "Citrouille"),
+        ("caldero", "Chaudron"),
+        ("craneo", "Crâne"),
+        ("escoba", "Balai"),
+        ("farol", "Lanterne"),
+        ("flor", "Fleur"),
+        ("gato", "Chat"),
+        ("gorro", "Chapeau"),
+        ("hongo", "Champignon"),
+        ("lampara", "Lampe"),
+        ("lapida", "Pierre tombale"),
+        ("libro", "Livre"),
+        ("mano", "Main"),
+        ("mausoleo", "Mausolée"),
+        ("mesa", "Table"),
+        ("murcielago", "Chauve-souris"),
+        ("pala", "Pelle"),
+        ("reja", "Grille"),
+        ("salchicha", "Saucisse"),
+        ("tumba", "Tombe"),
+        ("vela", "Bougie"),
+        ("vela_tutorial", "Bougie"),
+    };
+
+    [MenuItem("Tremblay/Localización/Fase 3 - Nombres de objetos en francés")]
+    public static void SembrarNombresFr()
+    {
+        var textos = LocalizationEditorSettings.GetStringTableCollection(TablaObjects);
+        if (textos == null) { Debug.LogError("[Fase 3] Falta la tabla Objects."); return; }
+
+        int n = 0;
+        foreach (var (id, fr) in NombresFr)
+        {
+            string clave = $"obj.{id}.nombre";
+            if (textos.SharedData.GetEntry(clave) == null) { Debug.LogWarning($"[Fase 3] No existe '{clave}'."); continue; }
+            n += PonerSiVacio(textos, "fr", clave, fr);
+        }
+
+        EditorUtility.SetDirty(textos.SharedData);
+        AssetDatabase.SaveAssets();
+        Debug.Log($"[Fase 3] Nombres en francés: {n} rellenados.");
+    }
+
     // ============================================================
     // Colores como vocabulario compartido
     // ============================================================

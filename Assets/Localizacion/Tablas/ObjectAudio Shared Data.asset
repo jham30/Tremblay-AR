@@ -19,216 +19,144 @@ MonoBehaviour:
     m_Key: obj.vela.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206823726493696
-    m_Key: obj.vela.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206824057843712
     m_Key: obj.vela_tutorial.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206824057843713
-    m_Key: obj.vela_tutorial.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206824431136768
     m_Key: obj.arana.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206824431136769
-    m_Key: obj.arana.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206824791846912
     m_Key: obj.arbol.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206824800235520
-    m_Key: obj.arbol.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206825169334272
     m_Key: obj.ataud.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206825169334273
-    m_Key: obj.ataud.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206825517461504
     m_Key: obj.calabaza.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206825525850112
-    m_Key: obj.calabaza.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206825819451392
     m_Key: obj.calabaza_tutorial.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206825819451393
-    m_Key: obj.calabaza_tutorial.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206826175967232
     m_Key: obj.craneo.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206826175967233
-    m_Key: obj.craneo.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206826528288768
     m_Key: obj.escoba.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206826528288769
-    m_Key: obj.escoba.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206826876416000
     m_Key: obj.farol.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206826876416001
-    m_Key: obj.farol.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206827241320448
     m_Key: obj.gato.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206827241320449
-    m_Key: obj.gato.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206827610419200
     m_Key: obj.gorro.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206827610419201
-    m_Key: obj.gorro.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206827966935040
     m_Key: obj.hongo.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206827966935041
-    m_Key: obj.hongo.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206828336033792
     m_Key: obj.lampara.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206828336033793
-    m_Key: obj.lampara.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206828692549632
     m_Key: obj.lapida.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206828692549633
-    m_Key: obj.lapida.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206829061648384
     m_Key: obj.mano.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206829061648385
-    m_Key: obj.mano.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206829472690176
     m_Key: obj.mausoleo.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206829472690177
-    m_Key: obj.mausoleo.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206829858566144
     m_Key: obj.murcielago.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206829858566145
-    m_Key: obj.murcielago.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206830252830720
     m_Key: obj.pala.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206830252830721
-    m_Key: obj.pala.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206830659678208
     m_Key: obj.reja.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206830659678209
-    m_Key: obj.reja.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206831070720000
     m_Key: obj.tumba.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206831070720001
-    m_Key: obj.tumba.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206831435624448
     m_Key: obj.mesa.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206831435624449
-    m_Key: obj.mesa.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206831792140288
     m_Key: obj.libro.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206831792140289
-    m_Key: obj.libro.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206832144461824
     m_Key: obj.bruja.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206832144461825
-    m_Key: obj.bruja.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206832534532096
     m_Key: obj.flor.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206832534532097
-    m_Key: obj.flor.audioColor
-    m_Metadata:
-      m_Items: []
   - m_Id: 206832891047936
     m_Key: obj.caldero.audioNombre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 206832891047937
-    m_Key: obj.caldero.audioColor
     m_Metadata:
       m_Items: []
   - m_Id: 206833243369472
     m_Key: obj.salchicha.audioNombre
     m_Metadata:
       m_Items: []
-  - m_Id: 206833243369473
-    m_Key: obj.salchicha.audioColor
+  - m_Id: 252090995683328
+    m_Key: color.amarillo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091016654848
+    m_Key: color.azul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091016654849
+    m_Key: color.rojo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091016654850
+    m_Key: color.verde
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091020849152
+    m_Key: color.violeta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091020849153
+    m_Key: color.anaranjado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091020849154
+    m_Key: color.blanco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091020849155
+    m_Key: color.negro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252091020849156
+    m_Key: color.gris
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -256,15 +184,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206823726493696
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206824057843712
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206824057843713
           m_TableCodes:
           - es
           - en
@@ -272,15 +192,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206824431136769
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206824791846912
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206824800235520
           m_TableCodes:
           - es
           - en
@@ -288,15 +200,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206825169334273
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206825517461504
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206825525850112
           m_TableCodes:
           - es
           - en
@@ -304,15 +208,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206825819451393
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206826175967232
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206826175967233
           m_TableCodes:
           - es
           - en
@@ -320,15 +216,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206826528288769
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206826876416000
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206826876416001
           m_TableCodes:
           - es
           - en
@@ -336,15 +224,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206827241320449
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206827610419200
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206827610419201
           m_TableCodes:
           - es
           - en
@@ -352,15 +232,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206827966935041
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206828336033792
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206828336033793
           m_TableCodes:
           - es
           - en
@@ -368,15 +240,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206828692549633
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206829061648384
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206829061648385
           m_TableCodes:
           - es
           - en
@@ -384,15 +248,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206829472690177
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206829858566144
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206829858566145
           m_TableCodes:
           - es
           - en
@@ -400,15 +256,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206830252830721
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206830659678208
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206830659678209
           m_TableCodes:
           - es
           - en
@@ -416,15 +264,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206831070720001
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206831435624448
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206831435624449
           m_TableCodes:
           - es
           - en
@@ -432,15 +272,7 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206831792140289
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206832144461824
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206832144461825
           m_TableCodes:
           - es
           - en
@@ -448,23 +280,11 @@ MonoBehaviour:
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206832534532097
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206832891047936
           m_TableCodes:
           - es
           - en
-        - m_KeyId: 206832891047937
-          m_TableCodes:
-          - es
-          - en
         - m_KeyId: 206833243369472
-          m_TableCodes:
-          - es
-          - en
-        - m_KeyId: 206833243369473
           m_TableCodes:
           - es
           - en

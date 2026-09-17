@@ -61,16 +61,18 @@ public static class LocalizacionFase0
             return;
         }
 
-        if (fuente.HasCharacters(CadenaPrueba, out List<char> faltantes, searchFallbacks: false, tryAddCharacter: false))
+        if (fuente.HasCharacters(CadenaPrueba, out uint[] faltantes, searchFallbacks: false, tryAddCharacter: false))
         {
             Debug.Log($"[Localización] ✅ {fuente.name} tiene todos los glifos de prueba: {CadenaPrueba}");
             return;
         }
 
-        var unicos = new HashSet<char>(faltantes);
-        unicos.Remove(' ');
+        var unicos = new HashSet<string>();
+        foreach (var codigo in faltantes)
+            if (codigo != ' ') unicos.Add($"{(char)codigo} (U+{codigo:X4})");
+
         Debug.LogWarning($"[Localización] ⚠️ A {fuente.name} le faltan {unicos.Count} glifos: " +
-                         string.Join(" ", unicos) +
+                         string.Join(", ", unicos) +
                          "\nRegenera el atlas con Font Asset Creator (rangos 20-7E,A0-FF,100-17F) y guarda con 'Save' sobre el mismo asset.");
     }
 

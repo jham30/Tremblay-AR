@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 18.022}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/farol
+  sprite2DPathLegacy: Images/halloween/farol
+  audioNombreEsLegacy: Sounds/farol.mp3
+  audioNombreEnLegacy: Sounds/farol.mp3
+  audioColorEsLegacy: Sounds/farol.mp3
+  audioColorEnLegacy: Sounds/farol.mp3
   references:
     version: 2
     RefIds: []

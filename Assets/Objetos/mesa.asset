@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/mesa
+  sprite2DPathLegacy: Images/halloween/mesa
+  audioNombreEsLegacy: Sounds/mesa.mp3
+  audioNombreEnLegacy: Sounds/mesa.mp3
+  audioColorEsLegacy: Sounds/mesa.mp3
+  audioColorEnLegacy: Sounds/mesa.mp3
   references:
     version: 2
     RefIds: []

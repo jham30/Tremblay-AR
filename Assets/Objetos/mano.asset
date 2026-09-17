@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/mano
+  sprite2DPathLegacy: Images/halloween/mano
+  audioNombreEsLegacy: Sounds/mano.mp3
+  audioNombreEnLegacy: Sounds/mano.mp3
+  audioColorEsLegacy: Sounds/mano.mp3
+  audioColorEnLegacy: Sounds/mano.mp3
   references:
     version: 2
     RefIds: []

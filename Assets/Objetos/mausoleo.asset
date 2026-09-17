@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/mausoleo
+  sprite2DPathLegacy: Images/halloween/mausoleo
+  audioNombreEsLegacy: Sounds/mausoleo.mp3
+  audioNombreEnLegacy: Sounds/mausoleo.mp3
+  audioColorEsLegacy: Sounds/mausoleo.mp3
+  audioColorEnLegacy: Sounds/mausoleo.mp3
   references:
     version: 2
     RefIds: []

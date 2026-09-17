@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/arbol
+  sprite2DPathLegacy: Images/halloween/arbol
+  audioNombreEsLegacy: Sounds/arbol.mp3
+  audioNombreEnLegacy: Sounds/arbol.mp3
+  audioColorEsLegacy: Sounds/arbol.mp3
+  audioColorEnLegacy: Sounds/arbol.mp3
   references:
     version: 2
     RefIds: []

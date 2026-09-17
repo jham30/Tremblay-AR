@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/reja
+  sprite2DPathLegacy: Images/halloween/reja
+  audioNombreEsLegacy: Sounds/reja.mp3
+  audioNombreEnLegacy: Sounds/reja.mp3
+  audioColorEsLegacy: Sounds/reja.mp3
+  audioColorEnLegacy: Sounds/reja.mp3
   references:
     version: 2
     RefIds: []

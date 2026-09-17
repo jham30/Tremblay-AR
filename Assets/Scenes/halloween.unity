@@ -25917,6 +25917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreArchivo: objetos_guardados.json
   archivoInicialStreamingAssets: objetos_iniciales.json
+  usarCatalogoSO: 1
+  catalogo: {fileID: 11400000, guid: 83bbec05be7a0c143bd51ba42a243aba, type: 2}
   listaObjetos:
   - id: vela
     nombreEspanol: Vela

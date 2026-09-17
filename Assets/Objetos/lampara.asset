@@ -56,6 +56,12 @@ MonoBehaviour:
   rotacionAgarradaPersonalizada: {x: -2.59, y: 18.474, z: 13.224}
   escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
   notasConfiguracion: "Configuraci\xF3n por defecto"
+  prefab3DPathLegacy: Prefabs/halloween/lampara
+  sprite2DPathLegacy: Images/halloween/lampara
+  audioNombreEsLegacy: Sounds/lampara.mp3
+  audioNombreEnLegacy: Sounds/lampara.mp3
+  audioColorEsLegacy: Sounds/lampara.mp3
+  audioColorEnLegacy: Sounds/lampara.mp3
   references:
     version: 2
     RefIds: []

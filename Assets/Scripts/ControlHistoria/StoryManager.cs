@@ -195,10 +195,10 @@ public class StoryManager : MonoBehaviour
     
     private IEnumerator ReproducirSoloAudio(StoryFragment fragmento)
     {
-        if (fragmento.audioNarracion != null && GlobalAudioManager.Instance != null)
+        if (fragmento.AudioNativo != null && GlobalAudioManager.Instance != null)
         {
             GlobalAudioManager.Instance.ReproducirSonidoSFX(
-                fragmento.audioNarracion, 
+                fragmento.AudioNativo, 
                 fragmento.volumenAudio
             );
             
@@ -265,9 +265,14 @@ public class StoryManager : MonoBehaviour
     private string RutaProgreso()
     {
         string cuento = CuentoActual.GetCuentoActual();
-        string archivo = string.IsNullOrEmpty(cuento)
-            ? nombreArchivoProgreso
-            : $"{System.IO.Path.GetFileNameWithoutExtension(nombreArchivoProgreso)}_{cuento}.json";
+        if (string.IsNullOrEmpty(cuento)) cuento = "general";
+
+        // El avance de la historia pertenece al slot de la partida, que va por idioma meta
+        // (mismo criterio que progreso_<cuento>_<meta>.json). El texto sale en nativo.
+        string meta = LanguageManager.CodigoMetaGuardado;
+        if (string.IsNullOrEmpty(meta)) meta = LanguageManager.CodigoEspanol;
+
+        string archivo = $"{System.IO.Path.GetFileNameWithoutExtension(nombreArchivoProgreso)}_{cuento}_{meta}.json";
         return System.IO.Path.Combine(Application.persistentDataPath, archivo);
     }
 

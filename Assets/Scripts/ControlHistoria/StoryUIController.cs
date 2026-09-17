@@ -213,17 +213,17 @@ public class StoryUIController : MonoBehaviour
         }
 
         float tiempoInicioAudio = Time.time;
-        if (fragmento.audioNarracion != null)
+        if (fragmento.AudioNativo != null)
         {
             ReproducirAudio(fragmento);
         }
 
-        if (!string.IsNullOrEmpty(fragmento.textoFragmento))
+        if (!string.IsNullOrEmpty(fragmento.TextoNativo))
         {
             if (fragmento.usarTypewriter)
             {
                 typewriterActual = StartCoroutine(MostrarTextoTypewriter(
-                    fragmento.textoFragmento,
+                    fragmento.TextoNativo,
                     fragmento.velocidadTypewriter
                 ));
                 yield return typewriterActual;
@@ -231,7 +231,7 @@ public class StoryUIController : MonoBehaviour
             }
             else
             {
-                textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmento.textoFragmento);
+                textoFragmento.text = LimpiarMarcadoresInstantaneos(fragmento.TextoNativo);
             }
         }
 
@@ -317,12 +317,12 @@ public class StoryUIController : MonoBehaviour
                 audioActual.Stop();
             }
         }
-        else if (fragmento.audioNarracion != null && esperarFinAudio && usarSincronizacionAudio)
+        else if (fragmento.AudioNativo != null && esperarFinAudio && usarSincronizacionAudio)
         {
             // Sin duración explícita: esperar a que termine el audio (descontando lo ya
             // transcurrido mientras se mostraba el typewriter, etc.)
             float yaTranscurrido = Time.time - tiempoInicioAudio;
-            float duracion = Mathf.Max(0f, fragmento.audioNarracion.length - yaTranscurrido);
+            float duracion = Mathf.Max(0f, fragmento.AudioNativo.length - yaTranscurrido);
 
             float elapsed = 0f;
             while (elapsed < duracion && !saltado)
@@ -461,17 +461,17 @@ public class StoryUIController : MonoBehaviour
     
     private void ReproducirAudio(StoryFragment fragmento)
     {
-        if (fragmento.audioNarracion == null) return;
+        if (fragmento.AudioNativo == null) return;
         
         GameObject audioObj = new GameObject("AudioFragmento");
         audioObj.transform.SetParent(transform);
         
         audioActual = audioObj.AddComponent<AudioSource>();
-        audioActual.clip = fragmento.audioNarracion;
+        audioActual.clip = fragmento.AudioNativo;
         audioActual.volume = fragmento.volumenAudio;
         audioActual.Play();
         
-        Debug.Log($"🔊 [StoryUI] Reproduciendo audio: {fragmento.audioNarracion.name}");
+        Debug.Log($"🔊 [StoryUI] Reproduciendo audio: {fragmento.AudioNativo.name}");
     }
     
     private IEnumerator MostrarTextoTypewriter(string texto, float velocidad)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 /// <summary>
 /// ScriptableObject que define un fragmento de historia
@@ -14,18 +15,26 @@ public class StoryFragment : ScriptableObject
     [Tooltip("Nombre descriptivo para el inspector")]
     public string nombreFragmento;
     
-    [Header("🎵 Audio Narrativo")]
-    [Tooltip("Clip de audio con la narración/diálogo")]
-    public AudioClip audioNarracion;
-    
+    [Header("🎵 Audio Narrativo (idioma nativo, tabla StoryAudio)")]
+    public LocalizedAudioClip audio;
+
     [Range(0f, 1f)]
     public float volumenAudio = 0.8f;
-    
-    [Header("📝 Texto")]
-    [TextArea(3, 10)]
-    [Tooltip("Texto del fragmento (subtítulos/diálogo)")]
-    public string textoFragmento;
-    
+
+    [Header("📝 Texto (idioma nativo, tabla Story)")]
+    public LocalizedString texto;
+
+    // Respaldo: los lee la migración (Tremblay > Localización > Fase 5) y los fragmentos de
+    // prueba que el código crea en runtime sin pasar por las tablas.
+    [HideInInspector] public AudioClip audioNarracion;
+    [HideInInspector, TextArea(3, 10)] public string textoFragmento;
+
+    /// <summary>Texto en idioma nativo. Sin argumentos: los marcadores {1} del typewriter se respetan tal cual.</summary>
+    public string TextoNativo => texto != null && !texto.IsEmpty ? texto.GetLocalizedString() : textoFragmento;
+
+    /// <summary>Narración en idioma nativo, o null si no hay clip.</summary>
+    public AudioClip AudioNativo => audio != null && !audio.IsEmpty ? audio.LoadAsset() : audioNarracion;
+
     [Header("⏱️ Timing")]
     [Tooltip("Si es 0, se calcula automáticamente desde la duración del audio")]
     public float duracionTotal = 0f;
@@ -91,13 +100,15 @@ public class StoryFragment : ScriptableObject
         if (duracionTotal > 0f)
             return duracionTotal;
         
-        if (audioNarracion != null)
-            return audioNarracion.length + tiempoFadeIn + tiempoFadeOut;
-        
+        var clip = AudioNativo;
+        if (clip != null)
+            return clip.length + tiempoFadeIn + tiempoFadeOut;
+
         // Estimación basada en texto si no hay audio (150 palabras por minuto)
-        if (!string.IsNullOrEmpty(textoFragmento))
+        string t = TextoNativo;
+        if (!string.IsNullOrEmpty(t))
         {
-            float palabras = textoFragmento.Split(' ').Length;
+            float palabras = t.Split(' ').Length;
             return (palabras / 150f) * 60f + tiempoFadeIn + tiempoFadeOut;
         }
         
@@ -115,7 +126,7 @@ public class StoryFragment : ScriptableObject
             return false;
         }
         
-        if (audioNarracion == null && string.IsNullOrEmpty(textoFragmento))
+        if (AudioNativo == null && string.IsNullOrEmpty(TextoNativo))
         {
             Debug.LogWarning($"[StoryFragment] Fragmento sin audio ni texto: {fragmentID}");
             return false;
@@ -131,7 +142,7 @@ public class StoryFragment : ScriptableObject
     {
         string info = $"📖 {fragmentID}\n";
         info += $"   Nombre: {nombreFragmento}\n";
-        info += $"   Audio: {(audioNarracion != null ? audioNarracion.name : "ninguno")}\n";
+        info += $"   Audio: {(AudioNativo != null ? AudioNativo.name : "ninguno")}\n";
         info += $"   Duración: {ObtenerDuracionTotal():F2}s\n";
         info += $"   Typewriter: {usarTypewriter}\n";
         info += $"   Avance Auto: {avanceAutomatico}\n";

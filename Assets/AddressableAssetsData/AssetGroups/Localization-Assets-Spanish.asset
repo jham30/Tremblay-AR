@@ -135,6 +135,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-es
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea8820ab3bc513e468371f551954732d
+    m_Address: es-story-00
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec371199f5e96a245abe2e1c3109ec5d
     m_Address: bruja
     m_ReadOnly: 1

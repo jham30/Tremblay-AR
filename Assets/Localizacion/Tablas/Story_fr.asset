@@ -17,7 +17,231 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 08dd93a74b053b14e84597cf9cb26a21, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 327706868690944
+    m_Localized: "C'\xE9tait la nuit d'Halloween. Un groupe d'enfants jouait dans
+      le quartier, r\xE9clamant des bonbons et racontant des histoires qui font peur.
+      Entre d\xE9fis et rires, l'un d'eux mit une fille au d\xE9fi d'allumer une
+      bougie \xE0 l'entr\xE9e de la vieille maison abandonn\xE9e au bout du village.
+      La fille, d\xE9cid\xE9e \xE0 prouver son courage, prit la bougie et marcha
+      vers le porche. Mais quand elle posa le pied sur les vieilles planches, celles-ci
+      c\xE9d\xE8rent sous ses pas et elle tomba dans la cave sombre de la maison."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706986131456
+    m_Localized: "A\xEFe... o\xF9 suis-je ?\nJe ferais mieux d'allumer la lampe de
+      poche...\nBon, bon... du calme...\nC'est quoi, ces portraits ?... et ces visages...
+      on dirait qu'ils me regardent...\nHmm... quel dr\xF4le de chapeau. Un balai,
+      des bougies, des lanternes...\nCet endroit fait peur.\nJe vais appeler les
+      autres...\nNon... c'est pas vrai... mon t\xE9l\xE9phone n'a plus de batterie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706998714368
+    m_Localized: "[Enfant]\nJe ne vois rien... il me faut de la lumi\xE8re...\nIl
+      y a une bougie ici... Allez, allume-toi...\nVoil\xE0, maintenant la lanterne...\nBien...
+      au moins je vois un peu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908672
+    m_Localized: "[Enfant]\nJe dois sortir d'ici.\nO\xF9 est l'escalier ?... Je crois
+      que c'est par l\xE0...\nC'\xE9tait... un pas ?...\nOui... il y a quelqu'un
+      en haut.\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nMittens ! Mittens, viens ici !</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908673
+    m_Localized: "[Enfant]\nNon... non, la maison n'est pas abandonn\xE9e...{7}\nLes
+      histoires sont vraies... quelqu'un vit ici...\nC'est... c'est la maison d'une
+      sorci\xE8re.\n<color=#BEFF7A>\n[Sorci\xE8re]\nMittens, je descends \xE0 la
+      cave chercher mon balai et mon chapeau.\nCette nuit, je dois accomplir le rituel
+      !</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102976
+    m_Localized: "[Enfant]\nR\xE9fl\xE9chis... r\xE9fl\xE9chis... il lui faut son
+      chapeau et son balai...{3}\nLes voil\xE0... le chapeau... et le balai...\nJe
+      vais les poser ici... sur la petite table... oui... juste l\xE0.\nSi elle les
+      trouve... elle partira peut-\xEAtre...{2}\nAllez, sorci\xE8re... prends tes
+      affaires et va-t'en... s'il te pla\xEEt..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102977
+    m_Localized: "[Enfant]\nNon... non... elle descend...\nMittens... ! Non, non,
+      non ! Silence !\nLe chat m'a vue... il va me trahir...{2}\nTiens... un morceau
+      de viande...{3}\nMange, minou... mange... mais en silence, d'accord ?\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nMittens,
+      arr\xEAte de faire l'idiot, je n'ai pas beaucoup de temps. Allez !!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707011297280
+    m_Localized: '[Enfant]
+
+      Je crois... qu''elle est partie.
+
+      Oui...
+      c''est calme maintenant...
+
+      Je peux enfin sortir d''ici.{2}
+
+      Chaque
+      marche grince... mais peu importe, je dois voir ce qu''il y a en haut.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707015491584
+    m_Localized: "[Enfant]\n{1}Ouah...{1} tout est couvert de toiles d'araign\xE9e.\nJ'essaie
+      d'avancer, mais elles se collent \xE0 mon visage...{4}\nBon... avec ce balai
+      je peux les \xE9carter.\nVoil\xE0...{1} pas \xE0 pas... je vois enfin l'int\xE9rieur
+      de la maison."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685888
+    m_Localized: "[Enfant]\nOn dirait la cuisine.\nHmm... c'est bizarre... \xE7a
+      sent la terre... et la fum\xE9e.\nC'est quoi, ces champignons ?... des amanites
+      ?... \xE9trange... on dirait qu'ils viennent d'\xEAtre coup\xE9s.\nEt ces citrouilles...
+      elles ont toutes un visage souriant...\nHmm... la sorci\xE8re pr\xE9pare quelque
+      chose avec tout \xE7a...\nJe ferais mieux de ne rien toucher... pour l'instant."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685889
+    m_Localized: "[Enfant]\nLa voil\xE0... la porte principale.\nEnfin... je peux
+      sortir.\nAllez, ouvre-toi !\nQuoi... ?\nNon... c'est pas possible...\nUne main
+      ? Piti\xE9, que ce soit un jouet... vieille... rid\xE9e... elle tient une cha\xEEne...\nElle
+      bouge !\nL\xE2che... l\xE2che !\nRien... je n'y arrive pas... elle serre trop
+      fort...\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nQuelqu'un a allum\xE9 la lumi\xE8re
+      ! Il y a des intrus dans ma maison !</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880192
+    m_Localized: "[Enfant]\nNon... je ne peux pas rester ici...\nJe dois sortir !\nLa
+      cour... oui... c'est le jardin de derri\xE8re."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880193
+    m_Localized: "[Enfant]\nAllez, allez ! Je dois sortir d'ici...\nAhhh !... des
+      toiles d'araign\xE9e... il y en a partout...\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nDes
+      araign\xE9es... ! Il y a des araign\xE9es partout !\n\xC9loignez-les de moi
+      ! Des araign\xE9es, nooon !</color>\n\n[Enfant]\nLa sorci\xE8re... elle en
+      a peur ?\nEh bien... \xE7a, je ne m'y attendais pas...\n\xC7a pourrait... me
+      servir plus tard.\nBon... il est temps de sortir avant qu'elle revienne !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074496
+    m_Localized: "[Enfant]\nL\xE0... sur la table... le cr\xE2ne avec une bougie
+      allum\xE9e...\nParfait... \xE7a va m'aider \xE0 voir.\n[Effray\xE9e] Un...
+      cimeti\xE8re ?\nG\xE9nial... droit dans le cimeti\xE8re...\nIl n'y a pas d'autre
+      sortie...\nAllez... cours, c'est tout...\nUn mausol\xE9e !... Je peux me cacher
+      l\xE0-dedans... vite..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074497
+    m_Localized: "[Enfant]\nUne tombe ouverte... j'esp\xE8re qu'il n'y a rien dedans.
+      Bon... doucement... regarde, c'est tout...\nElle est... vide.\nAhhh ! Des chauves-souris
+      !\nDehors, dehors !\nIl y a quelque chose d'\xE9crit ici..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707032268800
+    m_Localized: "[Enfant]\n\xAB Pour que la sorci\xE8re repose en paix, son corps
+      doit \xEAtre complet dans son cercueil... et il faut lui offrir du th\xE9 aux
+      champignons. \xBB\nSon corps... complet... ?\nAlors...\nLa main... la main
+      est \xE0 elle...\nBien s\xFBr... la main qui tient la cha\xEEne.\nOui... maintenant
+      je sais quoi faire."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707036463104
+    m_Localized: "[Enfant]\nSi la main appartient \xE0 la sorci\xE8re...\nAlors...
+      elle doit aussi avoir peur des araign\xE9es.\nOui... bien s\xFBr... elle fait
+      partie d'elle.\nSi j'arrive \xE0 en approcher quelques-unes... elle aura peut-\xEAtre
+      peur et l\xE2chera la cha\xEEne.\nIl me faut juste quelque chose pour les ramasser
+      sans les toucher.\nLe balai... et le chapeau.\nParfait... \xE7a devrait marcher.\nBon,
+      allons-y... doucement..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707040657408
+    m_Localized: "[Enfant]\nLa voil\xE0... la main... elle tient toujours la cha\xEEne.\nBon...
+      maintenant.\nElle a l\xE2ch\xE9 !\n\xC7a a march\xE9... oui... \xE7a a march\xE9
+      !\nNon... pas encore ce chat !\nChut... s'il te pla\xEEt... pas un bruit...\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nTu
+      l'as trouv\xE9e, Mittens ? Hahaha ! Je vais t'attraper !</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851712
+    m_Localized: "[Enfant]\nCe chat ne me laisse pas partir.\nBon... r\xE9fl\xE9chis...\nJe
+      sais ce que je dois faire.\nJe dois rendre sa main \xE0 la sorci\xE8re... et
+      lui donner le th\xE9 aux champignons.\n\xC7a la fera dormir...\nMais... o\xF9
+      est sa tombe ?\nIl doit y avoir d'autres indices... dans le mausol\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851713
+    m_Localized: "[Enfant]\nAvec la peur... je n'avais pas vu ce livre.\n\xAB Mausol\xE9e...
+      arbre... gardien du repos... \xBB\nUn arbre qui garde la tombe ? Hmm...\n\xAB
+      Seule la lumi\xE8re d'une citrouille allum\xE9e r\xE9v\xE8le le lieu du repos.
+      \xBB\nDes citrouilles... comme celles de la cuisine... avec des visages et
+      des bougies dedans.\nDonc... si je les allume, je pourrai voir o\xF9 la sorci\xE8re
+      est enterr\xE9e.\n\xAB Sa lumi\xE8re tient les esprits de l'arbre \xE0 distance.
+      \xBB\nParfait... c'est \xE7a.\nIl me faut une citrouille, une bougie... et
+      trouver cet arbre."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707049046016
+    m_Localized: "[Enfant]\nBrrrrr... l'air est plus froid.\nC'est quoi, \xE7a...
+      dans le brouillard ?...\nLe voil\xE0 : l'arbre.\nIl est immense... je dois
+      juste trouver comment ouvrir cette vieille grille, couverte de racines... elle
+      est coinc\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707053240320
+    m_Localized: "[Enfant]\nOuah... cet arbre fait peur : on dirait presque qu'il
+      a un visage.\nHmm... je vais allumer la citrouille, comme le disait le livre.\n\xAB
+      La lumi\xE8re d'une citrouille allum\xE9e r\xE9v\xE8le le lieu du repos. \xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707061628928
+    m_Localized: "[Enfant]\nOuah... cet arbre fait peur : on dirait presque qu'il
+      a un visage.\nHmm... je vais allumer la citrouille, comme le disait le livre.\n\xAB
+      La lumi\xE8re d'une citrouille allum\xE9e r\xE9v\xE8le le lieu du repos. \xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823232
+    m_Localized: "<color=#BEFF7A>\n[Sorci\xE8re]\nRends-moi ce qui m'appartient !</color>\n\n[Enfant]\nTu
+      n'approcheras pas ! J'ai ma citrouille juste ici ! Prends \xE7a !\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nCette
+      lumi\xE8re ! \xC9teins-la !</color>\n\n[Enfant]\nReste l\xE0... n'approche
+      pas..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823233
+    m_Localized: "[Enfant]\nBon... c'est parti...\nJe vais mettre la main \xE0 l'int\xE9rieur...\nS'il
+      te pla\xEEt... que \xE7a marche.\nHein ?...\nTout... est calme maintenant.\nLa
+      sorci\xE8re...\nelle ne crie plus... elle n'est plus en col\xE8re..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017536
+    m_Localized: "<color=#BEFF7A>\n[Sorci\xE8re]\nMerci, petite... je n'aime pas
+      me r\xE9veiller.\nQuelqu'un a pris ma main... et m'a forc\xE9e \xE0 errer.</color>\n\n[Enfant]\nNe
+      vous inqui\xE9tez pas, madame. Retournons \xE0 la maison... je vous pr\xE9parerai
+      un th\xE9... et vous pourrez vous rendormir, en paix."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017537
+    m_Localized: "[Enfant]\nVoil\xE0... c'est mieux comme \xE7a ? J'ai mis quelques
+      fleurs pour d\xE9corer.\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nMerci, petite...\nJe
+      suis d\xE9sol\xE9e de t'avoir fait si peur. Ce n'\xE9tait pas mon intention.</color>\n\n[Enfant]\nEh
+      bien... ce n'est pas tous les jours qu'on rencontre une sorci\xE8re qui a peur
+      des araign\xE9es.\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nJ'imagine que non.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406144
+    m_Localized: "[Enfant]\nJe promets de ne plus entrer chez vous sans permission.\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nMittens
+      le saurait.</color>\n\n[Enfant]\nDormez bien. Et... merci de ne pas m'avoir
+      transform\xE9e en grenouille.\n\n<color=#BEFF7A>\n[Sorci\xE8re]\nHa ! Je n'y
+      avais m\xEAme pas pens\xE9 !</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406145
+    m_Localized: "[Enfant]\nMittens ?...\nAlors tu es toujours dans le coin, hein
+      ?\nNe crois pas que j'ai oubli\xE9 toutes les frayeurs que tu m'as faites,
+      petite boule de poils... j'ai failli avoir une crise cardiaque.\nBon, bon...
+      la paix entre nous.\nJe t'apporterai \xE0 manger tous les jours, march\xE9
+      conclu ?\nMais promets-moi de ne pas me trahir la prochaine fois qu'il y aura
+      une sorci\xE8re dans les parages.\nMarch\xE9 conclu, Mittens."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

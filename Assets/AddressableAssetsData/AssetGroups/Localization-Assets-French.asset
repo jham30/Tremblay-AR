@@ -51,6 +51,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4761a996902dc8e47ad12f37f8ba9dd6
+    m_Address: fr-story-00
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e6ee23f966c2974e81205c4b9dc70ff
     m_Address: fr-muircielago
     m_ReadOnly: 1

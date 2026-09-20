@@ -17,7 +17,213 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 08dd93a74b053b14e84597cf9cb26a21, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 327706868690944
+    m_Localized: "Era la noche de Halloween. Un grupo de ni\xF1os jugaba por el barrio,
+      pidiendo dulces y contando historias de miedo. Entre retos y risas, uno de
+      ellos desafi\xF3 a una ni\xF1a a encender una vela en la entrada de la vieja
+      casa abandonada a las afueras del pueblo. La ni\xF1a, decidida a demostrar
+      su valor, tom\xF3 la vela y camin\xF3 hacia el porche. Pero al pisar las viejas
+      tablas del suelo, estas cedieron bajo sus pies y cay\xF3 al oscuro s\xF3tano
+      de la casa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706986131456
+    m_Localized: "Ay... \xBFd\xF3nde estoy?\nMejor enciendo la linterna...\nVale,
+      vale... calma...\n\xBFQu\xE9 son esos retratos?... y esas caras... parece que
+      me miran...\nMmm... qu\xE9 sombrero tan raro. Una escoba, velas, faroles...\nEste
+      lugar da miedo.\nVoy a llamar a los chicos...\nNo... no puede ser... el tel\xE9fono
+      no tiene bater\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327706998714368
+    m_Localized: "[Ni\xF1a]\nNo veo nada... necesito luz...\nAqu\xED hay una vela...
+      Vamos, enci\xE9ndete ya...\nEso es, ahora el farol...\nBien... al menos veo
+      un poco."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908672
+    m_Localized: "[Ni\xF1a]\nTengo que salir de aqu\xED.\n\xBFD\xF3nde est\xE1n las
+      escaleras?... Creo que por all\xED...\n\xBFEso fue... un paso?...\nS\xED...
+      hay alguien arriba.\n\n<color=#BEFF7A>\n[Bruja]\n\xA1Michif\xFAs! \xA1Michif\xFAs,
+      ven aqu\xED!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707002908673
+    m_Localized: "[Ni\xF1a]\nNo... no, la casa no est\xE1 abandonada...{7}\nLas historias
+      son ciertas... aqu\xED vive alguien...\nEs... es la casa de una bruja.\n<color=#BEFF7A>\n[Bruja]\nMichif\xFAs,
+      voy a bajar al s\xF3tano por mi escoba y mi sombrero.\n\xA1Esta noche tengo
+      que completar el ritual!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102976
+    m_Localized: "[Ni\xF1a]\nPiensa... piensa... necesita su sombrero y su escoba...{3}\nAh\xED
+      est\xE1n... el sombrero... y la escoba...\nLos pondr\xE9 aqu\xED... en la mesita...
+      s\xED... justo aqu\xED.\nSi los encuentra... quiz\xE1 se vaya...{2}\nVamos,
+      bruja... toma tus cosas y vete... por favor..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707007102977
+    m_Localized: "[Ni\xF1a]\nNo... no... est\xE1 bajando...\n\xA1Michif\xFAs...!
+      \xA1No, no, no! \xA1Silencio!\nEl gato me vio... me va a delatar...{2}\nToma...
+      un trozo de carne...{3}\nCome, gatito... come... pero calladito, \xBFvale?\n\n<color=#BEFF7A>\n[Bruja]\nMichif\xFAs,
+      deja de hacer el tonto, no tengo mucho tiempo. \xA1\xA1Vamos!!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707011297280
+    m_Localized: "[Ni\xF1a]\nCreo... que se ha ido.\nS\xED... ahora hay silencio...\nPor
+      fin puedo salir de aqu\xED.{2}\nCada escal\xF3n cruje... pero da igual, tengo
+      que ver qu\xE9 hay arriba."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707015491584
+    m_Localized: "[Ni\xF1a]\n{1}Uf...{1} todo est\xE1 lleno de telara\xF1as.\nIntento
+      avanzar, pero se me pegan a la cara...{4}\nVale... con esta escoba puedo apartarlas.\nAs\xED...{1}
+      paso a paso... por fin veo el interior de la casa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685888
+    m_Localized: "[Ni\xF1a]\nParece la cocina.\nMmm... qu\xE9 raro... huele a tierra...
+      y a humo.\n\xBFQu\xE9 son estos hongos?... \xBFsetas?... qu\xE9 extra\xF1o...
+      parecen reci\xE9n cortados.\nY esas calabazas... todas tienen caras sonrientes...\nMmm...
+      la bruja est\xE1 preparando algo con esto...\nMejor no toco nada... por ahora."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707019685889
+    m_Localized: "[Ni\xF1a]\nAh\xED est\xE1... la puerta principal.\nPor fin... puedo
+      salir.\n\xA1Vamos, \xE1brete!\n\xBFQu\xE9...?\nNo... no puede ser...\n\xBFUna
+      mano? Por favor, que sea de juguete... vieja... arrugada... sujeta una cadena...\n\xA1Se
+      mueve!\n\xA1Suelta... suelta!\nNada... no puedo... aprieta demasiado...\n\n<color=#BEFF7A>\n[Bruja]\n\xA1Alguien
+      ha encendido la luz! \xA1Hay intrusos en mi casa!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880192
+    m_Localized: "[Ni\xF1a]\nNo... no puedo quedarme aqu\xED...\n\xA1Tengo que salir!\nEl
+      patio... s\xED... es el patio trasero."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707023880193
+    m_Localized: "[Ni\xF1a]\n\xA1Vamos, vamos! Tengo que salir de aqu\xED...\n\xA1Ahhh!...
+      telara\xF1as... est\xE1n por todas partes...\n\n<color=#BEFF7A>\n[Bruja]\n\xA1Ara\xF1as...!
+      \xA1Hay ara\xF1as por todas partes!\n\xA1Al\xE9jenlas de m\xED! \xA1Ara\xF1as,
+      nooo!</color>\n\n[Ni\xF1a]\nLa bruja... \xBFles tiene miedo?\nVaya... eso no
+      me lo esperaba...\nQuiz\xE1... me sirva m\xE1s adelante.\nBien... \xA1hora
+      de salir antes de que vuelva!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074496
+    m_Localized: "[Ni\xF1a]\nAh\xED... sobre la mesa... el cr\xE1neo con una vela
+      encendida...\nPerfecto... esto me ayudar\xE1 a ver.\n[Asustada] \xBFUn... cementerio?\nGenial...
+      directo al cementerio...\nNo hay otra salida...\nVamos... solo corre...\n\xA1Un
+      mausoleo!... Puedo esconderme ah\xED... r\xE1pido..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707028074497
+    m_Localized: "[Ni\xF1a]\nUna tumba abierta... espero que no haya nada dentro.
+      Vale... tranquila... solo mira...\nEst\xE1... vac\xEDa.\n\xA1Ahhh! \xA1Murci\xE9lagos!\n\xA1Fuera,
+      fuera!\nAqu\xED hay algo escrito..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707032268800
+    m_Localized: "[Ni\xF1a]\n\u201CPara que la bruja descanse en paz, su cuerpo debe
+      estar completo en su ata\xFAd... y ofrecerle t\xE9 de hongos.\u201D\n\xBFSu
+      cuerpo... completo...?\nEntonces...\nLa mano... la mano es suya...\nClaro...
+      la mano que sujeta la cadena.\nS\xED... ahora s\xE9 qu\xE9 hacer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707036463104
+    m_Localized: "[Ni\xF1a]\nSi la mano es de la bruja...\nEntonces... tambi\xE9n
+      debe tenerle miedo a las ara\xF1as.\nS\xED... claro... es parte de ella.\nSi
+      consigo acercarle unas cuantas... quiz\xE1 se asuste y suelte la cadena.\nSolo
+      necesito algo para recogerlas sin tocarlas.\nLa escoba... y el sombrero.\nPerfecto...
+      eso deber\xEDa funcionar.\nVale, vamos... con cuidado..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707040657408
+    m_Localized: "[Ni\xF1a]\nAh\xED est\xE1... la mano... todav\xEDa sujeta la cadena.\nBien...
+      ahora.\n\xA1Se solt\xF3!\nFuncion\xF3... s\xED... \xA1funcion\xF3!\nNo... \xA1otra
+      vez ese gato no!\nShhh... por favor... calladito...\n\n<color=#BEFF7A>\n[Bruja]\n\xBFLa
+      encontraste, Michif\xFAs? \xA1Jajaja! \xA1Te atrapar\xE9!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851712
+    m_Localized: "[Ni\xF1a]\nEse gato no me deja salir.\nVale... piensa...\nYa s\xE9
+      lo que tengo que hacer.\nTengo que devolverle la mano a la bruja... y darle
+      el t\xE9 de hongos.\nEso la har\xE1 dormir...\nPero... \xBFd\xF3nde est\xE1
+      su tumba?\nDebe de haber m\xE1s pistas... dentro del mausoleo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707044851713
+    m_Localized: "[Ni\xF1a]\nCon el susto... no hab\xEDa visto este libro.\n\u201CMausoleo...
+      \xE1rbol... guardi\xE1n del descanso...\u201D\n\xBFUn \xE1rbol que guarda la
+      tumba? Mmm...\n\u201CSolo la luz de una calabaza encendida revela el lugar
+      del descanso.\u201D\nCalabazas... como las de la cocina... con caras y velas
+      dentro.\nEntonces... si las enciendo, podr\xE9 ver d\xF3nde est\xE1 enterrada
+      la bruja.\n\u201CSu luz mantiene lejos a los esp\xEDritus del \xE1rbol.\u201D\nPerfecto...
+      eso es.\nNecesito una calabaza, una vela... y encontrar ese \xE1rbol."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707049046016
+    m_Localized: "[Ni\xF1a]\nBrrrrr... el aire est\xE1 m\xE1s fr\xEDo.\n\xBFQu\xE9
+      es eso... entre la niebla?...\nAh\xED est\xE1: el \xE1rbol.\nEs enorme... solo
+      tengo que ver c\xF3mo abrir esta vieja reja, cubierta de ra\xEDces... est\xE1
+      atascada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707053240320
+    m_Localized: "[Ni\xF1a]\nUf... este \xE1rbol da miedo: casi parece que tiene
+      cara.\nMmm... encender\xE9 la calabaza, como dec\xEDa el libro.\n\u201CLa luz
+      de una calabaza encendida revela el lugar del descanso.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707061628928
+    m_Localized: "[Ni\xF1a]\nUf... este \xE1rbol da miedo: casi parece que tiene
+      cara.\nMmm... encender\xE9 la calabaza, como dec\xEDa el libro.\n\u201CLa luz
+      de una calabaza encendida revela el lugar del descanso.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823232
+    m_Localized: "<color=#BEFF7A>\n[Bruja]\n\xA1Devu\xE9lveme lo que es m\xEDo!</color>\n\n[Ni\xF1a]\n\xA1No
+      te acercar\xE1s! \xA1Tengo mi calabaza aqu\xED mismo! \xA1Toma esto!\n\n<color=#BEFF7A>\n[Bruja]\n\xA1Esa
+      luz! \xA1Ap\xE1gala!</color>\n\n[Ni\xF1a]\nQu\xE9date ah\xED... no te acerques
+      m\xE1s..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707065823233
+    m_Localized: "[Ni\xF1a]\nVale... all\xE1 voy...\nPondr\xE9 la mano dentro...\nPor
+      favor... que funcione.\n\xBFEh?...\nTodo... est\xE1 en silencio.\nLa bruja...\nya
+      no grita... ni est\xE1 enfadada..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017536
+    m_Localized: "<color=#BEFF7A>\n[Bruja]\nGracias, ni\xF1a... no me gusta despertarme.\nAlguien
+      se llev\xF3 mi mano... y me oblig\xF3 a vagar.</color>\n\n[Ni\xF1a]\nNo se
+      preocupe, se\xF1ora. Volvamos a la casa... le preparar\xE9 un t\xE9... y podr\xE1
+      volver a dormir, en paz."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707070017537
+    m_Localized: "[Ni\xF1a]\nYa est\xE1... \xBFmejor as\xED? Puse unas flores para
+      decorar.\n\n<color=#BEFF7A>\n[Bruja]\nGracias, ni\xF1a...\nSiento haberte asustado
+      tanto. No era mi intenci\xF3n.</color>\n\n[Ni\xF1a]\nBueno... no todos los
+      d\xEDas conoces a una bruja que le tiene miedo a las ara\xF1as.\n\n<color=#BEFF7A>\n[Bruja]\nSupongo
+      que no.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406144
+    m_Localized: "[Ni\xF1a]\nPrometo que no entrar\xE9 en su casa sin permiso.\n\n<color=#BEFF7A>\n[Bruja]\nMichif\xFAs
+      se enterar\xEDa.</color>\n\n[Ni\xF1a]\nQue descanse. Y... gracias por no convertirme
+      en rana.\n\n<color=#BEFF7A>\n[Bruja]\n\xA1Ja! \xA1Esa ni se me hab\xEDa ocurrido!</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 327707078406145
+    m_Localized: "[Ni\xF1a]\n\xBFMichif\xFAs?...\nAs\xED que sigues por aqu\xED,
+      \xBFeh?\nNo creas que he olvidado todos los sustos que me diste, bola de pelos...
+      casi me da un infarto.\nVale, vale... paz entre nosotros.\nTe traer\xE9 comida
+      todos los d\xEDas, \xBFtrato?\nPero prom\xE9teme que no me delatar\xE1s la
+      pr\xF3xima vez que haya una bruja cerca.\nTrato hecho, Michif\xFAs."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

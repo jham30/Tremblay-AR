@@ -209,10 +209,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 327707070017536
-    m_Localized: "<color=#BEFF7A>\r\n[Witch]\r\nThank you, child... I don\u2019t
-      like waking up.\r\nSomeone took my hand... and forced me to wander.</color>\r\n\r\n[Child]\r\ndon't
-      worried miss. Let\u2019s go back to the house... I\u2019ll make you some tea...
-      and go back to sleep, peacefully.\r"
+    m_Localized: "<color=#BEFF7A>\n[Witch]\nThank you, child... I don\u2019t like
+      waking up.\nSomeone took my hand... and forced me to wander.</color>\n\n[Child]\nDon\u2019t
+      worry, miss. Let\u2019s go back to the house... I\u2019ll make you some tea...
+      and you can go back to sleep, peacefully."
     m_Metadata:
       m_Items: []
   - m_Id: 327707070017537

@@ -65,9 +65,13 @@ public class GlobalAudioManager : MonoBehaviour
         }
 
         Instance = this;
-        // Unity 6 lanza una aserción si el objeto ya está en la escena DontDestroyOnLoad.
-        if (gameObject.scene.name != "DontDestroyOnLoad")
-            DontDestroyOnLoad(gameObject);
+
+        // Unity 6 lanza una aserción si se llama a DontDestroyOnLoad sobre un objeto que ya
+        // está en esa escena. buildIndex == -1 la identifica de forma fiable (scene.name no,
+        // porque el objeto puede no estar en la raíz). Además DDOL solo aplica a la raíz.
+        var raiz = transform.root.gameObject;
+        if (raiz.scene.buildIndex != -1)
+            DontDestroyOnLoad(raiz);
         gameObject.tag = "GlobalAudio";
 
         Debug.Log("🎵 [GlobalAudioManager] Inicializado correctamente");

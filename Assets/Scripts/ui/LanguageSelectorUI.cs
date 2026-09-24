@@ -44,6 +44,10 @@ public class LanguageSelectorUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoCancelar;
 
     [Header("Resaltado del botón elegido")]
+    [Tooltip("Sprite del idioma elegido. Si se deja vacío se usa el borde Outline.")]
+    [SerializeField] private Sprite spriteElegido;
+    [Tooltip("Sprite de los idiomas no elegidos (versión apagada).")]
+    [SerializeField] private Sprite spriteNoElegido;
     [SerializeField] private Color colorBorde = new Color(1f, 0.85f, 0.2f, 1f);
     [SerializeField] private float grosorBorde = 4f;
 
@@ -210,9 +214,23 @@ public class LanguageSelectorUI : MonoBehaviour
             botonContinuar.interactable = !string.IsNullOrEmpty(nativoSel) && !string.IsNullOrEmpty(metaSel);
     }
 
-    // Borde Outline, mismo patrón que los filtros de MissionListUI: no toca el color del botón.
+    // "Elegido" es estado de la app, no de interacción: los estados del Button (Normal,
+    // Highlighted, Pressed, Selected, Disabled) no sirven, porque Selected se pierde en
+    // cuanto el jugador toca otra cosa. Por eso el sprite se cambia aquí a mano.
     private void Resaltar(Button boton, bool activo)
     {
+        if (spriteElegido != null && spriteNoElegido != null)
+        {
+            var img = boton.image;
+            if (img != null)
+            {
+                img.sprite = activo ? spriteElegido : spriteNoElegido;
+                // Sprite Swap pinta encima con overrideSprite; limpiarlo deja mandar al nuestro.
+                img.overrideSprite = null;
+            }
+            return;
+        }
+
         var outline = boton.GetComponent<Outline>();
         if (outline == null) outline = boton.gameObject.AddComponent<Outline>();
 

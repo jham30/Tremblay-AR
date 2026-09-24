@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -43,13 +44,18 @@ public class LanguageSelectorUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoConfirmar;
     [SerializeField] private TextMeshProUGUI textoCancelar;
 
-    [Header("Resaltado del botón elegido")]
-    [Tooltip("Sprite del idioma elegido. Si se deja vacío se usa el borde Outline.")]
+    [Header("Sprites por estado")]
+    [Tooltip("Idioma elegido. Si se deja vacío se usa el borde Outline en su lugar.")]
     [SerializeField] private Sprite spriteElegido;
-    [Tooltip("Sprite de los idiomas no elegidos (versión apagada).")]
-    [SerializeField] private Sprite spriteNoElegido;
+    [Tooltip("Idioma que no se puede elegir como meta por ser el nativo (versión apagada).")]
+    [SerializeField] private Sprite spriteBloqueado;
     [SerializeField] private Color colorBorde = new Color(1f, 0.85f, 0.2f, 1f);
     [SerializeField] private float grosorBorde = 4f;
+
+    // Estado normal: el sprite que cada botón ya trae de la escena, capturado en Awake.
+    private readonly Dictionary<Button, Sprite> spritesNormales = new Dictionary<Button, Sprite>();
+
+    private enum EstadoBoton { Normal, Elegido, Bloqueado }
 
     [Header("Debug")]
     [SerializeField] private bool debugSelector = true;
@@ -70,6 +76,11 @@ public class LanguageSelectorUI : MonoBehaviour
             int idx = i;
             if (botonesMeta[i] != null) botonesMeta[i].onClick.AddListener(() => OnMeta(idx));
         }
+
+        foreach (var b in botonesNativo)
+            if (b != null && b.image != null) spritesNormales[b] = b.image.sprite;
+        foreach (var b in botonesMeta)
+            if (b != null && b.image != null) spritesNormales[b] = b.image.sprite;
 
         if (botonContinuar != null) botonContinuar.onClick.AddListener(OnContinuar);
         if (botonCerrar != null) botonCerrar.onClick.AddListener(Ocultar);
@@ -201,12 +212,16 @@ public class LanguageSelectorUI : MonoBehaviour
             string codigo = LanguageManager.CodigosDisponibles[i];
 
             if (i < botonesNativo.Length && botonesNativo[i] != null)
-                Resaltar(botonesNativo[i], codigo == nativoSel);
+                Resaltar(botonesNativo[i], codigo == nativoSel ? EstadoBoton.Elegido : EstadoBoton.Normal);
 
             if (i < botonesMeta.Length && botonesMeta[i] != null)
             {
-                botonesMeta[i].interactable = codigo != nativoSel;
-                Resaltar(botonesMeta[i], codigo == metaSel);
+                bool esElNativo = codigo == nativoSel;
+                botonesMeta[i].interactable = !esElNativo;
+
+                Resaltar(botonesMeta[i], esElNativo ? EstadoBoton.Bloqueado
+                                       : codigo == metaSel ? EstadoBoton.Elegido
+                                       : EstadoBoton.Normal);
             }
         }
 
@@ -214,20 +229,22 @@ public class LanguageSelectorUI : MonoBehaviour
             botonContinuar.interactable = !string.IsNullOrEmpty(nativoSel) && !string.IsNullOrEmpty(metaSel);
     }
 
-    // "Elegido" es estado de la app, no de interacción: los estados del Button (Normal,
-    // Highlighted, Pressed, Selected, Disabled) no sirven, porque Selected se pierde en
-    // cuanto el jugador toca otra cosa. Por eso el sprite se cambia aquí a mano.
-    private void Resaltar(Button boton, bool activo)
+    // "Elegido" y "bloqueado" son estados de la app, no de interacción: los estados del Button
+    // (Normal, Highlighted, Pressed, Selected, Disabled) no sirven, porque Selected se pierde
+    // en cuanto el jugador toca otra cosa. Por eso el sprite se cambia aquí a mano.
+    private void Resaltar(Button boton, EstadoBoton estado)
     {
-        if (spriteElegido != null && spriteNoElegido != null)
+        var img = boton.image;
+        if (spriteElegido != null && img != null)
         {
-            var img = boton.image;
-            if (img != null)
-            {
-                img.sprite = activo ? spriteElegido : spriteNoElegido;
-                // Sprite Swap pinta encima con overrideSprite; limpiarlo deja mandar al nuestro.
-                img.overrideSprite = null;
-            }
+            Sprite normal = spritesNormales.TryGetValue(boton, out var s) ? s : img.sprite;
+
+            img.sprite = estado == EstadoBoton.Elegido ? spriteElegido
+                       : estado == EstadoBoton.Bloqueado && spriteBloqueado != null ? spriteBloqueado
+                       : normal;
+
+            // Sprite Swap pinta encima con overrideSprite; limpiarlo deja mandar al nuestro.
+            img.overrideSprite = null;
             return;
         }
 
@@ -236,7 +253,7 @@ public class LanguageSelectorUI : MonoBehaviour
 
         outline.effectColor = colorBorde;
         outline.effectDistance = new Vector2(grosorBorde, grosorBorde);
-        outline.enabled = activo;
+        outline.enabled = estado == EstadoBoton.Elegido;
     }
 
     private static string IdiomaDelSistema()

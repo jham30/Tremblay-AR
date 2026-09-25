@@ -38,8 +38,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 327706998714368
     m_Localized: "[Ni\xF1a]\nNo veo nada... necesito luz...\nAqu\xED hay una vela...
-      Vamos, enci\xE9ndete ya...\nEso es, ahora el farol...\nBien... al menos veo
-      un poco."
+      Vamos, vamos, enci\xE9ndete ya...\nEso es, ahora el farol...\nBien... al menos 
+      ya veo un poco."
     m_Metadata:
       m_Items: []
   - m_Id: 327707002908672
@@ -50,10 +50,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 327707002908673
-    m_Localized: "[Ni\xF1a]\nNo... no, la casa no est\xE1 abandonada...{7}\nLas historias
-      son ciertas... aqu\xED vive alguien...\nEs... es la casa de una bruja.\n<color=#BEFF7A>\n[Bruja]\nMichif\xFAs,
-      voy a bajar al s\xF3tano por mi escoba y mi sombrero.\n\xA1Esta noche tengo
-      que completar el ritual!</color>"
+    m_Localized: "[Ni\xF1a]\nNo\u2026 no la casa no est\xE1 abandonada\u2026{7}\r\n(Respira
+      entrecortado)\r\nlos cuentos son ciertos aqu\xED vive una\u2026\r\nEs\u2026
+      es la casa de una bruja.\r\n\n<color=#BEFF7A>\n[Bruja]\nMichif\xFAs, voy a
+      bajar al s\xF3tano por mi escoba y mi sombrero.\n\xA1Esta noche tengo que completar
+      el ritual!</color>"
     m_Metadata:
       m_Items: []
   - m_Id: 327707007102976

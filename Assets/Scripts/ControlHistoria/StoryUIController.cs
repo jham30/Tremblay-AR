@@ -994,7 +994,7 @@ public class StoryUIController : MonoBehaviour
         textoFragmento.fontSize = tamanoFuenteBase;
         textoFragmento.color = Color.white;
         textoFragmento.alignment = TextAlignmentOptions.Center;
-        textoFragmento.enableWordWrapping = true;
+        textoFragmento.textWrappingMode = TextWrappingModes.Normal;
         textoFragmento.lineSpacing = esMobil ? 1.2f : 1.0f;
     }
     

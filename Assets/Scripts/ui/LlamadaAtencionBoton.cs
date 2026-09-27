@@ -23,13 +23,23 @@ public class LlamadaAtencionBoton : MonoBehaviour
     [Tooltip("Espera antes del primer brinco, para no saltar nada más cargar la escena.")]
     [SerializeField] private float esperaInicial = 4f;
 
-    [Header("Brinco")]
+    public enum Tipo { BrincoVertical, ShakeHorizontal }
+
+    [Header("Movimiento")]
+    [SerializeField] private Tipo tipo = Tipo.BrincoVertical;
     [SerializeField] private int repeticiones = 2;
-    [SerializeField] private float altura = 18f;
+    [Tooltip("Altura del brinco, o amplitud del shake, en píxeles.")]
+    [SerializeField] private float amplitud = 18f;
     [SerializeField] private float duracion = 0.32f;
+
+    [Header("Solo brinco")]
     [Tooltip("0 = abajo, 1 = arriba. La curva por defecto sube y baja una vez.")]
     [SerializeField] private AnimationCurve curva = new AnimationCurve(
         new Keyframe(0f, 0f), new Keyframe(0.5f, 1f), new Keyframe(1f, 0f));
+
+    [Header("Solo shake")]
+    [Tooltip("Vaivenes completos por repetición.")]
+    [SerializeField] private float oscilaciones = 3f;
 
     private Vector2 posicionBase;
     private Coroutine cicloCR;
@@ -88,8 +98,14 @@ public class LlamadaAtencionBoton : MonoBehaviour
             while (t < duracion)
             {
                 t += Time.unscaledDeltaTime;
-                float salto = curva.Evaluate(Mathf.Clamp01(t / duracion)) * altura;
-                objetivo.anchoredPosition = posicionBase + new Vector2(0f, salto);
+                float p = Mathf.Clamp01(t / duracion);
+
+                Vector2 desvio = tipo == Tipo.BrincoVertical
+                    ? new Vector2(0f, curva.Evaluate(p) * amplitud)
+                    // Vaivén que se apaga hacia el final, para terminar quieto en el centro.
+                    : new Vector2(Mathf.Sin(p * Mathf.PI * 2f * oscilaciones) * amplitud * (1f - p), 0f);
+
+                objetivo.anchoredPosition = posicionBase + desvio;
                 yield return null;
             }
             objetivo.anchoredPosition = posicionBase;

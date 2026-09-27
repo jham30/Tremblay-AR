@@ -107,6 +107,9 @@ InitTestScene*.unity*
 Packages/com.ptc.vuforia.engine-11.3.4.tgz
 Packages/com.ptc.vuforia.engine-11.4.4.tgz
 
+# Datos de runtime de Vuforia: se regeneran al ejecutar y cambian en cada máquina
+/QCAR/
+
 # macOS (Finder genera estos en cada carpeta al abrirla)
 .DS_Store
 .AppleDouble

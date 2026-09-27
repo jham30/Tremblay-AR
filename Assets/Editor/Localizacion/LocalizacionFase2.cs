@@ -312,6 +312,7 @@ public static class LocalizacionFase2
         ("reset.stats_updated", "📊 Estadísticas actualizadas", "📊 Statistics updated", "📊 Statistiques mises à jour"),
 
         // Botones toggle y paneles de ajustes
+        ("settings.change_languages", "Cambiar idiomas", "Change languages", "Changer de langue"),
         ("settings.open", "Configuración", "Settings", "Paramètres"),
         ("settings.close", "Cerrar", "Close", "Fermer"),
         ("settings.panel.settings", "Configuración", "Settings", "Paramètres"),

@@ -38,8 +38,12 @@ param(
     # Solo muestra qué haría, sin llamar a la API ni gastar cuota.
     [switch]$Simular,
 
-    # Genera una frase corta con cada voz para comprobar el acento (~120 caracteres).
+    # Genera un fragmento real del cuento para juzgar acento y dinámica.
     [switch]$Probar,
+
+    # Fragmento que usa -Probar. story.11 trae las dos voces: la niña asustada, la bruja
+    # gritando y la niña reflexionando después, que es donde mejor se nota la expresividad.
+    [string]$ProbarCon = 'story.11',
 
     # Conserva las acotaciones ([Asustada], (Respira entrecortado)). Solo tiene sentido
     # con modelos que las interpretan como indicación, como v3; con v2 se leen en voz alta.
@@ -236,35 +240,6 @@ if (-not $Simular -and -not $env:ELEVENLABS_API_KEY) {
     throw "Falta la clave. Ejecuta primero:  `$env:ELEVENLABS_API_KEY = 'tu-clave'"
 }
 
-# Prueba barata de acento: una frase por voz, ~120 caracteres en total.
-if ($Probar) {
-    $pruebas = @(
-        @{ Nombre = 'nina';  Voz = $VozNina;  Texto = 'No veo nada... necesito luz. ¿Dónde están las escaleras? Creo que por allí.' }
-        @{ Nombre = 'bruja'; Voz = $VozBruja; Texto = '¡Michifús! Ven aquí. Esta noche tengo que completar el ritual.' }
-    )
-
-    $carpeta = Join-Path $RaizProyecto 'herramientas\pruebas-voz'
-    if (-not (Test-Path -LiteralPath $carpeta)) { New-Item -ItemType Directory -Path $carpeta -Force | Out-Null }
-
-    $total = 0
-    foreach ($p in $pruebas) {
-        Write-Host "  > $($p.Nombre): $($p.Texto.Length) caracteres"
-        $total += $p.Texto.Length
-        if (-not $Simular) {
-            $bytes = Invoke-TextoAVoz -Texto $p.Texto -VozId $p.Voz
-            # El nombre lleva los ajustes para poder comparar tomas sin pisarlas.
-            $etiqueta = "est$($Estabilidad.ToString('0.00') -replace '[.,]','')-sty$($Estilo.ToString('0.00') -replace '[.,]','')"
-            $ruta = Join-Path $carpeta "prueba-$($p.Nombre)-$etiqueta.mp3"
-            [IO.File]::WriteAllBytes($ruta, $bytes)
-            Write-Host "    guardado: $ruta" -ForegroundColor Green
-        }
-        Start-Sleep -Seconds $PausaEntrePeticiones
-    }
-
-    Write-Host "`nPrueba terminada. $total caracteres. Escucha los dos archivos antes de lanzar todo."
-    return
-}
-
 $rutaShared = Join-Path $Tablas 'Story Shared Data.asset'
 $rutaTabla  = Join-Path $Tablas "Story_$Idioma.asset"
 foreach ($r in @($rutaShared, $rutaTabla)) {
@@ -284,8 +259,18 @@ foreach ($id in $claves.Keys) {
 }
 $fragmentos = $fragmentos | Sort-Object Clave
 
+# Probar es generar un fragmento real, con las dos voces y sus pausas, en una carpeta
+# aparte: frases sueltas suenan cortadas y no dejan juzgar la dinámica.
+$etiquetaAjustes = ''
+if ($Probar) {
+    $Solo = @($ProbarCon)
+    $Forzar = $true   # si no, la segunda tanda de pruebas se saltaría sola
+    $Destino = Join-Path $RaizProyecto 'herramientas\pruebas-voz'
+    $etiquetaAjustes = '-est{0:00}-sty{1:00}' -f ($Estabilidad * 100), ($Estilo * 100)
+}
+
 if ($Solo.Count -gt 0) {
-    $fragmentos = $fragmentos | Where-Object { $Solo -contains $_.Clave }
+    $fragmentos = @($fragmentos | Where-Object { $Solo -contains $_.Clave })
     if (-not $fragmentos) { throw "Ninguna de las claves indicadas existe en Story_$Idioma" }
 }
 
@@ -300,7 +285,7 @@ $generados = 0; $saltados = 0; $caracteres = 0
 for ($f = 0; $f -lt $fragmentos.Count; $f++) {
     $frag = $fragmentos[$f]
     $sufijo = $frag.Clave -replace '^story\.', ''
-    $archivo = Join-Path $Destino "$Idioma-story-$sufijo.mp3"
+    $archivo = Join-Path $Destino "$Idioma-story-$sufijo$etiquetaAjustes.mp3"
 
     if ((Test-Path -LiteralPath $archivo) -and -not $Forzar) {
         Write-Host "  = $($frag.Clave): ya existe, se salta" -ForegroundColor DarkGray

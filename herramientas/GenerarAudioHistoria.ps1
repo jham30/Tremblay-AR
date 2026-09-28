@@ -74,6 +74,9 @@ $ErrorActionPreference = 'Stop'
 $VozNina  = 'U9tZtg3uJtVgXPkvosWR'   # latina
 $VozBruja = 'M9RTtrzRACmbUzsEMq8p'
 
+# v3 aún no acepta previous_text / next_text: la API rechaza la petición si se envían.
+$SoportaContexto = ($Modelo -notmatch 'v3')
+
 # v3 solo admite tres niveles de estabilidad (0 creative, 0.5 natural, 1 robust).
 # Si se pide otro valor, la API lo rechaza; lo ajustamos al más cercano y avisamos.
 if ($Modelo -match 'v3') {
@@ -214,9 +217,12 @@ function Invoke-TextoAVoz {
         model_id       = $Modelo
         voice_settings = $Ajustes
     }
-    # El contexto es lo que mantiene el acento y la entonación entre archivos.
-    if ($Anterior)  { $cuerpo.previous_text = $Anterior }
-    if ($Siguiente) { $cuerpo.next_text     = $Siguiente }
+    # El contexto mantiene el acento y la entonación entre archivos, pero v3 todavía no lo
+    # admite: con ese modelo la coherencia depende solo de la voz.
+    if ($SoportaContexto) {
+        if ($Anterior)  { $cuerpo.previous_text = $Anterior }
+        if ($Siguiente) { $cuerpo.next_text     = $Siguiente }
+    }
     if ($Semilla -gt 0) { $cuerpo.seed = $Semilla }
 
     # Las llaves son obligatorias: sin ellas PowerShell se come el '?' como parte del

@@ -71,15 +71,32 @@ param(
     [switch]$SinUnir,
 
     # Consulta cuántos caracteres quedan este mes y sale.
-    [switch]$Cuota
+    [switch]$Cuota,
+
+    # Voces. Vacío = las de por defecto de abajo, que son las del español.
+    # Cada idioma necesita las suyas o el acento no será el correcto.
+    [string]$VozNina,
+    [string]$VozBruja
 )
 
 $ErrorActionPreference = 'Stop'
 
 # ===================== Configuración =====================
 
-$VozNina  = 'U9tZtg3uJtVgXPkvosWR'   # latina
-$VozBruja = 'M9RTtrzRACmbUzsEMq8p'
+# Voces por idioma. Las de fr/en se completan a medida que se eligen; si falta alguna,
+# se usa la del español, que sonará con acento equivocado: mejor pasarla por parámetro.
+$VocesPorIdioma = @{
+    es = @{ Nina = 'U9tZtg3uJtVgXPkvosWR'; Bruja = 'M9RTtrzRACmbUzsEMq8p' }
+    fr = @{ Nina = 'KmqhNPEmmOndTBOPk4mJ'; Bruja = 'M9RTtrzRACmbUzsEMq8p' }
+    en = @{ Nina = '';                     Bruja = '' }
+}
+
+$porDefecto = if ($VocesPorIdioma.ContainsKey($Idioma)) { $VocesPorIdioma[$Idioma] } else { $VocesPorIdioma['es'] }
+
+if (-not $VozNina)  { $VozNina  = $porDefecto.Nina }
+if (-not $VozBruja) { $VozBruja = $porDefecto.Bruja }
+if (-not $VozNina)  { $VozNina  = $VocesPorIdioma['es'].Nina;  Write-Host "Sin voz de niña para '$Idioma': se usa la del español" -ForegroundColor Yellow }
+if (-not $VozBruja) { $VozBruja = $VocesPorIdioma['es'].Bruja; Write-Host "Sin voz de bruja para '$Idioma': se usa la del español" -ForegroundColor Yellow }
 
 # v3 aún no acepta previous_text / next_text: la API rechaza la petición si se envían.
 $SoportaContexto = ($Modelo -notmatch 'v3')

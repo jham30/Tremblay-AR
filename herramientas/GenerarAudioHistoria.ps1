@@ -64,7 +64,11 @@ param(
 
     # Modelo. v3 actúa mucho mejor y admite las etiquetas de emoción; v2 es más sobrio
     # pero más consistente entre archivos.
-    [string]$Modelo = 'eleven_v3'
+    [string]$Modelo = 'eleven_v3',
+
+    # No une los segmentos: deja un archivo por intervención para montarlos a mano en un
+    # editor de audio. Unir mp3 concatenando bytes deja artefactos en el empalme.
+    [switch]$SinUnir
 )
 
 $ErrorActionPreference = 'Stop'
@@ -313,7 +317,13 @@ for ($f = 0; $f -lt $fragmentos.Count; $f++) {
     $sufijo = $frag.Clave -replace '^story\.', ''
     $archivo = Join-Path $Destino "$Idioma-story-$sufijo$etiquetaAjustes.mp3"
 
-    if ((Test-Path -LiteralPath $archivo) -and -not $Forzar) {
+    $yaExiste = if ($SinUnir) {
+        @(Get-ChildItem -Path $Destino -Filter "$Idioma-story-$sufijo-*.mp3" -ErrorAction SilentlyContinue).Count -gt 0
+    } else {
+        Test-Path -LiteralPath $archivo
+    }
+
+    if ($yaExiste -and -not $Forzar) {
         Write-Host "  = $($frag.Clave): ya existe, se salta" -ForegroundColor DarkGray
         $saltados++
         continue
@@ -344,8 +354,18 @@ for ($f = 0; $f -lt $fragmentos.Count; $f++) {
         Start-Sleep -Seconds $PausaEntrePeticiones
     }
 
-    [IO.File]::WriteAllBytes($archivo, (Join-Mp3 -Partes $partes))
-    Write-Host "    guardado: $(Split-Path -Leaf $archivo)" -ForegroundColor Green
+    if ($SinUnir -and $segmentos.Count -gt 1) {
+        for ($s = 0; $s -lt $partes.Count; $s++) {
+            $quien = $segmentos[$s].Quien.ToLowerInvariant() -replace 'ñ','n' -replace '[^a-z]',''
+            $parcial = Join-Path $Destino ("$Idioma-story-$sufijo" + "-{0:00}-$quien$etiquetaAjustes.mp3" -f ($s + 1))
+            [IO.File]::WriteAllBytes($parcial, $partes[$s])
+            Write-Host "    guardado: $(Split-Path -Leaf $parcial)" -ForegroundColor Green
+        }
+    }
+    else {
+        [IO.File]::WriteAllBytes($archivo, (Join-Mp3 -Partes $partes))
+        Write-Host "    guardado: $(Split-Path -Leaf $archivo)" -ForegroundColor Green
+    }
     $generados++
 }
 

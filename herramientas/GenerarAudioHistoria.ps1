@@ -60,7 +60,12 @@ param(
 
     # Semilla fija: con estabilidad baja cada generación sale distinta; esto hace que
     # relanzar un fragmento dé el mismo resultado. 0 = aleatorio.
-    [int]$Semilla = 0
+    [int]$Semilla = 0,
+
+    # Modelo. v2 es sobrio y muy consistente; v3 actúa mucho mejor y admite etiquetas de
+    # emoción, pero su estabilidad solo acepta tres valores. Pon aquí el mismo que uses
+    # en la web, o la actuación no se parecerá.
+    [string]$Modelo = 'eleven_multilingual_v2'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -70,7 +75,16 @@ $ErrorActionPreference = 'Stop'
 $VozNina  = 'hO2yZ8lxM3axUxL8OeKX'
 $VozBruja = 'M9RTtrzRACmbUzsEMq8p'
 
-$Modelo = 'eleven_multilingual_v2'   # el más estable para español; no cambiarlo a mitad
+# v3 solo admite tres niveles de estabilidad (0 creative, 0.5 natural, 1 robust).
+# Si se pide otro valor, la API lo rechaza; lo ajustamos al más cercano y avisamos.
+if ($Modelo -match 'v3') {
+    $permitidos = @(0.0, 0.5, 1.0)
+    $cercano = $permitidos | Sort-Object { [math]::Abs($_ - $Estabilidad) } | Select-Object -First 1
+    if ($cercano -ne $Estabilidad) {
+        Write-Host "v3 solo admite estabilidad 0, 0.5 o 1: se usa $cercano en vez de $Estabilidad" -ForegroundColor Yellow
+        $Estabilidad = $cercano
+    }
+}
 
 $Ajustes = @{
     stability         = $Estabilidad

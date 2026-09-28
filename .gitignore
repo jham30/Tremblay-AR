@@ -117,3 +117,6 @@ Packages/com.ptc.vuforia.engine-11.4.4.tgz
 ._*
 .Spotlight-V100
 .Trashes
+
+# Pruebas de voz generadas por el script de ElevenLabs
+herramientas/pruebas-voz/

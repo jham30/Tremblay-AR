@@ -36,7 +36,14 @@ param(
     [switch]$Forzar,
 
     # Solo muestra qué haría, sin llamar a la API ni gastar cuota.
-    [switch]$Simular
+    [switch]$Simular,
+
+    # Genera una frase corta con cada voz para comprobar el acento (~120 caracteres).
+    [switch]$Probar,
+
+    # Conserva las acotaciones ([Asustada], (Respira entrecortado)). Solo tiene sentido
+    # con modelos que las interpretan como indicación, como v3; con v2 se leen en voz alta.
+    [switch]$ConservarAcotaciones
 )
 
 $ErrorActionPreference = 'Stop'
@@ -120,13 +127,15 @@ function Split-PorHablante {
     $segmentos = @()
 
     if ($trozos.Count -eq 1) {
-        if ($Texto.Trim()) { $segmentos += @{ Voz = $VozNina; Texto = $Texto.Trim(); Quien = 'Niña' } }
+        $solo = Remove-Acotaciones -Texto $Texto
+        if ($solo) { $segmentos += @{ Voz = $VozNina; Texto = $solo; Quien = 'Niña' } }
         return $segmentos
     }
 
     # Texto antes de la primera marca (narración)
-    if ($trozos[0].Trim()) {
-        $segmentos += @{ Voz = $VozNina; Texto = $trozos[0].Trim(); Quien = 'narración' }
+    $inicio = Remove-Acotaciones -Texto $trozos[0]
+    if ($inicio) {
+        $segmentos += @{ Voz = $VozNina; Texto = $inicio; Quien = 'narración' }
     }
 
     for ($i = 1; $i -lt $trozos.Count; $i += 2) {
@@ -135,10 +144,24 @@ function Split-PorHablante {
         if (-not $cuerpo) { continue }
 
         $voz = if ($quien -match '(?i)bruja|witch|sorci') { $VozBruja } else { $VozNina }
+        $cuerpo = Remove-Acotaciones -Texto $cuerpo
+        if (-not $cuerpo) { continue }
         $segmentos += @{ Voz = $voz; Texto = $cuerpo; Quien = $quien }
     }
 
     return $segmentos
+}
+
+# Acotaciones de guion: [Asustada] a mitad de línea, (Respira entrecortado)...
+# No son texto a pronunciar. Se aplican DESPUÉS de repartir voces, para no romper
+# las marcas [Niña]/[Bruja], que sí van solas en su línea.
+function Remove-Acotaciones {
+    param([string]$Texto)
+    if ($ConservarAcotaciones) { return $Texto }
+
+    $t = $Texto -replace '\[[^\]]*\]', '' -replace '\([^)]*\)', ''
+    $t = $t -replace '[ \t]+', ' ' -replace '[ \t]*\r?\n[ \t]*', "`n"
+    return $t.Trim()
 }
 
 # ===================== Llamada a la API =====================
@@ -195,6 +218,33 @@ function Join-Mp3 {
 
 if (-not $Simular -and -not $env:ELEVENLABS_API_KEY) {
     throw "Falta la clave. Ejecuta primero:  `$env:ELEVENLABS_API_KEY = 'tu-clave'"
+}
+
+# Prueba barata de acento: una frase por voz, ~120 caracteres en total.
+if ($Probar) {
+    $pruebas = @(
+        @{ Nombre = 'nina';  Voz = $VozNina;  Texto = 'No veo nada... necesito luz. ¿Dónde están las escaleras? Creo que por allí.' }
+        @{ Nombre = 'bruja'; Voz = $VozBruja; Texto = '¡Michifús! Ven aquí. Esta noche tengo que completar el ritual.' }
+    )
+
+    $carpeta = Join-Path $RaizProyecto 'herramientas\pruebas-voz'
+    if (-not (Test-Path -LiteralPath $carpeta)) { New-Item -ItemType Directory -Path $carpeta -Force | Out-Null }
+
+    $total = 0
+    foreach ($p in $pruebas) {
+        Write-Host "  > $($p.Nombre): $($p.Texto.Length) caracteres"
+        $total += $p.Texto.Length
+        if (-not $Simular) {
+            $bytes = Invoke-TextoAVoz -Texto $p.Texto -VozId $p.Voz
+            $ruta = Join-Path $carpeta "prueba-$($p.Nombre).mp3"
+            [IO.File]::WriteAllBytes($ruta, $bytes)
+            Write-Host "    guardado: $ruta" -ForegroundColor Green
+        }
+        Start-Sleep -Seconds $PausaEntrePeticiones
+    }
+
+    Write-Host "`nPrueba terminada. $total caracteres. Escucha los dos archivos antes de lanzar todo."
+    return
 }
 
 $rutaShared = Join-Path $Tablas 'Story Shared Data.asset'

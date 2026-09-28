@@ -43,7 +43,20 @@ param(
 
     # Conserva las acotaciones ([Asustada], (Respira entrecortado)). Solo tiene sentido
     # con modelos que las interpretan como indicación, como v3; con v2 se leen en voz alta.
-    [switch]$ConservarAcotaciones
+    [switch]$ConservarAcotaciones,
+
+    # Estabilidad: bajo = más dinámico y expresivo (equivale a "Creative" en la web),
+    # alto = más plano pero más consistente entre archivos.
+    [ValidateRange(0.0, 1.0)]
+    [double]$Estabilidad = 0.35,
+
+    # Exageración del estilo: sube la carga emocional. Por encima de ~0.6 suele sonar forzado.
+    [ValidateRange(0.0, 1.0)]
+    [double]$Estilo = 0.45,
+
+    # Semilla fija: con estabilidad baja cada generación sale distinta; esto hace que
+    # relanzar un fragmento dé el mismo resultado. 0 = aleatorio.
+    [int]$Semilla = 0
 )
 
 $ErrorActionPreference = 'Stop'
@@ -56,9 +69,9 @@ $VozBruja = 'M9RTtrzRACmbUzsEMq8p'
 $Modelo = 'eleven_multilingual_v2'   # el más estable para español; no cambiarlo a mitad
 
 $Ajustes = @{
-    stability         = 0.55   # más alto = más consistente, menos expresivo
-    similarity_boost  = 0.85
-    style             = 0.0
+    stability         = $Estabilidad
+    similarity_boost  = 0.85   # alto = se pega a la voz original, protege el acento
+    style             = $Estilo
     use_speaker_boost = $true
 }
 
@@ -180,6 +193,7 @@ function Invoke-TextoAVoz {
     # El contexto es lo que mantiene el acento y la entonación entre archivos.
     if ($Anterior)  { $cuerpo.previous_text = $Anterior }
     if ($Siguiente) { $cuerpo.next_text     = $Siguiente }
+    if ($Semilla -gt 0) { $cuerpo.seed = $Semilla }
 
     # Las llaves son obligatorias: sin ellas PowerShell se come el '?' como parte del
     # nombre de la variable y la URL sale con el voice_id vacío.
@@ -238,7 +252,9 @@ if ($Probar) {
         $total += $p.Texto.Length
         if (-not $Simular) {
             $bytes = Invoke-TextoAVoz -Texto $p.Texto -VozId $p.Voz
-            $ruta = Join-Path $carpeta "prueba-$($p.Nombre).mp3"
+            # El nombre lleva los ajustes para poder comparar tomas sin pisarlas.
+            $etiqueta = "est$($Estabilidad.ToString('0.00') -replace '[.,]','')-sty$($Estilo.ToString('0.00') -replace '[.,]','')"
+            $ruta = Join-Path $carpeta "prueba-$($p.Nombre)-$etiqueta.mp3"
             [IO.File]::WriteAllBytes($ruta, $bytes)
             Write-Host "    guardado: $ruta" -ForegroundColor Green
         }

@@ -550,6 +550,18 @@ public class StoryUIController : MonoBehaviour
         {
             char c = texto[i];
 
+            // [[dirección]] = indicación de actuación para el TTS, nunca se muestra.
+            // Va antes que '[' porque si no el parser partiría mal el doble corchete.
+            if (c == '[' && i + 1 < texto.Length && texto[i + 1] == '[')
+            {
+                int cierreDoble = texto.IndexOf("]]", i + 2, System.StringComparison.Ordinal);
+                if (cierreDoble >= 0)
+                {
+                    i = cierreDoble + 2;
+                    continue;
+                }
+            }
+
             if (c == '[')
             {
                 int cierre = texto.IndexOf(']', i + 1);
@@ -663,6 +675,9 @@ public class StoryUIController : MonoBehaviour
     private string LimpiarMarcadoresInstantaneos(string texto)
     {
         texto = System.Text.RegularExpressions.Regex.Replace(texto, @"\{[^}]*\}", "");
+        // [[dirección]] es para el TTS: fuera entera. El resto de corchetes son etiquetas
+        // de hablante y solo pierden los símbolos.
+        texto = System.Text.RegularExpressions.Regex.Replace(texto, @"\[\[.*?\]\]", "");
         return texto.Replace("[", "").Replace("]", "");
     }
     

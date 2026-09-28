@@ -72,7 +72,7 @@ $ErrorActionPreference = 'Stop'
 
 # ===================== Configuración =====================
 
-$VozNina  = 'hO2yZ8lxM3axUxL8OeKX'
+$VozNina  = 'U9tZtg3uJtVgXPkvosWR'   # latina
 $VozBruja = 'M9RTtrzRACmbUzsEMq8p'
 
 # v3 solo admite tres niveles de estabilidad (0 creative, 0.5 natural, 1 robust).
@@ -188,9 +188,16 @@ function Split-PorHablante {
 # las marcas [Niña]/[Bruja], que sí van solas en su línea.
 function Remove-Acotaciones {
     param([string]$Texto)
-    if ($ConservarAcotaciones) { return $Texto }
 
-    $t = $Texto -replace '\[[^\]]*\]', '' -replace '\([^)]*\)', ''
+    if ($ConservarAcotaciones) {
+        # v3 espera la indicación entre corchetes simples: [[asustada]] -> [asustada]
+        $t = $Texto -replace '\[\[(.*?)\]\]', '[$1]'
+    }
+    else {
+        # v2 leería la indicación en voz alta, así que fuera.
+        $t = $Texto -replace '\[\[.*?\]\]', '' -replace '\[[^\]]*\]', '' -replace '\([^)]*\)', ''
+    }
+
     $t = $t -replace '[ \t]+', ' ' -replace '[ \t]*\r?\n[ \t]*', "`n"
     return $t.Trim()
 }

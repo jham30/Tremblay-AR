@@ -1,4 +1,4 @@
-<#
+﻿<#
     Genera la narración de la historia con ElevenLabs, un .mp3 por fragmento.
 
     Lee los textos de las tablas de localización del proyecto, limpia lo que no debe
@@ -181,7 +181,9 @@ function Invoke-TextoAVoz {
     if ($Anterior)  { $cuerpo.previous_text = $Anterior }
     if ($Siguiente) { $cuerpo.next_text     = $Siguiente }
 
-    $uri = "https://api.elevenlabs.io/v1/text-to-speech/$VozId?output_format=$Formato"
+    # Las llaves son obligatorias: sin ellas PowerShell se come el '?' como parte del
+    # nombre de la variable y la URL sale con el voice_id vacío.
+    $uri = "https://api.elevenlabs.io/v1/text-to-speech/${VozId}?output_format=${Formato}"
 
     $respuesta = Invoke-WebRequest -Uri $uri -Method Post `
         -Headers @{ 'xi-api-key' = $env:ELEVENLABS_API_KEY; 'Accept' = 'audio/mpeg' } `

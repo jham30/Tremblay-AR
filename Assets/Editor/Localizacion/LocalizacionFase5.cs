@@ -247,6 +247,49 @@ public static class LocalizacionFase5
             "[Enfant]\nMittens ?...\nAlors tu es toujours dans le coin, hein ?\nNe crois pas que j'ai oublié toutes les frayeurs que tu m'as faites, petite boule de poils... j'ai failli avoir une crise cardiaque.\nBon, bon... la paix entre nous.\nJe t'apporterai à manger tous les jours, marché conclu ?\nMais promets-moi de ne pas me trahir la prochaine fois qu'il y aura une sorcière dans les parages.\nMarché conclu, Mittens."),
     };
 
+    // El acento del TTS no depende solo de la voz: el modelo lee pistas del propio texto.
+    // "Vale" es marca de España y empuja la locución al castellano. Reemplazos en orden.
+    static readonly (string patron, string reemplazo)[] GirosDeEspana =
+    {
+        ("Vale, vale",   "Bueno, bueno"),
+        ("Vale, vamos",  "Bueno, vamos"),
+        ("¿vale?",       "¿sí?"),
+        ("Vale...",      "Bien..."),
+    };
+
+    [MenuItem("Tremblay/Localización/Fase 5 - Neutralizar giros de España en el español")]
+    public static void NeutralizarGiros()
+    {
+        var coleccion = LocalizationEditorSettings.GetStringTableCollection(TablaStory);
+        var tabla = coleccion?.GetTable("es") as StringTable;
+        if (tabla == null) { Debug.LogError("[Fase 5] Falta la tabla Story o su columna es."); return; }
+
+        var sb = new StringBuilder();
+        int cambiados = 0, total = 0;
+
+        foreach (var entrada in tabla.Values)
+        {
+            if (string.IsNullOrEmpty(entrada.Value)) continue;
+
+            string antes = entrada.Value;
+            string despues = antes;
+            foreach (var (patron, reemplazo) in GirosDeEspana)
+                despues = despues.Replace(patron, reemplazo);
+
+            if (despues == antes) continue;
+
+            entrada.Value = despues;
+            cambiados++;
+            total += antes.Split(new[] { "Vale", "vale" }, System.StringSplitOptions.None).Length - 1;
+            sb.AppendLine($"   {coleccion.SharedData.GetEntry(entrada.KeyId)?.Key}");
+        }
+
+        EditorUtility.SetDirty(tabla);
+        AssetDatabase.SaveAssets();
+        Debug.Log($"[Fase 5] Giros neutralizados en {cambiados} fragmentos ({total} apariciones).\n{sb}" +
+                  "Regenera el audio de esos fragmentos para que el acento no se vaya al castellano.");
+    }
+
     [MenuItem("Tremblay/Localización/Fase 5 - Rellenar historia en es y fr")]
     public static void RellenarTraducciones()
     {

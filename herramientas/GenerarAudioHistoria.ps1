@@ -45,14 +45,14 @@ param(
     # gritando y la niña reflexionando después, que es donde mejor se nota la expresividad.
     [string]$ProbarCon = 'story.11',
 
-    # Conserva las acotaciones ([Asustada], (Respira entrecortado)). Solo tiene sentido
-    # con modelos que las interpretan como indicación, como v3; con v2 se leen en voz alta.
-    [switch]$ConservarAcotaciones,
+    # Descarta las indicaciones [[scared]] en vez de pasarlas al modelo. Necesario con v2,
+    # que las leería en voz alta; v3 las interpreta como dirección de actuación.
+    [switch]$QuitarAcotaciones,
 
-    # Estabilidad: bajo = más dinámico y expresivo (equivale a "Creative" en la web),
-    # alto = más plano pero más consistente entre archivos.
+    # Estabilidad: bajo = más dinámico y expresivo (el "Creative" de la web),
+    # alto = más plano pero más consistente entre archivos. En v3 solo vale 0, 0.5 o 1.
     [ValidateRange(0.0, 1.0)]
-    [double]$Estabilidad = 0.35,
+    [double]$Estabilidad = 0.0,
 
     # Exageración del estilo: sube la carga emocional. Por encima de ~0.6 suele sonar forzado.
     [ValidateRange(0.0, 1.0)]
@@ -62,10 +62,9 @@ param(
     # relanzar un fragmento dé el mismo resultado. 0 = aleatorio.
     [int]$Semilla = 0,
 
-    # Modelo. v2 es sobrio y muy consistente; v3 actúa mucho mejor y admite etiquetas de
-    # emoción, pero su estabilidad solo acepta tres valores. Pon aquí el mismo que uses
-    # en la web, o la actuación no se parecerá.
-    [string]$Modelo = 'eleven_multilingual_v2'
+    # Modelo. v3 actúa mucho mejor y admite las etiquetas de emoción; v2 es más sobrio
+    # pero más consistente entre archivos.
+    [string]$Modelo = 'eleven_v3'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -189,13 +188,13 @@ function Split-PorHablante {
 function Remove-Acotaciones {
     param([string]$Texto)
 
-    if ($ConservarAcotaciones) {
-        # v3 espera la indicación entre corchetes simples: [[asustada]] -> [asustada]
-        $t = $Texto -replace '\[\[(.*?)\]\]', '[$1]'
-    }
-    else {
+    if ($QuitarAcotaciones) {
         # v2 leería la indicación en voz alta, así que fuera.
         $t = $Texto -replace '\[\[.*?\]\]', '' -replace '\[[^\]]*\]', '' -replace '\([^)]*\)', ''
+    }
+    else {
+        # v3 espera la indicación entre corchetes simples: [[scared]] -> [scared]
+        $t = $Texto -replace '\[\[(.*?)\]\]', '[$1]'
     }
 
     $t = $t -replace '[ \t]+', ' ' -replace '[ \t]*\r?\n[ \t]*', "`n"

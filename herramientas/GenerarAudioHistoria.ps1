@@ -68,7 +68,10 @@ param(
 
     # No une los segmentos: deja un archivo por intervención para montarlos a mano en un
     # editor de audio. Unir mp3 concatenando bytes deja artefactos en el empalme.
-    [switch]$SinUnir
+    [switch]$SinUnir,
+
+    # Consulta cuántos caracteres quedan este mes y sale.
+    [switch]$Cuota
 )
 
 $ErrorActionPreference = 'Stop'
@@ -268,6 +271,32 @@ function Join-Mp3 {
 
 if (-not $Simular -and -not $env:ELEVENLABS_API_KEY) {
     throw "Falta la clave. Ejecuta primero:  `$env:ELEVENLABS_API_KEY = 'tu-clave'"
+}
+
+if ($Cuota) {
+    try {
+        $s = Invoke-RestMethod -Uri 'https://api.elevenlabs.io/v1/user/subscription' `
+             -Headers @{ 'xi-api-key' = $env:ELEVENLABS_API_KEY }
+
+        $usados = $s.character_count
+        $limite = $s.character_limit
+        $quedan = $limite - $usados
+        $pct = if ($limite -gt 0) { [math]::Round($usados * 100 / $limite, 1) } else { 0 }
+
+        Write-Host "Plan: $($s.tier)"
+        Write-Host "Usados: $usados de $limite ($pct%)"
+        Write-Host "Quedan: $quedan caracteres" -ForegroundColor Green
+
+        if ($s.next_character_count_reset_unix) {
+            $reset = [DateTimeOffset]::FromUnixTimeSeconds($s.next_character_count_reset_unix).LocalDateTime
+            Write-Host "Se renueva: $($reset.ToString('dd/MM/yyyy HH:mm'))"
+        }
+    }
+    catch {
+        Write-Host "No se pudo consultar la cuota: $($_.Exception.Message)" -ForegroundColor Yellow
+        Write-Host "Si dice missing_permissions, dale a la clave el permiso 'User' de lectura."
+    }
+    return
 }
 
 $rutaShared = Join-Path $Tablas 'Story Shared Data.asset'

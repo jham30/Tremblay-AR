@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Localization;
 using UnityEngine;
@@ -256,6 +259,92 @@ public static class LocalizacionFase5
         ("¿vale?",       "¿sí?"),
         ("Vale...",      "Bien..."),
     };
+
+    // Copia las indicaciones [[scared]] del español a los otros idiomas. Las etiquetas van
+    // en inglés y son iguales en los tres, así que basta colocarlas en la línea equivalente.
+    // Funciona porque las traducciones conservan la misma estructura de líneas; si alguna
+    // no cuadra, se salta y se avisa en vez de colocarla a ciegas.
+    [MenuItem("Tremblay/Localización/Fase 5 - Copiar indicaciones del español a en y fr")]
+    public static void CopiarIndicaciones()
+    {
+        var coleccion = LocalizationEditorSettings.GetStringTableCollection(TablaStory);
+        var origen = coleccion?.GetTable("es") as StringTable;
+        if (origen == null) { Debug.LogError("[Fase 5] Falta la tabla Story o su columna es."); return; }
+
+        var sb = new StringBuilder();
+        int puestas = 0, saltadas = 0;
+
+        foreach (var destinoLocale in new[] { "en", "fr" })
+        {
+            var destino = coleccion.GetTable(destinoLocale) as StringTable;
+            if (destino == null) continue;
+
+            foreach (var entradaEs in origen.Values)
+            {
+                if (string.IsNullOrEmpty(entradaEs.Value)) continue;
+
+                var entradaDest = destino.GetEntry(entradaEs.KeyId);
+                if (entradaDest == null || string.IsNullOrEmpty(entradaDest.Value)) continue;
+
+                string clave = coleccion.SharedData.GetEntry(entradaEs.KeyId)?.Key ?? entradaEs.KeyId.ToString();
+
+                var lineasEs = entradaEs.Value.Replace("\r", "").Split('\n');
+                var lineasDe = entradaDest.Value.Replace("\r", "").Split('\n');
+
+                // Índice de línea NO vacía -> etiquetas encontradas en esa línea del español.
+                var porIndice = new Dictionary<int, string>();
+                int k = 0;
+                foreach (var l in lineasEs)
+                {
+                    if (l.Trim().Length == 0) continue;
+                    var tags = Regex.Matches(l, @"\[\[[^\]]*\]\]");
+                    if (tags.Count > 0)
+                    {
+                        // Duplicadas seguidas cuentan una vez.
+                        var unicas = tags.Cast<Match>().Select(m => m.Value).Distinct();
+                        porIndice[k] = string.Concat(unicas);
+                    }
+                    k++;
+                }
+
+                if (porIndice.Count == 0) continue;
+
+                int noVaciasDestino = lineasDe.Count(l => l.Trim().Length > 0);
+                if (noVaciasDestino != k)
+                {
+                    saltadas++;
+                    sb.AppendLine($"   [{destinoLocale}] {clave}: {k} líneas en es y {noVaciasDestino} aquí, se salta");
+                    continue;
+                }
+
+                bool cambiado = false;
+                int j = 0;
+                for (int i = 0; i < lineasDe.Length; i++)
+                {
+                    if (lineasDe[i].Trim().Length == 0) continue;
+
+                    if (porIndice.TryGetValue(j, out string tag) && !lineasDe[i].Contains("[["))
+                    {
+                        lineasDe[i] = tag + lineasDe[i].TrimStart();
+                        cambiado = true;
+                        puestas++;
+                    }
+                    j++;
+                }
+
+                if (cambiado)
+                {
+                    entradaDest.Value = string.Join("\n", lineasDe);
+                    EditorUtility.SetDirty(destino);
+                    sb.AppendLine($"   [{destinoLocale}] {clave}: {porIndice.Count} indicación(es)");
+                }
+            }
+        }
+
+        EditorUtility.SetDirty(coleccion.SharedData);
+        AssetDatabase.SaveAssets();
+        Debug.Log($"[Fase 5] Indicaciones copiadas: {puestas}. Fragmentos saltados por estructura distinta: {saltadas}.\n{sb}");
+    }
 
     [MenuItem("Tremblay/Localización/Fase 5 - Neutralizar giros de España en el español")]
     public static void NeutralizarGiros()

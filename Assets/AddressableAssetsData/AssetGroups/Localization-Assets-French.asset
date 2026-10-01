@@ -15,8 +15,26 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-French
   m_GUID: 0723f3ce2c6f6e44d8e4fdcb8a741a0b
   m_SerializeEntries:
+  - m_GUID: 06fe8b823f86cd34383e37d4f94f702a
+    m_Address: fr-tutorial-20
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15c0effffd9d28046a4d565398be17f8
+    m_Address: fr-story-15
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16ef57c9210d82d4088dd6de3b86dcd8
     m_Address: fr-hongo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27c98de6a7d327d45bf5f6134d181da3
+    m_Address: fr-tutorial-18
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -27,8 +45,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e39425f30b6e7c40b7bde044afb69c3
+    m_Address: fr-tutorial-14
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3317b4f1e7b6a714cb1b685bf077a4e5
+    m_Address: fr-tutorial-07
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3448c32f0b540b44cbea6be96c413e8a
     m_Address: fr-arbol
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34cd47a12cdf0d944b33734aa07e87c3
+    m_Address: fr-story-06
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -45,8 +81,32 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 371879b275caf5d419e45294733320f9
+    m_Address: fr-tutorial-13
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3987d47e1060b514c8a70db59a567ab9
+    m_Address: fr-tutorial-19
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39bc94acf1cbd714b85d3ceb9b43d6ba
+    m_Address: fr-tutorial-09
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a95da7676f62104eae6883a36b5f519
     m_Address: fr-pala
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e7f68a59b85b394d94301e3bfa3a575
+    m_Address: fr-story-29
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -57,8 +117,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45fd414426554e34f8ac96056a39ebf0
+    m_Address: fr-story-18
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4761a996902dc8e47ad12f37f8ba9dd6
     m_Address: fr-story-00
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48f46b229e8e5c4449bc6cb13eac7252
+    m_Address: fr-tutorial-10
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a477ee62f7a82e4dafbb03025e72ed4
+    m_Address: fr-story-20
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -69,8 +147,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fbdb9aa16a091c40b192dc4ff6c67c3
+    m_Address: fr-tutorial-03
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57e18c1fdea3dc24ea440b8648e7d03e
     m_Address: fr-salchicha
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 669205d634d11f04d88cd441e9c76998
+    m_Address: fr-story-04
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -81,14 +171,98 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6746e97497a80d74c95d5ae33eb231d2
+    m_Address: fr-tutorial-04
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67c10b2d3b3e52a44b95ab6114773cd7
     m_Address: fr-caldero
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bb91074c6d20d244bcacb47902a5d09
+    m_Address: fr-tutorial-01
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c801b7ae819301409c2b1b31a5bcbe4
     m_Address: fr-gato
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7080bd4e20fbcb64faff2d5ef472f0a0
+    m_Address: fr-tutorial-22
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7223e1ba29f56dd43946aa83b65feb27
+    m_Address: fr-tutorial-35
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73f45146a3422c044b77d703e4d5b528
+    m_Address: fr-tutorial-11
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74386bfd557a04e4e9013bd3838805a9
+    m_Address: fr-tutorial-24
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74c209be8e41ef249be5633ff636b325
+    m_Address: fr-story-08
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78855a885355f6a43b2bff08a99dc4ca
+    m_Address: fr-tutorial-31
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 788a2ae5515c3204cb33282f64de589e
+    m_Address: fr-tutorial-06
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f1829d99e17797478957f13b7c04ca9
+    m_Address: fr-tutorial-08
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88f09f84d3628054eacd4fba463c777c
+    m_Address: fr-story-16
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b4daa493b2588148ad2640c8af82421
+    m_Address: fr-story-10
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92ca7a6483b555b43b281b0314aa135c
+    m_Address: fr-tutorial-34
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95562788eaba14842a4060b8357ca8c1
+    m_Address: fr-story-21
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -111,14 +285,98 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dd83cbde79adca4686d1bdcce937cae
+    m_Address: fr-story-07
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3c23c3edfb788546984d43f6e2bd7fe
+    m_Address: fr-story-19
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a56df997921a0fa4db013983a6607d8c
     m_Address: fr-bruja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ab746b5c76ab34cbd435ccf04a4221
+    m_Address: fr-tutorial-05
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abed164e0a17ecb49a5cc846146e2bc3
+    m_Address: fr-tutorial-29
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8a275af49b6f94459deff89305d9767
+    m_Address: fr-story-22
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bba8ccf2a93902540acb88271898dac8
     m_Address: fr-gorro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beab9cdcf862a674ebc6e54dcad912db
+    m_Address: fr-tutorial-27
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2bacc3387fdf274db1402128c9235cc
+    m_Address: fr-tutorial-17
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6d8ddfb74ddaf442a1b6dc213dea2af
+    m_Address: fr-story-25
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76498c753048eb4ca3f1e6f0780252f
+    m_Address: fr-tutorial-12
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c785b03727b2e134396534c3fcf8e40b
+    m_Address: fr-story-14
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9eecb370712f034883a35809506647d
+    m_Address: fr-tutorial-21
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9f2374d0ddd0d345a22a3b4cadc89f7
+    m_Address: fr-tutorial-23
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad1bfa8736905c4d90458ffdae97ebd
+    m_Address: fr-tutorial-32
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdb2a6b23c3ee124c857c5a960619088
+    m_Address: fr-tutorial-33
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -141,8 +399,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d30a43c62d9e11c499dfda572769ee0e
+    m_Address: fr-tutorial-28
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d59956fd609f8e945b878f4e63f65d08
+    m_Address: fr-tutorial-16
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd7e19108f2daf349939a35119470f58
     m_Address: fr-escoba
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de6b558ed04adc2418f95ea1ba96f578
+    m_Address: fr-tutorial-30
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
@@ -165,8 +441,50 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7e0037cd5402594ea4fd87931738ef9
+    m_Address: fr-tutorial-26
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e841624a73d430c4fae9e19fab642baa
+    m_Address: fr-tutorial-15
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb84e6cf58abf2c4abb4336b8649636c
     m_Address: fr-arana
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f109d089002ae7f408d138bbfa7a8815
+    m_Address: fr-tutorial-36
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2f04c61139840e4592686d6b09c6281
+    m_Address: fr-story-13
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5b16ccbe99be7b4aaaec97aa077aefd
+    m_Address: fr-tutorial-02
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8767649117348f42a7114fd00cae4bb
+    m_Address: fr-story-01
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbf251c4e8568124b9dba92e336cac5d
+    m_Address: fr-tutorial-25
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr

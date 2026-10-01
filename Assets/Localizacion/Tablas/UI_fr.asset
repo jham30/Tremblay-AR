@@ -479,7 +479,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809619
-    m_Localized: 21. Faites glisser l'objet suivant.
+    m_Localized: 21. Fais glisser l'objet suivant.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809620
@@ -551,7 +551,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5029640401825792
-    m_Localized: "23-a. V\xE9rifiez le message qui appara\xEEt \xE0 propos de la mission, quelque chose n'est pas \xE0 sa place, changez la position de la bougie <sprite name=\"vela\"> et de la citrouille <sprite name=\"calabaza\"> et appuyez \xE0 nouveau sur le bouton que je vous indique."
+    m_Localized: "23-a. V\xE9rifie le message qui appara\xEEt \xE0 propos de la mission, quelque chose n'est pas \xE0 sa place, change la position de la bougie <sprite name=\"vela\"> et de la citrouille <sprite name=\"calabaza\"> et appuie \xE0 nouveau sur le bouton que je te montre."
     m_Metadata:
       m_Items: []
   references:

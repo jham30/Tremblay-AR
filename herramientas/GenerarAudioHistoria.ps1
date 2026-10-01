@@ -32,9 +32,9 @@ param(
     [ValidateSet('es','en','fr')]
     [string]$Idioma = 'es',
 
-    # Qué se narra: la historia del cuento o los pasos del tutorial. Cada una vive en su
-    # tabla y deja los mp3 en su carpeta.
-    [ValidateSet('historia','tutorial')]
+    # Qué se narra: la historia del cuento, los pasos del tutorial o los textos de ayuda
+    # que salen cuando el jugador se atasca en un paso.
+    [ValidateSet('historia','tutorial','ayuda')]
     [string]$Fuente = 'historia',
 
     # Claves concretas a generar. Vacío = todas.
@@ -133,20 +133,30 @@ $PausaEntrePeticiones = 0.5   # segundos, para no saturar la API
 $RaizProyecto = Split-Path -Parent $PSScriptRoot
 $Tablas  = Join-Path $RaizProyecto 'Assets\Localizacion\Tablas'
 
-# El tutorial comparte tabla con el resto de la interfaz, así que hay que filtrar sus
-# claves; la historia tiene tabla propia y el filtro solo le quita el prefijo al nombre.
+# El tutorial comparte tabla con el resto de la interfaz, así que 'Coincide' dice qué
+# claves entran y 'Quitar' qué parte del nombre sobra para formar el del archivo. Los
+# textos de ayuda van a la misma carpeta que los pasos: el sufijo ya los distingue.
 $Fuentes = @{
     historia = @{
-        Tabla   = 'Story'
-        Filtro  = '^story\.'
-        Prefijo = 'story'
-        Carpeta = 'Assets\misiones\Halloween\Story\sounds'
+        Tabla    = 'Story'
+        Coincide = '^story\.'
+        Quitar   = '^story\.'
+        Prefijo  = 'story'
+        Carpeta  = 'Assets\misiones\Halloween\Story\sounds'
     }
     tutorial = @{
-        Tabla   = 'UI'
-        Filtro  = '^tutorial\.step\.'
-        Prefijo = 'tutorial'
-        Carpeta = 'Assets\misiones\Halloween\tutorial\sounds'
+        Tabla    = 'UI'
+        Coincide = '^tutorial\.step\.\d+$'
+        Quitar   = '^tutorial\.step\.'
+        Prefijo  = 'tutorial'
+        Carpeta  = 'Assets\misiones\Halloween\tutorial\sounds'
+    }
+    ayuda = @{
+        Tabla    = 'UI'
+        Coincide = '^tutorial\.(ayuda_|step_\d+_ayuda)'
+        Quitar   = '^tutorial\.'
+        Prefijo  = 'tutorial'
+        Carpeta  = 'Assets\misiones\Halloween\tutorial\sounds'
     }
 }
 $Cfg = $Fuentes[$Fuente]
@@ -362,12 +372,12 @@ $textos = Get-TextosPorId -Ruta $rutaTabla
 $fragmentos = @()
 foreach ($id in $claves.Keys) {
     if (-not $textos.ContainsKey($id)) { continue }
-    if ($claves[$id] -notmatch $Cfg.Filtro) { continue }
+    if ($claves[$id] -notmatch $Cfg.Coincide) { continue }
     $limpio = ConvertTo-TextoLimpio -Crudo $textos[$id]
 
-    # Los pasos del tutorial arrastran andamiaje de edición: van entre comillas y llevan
+    # Los textos del tutorial arrastran andamiaje de edición: van entre comillas y llevan
     # delante su número de guion ("13. ", "23-a. ", "27a. "). Leerlo en voz alta sobraría.
-    if ($Fuente -eq 'tutorial') {
+    if ($Fuente -ne 'historia') {
         $limpio = ($limpio -replace '^"(.*)"$', '$1').Trim()
         $limpio = ($limpio -replace '^\d+\s*-?\s*[a-zA-Z]?\.\s*', '').Trim()
     }
@@ -404,7 +414,7 @@ $generados = 0; $saltados = 0; $caracteres = 0
 
 for ($f = 0; $f -lt $fragmentos.Count; $f++) {
     $frag = $fragmentos[$f]
-    $sufijo = $frag.Clave -replace $Cfg.Filtro, ''
+    $sufijo = $frag.Clave -replace $Cfg.Quitar, ''
     $base = "$Idioma-$($Cfg.Prefijo)-$sufijo"
     $archivo = Join-Path $Destino "$base$etiquetaAjustes.mp3"
 

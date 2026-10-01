@@ -23,13 +23,23 @@ public static class VincularAudioNarracion
     static readonly string[] Locales = { "es", "en", "fr" };
     static readonly string[] Extensiones = { ".mp3", ".wav", ".ogg" };
 
-    // Carpeta de los mp3, prefijo del nombre de archivo, prefijo de la clave y tabla de
-    // texto de la que salen las claves esperadas, para avisar de las que queden sin audio.
-    static readonly (string nombre, string carpeta, string prefijoArchivo, string prefijoClave, string tablaTexto)[] Fuentes =
+    // Carpeta de los mp3, prefijo del nombre de archivo, tabla de texto de la que salen las
+    // claves esperadas y el patrón que las reconoce, para avisar de las que queden sin audio.
+    static readonly (string nombre, string carpeta, string prefijoArchivo, string tablaTexto, string patronClaves)[] Fuentes =
     {
-        ("historia", "Assets/misiones/Halloween/Story/sounds",    "story",    "story.",          "Story"),
-        ("tutorial", "Assets/misiones/Halloween/tutorial/sounds", "tutorial", "tutorial.step.",  "UI"),
+        ("historia", "Assets/misiones/Halloween/Story/sounds",    "story",    "Story", @"^story\."),
+        ("tutorial", "Assets/misiones/Halloween/tutorial/sounds", "tutorial", "UI",    @"^tutorial\.(step\.\d+$|ayuda_|step_\d+_ayuda)"),
     };
+
+    /// <summary>
+    /// Clave de la tabla a partir del sufijo del archivo. Los pasos del tutorial son un
+    /// número (tutorial.step.14); los textos de ayuda llevan su nombre entero.
+    /// </summary>
+    static string ClaveDesdeSufijo(string fuente, string sufijo)
+    {
+        if (fuente == "historia") return "story." + sufijo;
+        return Regex.IsMatch(sufijo, @"^\d+$") ? "tutorial.step." + sufijo : "tutorial." + sufijo;
+    }
 
     // Los trozos por hablante (es-story-02-01-nina.mp3) son material para montar a mano
     // en el editor de audio, no para el juego: el que se vincula es el fragmento ya unido.
@@ -52,7 +62,7 @@ public static class VincularAudioNarracion
         {
             sb.AppendLine($"── {fuente.nombre}");
 
-            var esperadas = ClavesEsperadas(fuente.tablaTexto, fuente.prefijoClave);
+            var esperadas = ClavesEsperadas(fuente.tablaTexto, fuente.patronClaves);
             var conAudio = new HashSet<string>();
 
             foreach (var locale in Locales)
@@ -83,7 +93,7 @@ public static class VincularAudioNarracion
                     var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(ruta);
                     if (clip == null) continue;
 
-                    string clave = fuente.prefijoClave + sufijo;
+                    string clave = ClaveDesdeSufijo(fuente.nombre, sufijo);
                     if (audios.SharedData.GetEntry(clave) == null)
                     {
                         audios.SharedData.AddKey(clave);
@@ -158,20 +168,33 @@ public static class VincularAudioNarracion
                 var paso = pasos[i];
                 if (paso == null) continue;
 
-                string clave = paso.texto.TableEntryReference.ResolveKeyName(textos.SharedData);
-                if (string.IsNullOrEmpty(clave)) { sinClave.Add($"paso {i + 1}: sin texto"); continue; }
-
-                if (audios.SharedData.GetEntry(clave) == null)
+                // El texto de ayuda es opcional: solo lo tienen los pasos donde el jugador
+                // se puede atascar, y sin clave de texto no hay nada que emparejar.
+                foreach (var par in new[]
                 {
-                    sinClave.Add($"{clave}: sin entrada en {TablaAudio}");
-                    continue;
+                    (texto: paso.texto,      audio: paso.audio,      etiqueta: $"paso {i + 1}",         obligatorio: true),
+                    (texto: paso.textoAyuda, audio: paso.audioAyuda, etiqueta: $"paso {i + 1} (ayuda)", obligatorio: false),
+                })
+                {
+                    string clave = par.texto.TableEntryReference.ResolveKeyName(textos.SharedData);
+                    if (string.IsNullOrEmpty(clave))
+                    {
+                        if (par.obligatorio) sinClave.Add($"{par.etiqueta}: sin texto");
+                        continue;
+                    }
+
+                    if (audios.SharedData.GetEntry(clave) == null)
+                    {
+                        sinClave.Add($"{clave}: sin entrada en {TablaAudio}");
+                        continue;
+                    }
+
+                    string actual = par.audio.TableEntryReference.ResolveKeyName(audios.SharedData);
+                    if (actual == clave) { yaEstaban++; continue; }
+
+                    par.audio.SetReference(TablaAudio, clave);
+                    asignados++;
                 }
-
-                string actual = paso.audio.TableEntryReference.ResolveKeyName(audios.SharedData);
-                if (actual == clave) { yaEstaban++; continue; }
-
-                paso.audio.SetReference(TablaAudio, clave);
-                asignados++;
             }
 
             EditorUtility.SetDirty(controlador);
@@ -189,13 +212,13 @@ public static class VincularAudioNarracion
     /// <summary>
     /// Claves de texto que deberían acabar teniendo audio, para listar las que falten.
     /// </summary>
-    static List<string> ClavesEsperadas(string tablaTexto, string prefijoClave)
+    static List<string> ClavesEsperadas(string tablaTexto, string patron)
     {
         var col = LocalizationEditorSettings.GetStringTableCollection(tablaTexto);
         if (col == null) return new List<string>();
 
         return col.SharedData.Entries
-                  .Where(e => e != null && !string.IsNullOrEmpty(e.Key) && e.Key.StartsWith(prefijoClave))
+                  .Where(e => e != null && !string.IsNullOrEmpty(e.Key) && Regex.IsMatch(e.Key, patron))
                   .Select(e => e.Key)
                   .OrderBy(k => k)
                   .ToList();

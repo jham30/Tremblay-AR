@@ -134,6 +134,10 @@ MonoBehaviour:
     m_Localized: "[Ni\xF1a]\n\xBFMichif\xFAs?...\nAs\xED que sigues por aqu\xED, \xBFeh?\nNo creas que he olvidado todos los sustos que me diste, bola de pelos... casi me da un infarto.\nBueno, bueno... paz entre nosotros.\nTe traer\xE9 comida todos los d\xEDas, \xBFtrato?\nPero prom\xE9teme que no me delatar\xE1s la pr\xF3xima vez que haya una bruja cerca.\nTrato hecho, Michif\xFAs."
     m_Metadata:
       m_Items: []
+  - m_Id: 327706793193472
+    m_Localized: Oooooooooooooooooooo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -227,7 +227,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1989,6 +1989,184 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152945511}
   m_CullTransparentMesh: 1
+--- !u!1 &162063557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162063558}
+  - component: {fileID: 162063561}
+  - component: {fileID: 162063560}
+  - component: {fileID: 162063559}
+  m_Layer: 5
+  m_Name: TextoFinal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &162063558
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162063557}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 216929217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -4}
+  m_SizeDelta: {x: 400, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &162063559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162063557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+    m_TableEntryReference:
+      m_KeyId: 4993154256187392
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 162063560}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &162063560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162063557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Continue
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dc7f494bb7111fe4a890f2ce8e0c5896, type: 2}
+  m_sharedMaterial: {fileID: 3498624229167216255, guid: dc7f494bb7111fe4a890f2ce8e0c5896, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 45
+  m_fontSizeBase: 45
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656bu
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &162063561
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162063557}
+  m_CullTransparentMesh: 1
 --- !u!1 &166562736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,7 +2215,7 @@ MonoBehaviour:
   glowMultiplicadorGrosor: 2.5
   usarAnimacion: 1
   velocidadPulso: 2
-  intensidadPulso: 0.3
+  amplitudMovimientoFlecha: 20
   mostrarDebug: 1
 --- !u!225 &166562738
 CanvasGroup:
@@ -2221,7 +2399,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2322,10 +2500,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 577052765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1096.5004, y: 0}
-  m_SizeDelta: {x: 1600, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &170711457
 MonoBehaviour:
@@ -2659,6 +2837,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 648658139}
+  - {fileID: 216929217}
   - {fileID: 94803226}
   m_Father: {fileID: 1570773472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2812,7 +2991,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2841,6 +3020,127 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212238174}
+  m_CullTransparentMesh: 1
+--- !u!1 &216929216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216929217}
+  - component: {fileID: 216929220}
+  - component: {fileID: 216929219}
+  - component: {fileID: 216929218}
+  m_Layer: 5
+  m_Name: BotonCancelar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &216929217
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216929216}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 162063558}
+  m_Father: {fileID: 209921102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -82}
+  m_SizeDelta: {x: 400, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &216929218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216929216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 216929219}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &216929219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216929216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ce0749acf9da2a047b88c249cf63362a, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &216929220
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216929216}
   m_CullTransparentMesh: 1
 --- !u!1 &225409107
 GameObject:
@@ -2951,9 +3251,9 @@ RectTransform:
   m_Father: {fileID: 1498149316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -100}
-  m_SizeDelta: {x: -200, y: -200}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 300, y: 150}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244126825
 MonoBehaviour:
@@ -3126,7 +3426,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3353,7 +3653,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3625,7 +3925,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3763,7 +4063,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4127,7 +4427,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4304,7 +4604,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4441,7 +4741,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4497,7 +4797,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
@@ -4549,7 +4849,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -4748,7 +5048,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4925,7 +5225,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5283,7 +5583,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5952,7 +6252,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6496,7 +6796,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6887,7 +7187,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7024,7 +7324,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7544,6 +7844,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739930984}
   m_CullTransparentMesh: 1
+--- !u!1 &752425449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752425450}
+  - component: {fileID: 752425452}
+  - component: {fileID: 752425451}
+  - component: {fileID: 752425453}
+  m_Layer: 5
+  m_Name: mano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &752425450
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752425449}
+  m_LocalRotation: {x: -0, y: -0, z: -0.24665007, w: 0.9691046}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1231962805}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.559}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &752425451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752425449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9ca4d4467ea15504c933c43aac37323b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &752425452
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752425449}
+  m_CullTransparentMesh: 1
+--- !u!114 &752425453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752425449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec6e366319811a41ad660457355e78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlameAnimation
+  frames:
+  - {fileID: 21300000, guid: 9ca4d4467ea15504c933c43aac37323b, type: 3}
+  - {fileID: 21300000, guid: 06c83f3cb9e88834097860c278e71a71, type: 3}
+  fps: 6
 --- !u!1 &767912304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7562,7 +7954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &767912305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7652,7 +8044,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7799,6 +8191,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -8333,7 +8726,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -8651,10 +9044,10 @@ RectTransform:
   - {fileID: 1912163256}
   m_Father: {fileID: 1498149316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: -60, y: -130}
+  m_AnchoredPosition: {x: -5, y: -215}
+  m_SizeDelta: {x: -170, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882960844
 MonoBehaviour:
@@ -9064,7 +9457,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -9304,7 +9697,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 454.00006}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907288051
 MonoBehaviour:
@@ -9370,7 +9763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6915f77102053d84489b3964e7254190, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8965a281bde66f44881f2a93b940c2ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9496,7 +9889,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -9775,7 +10168,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -10849,7 +11242,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11203,7 +11596,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11347,8 +11740,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 410}
-  m_SizeDelta: {x: 0, y: 800}
+  m_AnchoredPosition: {x: 0, y: 700}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201227866
 MonoBehaviour:
@@ -11526,7 +11919,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11703,7 +12096,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11765,12 +12158,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1775362807}
+  - {fileID: 752425450}
   m_Father: {fileID: 787021621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231962806
 MonoBehaviour:
@@ -11829,14 +12223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5298ce0c5d2360743b43c51005fe101f, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12216,7 +12610,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -12655,7 +13049,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -12793,7 +13187,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -13067,7 +13461,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -13338,7 +13732,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -13616,6 +14010,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1348926004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348926005}
+  - component: {fileID: 1348926007}
+  - component: {fileID: 1348926006}
+  m_Layer: 5
+  m_Name: mano-s
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1348926005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348926004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1863500607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1348926006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348926004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1348926007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348926004}
+  m_CullTransparentMesh: 1
 --- !u!1 &1350936633
 GameObject:
   m_ObjectHideFlags: 0
@@ -13873,7 +14342,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -14265,7 +14734,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -14443,7 +14912,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -14549,10 +15018,10 @@ RectTransform:
   - {fileID: 1727936392}
   m_Father: {fileID: 1201227865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397360875
 MonoBehaviour:
@@ -14584,7 +15053,7 @@ MonoBehaviour:
     m_Right: 20
     m_Top: 20
     m_Bottom: 20
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 150, y: 150}
@@ -14736,7 +15205,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -15256,10 +15725,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1201227865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474033099
 MonoBehaviour:
@@ -15316,7 +15785,7 @@ MonoBehaviour:
     m_Right: 20
     m_Top: 20
     m_Bottom: 20
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 150, y: 150}
@@ -15609,7 +16078,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -559}
-  m_SizeDelta: {x: -100, y: 300}
+  m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498149317
 MonoBehaviour:
@@ -15631,8 +16100,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac763c84e8927e1408d9bfc664b4ad17, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 65de5fa8dbd9e7446a1e78d69e9baf0d, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15640,7 +16109,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &1498149318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15756,7 +16225,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -15997,9 +16466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at maximus
-    felis, et consequat sem. Aenean porta odio elit, ut eleifend purus aliquet quis.
-    Donec id urna blandit, mollis risus quis, laoreet dolor. '
+  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at maximus felis, et consequat sem. Aenean porta odio elit, ut eleifend purus aliquet quis. Donec id urna blandit, mollis risus quis, laoreet dolor. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc7f494bb7111fe4a890f2ce8e0c5896, type: 2}
   m_sharedMaterial: {fileID: 3498624229167216255, guid: dc7f494bb7111fe4a890f2ce8e0c5896, type: 2}
@@ -16049,7 +16516,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -16358,7 +16825,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -16465,6 +16932,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -17557,7 +18025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1775362807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17647,7 +18115,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -18186,7 +18654,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -18284,12 +18752,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 767912305}
+  - {fileID: 1348926005}
   m_Father: {fileID: 787021621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863500608
 MonoBehaviour:
@@ -18442,7 +18911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5298ce0c5d2360743b43c51005fe101f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06c83f3cb9e88834097860c278e71a71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18700,7 +19169,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -19764,7 +20233,7 @@ MonoBehaviour:
   glowMultiplicadorGrosor: 0
   usarAnimacion: 1
   velocidadPulso: 2
-  intensidadPulso: 0.3
+  amplitudMovimientoFlecha: 20
   mostrarDebug: 1
 --- !u!114 &1920031603
 MonoBehaviour:
@@ -19819,6 +20288,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 1
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -19845,16 +20335,10 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-  - texto:
-      m_TableReference:
-        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
-      m_TableEntryReference:
-        m_KeyId: 20794918809601
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    audio:
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
       m_TableReference:
         m_TableCollectionName: 
       m_TableEntryReference:
@@ -19862,15 +20346,16 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-    condicion: 14
-    parametro: 
-    delaySegundos: 3
-    soloDropCorrecto: 0
-    elementoAResaltar: {fileID: 0}
-    tipoResaltado: 0
-    direccionFlecha: 0
-    botonEsperado: {fileID: 0}
-    bloqueoFondo: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -19897,6 +20382,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -19923,6 +20429,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 10
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -19949,6 +20476,27 @@ MonoBehaviour:
     direccionFlecha: 2
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -19975,6 +20523,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20001,6 +20570,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20023,10 +20613,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 2070265773}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 2070265775}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20049,10 +20660,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 907288049}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 907288051}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20079,6 +20711,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20101,10 +20754,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1368369808}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20131,6 +20805,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20157,6 +20852,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20179,10 +20895,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 907288049}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 907288051}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20205,10 +20942,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1368369808}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20231,10 +20989,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 496359013}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 2
     botonEsperado: {fileID: 496359015}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20256,11 +21035,32 @@ MonoBehaviour:
     parametro: 
     delaySegundos: 0
     soloDropCorrecto: 0
-    elementoAResaltar: {fileID: 0}
-    tipoResaltado: 0
+    elementoAResaltar: {fileID: 1201227864}
+    tipoResaltado: 2
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20287,6 +21087,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 1
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20313,6 +21134,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20339,6 +21181,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20365,6 +21228,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20387,10 +21271,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1780003069}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 5029640401825792
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 10
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20417,6 +21322,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20443,6 +21369,27 @@ MonoBehaviour:
     direccionFlecha: 2
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20469,6 +21416,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20491,10 +21459,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1231962804}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 1231962806}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20517,10 +21506,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1368369808}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 1368369810}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: vela_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20547,6 +21557,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 0
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20573,6 +21604,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 1863500608}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20595,10 +21647,31 @@ MonoBehaviour:
     delaySegundos: 4
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 1669024230}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: calabaza_tutorial
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
+      m_TableEntryReference:
+        m_KeyId: 4997321460789248
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20625,6 +21698,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20647,10 +21741,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 905539755}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 1
     botonEsperado: {fileID: 905539757}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20677,6 +21792,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20699,10 +21835,31 @@ MonoBehaviour:
     delaySegundos: 0
     soloDropCorrecto: 0
     elementoAResaltar: {fileID: 905539755}
-    tipoResaltado: 0
+    tipoResaltado: 3
     direccionFlecha: 1
     botonEsperado: {fileID: 905539757}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   - texto:
       m_TableReference:
         m_TableCollectionName: GUID:1737e3108e61aaa4cabf336371eaa317
@@ -20729,6 +21886,27 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
+    modoInteraccion: 1
+    permitidosExtra: []
+    objetoARPermitido: 
+    textoAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioAyuda:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    segundosAyuda: 4
   panelTutorial: {fileID: 166562736}
   textoPaso: {fileID: 1535566806}
   botonSiguiente: {fileID: 807589480}
@@ -20738,9 +21916,27 @@ MonoBehaviour:
   graficoBloqueo: {fileID: 0}
   alphaBloqueoActivo: 0.73
   alphaBloqueoInactivo: 0
+  elementosGobernados:
+  - {fileID: 2070265775}
+  - {fileID: 907288051}
+  - {fileID: 1368369810}
+  - {fileID: 1669024232}
+  - {fileID: 496359015}
+  - {fileID: 1780003071}
+  - {fileID: 1231962806}
+  - {fileID: 1863500608}
+  - {fileID: 1863500608}
+  - {fileID: 905539757}
+  - {fileID: 1718465564}
+  intervaloReaplicarInteraccion: 0.25
   panelFinal: {fileID: 209921101}
   botonIrAlJuego: {fileID: 648658140}
   textoFinal: {fileID: 94803227}
+  textoBotonIrAlJuego: {fileID: 1395765083}
+  botonCancelarSalto: {fileID: 216929218}
+  claveMensajeConfirmarSalto: tutorial.confirmar_saltar
+  claveBotonConfirmarSalto: tutorial.saltar_si
+  claveBotonIrAlJuego: tutorial.ir_al_juego
   shakeBotonSiguiente: 1
   intervaloShakeSiguiente: 5
   duracionShakeSiguiente: 0.5
@@ -20953,7 +22149,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -21160,7 +22356,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -22312,7 +23508,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -22469,7 +23665,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -22888,7 +24084,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

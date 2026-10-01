@@ -327,7 +327,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: 8. Did you hear how it's said in {0}? If you want to hear it again, tap the button I'm pointing at.
+    m_Localized: 8. Did you hear how it's said in {0}? Every time you touch an object, you will hear its name.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -347,11 +347,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809611
-    m_Localized: 13. Go ahead and save the other object that appeared too.  Point your camera at the other card you found.
+    m_Localized: 13. Now put the pumpkin <sprite name="calabaza"> away too. Point your camera at the other card.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809612
-    m_Localized: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's one of my favorites.
+    m_Localized: 14. Hey, I see you found the pumpkin! <sprite name="calabaza"> It's one of my favorites, now tap it.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809613
@@ -375,11 +375,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809618
-    m_Localized: 20. Drag the candle <sprite name="vela"> to the spot where it belongs. If you don't remember how to say "candle <sprite name="vela">" tap the green button next to it to hear it again.
+    m_Localized: Drag the candle <sprite name="vela"> and the pumpkin <sprite name="calabaza"> where you think they belong in the mission.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809619
-    m_Localized: 21. That's how it's done!
+    m_Localized: 21. Drag the following object
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809620
@@ -399,7 +399,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809624
-    m_Localized: 26. Now scan the candle's <sprite name="vela"> card with your camera. Do you remember which one it is?
+    m_Localized: Now point your camera at the candle card <sprite name="vela"> and tap it. Do you remember which one it is?
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809625
@@ -411,7 +411,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809627
-    m_Localized: 28. The candle <sprite name="vela"> is with you now! Head over to the pumpkin's <sprite name="calabaza"> card and point at it.
+    m_Localized: 28. The candle <sprite name="vela"> is with you now! Go to the pumpkin card <sprite name="calabaza">, point your camera at it and tap it.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809628
@@ -548,6 +548,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3893288151003136
     m_Localized: Change languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3893839580344320
+    m_Localized: Are you sure you want to skip the tutorial?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990445494972416
+    m_Localized: Yes, skip tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990767948869632
+    m_Localized: Let's play!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4993154256187392
+    m_Localized: Continue with the tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4997321460789248
+    m_Localized: Scan the other card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5029640401825792
+    m_Localized: 23-a. Check the message about the mission; something isn't where it should be. Swap the positions of the candle <sprite name="vela"> and the pumpkin <sprite name="calabaza">, then press the button I'm pointing out again.
     m_Metadata:
       m_Items: []
   references:

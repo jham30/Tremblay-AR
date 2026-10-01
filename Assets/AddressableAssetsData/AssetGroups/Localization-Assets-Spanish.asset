@@ -87,6 +87,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-es
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae131139e0246de438b7dc68c869ac1e
+    m_Address: es-story-00-intro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3cfd50ccf6f2ea4185bc5ec42f70320
     m_Address: pala
     m_ReadOnly: 1
@@ -131,6 +137,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e22ad3e369b087744aa9810413b6ec6f
     m_Address: libro
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea8820ab3bc513e468371f551954732d
+    m_Address: es-story-00
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es

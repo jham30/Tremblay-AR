@@ -142,6 +142,10 @@ MonoBehaviour:
     m_Localized: "[Enfant]\nMittens ?...\nAlors tu es toujours dans le coin, hein ?\nNe crois pas que j'ai oubli\xE9 toutes les frayeurs que tu m'as faites, petite boule de poils... j'ai failli avoir une crise cardiaque.\nBon, bon... la paix entre nous.\nJe t'apporterai \xE0 manger tous les jours, march\xE9 conclu ?\nMais promets-moi de ne pas me trahir la prochaine fois qu'il y aura une sorci\xE8re dans les parages.\nMarch\xE9 conclu, Mittens."
     m_Metadata:
       m_Items: []
+  - m_Id: 327706793193472
+    m_Localized: Oooooooooooooooooooo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

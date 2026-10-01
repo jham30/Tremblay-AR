@@ -41,8 +41,12 @@ public class TutorialHighlighter : MonoBehaviour
     
     [Header("✨ Efectos")]
     [SerializeField] private bool usarAnimacion = true;
+    [Tooltip("Velocidad del vaivén de la flecha y del latido del marco.")]
     [SerializeField] private float velocidadPulso = 2f;
-    [SerializeField] private float intensidadPulso = 0.3f;
+    [Tooltip("La flecha se mueve de LADO A LADO (o arriba-abajo, según su dirección) en vez de " +
+             "crecer y encoger: así el dedo sigue el movimiento hasta el botón en vez de quedarse " +
+             "en la flecha. Píxeles de recorrido a cada lado de su posición de reposo.")]
+    [SerializeField] private float amplitudMovimientoFlecha = 20f;
     
     [Header("🔧 Debug")]
     [SerializeField] private bool mostrarDebug = true;
@@ -58,7 +62,11 @@ public class TutorialHighlighter : MonoBehaviour
     
     // Para animaciones
     private float tiempoAnimacion = 0f;
-    private Vector3 escalaOriginalFlecha;
+    private RectTransform rectFlechaActual;
+    private Vector2 posBaseFlecha;
+    private float grosorBordeActual;
+    // Reutilizado: CalcularRectEnCanvas ahora corre cada frame (el resaltado sigue al elemento).
+    private readonly Vector3[] esquinas = new Vector3[4];
     private Color colorOriginalBorde;
     
     private bool resaltadoActivo = false;
@@ -81,11 +89,37 @@ public class TutorialHighlighter : MonoBehaviour
 
     void Update()
     {
-        // Animaciones si están activas
-        if (resaltadoActivo && usarAnimacion)
+        if (!resaltadoActivo) return;
+
+        // El resaltado NO es hijo del elemento (cuelga del Canvas para poder ir al frente), así
+        // que hay que reposicionarlo cada frame o se queda donde estaba el elemento al crearlo.
+        // Pasa con todo lo que se mueve: paneles que se deslizan (el inventario no se desactiva
+        // al cerrarse, se va fuera de pantalla) y listas que cambian de tamaño al llenarse.
+        SeguirAlElemento();
+
+        if (usarAnimacion) ActualizarAnimaciones();
+    }
+
+    /// <summary>
+    /// Recoloca marco y flecha sobre la posición ACTUAL del elemento.
+    /// </summary>
+    private void SeguirAlElemento()
+    {
+        if (rectElemento == null || canvasUI == null) return;
+
+        if (bordeObjeto != null)
         {
-            ActualizarAnimaciones();
+            var rectBorde = bordeObjeto.transform as RectTransform;
+            if (rectBorde != null && CalcularRectEnCanvas(out Vector2 centro, out Vector2 tamano))
+            {
+                rectBorde.anchoredPosition = centro;
+                rectBorde.sizeDelta = tamano + Vector2.one * grosorBordeActual * 2f;
+            }
         }
+
+        // PosicionarFlecha actualiza 'posBaseFlecha'; la oscilación se suma después en
+        // ActualizarAnimaciones, así que el vaivén sigue saliendo del sitio correcto.
+        if (rectFlechaActual != null) PosicionarFlecha(rectFlechaActual);
     }
 
     /// <summary>
@@ -144,6 +178,8 @@ public class TutorialHighlighter : MonoBehaviour
         // Ocultar cualquier resaltado previo
         OcultarResaltado();
         
+        // Los tipos combinados marcan el botón con el mismo marco que se usa en paneles (así el
+        // jugador ve QUÉ hay que tocar, no solo dónde apunta la flecha) y además ponen la flecha.
         switch (tipoResaltado)
         {
             case TipoResaltado.Flecha:
@@ -154,6 +190,14 @@ public class TutorialHighlighter : MonoBehaviour
                 break;
             case TipoResaltado.Glow:
                 CrearGlow();
+                break;
+            case TipoResaltado.FlechaYBorde:
+                CrearBorde(grosorBorde);
+                CrearFlecha();
+                break;
+            case TipoResaltado.FlechaYGlow:
+                CrearGlow();
+                CrearFlecha();
                 break;
         }
         
@@ -175,6 +219,7 @@ public class TutorialHighlighter : MonoBehaviour
             Destroy(flechaObjeto);
             flechaObjeto = null;
             imagenFlecha = null;
+            rectFlechaActual = null;
         }
 
         if (bordeObjeto != null)
@@ -232,12 +277,10 @@ public class TutorialHighlighter : MonoBehaviour
                 Debug.Log("[TutorialHighlighter] ⚠️ No hay sprite de flecha asignado, usando color sólido");
         }
         
-        // Posicionar la flecha
+        // Posicionar la flecha (PosicionarFlecha guarda la posición de reposo para el vaivén)
+        rectFlechaActual = rectFlecha;
         PosicionarFlecha(rectFlecha);
-        
-        // Guardar escala original para animación
-        escalaOriginalFlecha = rectFlecha.localScale;
-        
+
         // Asegurar que aparezca al frente
         flechaObjeto.transform.SetAsLastSibling();
         
@@ -254,6 +297,10 @@ public class TutorialHighlighter : MonoBehaviour
     /// </summary>
     private void CrearBorde(float grosor)
     {
+        // El Glow usa un grosor mayor; se guarda para que SeguirAlElemento recalcule el marco
+        // con el MISMO grosor con el que se creó.
+        grosorBordeActual = grosor;
+
         if (rectElemento == null || canvasUI == null)
         {
             Debug.LogError("[TutorialHighlighter] No se puede crear borde - falta rectElemento o canvasUI");
@@ -353,6 +400,10 @@ public class TutorialHighlighter : MonoBehaviour
             Debug.Log($"[TutorialHighlighter] ✨ Glow creado en Canvas: {canvasUI.name}");
     }
 
+    /// <summary>¿Este tipo de resaltado incluye flecha?</summary>
+    private static bool TipoLlevaFlecha(TipoResaltado t) =>
+        t == TipoResaltado.Flecha || t == TipoResaltado.FlechaYBorde || t == TipoResaltado.FlechaYGlow;
+
     /// <summary>
     /// Obtener sprite de flecha según dirección
     /// </summary>
@@ -387,7 +438,6 @@ public class TutorialHighlighter : MonoBehaviour
         Camera cam = canvasUI.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvasUI.worldCamera;
 
         // Esquinas del elemento en mundo → pantalla → local del canvas
-        Vector3[] esquinas = new Vector3[4];
         rectElemento.GetWorldCorners(esquinas);
 
         Vector2 pantallaMin = RectTransformUtility.WorldToScreenPoint(cam, esquinas[0]); // inferior-izq
@@ -422,27 +472,39 @@ public class TutorialHighlighter : MonoBehaviour
         }
 
         rectFlecha.anchoredPosition = centro + offset;
+        posBaseFlecha = rectFlecha.anchoredPosition;
 
         if (mostrarDebug)
             Debug.Log($"[TutorialHighlighter] 📍 Flecha en {rectFlecha.anchoredPosition} (centro elemento: {centro}, dir: {direccionFlecha})");
     }
 
     /// <summary>
-    /// Actualizar animaciones de pulso
+    /// Anima el resaltado: la flecha va y viene SOBRE SU EJE (la que apunta a la izquierda se
+    /// mueve en horizontal, la que apunta arriba en vertical) y el marco late en alpha.
+    ///
+    /// El vaivén sustituyó al pulso de escala a propósito: con el pulso, lo único que se movía en
+    /// pantalla era la flecha, así que el dedo iba a la flecha y no al botón (y la flecha no es
+    /// pulsable, ni lo será: no existe en el juego). Moviéndose hacia el botón, la flecha señala
+    /// un destino en vez de pedir atención para sí misma.
     /// </summary>
     private void ActualizarAnimaciones()
     {
         if (!usarAnimacion) return;
-        
+
         tiempoAnimacion += Time.deltaTime * velocidadPulso;
-        float factorPulso = 1f + Mathf.Sin(tiempoAnimacion) * intensidadPulso;
-        
-        // Animar flecha
-        if (flechaObjeto != null && imagenFlecha != null)
+
+        // Animar flecha: vaivén sobre el eje al que apunta
+        if (rectFlechaActual != null)
         {
-            flechaObjeto.transform.localScale = escalaOriginalFlecha * factorPulso;
+            float recorrido = Mathf.Sin(tiempoAnimacion) * amplitudMovimientoFlecha;
+            bool ejeHorizontal = direccionFlecha == DireccionFlecha.Izquierda ||
+                                 direccionFlecha == DireccionFlecha.Derecha;
+
+            rectFlechaActual.anchoredPosition = posBaseFlecha + (ejeHorizontal
+                ? new Vector2(recorrido, 0f)
+                : new Vector2(0f, recorrido));
         }
-        
+
         // Animar borde (todas las barras del marco a la vez)
         if (bordeObjeto != null && bordeAnimado && imagenesBorde.Count > 0)
         {
@@ -481,7 +543,7 @@ public class TutorialHighlighter : MonoBehaviour
     {
         direccionFlecha = nuevaDireccion;
         
-        if (resaltadoActivo && tipoResaltado == TipoResaltado.Flecha)
+        if (resaltadoActivo && TipoLlevaFlecha(tipoResaltado))
         {
             MostrarResaltado(); // Recrear con nueva dirección
         }
@@ -574,11 +636,15 @@ public class TutorialHighlighter : MonoBehaviour
 /// Tipos de resaltado disponibles
 /// </summary>
 [System.Serializable]
+// OJO: los valores se guardan en las escenas como números, así que los nuevos van AL FINAL.
+// Cambiar el orden reasignaría el resaltado de los 36 pasos ya configurados.
 public enum TipoResaltado
 {
-    Flecha,     // Sprite apuntando (para botones)
-    Borde,      // Marco alrededor (para paneles)
-    Glow        // Brillo suave (para elementos especiales)
+    Flecha,         // Sprite apuntando (para botones)
+    Borde,          // Marco alrededor (para paneles)
+    Glow,           // Brillo suave (para elementos especiales)
+    FlechaYBorde,   // Flecha + marco sobre el propio botón (se ve QUÉ tocar, no solo dónde apunta)
+    FlechaYGlow     // Flecha + glow sobre el propio botón
 }
 
 /// <summary>

@@ -4629,6 +4629,7 @@ MonoBehaviour:
   estadoAdelante: PasarHoja
   estadoAtras: RegresarHoja
   indiceMaterial: 0
+  materialHoja: {fileID: 2100000, guid: dc943681ab5b6744e9c0526bc4696230, type: 2}
   botonSeleccionar: {fileID: 1545058918}
   nombreEscenaTutorial: halloween-tuto1
   velocidadAnimacion: 1

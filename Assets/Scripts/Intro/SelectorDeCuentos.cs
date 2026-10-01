@@ -24,6 +24,8 @@ public class SelectorDeCuentos : MonoBehaviour
     [SerializeField] private string estadoAdelante = "PasarHoja";
     [SerializeField] private string estadoAtras = "RegresarHoja";
     [SerializeField] private int indiceMaterial = 0;
+    [Tooltip("Material compartido para las hojas (p. ej. smoothness 0). Si está vacío se usa el del FBX.")]
+    [SerializeField] private Material materialHoja;
 
     [Header("🔘 Selección")]
     [SerializeField] private Button botonSeleccionar;
@@ -68,8 +70,24 @@ public class SelectorDeCuentos : MonoBehaviour
         hoja.transform.localRotation = Quaternion.identity;
 
         Renderer rend = hoja.GetComponentInChildren<Renderer>();
-        if (rend != null && cuento.textura != null)
-            rend.materials[indiceMaterial].mainTexture = cuento.textura;
+        if (rend != null && indiceMaterial < rend.sharedMaterials.Length)
+        {
+            if (materialHoja != null)
+            {
+                Material[] mats = rend.sharedMaterials;
+                mats[indiceMaterial] = materialHoja;
+                rend.sharedMaterials = mats;
+            }
+
+            // La textura va por PropertyBlock: no se crean copias del material
+            if (cuento.textura != null)
+            {
+                MaterialPropertyBlock bloque = new MaterialPropertyBlock();
+                bloque.SetTexture("_BaseMap", cuento.textura);
+                bloque.SetTexture("_MainTex", cuento.textura);
+                rend.SetPropertyBlock(bloque, indiceMaterial);
+            }
+        }
 
         Animator anim = hoja.GetComponentInChildren<Animator>();
         if (anim != null)

@@ -103,6 +103,43 @@ public class TutorialStep
              "NoBloquear = deja pasar siempre los toques (también en pasos narrativos: el botón " +
              "'Siguiente' sigue siendo pulsable).")]
     public BloqueoFondo bloqueoFondo = BloqueoFondo.Automatico;
+
+    [Header("— Qué se puede tocar en este paso —")]
+    [Tooltip("Todo = como siempre, el jugador puede pulsar cualquier botón.\n" +
+             "SoloElResaltado = de la lista 'Elementos Gobernados' del TutorialController solo queda " +
+             "pulsable el botón de este paso (más los de 'Permitidos Extra'); el resto sale " +
+             "en gris. Evita que se vaya al inventario o al listado de misiones y se pierda.")]
+    public ModoInteraccion modoInteraccion = ModoInteraccion.Todo;
+    [Tooltip("Sólo con SoloElResaltado. Botones que ADEMÁS siguen pulsables en este paso " +
+             "(ej. el de repetir audio junto al de guardar).")]
+    public Selectable[] permitidosExtra;
+    [Tooltip("ID del único objeto AR que responde al toque en este paso (ej. 'vela_tutorial'). " +
+             "Vacío = todos. Sirve cuando en la lámina hay varios objetos y el paso pide uno " +
+             "concreto: al tocar otro no se abre su panel y se muestra el texto de ayuda.")]
+    public string objetoARPermitido;
+
+    [Header("— Ayuda cuando se equivoca —")]
+    [Tooltip("Texto que se muestra si el jugador hace la acción con el objeto/socket equivocado, " +
+             "o si falla la comprobación de la misión. Vacío = no se muestra nada (como antes).\n" +
+             "El paso NO avanza: solo se le dice qué pasó y vuelve el texto original.")]
+    public LocalizedString textoAyuda;
+    [Tooltip("Narración opcional de la ayuda.")]
+    public LocalizedAudioClip audioAyuda;
+    [Tooltip("Segundos que se ve el texto de ayuda antes de volver al texto del paso.")]
+    public float segundosAyuda = 4f;
+}
+
+/// <summary>
+/// Qué puede tocar el jugador durante un paso. Nació porque 'bloqueoFondo' solo sabe todo o nada:
+/// hacía falta el punto medio ("solo esto está vivo"), que es lo que evita que el niño se salga
+/// del carril pulsando el inventario o el listado de misiones.
+/// </summary>
+public enum ModoInteraccion
+{
+    /// <summary>Como hasta ahora: cualquier botón de la pantalla es pulsable.</summary>
+    Todo,
+    /// <summary>Solo el botón de este paso (y los 'Permitidos Extra'); el resto en gris.</summary>
+    SoloElResaltado
 }
 
 /// <summary>
@@ -138,6 +175,17 @@ public class TutorialController : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float alphaBloqueoInactivo = 0f;
 
+    [Header("Interacción gobernada por el tutorial")]
+    [Tooltip("Los botones que el tutorial puede apagar y encender: el de inventario, el de " +
+             "misiones, ajustes, guardar, cerrar, nombre, color, agarrar, comprobar…\n" +
+             "Se declara UNA vez aquí; cada paso con 'SoloElResaltado' apaga todos menos el suyo. " +
+             "Lo que no esté en esta lista, el tutorial no lo toca nunca.")]
+    [SerializeField] private Selectable[] elementosGobernados;
+    [Tooltip("Cada cuántos segundos se vuelve a aplicar la política de este paso. Hace falta " +
+             "porque los botones del panel de ObjectInfo se reconstruyen al tocar un objeto " +
+             "(ConfigurarBotonesDinamicos) y se llevarían por delante el estado que puso el paso.")]
+    [SerializeField] private float intervaloReaplicarInteraccion = 0.25f;
+
     [Header("Pantalla Final")]
     [Tooltip("Panel que se muestra al terminar el tutorial (opcional). Si no está asignado se reutiliza el panel principal.")]
     [SerializeField] private GameObject panelFinal;
@@ -145,6 +193,21 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private Button botonIrAlJuego;
     [Tooltip("Texto del mensaje de cierre (opcional).")]
     [SerializeField] private TextMeshProUGUI textoFinal;
+    [Tooltip("Etiqueta del botón que lleva al juego (opcional). Se usa para cambiarle el texto " +
+             "cuando el panel final se reutiliza como confirmación de '¿saltar el tutorial?'.")]
+    [SerializeField] private TextMeshProUGUI textoBotonIrAlJuego;
+
+    [Header("Confirmación al saltar")]
+    [Tooltip("Botón 'seguir con el tutorial' que cancela el salto. Vive en el panel final, que se " +
+             "reutiliza como ventana de confirmación. Si se deja vacío, SALTAR NO PIDE " +
+             "CONFIRMACIÓN (se va al juego directo).")]
+    [SerializeField] private Button botonCancelarSalto;
+    [Tooltip("Clave de la tabla UI con la pregunta de confirmación (ej. 'tutorial.confirmar_saltar').")]
+    [SerializeField] private string claveMensajeConfirmarSalto = "tutorial.confirmar_saltar";
+    [Tooltip("Clave de la tabla UI para la etiqueta del botón que confirma el salto.")]
+    [SerializeField] private string claveBotonConfirmarSalto = "tutorial.saltar_si";
+    [Tooltip("Clave de la tabla UI para la etiqueta normal del botón que lleva al juego.")]
+    [SerializeField] private string claveBotonIrAlJuego = "tutorial.ir_al_juego";
 
     [Header("Recordatorio del botón Siguiente")]
     [Tooltip("Sacude el botón 'Siguiente' de vez en cuando para llamar la atención del jugador " +
@@ -193,6 +256,10 @@ public class TutorialController : MonoBehaviour
     private Vector2 posBaseBotonSiguiente;
     private AudioClip clipPasoActual;
     private Coroutine repetirAudioCoroutine;
+    private Coroutine interaccionCoroutine;
+    private Coroutine filtroARCoroutine;
+    private Coroutine ayudaCoroutine;
+    private bool confirmandoSalto;
 
     void Start()
     {
@@ -205,6 +272,7 @@ public class TutorialController : MonoBehaviour
         DropSocketAvanzado.OnObjetoSoltadoEnSocket += HandleObjetoSoltadoEnSocket;
         ObjectInfoGrabDropController.OnObjetoAgarrado += HandleObjetoAgarrado;
         ObjectInfoGrabDropController.OnObjetoColocado += HandleObjetoColocado;
+        InputRouter.OnObjetoBloqueado += HandleObjetoBloqueado;
         // Los managers son singletons por escena: reintentar por si aún no se registraron.
         StartCoroutine(SuscribirConReintentos());
 
@@ -230,6 +298,9 @@ public class TutorialController : MonoBehaviour
             botonRepetirAudio.onClick.AddListener(RepetirAudioPaso);
             botonRepetirAudio.gameObject.SetActive(false);
         }
+
+        if (botonCancelarSalto != null)
+            botonCancelarSalto.gameObject.SetActive(false);
 
         if (botonSaltarTutorial != null)
         {
@@ -309,6 +380,14 @@ public class TutorialController : MonoBehaviour
         DesuscribirEventos();
         DesengancharBotonDelPaso();
         DetenerRecordatorioSiguiente();
+
+        // El filtro de InputRouter es ESTÁTICO: si el tutorial muere sin limpiarlo (cambio de
+        // escena a media ejecución, Stop en el editor), el juego se quedaría sin poder tocar
+        // más que el objeto del último paso.
+        InputRouter.FiltroObjetoPermitido = null;
+
+        var inv = InventarioToggleController.Instance;
+        if (inv != null) inv.BloquearSwipe(false);
     }
 
     // -----------------------------
@@ -341,6 +420,7 @@ public class TutorialController : MonoBehaviour
         {
             MissionManager.Instance.OnMisionDescifrada += HandleMisionDescifrada;
             MissionManager.Instance.OnMisionCompletada += HandleMisionCompletada;
+            MissionManager.Instance.OnMisionFallida    += HandleMisionFallida;
             suscritoMisiones = true;
         }
     }
@@ -383,13 +463,42 @@ public class TutorialController : MonoBehaviour
         {
             MissionManager.Instance.OnMisionDescifrada -= HandleMisionDescifrada;
             MissionManager.Instance.OnMisionCompletada -= HandleMisionCompletada;
+            MissionManager.Instance.OnMisionFallida    -= HandleMisionFallida;
         }
         suscritoMisiones = false;
 
         VuforiaTargetTracker.OnTargetFound -= HandleTargetFound;
+        InputRouter.OnObjetoBloqueado -= HandleObjetoBloqueado;
         DropSocketAvanzado.OnObjetoSoltadoEnSocket -= HandleObjetoSoltadoEnSocket;
         ObjectInfoGrabDropController.OnObjetoAgarrado -= HandleObjetoAgarrado;
         ObjectInfoGrabDropController.OnObjetoColocado -= HandleObjetoColocado;
+    }
+
+    /// <summary>
+    /// El jugador tocó un objeto AR que el paso no permitía (el filtro lo rechazó, así que su
+    /// panel NI se abrió). Antes esto no existía: el toque no hacía nada y el niño no sabía
+    /// si se había equivocado o si el juego estaba roto.
+    /// </summary>
+    private void HandleObjetoBloqueado(string id)
+    {
+        if (debug) Debug.Log($"[Tutorial] 🚫 Paso {pasoActual}: tocó '{id}', que este paso no permite");
+        MostrarAyudaDelPaso($"objeto '{id}' no permitido");
+    }
+
+    /// <summary>
+    /// Falló la comprobación de la misión (hay objetos mal colocados, incorrectos o vacíos).
+    /// Solo se responde si el paso esperaba que la misión saliera bien: es el gancho de
+    /// "enseñar a fallar" — el niño ve el error, y la ayuda le dice que lea el resultado.
+    /// </summary>
+    private void HandleMisionFallida()
+    {
+        if (pasoActual < 0 || pasoActual >= pasos.Count) return;
+
+        var c = pasos[pasoActual].condicion;
+        if (c != CondicionAvance.MisionDescifrada && c != CondicionAvance.MisionCompletada) return;
+
+        if (debug) Debug.Log($"[Tutorial] ❌ Paso {pasoActual}: comprobación de misión fallida");
+        MostrarAyudaDelPaso("comprobación de misión fallida");
     }
 
     private void HandleObjetoTocado(string id)   => TryAvanzar(CondicionAvance.ObjetoTocado, id);
@@ -417,6 +526,7 @@ public class TutorialController : MonoBehaviour
                 if (debug)
                     Debug.Log($"[Tutorial] Paso {pasoActual}: soltó '{objetoID}' en un socket que esperaba " +
                               $"'{idCorrectoSocket}'. El paso exige acierto (soloDropCorrecto) → NO avanza.");
+                MostrarAyudaDelPaso($"'{objetoID}' soltado donde iba '{idCorrectoSocket}'");
                 return;
             }
         }
@@ -516,6 +626,10 @@ public class TutorialController : MonoBehaviour
     // -----------------------------
     private void TryAvanzar(CondicionAvance cond, string parametro = null)
     {
+        // Mientras se pregunta "¿seguro que quieres saltar?", el tutorial de atrás no avanza:
+        // si no, el paso podía cambiar bajo la ventana de confirmación.
+        if (confirmandoSalto) return;
+
         if (pasoActual < 0 || pasoActual >= pasos.Count) return;
         var p = pasos[pasoActual];
         if (p.condicion != cond) return;
@@ -526,6 +640,9 @@ public class TutorialController : MonoBehaviour
                 Debug.LogWarning($"[Tutorial] ⚠️ Paso {pasoActual}: llegó '{cond}' con id '{parametro}', " +
                                  $"pero el paso espera el parámetro '{p.parametro}' → NO avanza. " +
                                  $"(Deja 'parametro' vacío para aceptar cualquiera.)");
+
+            // Hizo la acción correcta con el objeto equivocado: es justo el momento de ayudar.
+            MostrarAyudaDelPaso($"{cond} con '{parametro}' en vez de '{p.parametro}'");
             return;
         }
 
@@ -538,12 +655,21 @@ public class TutorialController : MonoBehaviour
         if (resaltadoCoroutine != null) { StopCoroutine(resaltadoCoroutine); resaltadoCoroutine = null; }
         if (highlighter != null) highlighter.OcultarResaltado();
         if (delayCoroutine != null) { StopCoroutine(delayCoroutine); delayCoroutine = null; }
+        if (interaccionCoroutine != null) { StopCoroutine(interaccionCoroutine); interaccionCoroutine = null; }
+        if (filtroARCoroutine != null) { StopCoroutine(filtroARCoroutine); filtroARCoroutine = null; }
+        if (ayudaCoroutine != null) { StopCoroutine(ayudaCoroutine); ayudaCoroutine = null; }
         DesengancharBotonDelPaso();
 
         pasoActual = indice;
         if (pasoActual >= pasos.Count) { Completar(); return; }
 
         var p = pasos[pasoActual];
+
+        // Qué puede tocar el jugador en este paso (UI y objetos AR).
+        AplicarInteraccion(p);
+        if (p.modoInteraccion != ModoInteraccion.Todo)
+            interaccionCoroutine = StartCoroutine(ReaplicarInteraccion(p));
+        AplicarFiltroAR(p);
 
         if (textoPaso != null)
             textoPaso.text = TextoDelPaso(p);
@@ -748,6 +874,215 @@ public class TutorialController : MonoBehaviour
         MostrarPaso(pasoActual + 1);
     }
 
+    // -----------------------------
+    // Ayuda cuando el jugador se equivoca
+    // -----------------------------
+
+    /// <summary>
+    /// Muestra el texto de ayuda del paso actual (si tiene) y vuelve al texto del paso pasados
+    /// 'segundosAyuda'. NO avanza ni retrocede: el paso sigue esperando su condición.
+    /// Si el paso no tiene ayuda configurada, no hace nada (comportamiento de antes).
+    /// </summary>
+    private void MostrarAyudaDelPaso(string motivoDebug)
+    {
+        if (pasoActual < 0 || pasoActual >= pasos.Count) return;
+
+        var p = pasos[pasoActual];
+        string ayuda = TextoAyudaDelPaso(p);
+        if (string.IsNullOrEmpty(ayuda))
+        {
+            if (debug)
+                Debug.Log($"[Tutorial] 🤔 Paso {pasoActual}: {motivoDebug}, pero el paso no tiene " +
+                          $"'Texto Ayuda' → el jugador no recibe ninguna pista.");
+            return;
+        }
+
+        if (debug) Debug.Log($"[Tutorial] 💡 Paso {pasoActual}: ayuda mostrada ({motivoDebug})");
+
+        if (ayudaCoroutine != null) { StopCoroutine(ayudaCoroutine); ayudaCoroutine = null; }
+
+        if (textoPaso != null) textoPaso.text = ayuda;
+
+        AudioClip clipAyuda = AudioAyudaDelPaso(p);
+        if (clipAyuda != null && GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoSFX(clipAyuda, 1f);
+
+        ayudaCoroutine = StartCoroutine(VolverAlTextoDelPaso(p));
+    }
+
+    private IEnumerator VolverAlTextoDelPaso(TutorialStep p)
+    {
+        yield return new WaitForSecondsRealtime(Mathf.Max(0.5f, p.segundosAyuda));
+
+        // Guarda: si el paso cambió mientras se veía la ayuda, no pisar el texto del paso nuevo.
+        if (pasoActual >= 0 && pasoActual < pasos.Count && pasos[pasoActual] == p && textoPaso != null)
+            textoPaso.text = TextoDelPaso(p);
+
+        ayudaCoroutine = null;
+    }
+
+    // -----------------------------
+    // Qué se puede tocar en el paso
+    // -----------------------------
+
+    /// <summary>
+    /// Aplica la política de interacción del paso: con 'SoloElResaltado' deja pulsable únicamente
+    /// el botón del paso (más los 'permitidosExtra') y pone en gris el resto de la lista
+    /// gobernada. Se reaplica en bucle porque los botones del panel de ObjectInfo se
+    /// reconstruyen cuando el jugador toca un objeto y perderían este estado.
+    /// </summary>
+    private void AplicarInteraccion(TutorialStep p)
+    {
+        if (elementosGobernados == null || elementosGobernados.Length == 0) return;
+
+        if (p.modoInteraccion == ModoInteraccion.Todo)
+        {
+            RestaurarInteraccion();
+            return;
+        }
+
+        Selectable objetivo = SelectableDelPaso(p);
+
+        foreach (var s in elementosGobernados)
+        {
+            if (s == null) continue;
+            s.interactable = EsPermitido(s, objetivo, p.permitidosExtra);
+        }
+
+        // El inventario no solo se abre con su botón: también deslizando, y ese gesto vive en el
+        // Update de InventarioToggleController, así que el 'interactable' del botón no lo toca.
+        // Se cierra la misma puerta para los dos.
+        var inv = InventarioToggleController.Instance;
+        if (inv != null)
+        {
+            bool inventarioPermitido = inv.BotonToggle != null &&
+                                       EsPermitido(inv.BotonToggle, objetivo, p.permitidosExtra);
+            inv.BloquearSwipe(!inventarioPermitido);
+        }
+    }
+
+    private static bool EsPermitido(Selectable s, Selectable objetivo, Selectable[] extras)
+    {
+        if (objetivo != null && s == objetivo) return true;
+
+        if (extras != null)
+        {
+            foreach (var e in extras)
+                if (e != null && e == s) return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// El elemento que este paso quiere dejar pulsable: el botón esperado, o el Button/Selectable
+    /// del elemento resaltado (así basta con arrastrar el botón una vez, igual que en BotonPulsado).
+    /// </summary>
+    private static Selectable SelectableDelPaso(TutorialStep p)
+    {
+        if (p.botonEsperado != null) return p.botonEsperado;
+        if (p.elementoAResaltar != null) return p.elementoAResaltar.GetComponent<Selectable>();
+        return null;
+    }
+
+    private void RestaurarInteraccion()
+    {
+        // El gesto del inventario se devuelve SIEMPRE, haya o no lista gobernada: si el tutorial
+        // acaba (o se salta) con el swipe bloqueado, el jugador se queda sin poder deslizar el
+        // inventario en todo el juego.
+        var inv = InventarioToggleController.Instance;
+        if (inv != null) inv.BloquearSwipe(false);
+
+        if (elementosGobernados == null) return;
+
+        foreach (var s in elementosGobernados)
+            if (s != null) s.interactable = true;
+    }
+
+    private IEnumerator ReaplicarInteraccion(TutorialStep p)
+    {
+        float espera = Mathf.Max(0.05f, intervaloReaplicarInteraccion);
+
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(espera);
+            AplicarInteraccion(p);
+        }
+    }
+
+    /// <summary>
+    /// Instala (o quita) el filtro de objeto AR del paso. El filtro es estático en InputRouter,
+    /// así que hay que limpiarlo SIEMPRE al salir del paso o del tutorial: si no, el juego se
+    /// quedaría sin poder tocar más que un objeto.
+    /// </summary>
+    private void AplicarFiltroAR(TutorialStep p)
+    {
+        if (p != null && !string.IsNullOrEmpty(p.objetoARPermitido))
+        {
+            string permitido = p.objetoARPermitido;
+            InputRouter.FiltroObjetoPermitido = id => id == permitido;
+            filtroARCoroutine = StartCoroutine(VigilarPanelNoPermitido(permitido));
+
+            if (debug) Debug.Log($"[Tutorial] 🎯 Paso {pasoActual}: solo '{permitido}' responde al toque en AR");
+        }
+        else
+        {
+            InputRouter.FiltroObjetoPermitido = null;
+        }
+    }
+
+    /// <summary>
+    /// Cierra el panel de info si está mostrando un objeto que este paso no permite.
+    /// Hace falta ADEMÁS del filtro porque el canvas de ObjectInfoUIManager es ESTÁTICO: no
+    /// cuelga del objeto AR, así que no se cierra al perder el target. Si el jugador abrió el
+    /// panel de la calabaza en un paso anterior (donde aún no había filtro), seguía en pantalla
+    /// al llegar aquí y parecía que el filtro no funcionaba.
+    /// </summary>
+    private IEnumerator VigilarPanelNoPermitido(string permitido)
+    {
+        var espera = new WaitForSecondsRealtime(0.2f);
+
+        // Un frame de margen: MostrarPaso escribe el texto del paso DESPUÉS de arrancar esta
+        // corrutina, y si la ayuda saliera antes se la llevaría por delante.
+        yield return null;
+
+        while (true)
+        {
+            var ui = ObjectInfoUIManager.Instance;
+            if (ui != null && ui.TieneCanvasActivo() &&
+                !string.IsNullOrEmpty(ui.ObjetoActualID) && ui.ObjetoActualID != permitido)
+            {
+                if (debug)
+                    Debug.Log($"[Tutorial] 🚪 Paso {pasoActual}: cerrando el panel de " +
+                              $"'{ui.ObjetoActualID}', que este paso no permite (espera '{permitido}')");
+
+                string sobra = ui.ObjetoActualID;
+                ui.CerrarCanvas();
+                MostrarAyudaDelPaso($"panel de '{sobra}' abierto y no permitido");
+            }
+
+            yield return espera;
+        }
+    }
+
+    /// <summary>
+    /// ¿El elemento está REALMENTE a la vista? No basta con activeInHierarchy: los paneles que
+    /// se abren deslizándose (inventario, misiones, ajustes) nunca se desactivan — se quedan
+    /// activos con el CanvasGroup a alpha 0 y fuera de pantalla. Si el resaltado se creara ahí,
+    /// se dibujaría sobre un panel invisible.
+    /// </summary>
+    private static bool ElementoVisible(GameObject go)
+    {
+        if (go == null || !go.activeInHierarchy) return false;
+
+        // Basta con que un CanvasGroup de la cadena lo tenga apagado.
+        var grupos = go.GetComponentsInParent<CanvasGroup>(false);
+        foreach (var g in grupos)
+            if (g != null && g.alpha < 0.05f) return false;
+
+        return true;
+    }
+
     /// <summary>
     /// Mantiene el resaltado sincronizado con el elemento durante todo el paso:
     /// espera a que esté ACTIVO para mostrarlo (los paneles de AR aparecen al tocar un objeto)
@@ -761,7 +1096,7 @@ public class TutorialController : MonoBehaviour
 
         while (true)
         {
-            bool activo = p.elementoAResaltar != null && p.elementoAResaltar.activeInHierarchy;
+            bool activo = ElementoVisible(p.elementoAResaltar);
 
             if (activo && !mostrado)
             {
@@ -805,9 +1140,17 @@ public class TutorialController : MonoBehaviour
         DesuscribirEventos();
         DesengancharBotonDelPaso();
 
-        if (resaltadoCoroutine != null) { StopCoroutine(resaltadoCoroutine); resaltadoCoroutine = null; }
-        if (delayCoroutine != null)     { StopCoroutine(delayCoroutine);     delayCoroutine = null; }
+        if (resaltadoCoroutine != null)   { StopCoroutine(resaltadoCoroutine);   resaltadoCoroutine = null; }
+        if (delayCoroutine != null)       { StopCoroutine(delayCoroutine);       delayCoroutine = null; }
+        if (interaccionCoroutine != null) { StopCoroutine(interaccionCoroutine); interaccionCoroutine = null; }
+        if (filtroARCoroutine != null)    { StopCoroutine(filtroARCoroutine);    filtroARCoroutine = null; }
+        if (ayudaCoroutine != null)       { StopCoroutine(ayudaCoroutine);       ayudaCoroutine = null; }
         if (highlighter != null) highlighter.OcultarResaltado();
+
+        // El juego que viene detrás tiene que quedar con TODO tocable otra vez.
+        RestaurarInteraccion();
+        InputRouter.FiltroObjetoPermitido = null;
+
         DetenerRecordatorioSiguiente();
         if (botonSiguiente != null) botonSiguiente.gameObject.SetActive(false);
 
@@ -827,14 +1170,96 @@ public class TutorialController : MonoBehaviour
     /// </summary>
     public void SaltarTutorial()
     {
-        if (debug) Debug.Log("[Tutorial] ⏭ Tutorial saltado por el jugador");
+        if (GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        // Sin botón de cancelar no hay ventana posible: se salta directo (y se avisa, porque
+        // normalmente es que falta asignarlo en el Inspector).
+        if (botonCancelarSalto == null || panelFinal == null)
+        {
+            Debug.LogWarning("[Tutorial] ⚠️ Saltar sin confirmación: falta 'Boton Cancelar Salto' " +
+                             "o 'Panel Final' en el Inspector.");
+            SaltarTutorialConfirmado();
+            return;
+        }
+
+        PedirConfirmacionSalto();
+    }
+
+    /// <summary>
+    /// Reutiliza el panel final como ventana de confirmación: mismo panel, mismo botón de
+    /// "ir al juego" (que aquí confirma) y el botón de cancelar al lado. El tutorial de atrás
+    /// queda congelado mientras se decide (ver la guarda de 'confirmandoSalto' en TryAvanzar).
+    /// </summary>
+    private void PedirConfirmacionSalto()
+    {
+        confirmandoSalto = true;
+
+        if (debug) Debug.Log("[Tutorial] ❓ Pidiendo confirmación para saltar el tutorial");
+
+        panelFinal.SetActive(true);
+
+        if (textoFinal != null)
+            textoFinal.text = LanguageManager.T(claveMensajeConfirmarSalto);
+
+        if (textoBotonIrAlJuego != null)
+            textoBotonIrAlJuego.text = LanguageManager.T(claveBotonConfirmarSalto);
+
+        if (botonIrAlJuego != null)
+        {
+            botonIrAlJuego.onClick.RemoveAllListeners();
+            botonIrAlJuego.onClick.AddListener(SaltarTutorialConfirmado);
+            botonIrAlJuego.gameObject.SetActive(true);
+        }
+
+        botonCancelarSalto.onClick.RemoveAllListeners();
+        botonCancelarSalto.onClick.AddListener(CancelarSalto);
+        botonCancelarSalto.gameObject.SetActive(true);
+    }
+
+    /// <summary>Vuelve al tutorial donde estaba, deshaciendo la ventana de confirmación.</summary>
+    public void CancelarSalto()
+    {
+        if (debug) Debug.Log("[Tutorial] ↩ Salto cancelado: sigue el tutorial");
 
         if (GlobalAudioManager.Instance != null)
             GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
 
+        confirmandoSalto = false;
+
+        botonCancelarSalto.gameObject.SetActive(false);
+
+        if (botonIrAlJuego != null)
+        {
+            botonIrAlJuego.onClick.RemoveAllListeners();
+            botonIrAlJuego.onClick.AddListener(IrAlJuego);
+            botonIrAlJuego.gameObject.SetActive(false);
+        }
+
+        if (textoBotonIrAlJuego != null)
+            textoBotonIrAlJuego.text = LanguageManager.T(claveBotonIrAlJuego);
+
+        if (panelFinal != null) panelFinal.SetActive(false);
+
+        // Repintar el paso donde estaba: el texto pudo quedar en el mensaje de confirmación.
+        if (pasoActual >= 0 && pasoActual < pasos.Count && textoPaso != null)
+            textoPaso.text = TextoDelPaso(pasos[pasoActual]);
+    }
+
+    /// <summary>Confirmado: marca el tutorial como visto y se va al juego.</summary>
+    public void SaltarTutorialConfirmado()
+    {
+        if (debug) Debug.Log("[Tutorial] ⏭ Tutorial saltado por el jugador");
+
+        confirmandoSalto = false;
+
         TutorialProgreso.MarcarCompletado();
         DetenerTutorial();
+
+        if (botonCancelarSalto != null) botonCancelarSalto.gameObject.SetActive(false);
         if (panelTutorial != null) panelTutorial.SetActive(false);
+        if (panelFinal != null) panelFinal.SetActive(false);
+
         IrAlJuego();
     }
 
@@ -844,6 +1269,16 @@ public class TutorialController : MonoBehaviour
 
         TutorialProgreso.MarcarCompletado();
         DetenerTutorial();
+
+        // El panel final se comparte con la confirmación de salto: devolverlo a su papel normal.
+        confirmandoSalto = false;
+        if (botonCancelarSalto != null) botonCancelarSalto.gameObject.SetActive(false);
+        if (textoBotonIrAlJuego != null) textoBotonIrAlJuego.text = LanguageManager.T(claveBotonIrAlJuego);
+        if (botonIrAlJuego != null)
+        {
+            botonIrAlJuego.onClick.RemoveAllListeners();
+            botonIrAlJuego.onClick.AddListener(IrAlJuego);
+        }
 
         // Mostrar pantalla final con botón "Ir al Juego"
         if (panelFinal != null)
@@ -916,10 +1351,39 @@ public class TutorialController : MonoBehaviour
         return p.texto.GetLocalizedString(nombreMeta);
     }
 
-    private static AudioClip AudioDelPaso(TutorialStep p)
+    private static AudioClip AudioDelPaso(TutorialStep p) => CargarAudio(p.audio, "narración del paso");
+
+    private static string TextoAyudaDelPaso(TutorialStep p)
     {
-        if (p.audio == null || p.audio.IsEmpty) return null;
-        return p.audio.LoadAsset();
+        if (p.textoAyuda == null || p.textoAyuda.IsEmpty) return "";
+
+        var lm = LanguageManager.Instance;
+        string nombreMeta = lm != null ? lm.TextoNativo($"idiomas.nombre_{lm.CodigoMeta}") : "";
+        return p.textoAyuda.GetLocalizedString(nombreMeta);
+    }
+
+    private static AudioClip AudioAyudaDelPaso(TutorialStep p) => CargarAudio(p.audioAyuda, "audio de ayuda");
+
+    /// <summary>
+    /// Carga un clip de las tablas sin tumbar el paso si la entrada está rota.
+    /// Que la entrada NO esté vacía no garantiza que cargue: si el asset no está marcado como
+    /// Addressable, LoadAsset() lanza InvalidKeyException. Un paso sin audio se puede leer; un
+    /// paso que revienta a mitad deja el tutorial atascado.
+    /// </summary>
+    private static AudioClip CargarAudio(LocalizedAudioClip clip, string queEs)
+    {
+        if (clip == null || clip.IsEmpty) return null;
+
+        try
+        {
+            return clip.LoadAsset();
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"[Tutorial] ⚠️ No se pudo cargar el {queEs}. ¿El clip está marcado " +
+                             $"como Addressable? El paso sigue, en silencio. ({e.GetType().Name})");
+            return null;
+        }
     }
 
     [ContextMenu("🧹 Resetear SOLO objetos/misión del tutorial")]

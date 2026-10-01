@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,23 @@ using UnityEngine.EventSystems;
 public class InputRouter : MonoBehaviour
 {
     public static InputRouter Instance { get; private set; }
+
+    /// <summary>
+    /// Filtro OPCIONAL de qué objeto AR puede abrir su panel al tocarlo. Recibe el objetoID y
+    /// devuelve si se permite. Null (lo normal en el juego) = todos responden.
+    /// Lo usa el TUTORIAL para pasos que exigen un objeto concreto: en la misma lámina pueden
+    /// aparecer varios objetos y, sin filtro, el niño abría el panel del que no toca y el paso
+    /// se quedaba esperando en silencio.
+    /// OJO: es estático y hay que dejarlo en null al salir del tutorial, o el juego se queda
+    /// con el filtro puesto.
+    /// </summary>
+    public static Func<string, bool> FiltroObjetoPermitido;
+
+    /// <summary>
+    /// Se dispara cuando un toque SÍ acertó un objeto AR pero el filtro lo rechazó. Permite al
+    /// tutorial responder ("esa es la calabaza, busca la vela") en vez de no hacer nada.
+    /// </summary>
+    public static event Action<string> OnObjetoBloqueado;
 
     private InputAction touchPressAction;
     private InputAction touchPositionAction;
@@ -128,10 +146,19 @@ public class InputRouter : MonoBehaviour
         if (mainCamera == null) return;
 
         Ray ray = mainCamera.ScreenPointToRay(posicionPantalla);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+        if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
+
+        var display = hit.collider.GetComponent<ObjectDisplayController>();
+        if (display == null) return;
+
+        // El tutorial puede exigir un objeto concreto en el paso actual.
+        if (FiltroObjetoPermitido != null && !FiltroObjetoPermitido(display.ObjetoID))
         {
-            hit.collider.GetComponent<ObjectDisplayController>()?.OnHit();
+            OnObjetoBloqueado?.Invoke(display.ObjetoID);
+            return;
         }
+
+        display.OnHit();
     }
 
     void OnDestroy()

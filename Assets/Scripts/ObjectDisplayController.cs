@@ -14,6 +14,12 @@ public class ObjectDisplayController : MonoBehaviour
 
     private GameObjectManager gameObjectManager;
 
+    /// <summary>
+    /// ID del objeto en el JSON. Lo lee el InputRouter para poder filtrar qué objeto responde
+    /// al toque (lo usa el tutorial para exigir un objeto concreto en un paso).
+    /// </summary>
+    public string ObjetoID => objetoID;
+
     void Start()
     {
         gameObjectManager = GameObjectManager.Instance;

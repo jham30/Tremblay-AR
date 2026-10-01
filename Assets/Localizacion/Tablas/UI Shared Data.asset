@@ -536,7 +536,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3893839580344320
-    m_Key: New Entry
+    m_Key: tutorial.confirmar_saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990445494972416
+    m_Key: tutorial.saltar_si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990767948869632
+    m_Key: tutorial.ir_al_juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4993154256187392
+    m_Key: tutorial.seguir-tuto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4997321460789248
+    m_Key: tutorial.ayuda_ar_permitido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5029640401825792
+    m_Key: tutorial.step_23_ayuda
     m_Metadata:
       m_Items: []
   m_Metadata:

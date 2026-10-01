@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Localization;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 /// <summary>
@@ -107,6 +108,82 @@ public static class VincularAudioNarracion
         AssetDatabase.SaveAssets();
 
         Debug.Log($"[Narración] Vinculados: {vinculados} | claves nuevas: {clavesNuevas}\n{sb}");
+    }
+
+    // ============================================================
+    // Referencias de audio en los pasos del tutorial
+    // ============================================================
+
+    [MenuItem("Tremblay/Localización/Asignar audios a los pasos del tutorial (escena abierta)")]
+    public static void AsignarAudiosAPasos()
+    {
+        var audios = LocalizationEditorSettings.GetAssetTableCollection(TablaAudio);
+        var textos = LocalizationEditorSettings.GetStringTableCollection("UI");
+        if (audios == null || textos == null)
+        {
+            Debug.LogError($"[Narración] Falta la tabla {TablaAudio} o UI.");
+            return;
+        }
+
+        // Include: el controlador puede estar en un objeto desactivado en la escena.
+        var controladores = Object.FindObjectsByType<TutorialController>(
+            FindObjectsInactive.Include, FindObjectsSortMode.None);
+        if (controladores.Length == 0)
+        {
+            Debug.LogError("[Narración] No hay ningún TutorialController en la escena abierta. " +
+                           "Abre halloween-tuto1 y vuelve a ejecutarlo.");
+            return;
+        }
+
+        // pasos es privado: se serializa en la escena, así que lo alcanzamos por reflexión.
+        var campo = typeof(TutorialController).GetField("pasos",
+            System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+        if (campo == null)
+        {
+            Debug.LogError("[Narración] El campo 'pasos' ha cambiado de nombre.");
+            return;
+        }
+
+        var sb = new StringBuilder();
+        int asignados = 0, yaEstaban = 0;
+        var sinClave = new List<string>();
+
+        foreach (var controlador in controladores)
+        {
+            var pasos = campo.GetValue(controlador) as List<TutorialStep>;
+            if (pasos == null) continue;
+
+            for (int i = 0; i < pasos.Count; i++)
+            {
+                var paso = pasos[i];
+                if (paso == null) continue;
+
+                string clave = paso.texto.TableEntryReference.ResolveKeyName(textos.SharedData);
+                if (string.IsNullOrEmpty(clave)) { sinClave.Add($"paso {i + 1}: sin texto"); continue; }
+
+                if (audios.SharedData.GetEntry(clave) == null)
+                {
+                    sinClave.Add($"{clave}: sin entrada en {TablaAudio}");
+                    continue;
+                }
+
+                string actual = paso.audio.TableEntryReference.ResolveKeyName(audios.SharedData);
+                if (actual == clave) { yaEstaban++; continue; }
+
+                paso.audio.SetReference(TablaAudio, clave);
+                asignados++;
+            }
+
+            EditorUtility.SetDirty(controlador);
+            sb.AppendLine($"   {controlador.name}: {pasos.Count} paso(s)");
+        }
+
+        EditorSceneManager.MarkAllScenesDirty();
+
+        Debug.Log($"[Narración] Asignados: {asignados} | ya estaban: {yaEstaban}\n{sb}" +
+                  (sinClave.Count > 0 ? $"Sin asignar ({sinClave.Count}): {string.Join(", ", sinClave)}\n" : "") +
+                  "La escena queda sin guardar: revisa en el Inspector y guarda con Ctrl+S, " +
+                  "o ciérrala sin guardar si algo no cuadra.");
     }
 
     /// <summary>

@@ -22,12 +22,20 @@
 
         # Rehacer uno concreto:
         .\GenerarAudioHistoria.ps1 -Idioma es -Solo story.03 -Forzar
+
+        # Los pasos del tutorial en vez de la historia (una sola voz, la de la niña):
+        .\GenerarAudioHistoria.ps1 -Idioma es -Fuente tutorial
 #>
 
 [CmdletBinding()]
 param(
     [ValidateSet('es','en','fr')]
     [string]$Idioma = 'es',
+
+    # Qué se narra: la historia del cuento o los pasos del tutorial. Cada una vive en su
+    # tabla y deja los mp3 en su carpeta.
+    [ValidateSet('historia','tutorial')]
+    [string]$Fuente = 'historia',
 
     # Claves concretas a generar. Vacío = todas.
     [string[]]$Solo = @(),
@@ -124,7 +132,25 @@ $PausaEntrePeticiones = 0.5   # segundos, para no saturar la API
 
 $RaizProyecto = Split-Path -Parent $PSScriptRoot
 $Tablas  = Join-Path $RaizProyecto 'Assets\Localizacion\Tablas'
-$Destino = Join-Path $RaizProyecto "Assets\misiones\Halloween\Story\sounds\$Idioma"
+
+# El tutorial comparte tabla con el resto de la interfaz, así que hay que filtrar sus
+# claves; la historia tiene tabla propia y el filtro solo le quita el prefijo al nombre.
+$Fuentes = @{
+    historia = @{
+        Tabla   = 'Story'
+        Filtro  = '^story\.'
+        Prefijo = 'story'
+        Carpeta = 'Assets\misiones\Halloween\Story\sounds'
+    }
+    tutorial = @{
+        Tabla   = 'UI'
+        Filtro  = '^tutorial\.step\.'
+        Prefijo = 'tutorial'
+        Carpeta = 'Assets\misiones\Halloween\tutorial\sounds'
+    }
+}
+$Cfg = $Fuentes[$Fuente]
+$Destino = Join-Path $RaizProyecto "$($Cfg.Carpeta)\$Idioma"
 
 # ===================== Lectura de las tablas =====================
 
@@ -168,8 +194,15 @@ function ConvertTo-TextoLimpio {
     $t = [regex]::Replace($t, '\\x([0-9A-Fa-f]{2})', { [char][Convert]::ToInt32($args[0].Groups[1].Value,16) })
     $t = $t -replace '\\"', '"' -replace '\\r', '' -replace '\\n', "`n" -replace '\\\\', '\'
 
+    # El sprite es un icono suelto, no envuelve texto: se lleva también el espacio de
+    # delante, o quedaría "toca la vela ." con una pausa antes del punto.
+    $t = $t -replace '[ \t]*<sprite[^>]*>', ''
+
     $t = $t -replace '<[^>]*>', ''     # etiquetas de color
     $t = $t -replace '\{\d+\}', ''     # marcadores del typewriter
+    # Emoji: el modelo los lee en voz alta o se atasca. Los de colores viven fuera del
+    # plano básico, así que en .NET son un par de surrogates y \p{So} no los alcanza.
+    $t = $t -replace '[\uD800-\uDBFF][\uDC00-\uDFFF]', '' -replace '\p{So}', ''
 
     $t = $t -replace '[ \t]+', ' ' -replace '[ \t]*\r?\n[ \t]*', "`n" -replace '\n{3,}', "`n`n"
     return $t.Trim()
@@ -316,8 +349,8 @@ if ($Cuota) {
     return
 }
 
-$rutaShared = Join-Path $Tablas 'Story Shared Data.asset'
-$rutaTabla  = Join-Path $Tablas "Story_$Idioma.asset"
+$rutaShared = Join-Path $Tablas "$($Cfg.Tabla) Shared Data.asset"
+$rutaTabla  = Join-Path $Tablas "$($Cfg.Tabla)_$Idioma.asset"
 foreach ($r in @($rutaShared, $rutaTabla)) {
     if (-not (Test-Path -LiteralPath $r)) { throw "No encuentro $r" }
 }
@@ -329,7 +362,16 @@ $textos = Get-TextosPorId -Ruta $rutaTabla
 $fragmentos = @()
 foreach ($id in $claves.Keys) {
     if (-not $textos.ContainsKey($id)) { continue }
+    if ($claves[$id] -notmatch $Cfg.Filtro) { continue }
     $limpio = ConvertTo-TextoLimpio -Crudo $textos[$id]
+
+    # Los pasos del tutorial arrastran andamiaje de edición: van entre comillas y llevan
+    # delante su número de guion ("13. ", "23-a. ", "27a. "). Leerlo en voz alta sobraría.
+    if ($Fuente -eq 'tutorial') {
+        $limpio = ($limpio -replace '^"(.*)"$', '$1').Trim()
+        $limpio = ($limpio -replace '^\d+\s*-?\s*[a-zA-Z]?\.\s*', '').Trim()
+    }
+
     if (-not $limpio) { continue }
     $fragmentos += [pscustomobject]@{ Clave = $claves[$id]; Texto = $limpio }
 }
@@ -339,6 +381,8 @@ $fragmentos = $fragmentos | Sort-Object Clave
 # aparte: frases sueltas suenan cortadas y no dejan juzgar la dinámica.
 $etiquetaAjustes = ''
 if ($Probar) {
+    # El fragmento de prueba por defecto es de la historia; con el tutorial no existiría.
+    if ($Fuente -eq 'tutorial' -and $ProbarCon -eq 'story.11') { $ProbarCon = 'tutorial.step.14' }
     $Solo = @($ProbarCon)
     $Forzar = $true   # si no, la segunda tanda de pruebas se saltaría sola
     $Destino = Join-Path $RaizProyecto 'herramientas\pruebas-voz'
@@ -347,24 +391,27 @@ if ($Probar) {
 
 if ($Solo.Count -gt 0) {
     $fragmentos = @($fragmentos | Where-Object { $Solo -contains $_.Clave })
-    if (-not $fragmentos) { throw "Ninguna de las claves indicadas existe en Story_$Idioma" }
+    if (-not $fragmentos) { throw "Ninguna de las claves indicadas existe en $($Cfg.Tabla)_$Idioma" }
 }
 
 if (-not (Test-Path -LiteralPath $Destino)) {
     New-Item -ItemType Directory -Path $Destino -Force | Out-Null
 }
 
-Write-Host "Idioma: $Idioma | fragmentos: $($fragmentos.Count) | destino: $Destino`n"
+Write-Host "Idioma: $Idioma | fuente: $Fuente | fragmentos: $($fragmentos.Count) | destino: $Destino`n"
 
 $generados = 0; $saltados = 0; $caracteres = 0
 
 for ($f = 0; $f -lt $fragmentos.Count; $f++) {
     $frag = $fragmentos[$f]
-    $sufijo = $frag.Clave -replace '^story\.', ''
-    $archivo = Join-Path $Destino "$Idioma-story-$sufijo$etiquetaAjustes.mp3"
+    $sufijo = $frag.Clave -replace $Cfg.Filtro, ''
+    $base = "$Idioma-$($Cfg.Prefijo)-$sufijo"
+    $archivo = Join-Path $Destino "$base$etiquetaAjustes.mp3"
 
+    # Los dos '?' exigen el número de segmento: con un '*' suelto, es-story-00-intro.mp3
+    # haría creer que story.00 ya estaba generado.
     $yaExiste = if ($SinUnir) {
-        @(Get-ChildItem -Path $Destino -Filter "$Idioma-story-$sufijo-*.mp3" -ErrorAction SilentlyContinue).Count -gt 0
+        @(Get-ChildItem -Path $Destino -Filter "$base-??-*.mp3" -ErrorAction SilentlyContinue).Count -gt 0
     } else {
         Test-Path -LiteralPath $archivo
     }
@@ -384,7 +431,12 @@ for ($f = 0; $f -lt $fragmentos.Count; $f++) {
 
     Write-Host "  > $($frag.Clave): $($segmentos.Count) segmento(s) [$resumen], $nChars caracteres"
 
-    if ($Simular) { $generados++; continue }
+    if ($Simular) {
+        # Enseñar el texto ya limpio es el momento de cazar lo que no debe pronunciarse.
+        foreach ($seg in $segmentos) { Write-Host "      $($seg.Texto)" -ForegroundColor DarkCyan }
+        $generados++
+        continue
+    }
 
     $partes = @()
     for ($s = 0; $s -lt $segmentos.Count; $s++) {
@@ -403,7 +455,7 @@ for ($f = 0; $f -lt $fragmentos.Count; $f++) {
     if ($SinUnir -and $segmentos.Count -gt 1) {
         for ($s = 0; $s -lt $partes.Count; $s++) {
             $quien = $segmentos[$s].Quien.ToLowerInvariant() -replace 'ñ','n' -replace '[^a-z]',''
-            $parcial = Join-Path $Destino ("$Idioma-story-$sufijo" + "-{0:00}-$quien$etiquetaAjustes.mp3" -f ($s + 1))
+            $parcial = Join-Path $Destino ($base + "-{0:00}-$quien$etiquetaAjustes.mp3" -f ($s + 1))
             [IO.File]::WriteAllBytes($parcial, $partes[$s])
             Write-Host "    guardado: $(Split-Path -Leaf $parcial)" -ForegroundColor Green
         }

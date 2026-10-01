@@ -167,6 +167,8 @@ MonoBehaviour:
         - m_KeyId: 327705694285824
           m_TableCodes:
           - en
+          - fr
+          - es
         - m_KeyId: 327705711063040
           m_TableCodes:
           - en
@@ -253,5 +255,4 @@ MonoBehaviour:
         - m_KeyId: 327705790754817
           m_TableCodes:
           - en
-        m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
+        m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

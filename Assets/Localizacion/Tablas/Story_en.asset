@@ -144,6 +144,10 @@ MonoBehaviour:
     m_Localized: "[Child]\r\nMittens?\u2026\r\nSo you\u2019re still around, huh?\r\nDon\u2019t think I\u2019ve forgotten all the scares you gave me, little furball\u2026 I almost gave a heart attack.\r\nAlright, alright\u2026 peace between us.\r\nI\u2019ll bring you some food every day, deal?\r\nBut promise me you won\u2019t give me away next time there\u2019s a witch around.\r\nDeal, Mittens.\r"
     m_Metadata:
       m_Items: []
+  - m_Id: 327706793193472
+    m_Localized: Oooooooooooooooooooo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

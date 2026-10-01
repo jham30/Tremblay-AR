@@ -81,6 +81,28 @@ public class InventarioToggleController : MonoBehaviour
     private float tiempoInicioSwipe;
     private bool swipeEnProgreso = false;
 
+    // Puerta de bloqueo EXTERNA (la usa el tutorial). Se guarda aparte de 'habilitarSwipe' para
+    // no pisar lo que decidió el autor en el Inspector: al desbloquear se vuelve exactamente a
+    // lo que había. Sin esto, apagar el botón del inventario no servía de nada — el panel se
+    // abría igual deslizando, que no pasa por el Button.
+    private bool swipeBloqueadoExternamente;
+
+    /// <summary>Botón que abre y cierra el panel. Expuesto para que el tutorial sepa si el paso
+    /// actual permite el inventario (y entonces deje pasar también el gesto).</summary>
+    public Button BotonToggle => botonToggle;
+
+    /// <summary>
+    /// Bloquea o desbloquea el gesto de deslizar. Independiente de 'habilitarSwipe'.
+    /// Quien bloquea es responsable de desbloquear.
+    /// </summary>
+    public void BloquearSwipe(bool bloquear)
+    {
+        swipeBloqueadoExternamente = bloquear;
+
+        // Un swipe a medias no debe completarse después del bloqueo.
+        if (bloquear) swipeEnProgreso = false;
+    }
+
     public enum TipoSlide
     {
         ArribaAbajo,
@@ -251,7 +273,7 @@ public class InventarioToggleController : MonoBehaviour
 
     void Update()
     {
-        if (!habilitarSwipe) return;
+        if (!habilitarSwipe || swipeBloqueadoExternamente) return;
 
         var touchscreen = Touchscreen.current;
         if (touchscreen == null) return;

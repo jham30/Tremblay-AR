@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: "8. Tu as entendu comment on le dit en {0} ? Si tu veux l'\xE9couter encore, touche le bouton que je te montre."
+    m_Localized: 8. Tu as entendu comment on le dit en {0} ? Chaque fois que vous toucherez un objet, vous entendrez son nom.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -447,11 +447,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809611
-    m_Localized: "13. Vas-y, garde aussi l'autre objet qui est apparu. Pointe ta cam\xE9ra vers l'autre carte que tu as trouv\xE9e."
+    m_Localized: "13. Maintenant, range aussi la citrouille <sprite name=\"calabaza\">. Pointe la cam\xE9ra vers l'autre carte."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809612
-    m_Localized: "14. H\xE9, je vois que tu as trouv\xE9 la citrouille ! <sprite name=\"calabaza\"> C'est l'une de mes pr\xE9f\xE9r\xE9es."
+    m_Localized: "14. Eh, je vois que tu as trouv\xE9 la citrouille ! <sprite name=\"calabaza\"> C'est une de mes pr\xE9f\xE9r\xE9es, maintenant touche-la."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809613
@@ -475,11 +475,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809618
-    m_Localized: "20. Glisse la bougie <sprite name=\"vela\"> \xE0 l'endroit o\xF9 elle va. Si tu ne te souviens plus comment on dit \xAB bougie <sprite name=\"vela\"> \xBB, touche le bouton vert \xE0 c\xF4t\xE9 pour l'\xE9couter encore."
+    m_Localized: "Fais glisser la bougie <sprite name=\"vela\"> et la citrouille <sprite name=\"calabaza\"> l\xE0 o\xF9 tu penses qu'elles vont dans la mission."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809619
-    m_Localized: "21. C'est comme \xE7a qu'on fait !"
+    m_Localized: 21. Faites glisser l'objet suivant
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809620
@@ -499,7 +499,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809624
-    m_Localized: "26. Maintenant scanne la carte de la bougie <sprite name=\"vela\"> avec ta cam\xE9ra. Tu te souviens laquelle c'est ?"
+    m_Localized: "Maintenant, pointe la cam\xE9ra vers la carte de la bougie <sprite name=\"vela\"> et touche-la. Tu te souviens laquelle c'est ?"
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809625
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809627
-    m_Localized: 28. La bougie <sprite name="vela"> est avec toi maintenant ! Va vers la carte de la citrouille <sprite name="calabaza"> et pointe-la.
+    m_Localized: "28. La bougie <sprite name=\"vela\"> est avec toi ! Va \xE0 la carte de la citrouille <sprite name=\"calabaza\">, pointe la cam\xE9ra dessus et touche-la."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809628
@@ -544,6 +544,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3893288151003136
     m_Localized: Changer de langue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4997321460789248
+    m_Localized: Scannez l'autre carte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5029640401825792
+    m_Localized: "23-a. V\xE9rifiez le message qui appara\xEEt \xE0 propos de la mission, quelque chose n'est pas \xE0 sa place, changez la position de la bougie <sprite name=\"vela\"> et de la citrouille <sprite name=\"calabaza\"> et appuyez \xE0 nouveau sur le bouton que je vous indique."
     m_Metadata:
       m_Items: []
   references:

@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: "8. \xBFO\xEDste c\xF3mo se dice en {0}? Si quieres escucharlo otra vez, toca el bot\xF3n que te se\xF1alo."
+    m_Localized: "8. \xBFO\xEDste c\xF3mo se dice en {0}? Cada vez que toques un objeto oiras su nombre.."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -447,11 +447,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809611
-    m_Localized: "13. Ahora guarda tambi\xE9n el otro objeto que apareci\xF3. Apunta la c\xE1mara a la otra tarjeta que encontraste."
+    m_Localized: "13. Ahora guarda tambi\xE9n la calabaza <sprite name=\"calabaza\">. Apunta la c\xE1mara a la otra tarjeta."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809612
-    m_Localized: "14. \xA1Oye, veo que encontraste la calabaza! <sprite name=\"calabaza\"> Es una de mis favoritas."
+    m_Localized: "14. \xA1Oye, veo que encontraste la calabaza! <sprite name=\"calabaza\"> Es una de mis favoritas, ahora t\xF3cala."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809613
@@ -475,11 +475,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809618
-    m_Localized: "20. Arrastra la vela <sprite name=\"vela\"> al lugar donde va. Si no recuerdas c\xF3mo se dice \"vela <sprite name=\"vela\">\", toca el bot\xF3n verde que tiene al lado para escucharlo otra vez."
+    m_Localized: "Arrastra la vela <sprite name=\"vela\"> y la calabaza <sprite name=\"calabaza\"> donde creas que corresponde en la misi\xF3n."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809619
-    m_Localized: "21. \xA1As\xED se hace!"
+    m_Localized: 21. Arrastra el siguiente objeto
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809620
@@ -499,7 +499,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809624
-    m_Localized: "26. Ahora escanea la tarjeta de la vela <sprite name=\"vela\"> con tu c\xE1mara. \xBFRecuerdas cu\xE1l es?"
+    m_Localized: "26. Ahora apunta a la tarjeta de la vela <sprite name=\"vela\"> y t\xF3cala. \xBFRecuerdas cu\xE1l es?"
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809625
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809627
-    m_Localized: "28. \xA1La vela <sprite name=\"vela\"> ya est\xE1 contigo! Ve a la tarjeta de la calabaza <sprite name=\"calabaza\"> y ap\xFAntala."
+    m_Localized: "28. \xA1La vela <sprite name=\"vela\"> ya est\xE1 contigo! Ve a la tarjeta de la calabaza <sprite name=\"calabaza\"> y ap\xFAntala y t\xF3cala."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809628
@@ -544,6 +544,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3893288151003136
     m_Localized: Cambiar idiomas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3893839580344320
+    m_Localized: "\xBFSeguro que quieres saltar el tutorial?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990445494972416
+    m_Localized: "S\xED, saltar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990767948869632
+    m_Localized: "\xA1A jugar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4993154256187392
+    m_Localized: Seguir con el tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4997321460789248
+    m_Localized: Escanea la otra tarjeta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5029640401825792
+    m_Localized: "23-a. Revisa el mensaje que sale sobre la misi\xF3n, algo no est\xE1 donde debe, cambia de posici\xF3n la vela  <sprite name=\"vela\"> y la calabaza <sprite name=\"calabaza\"> y presiona el bot\xF3n que te se\xF1alo de nuevo."
     m_Metadata:
       m_Items: []
   references:

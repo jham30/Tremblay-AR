@@ -32,8 +32,40 @@ public class StoryFragment : ScriptableObject
     /// <summary>Texto en idioma nativo. Sin argumentos: los marcadores {1} del typewriter se respetan tal cual.</summary>
     public string TextoNativo => texto != null && !texto.IsEmpty ? texto.GetLocalizedString() : textoFragmento;
 
-    /// <summary>Narración en idioma nativo, o null si no hay clip.</summary>
-    public AudioClip AudioNativo => audio != null && !audio.IsEmpty ? audio.LoadAsset() : audioNarracion;
+    // Se avisa UNA vez por fragmento: EsValido() pide el audio en cada reproducción y si no,
+    // una entrada rota llena la consola de excepciones repetidas.
+    [System.NonSerialized] private bool avisadoAudioRoto;
+
+    /// <summary>
+    /// Narración en idioma nativo, o null si no hay clip.
+    /// Ojo: que la entrada NO esté vacía no garantiza que el clip se pueda cargar — si el asset
+    /// no está marcado como Addressable, LoadAsset() lanza InvalidKeyException en vez de devolver
+    /// null. Aquí se degrada a "sin audio" (el fragmento sigue viéndose en texto) y se avisa con
+    /// el nombre del fragmento, que es lo que hace falta para arreglarlo.
+    /// </summary>
+    public AudioClip AudioNativo
+    {
+        get
+        {
+            if (audio == null || audio.IsEmpty) return audioNarracion;
+
+            try
+            {
+                return audio.LoadAsset();
+            }
+            catch (System.Exception e)
+            {
+                if (!avisadoAudioRoto)
+                {
+                    avisadoAudioRoto = true;
+                    Debug.LogWarning($"[StoryFragment] '{fragmentID}' ({name}): no se pudo cargar la " +
+                                     $"narración de la tabla. ¿El clip está marcado como Addressable? " +
+                                     $"Se sigue sin audio. ({e.GetType().Name})");
+                }
+                return audioNarracion;
+            }
+        }
+    }
 
     [Header("⏱️ Timing")]
     [Tooltip("Si es 0, se calcula automáticamente desde la duración del audio")]

@@ -96,7 +96,7 @@ $ErrorActionPreference = 'Stop'
 $VocesPorIdioma = @{
     es = @{ Nina = 'U9tZtg3uJtVgXPkvosWR'; Bruja = 'M9RTtrzRACmbUzsEMq8p' }
     fr = @{ Nina = 'KmqhNPEmmOndTBOPk4mJ'; Bruja = 'M9RTtrzRACmbUzsEMq8p' }
-    en = @{ Nina = '';                     Bruja = '' }
+    en = @{ Nina = 'hO2yZ8lxM3axUxL8OeKX'; Bruja = '' }
 }
 
 $porDefecto = if ($VocesPorIdioma.ContainsKey($Idioma)) { $VocesPorIdioma[$Idioma] } else { $VocesPorIdioma['es'] }

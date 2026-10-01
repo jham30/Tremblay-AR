@@ -636,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &45417914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1193,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &121945410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2644,7 +2644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -229}
+  m_AnchoredPosition: {x: 0, y: -412}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196291822
@@ -2721,7 +2721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 196, y: -338}
+  m_AnchoredPosition: {x: 196, y: -459}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206877266
@@ -3252,8 +3252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 150}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: 300, y: 168}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244126825
 MonoBehaviour:
@@ -4514,7 +4514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &406312976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5293,6 +5293,7 @@ RectTransform:
   - {fileID: 511802351}
   - {fileID: 1319863676}
   - {fileID: 2071255411}
+  - {fileID: 1613400509}
   - {fileID: 905539756}
   - {fileID: 16646387}
   - {fileID: 618944139}
@@ -5303,7 +5304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -594}
+  m_AnchoredPosition: {x: 0, y: -813}
   m_SizeDelta: {x: 0, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457638522
@@ -7114,7 +7115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -371.99997}
+  m_AnchoredPosition: {x: 0, y: -554.99994}
   m_SizeDelta: {x: 780, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667212208
@@ -9046,8 +9047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -215}
-  m_SizeDelta: {x: -170, y: 200}
+  m_AnchoredPosition: {x: -5, y: -204}
+  m_SizeDelta: {x: -170, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882960844
 MonoBehaviour:
@@ -9563,8 +9564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 119, y: -248}
-  m_SizeDelta: {x: 150, y: 300}
+  m_AnchoredPosition: {x: 107, y: -299}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905539757
 MonoBehaviour:
@@ -9642,7 +9643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f1acbca60736824ea7fe8221ce33170, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 255f0cf3f4a98b349b007213bb5a3cd9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10447,7 +10448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -301}
+  m_AnchoredPosition: {x: 0, y: -484}
   m_SizeDelta: {x: 120, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015287958
@@ -10709,8 +10710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 1024, y: 300}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 1024, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037619054
 MonoBehaviour:
@@ -10786,7 +10787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -78, y: -334}
+  m_AnchoredPosition: {x: -78, y: -463}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086362617
@@ -11506,7 +11507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1191147455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14529,7 +14530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 719, y: -388.99997}
+  m_AnchoredPosition: {x: 719, y: -571.99994}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368369810
@@ -16077,7 +16078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -559}
+  m_AnchoredPosition: {x: 0, y: -729}
   m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498149317
@@ -16135,7 +16136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1505289639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16503,7 +16504,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 1
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 15
@@ -17043,6 +17044,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &1613400508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613400509}
+  - component: {fileID: 1613400511}
+  - component: {fileID: 1613400510}
+  m_Layer: 5
+  m_Name: cuerda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1613400509
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613400508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 457638521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 96, y: -206}
+  m_SizeDelta: {x: 80, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1613400510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613400508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d6099c820bbb20b45ab1ae3b734eafac, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1613400511
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613400508}
+  m_CullTransparentMesh: 1
 --- !u!1 &1617681511
 GameObject:
   m_ObjectHideFlags: 0
@@ -17442,7 +17518,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 265, y: 48}
-  m_SizeDelta: {x: 160, y: 100}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669024232
 MonoBehaviour:
@@ -19079,7 +19155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1912163256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20075,7 +20151,7 @@ MonoBehaviour:
   textoMisionPrefab: {fileID: 1306651728874785480, guid: 093e069489c2de848909fdd47ba3f9e1, type: 3}
   textoMisionMultiplePrefab: {fileID: 31968435117737867, guid: 470e843a5f061d74bbe5309790d3aa42, type: 3}
   tituloMultiplesPrefab: {fileID: 0}
-  spriteObjetoPrefab: {fileID: 5070931117529511930, guid: 03682dd8dfe5a554e8ddf913538d1839, type: 3}
+  spriteObjetoPrefab: {fileID: 5070931117529511930, guid: f75dd247f9617474cb8b25c526639d80, type: 3}
   tamanoSpriteConfigurable: {x: 100, y: 100}
   colorSpriteColocado: {r: 1, g: 1, b: 1, a: 1}
   imagenObjetoColocadoPrefab: {fileID: 0}
@@ -20320,10 +20396,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.02
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -20367,10 +20443,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.04
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -20414,10 +20490,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.05
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 1
@@ -20443,10 +20519,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 10
@@ -20461,10 +20537,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.06
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -20508,10 +20584,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.07
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 2
@@ -20537,10 +20613,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20555,10 +20631,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.08
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -20602,10 +20678,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.09
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 6
@@ -20631,10 +20707,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20649,10 +20725,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.10
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 8
@@ -20678,10 +20754,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20696,10 +20772,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.11
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -20743,10 +20819,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.12
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 9
@@ -20772,10 +20848,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20790,10 +20866,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.13
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 1
@@ -20819,10 +20895,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20837,10 +20913,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.14
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 2
@@ -20884,10 +20960,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.15
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 8
@@ -20913,10 +20989,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20931,10 +21007,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.16
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 9
@@ -20960,10 +21036,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -20978,10 +21054,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.17
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 10
@@ -21025,10 +21101,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.18
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21072,10 +21148,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.19
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21119,10 +21195,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.20
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 3
@@ -21166,10 +21242,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.21
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21213,10 +21289,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.22
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 3
@@ -21260,10 +21336,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.23
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 12
@@ -21289,10 +21365,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step_23_ayuda
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 10
@@ -21307,10 +21383,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.24
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21354,10 +21430,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.25
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 11
@@ -21401,10 +21477,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.26
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 2
@@ -21430,10 +21506,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -21448,10 +21524,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.27
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 4
@@ -21495,10 +21571,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.28
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 9
@@ -21542,10 +21618,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.29
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 2
@@ -21557,7 +21633,7 @@ MonoBehaviour:
     direccionFlecha: 0
     botonEsperado: {fileID: 0}
     bloqueoFondo: 0
-    modoInteraccion: 0
+    modoInteraccion: 1
     permitidosExtra: []
     objetoARPermitido: calabaza_tutorial
     textoAyuda:
@@ -21571,10 +21647,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -21589,10 +21665,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.30
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 5
@@ -21636,10 +21712,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.31
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 13
@@ -21665,10 +21741,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audioAyuda:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.ayuda_ar_permitido
       m_FallbackState: 0
       m_WaitForCompletion: 0
     segundosAyuda: 4
@@ -21683,10 +21759,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.32
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21730,10 +21806,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.33
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 15
@@ -21777,10 +21853,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.34
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21824,10 +21900,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.35
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 15
@@ -21871,10 +21947,10 @@ MonoBehaviour:
       m_LocalVariables: []
     audio:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: StoryAudio
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: tutorial.step.36
       m_FallbackState: 0
       m_WaitForCompletion: 0
     condicion: 0
@@ -21942,6 +22018,8 @@ MonoBehaviour:
   duracionShakeSiguiente: 0.5
   amplitudShakeSiguiente: 18
   oscilacionesShakeSiguiente: 3
+  retardoNarracion: 1.5
+  esperaMaximaVoz: 8
   highlighter: {fileID: 1920031601}
   nombreEscenaPrincipal: halloween
   resetearProgresoAlIniciar: 1
@@ -22211,6 +22289,7 @@ MonoBehaviour:
   audioSourceUI: {fileID: 0}
   audioSourceSFX: {fileID: 0}
   audioSourceAmbient: {fileID: 1167868765}
+  audioSourceVoz: {fileID: 0}
   sonidoAgarrarItem: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
   sonidoSoltarExitoso: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
   sonidoSoltarFallido: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
@@ -23202,7 +23281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -240.4, y: -288.60004}
+  m_AnchoredPosition: {x: -240.4, y: -471.60004}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070265775
@@ -23994,7 +24073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2132550337
 RectTransform:
   m_ObjectHideFlags: 0

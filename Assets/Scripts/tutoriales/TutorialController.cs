@@ -223,6 +223,15 @@ public class TutorialController : MonoBehaviour
     [Tooltip("Idas y vueltas completas dentro de cada sacudida.")]
     [SerializeField] private float oscilacionesShakeSiguiente = 3f;
 
+    [Header("Narración")]
+    [Tooltip("Segundos antes de que arranque la narración de cada paso. Sin esto el audio entra " +
+             "a la vez que aparece el texto y no da tiempo ni a mirar la pantalla.")]
+    [SerializeField] private float retardoNarracion = 1.5f;
+    [Tooltip("Tope de espera a que el canal de voz quede libre (p. ej. el nombre de un objeto " +
+             "que el niño acaba de pedir). Pasado este tiempo la narración entra igual, para no " +
+             "quedarse callado si algo deja el canal ocupado.")]
+    [SerializeField] private float esperaMaximaVoz = 8f;
+
     [Header("Resaltado")]
     [SerializeField] private TutorialHighlighter highlighter;
 
@@ -256,6 +265,8 @@ public class TutorialController : MonoBehaviour
     private Vector2 posBaseBotonSiguiente;
     private AudioClip clipPasoActual;
     private Coroutine repetirAudioCoroutine;
+    private Coroutine narracionCoroutine;
+    private AudioClip clipNarracionSonando;
     private Coroutine interaccionCoroutine;
     private Coroutine filtroARCoroutine;
     private Coroutine ayudaCoroutine;
@@ -763,26 +774,74 @@ public class TutorialController : MonoBehaviour
     // -----------------------------
 
     /// <summary>
-    /// Reproduce la narración del paso actual y deja el botón de repetir en el estado que toca:
-    /// oculto si el paso no tiene audio en este idioma, y sin poder pulsarse mientras suena
-    /// (GlobalAudioManager usa PlayOneShot, así que dos pulsaciones seguidas se solaparían).
+    /// Arranca la narración del paso actual y deja el botón de repetir como toca: oculto si el
+    /// paso no tiene audio, y sin poder pulsarse mientras suena.
+    ///
+    /// No suena de golpe. Espera 'retardoNarracion' para que al niño le dé tiempo a mirar la
+    /// pantalla, y luego espera a que el canal de voz esté LIBRE: si está sonando el nombre de
+    /// un objeto (los pasos que piden escucharlo), la narración entra detrás en vez de pisarlo.
     /// </summary>
-    private void ReproducirNarracionPaso()
+    private void ReproducirNarracionPaso(bool conRetardo = true)
     {
         if (repetirAudioCoroutine != null) { StopCoroutine(repetirAudioCoroutine); repetirAudioCoroutine = null; }
+        if (narracionCoroutine != null)    { StopCoroutine(narracionCoroutine);    narracionCoroutine = null; }
+
+        // Cortar NUESTRA narración anterior (al pulsar 'Siguiente' antes de que acabe), pero no
+        // la voz de otro: si lo que suena es el nombre de un objeto, se le deja terminar.
+        DetenerNarracionPropia();
 
         bool hayAudio = clipPasoActual != null;
 
-        if (hayAudio && GlobalAudioManager.Instance != null)
-            GlobalAudioManager.Instance.ReproducirSonidoSFX(clipPasoActual, 1f);
+        if (botonRepetirAudio != null)
+        {
+            botonRepetirAudio.gameObject.SetActive(hayAudio);
+            if (hayAudio) botonRepetirAudio.interactable = false;
+        }
 
-        if (botonRepetirAudio == null) return;
-
-        botonRepetirAudio.gameObject.SetActive(hayAudio);
         if (!hayAudio) return;
 
-        botonRepetirAudio.interactable = false;
-        repetirAudioCoroutine = StartCoroutine(RehabilitarRepetirAudio(clipPasoActual.length));
+        narracionCoroutine = StartCoroutine(NarrarConRetardo(clipPasoActual, conRetardo));
+    }
+
+    private IEnumerator NarrarConRetardo(AudioClip clip, bool conRetardo)
+    {
+        if (conRetardo && retardoNarracion > 0f)
+            yield return new WaitForSecondsRealtime(retardoNarracion);
+
+        // Esperar a que la voz quede libre (nombre del objeto, ayuda anterior…), con tope para
+        // no quedarse colgado si algo deja el canal ocupado.
+        float esperado = 0f;
+        var gam = GlobalAudioManager.Instance;
+        while (gam != null && gam.VozOcupada && esperado < esperaMaximaVoz)
+        {
+            esperado += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        // El paso pudo cambiar mientras esperábamos.
+        if (clip != clipPasoActual) { narracionCoroutine = null; yield break; }
+
+        if (gam != null)
+        {
+            gam.ReproducirVoz(clip, 1f);
+            clipNarracionSonando = clip;
+        }
+
+        narracionCoroutine = null;
+        repetirAudioCoroutine = StartCoroutine(RehabilitarRepetirAudio(clip.length));
+    }
+
+    /// <summary>
+    /// Corta la voz SOLO si lo que suena es la narración que lanzamos nosotros. Así al avanzar
+    /// de paso no se pisa el audio del objeto que el niño acaba de pedir.
+    /// </summary>
+    private void DetenerNarracionPropia()
+    {
+        var gam = GlobalAudioManager.Instance;
+        if (gam == null || clipNarracionSonando == null) return;
+
+        if (gam.ClipVozActual == clipNarracionSonando) gam.DetenerVoz();
+        clipNarracionSonando = null;
     }
 
     private IEnumerator RehabilitarRepetirAudio(float segundos)
@@ -799,7 +858,9 @@ public class TutorialController : MonoBehaviour
     public void RepetirAudioPaso()
     {
         if (clipPasoActual == null) return;
-        ReproducirNarracionPaso();
+
+        // Sin retardo: el jugador acaba de pedirlo, esperar aquí se siente a botón roto.
+        ReproducirNarracionPaso(conRetardo: false);
     }
 
     // -----------------------------
@@ -903,9 +964,15 @@ public class TutorialController : MonoBehaviour
 
         if (textoPaso != null) textoPaso.text = ayuda;
 
+        // La ayuda SÍ corta lo que esté sonando: es una respuesta a algo que el niño acaba de
+        // hacer mal, y llega tarde si espera turno.
         AudioClip clipAyuda = AudioAyudaDelPaso(p);
         if (clipAyuda != null && GlobalAudioManager.Instance != null)
-            GlobalAudioManager.Instance.ReproducirSonidoSFX(clipAyuda, 1f);
+        {
+            if (narracionCoroutine != null) { StopCoroutine(narracionCoroutine); narracionCoroutine = null; }
+            GlobalAudioManager.Instance.ReproducirVoz(clipAyuda, 1f);
+            clipNarracionSonando = clipAyuda;
+        }
 
         ayudaCoroutine = StartCoroutine(VolverAlTextoDelPaso(p));
     }
@@ -1154,6 +1221,8 @@ public class TutorialController : MonoBehaviour
         DetenerRecordatorioSiguiente();
         if (botonSiguiente != null) botonSiguiente.gameObject.SetActive(false);
 
+        if (narracionCoroutine != null) { StopCoroutine(narracionCoroutine); narracionCoroutine = null; }
+        DetenerNarracionPropia();
         clipPasoActual = null;
         if (repetirAudioCoroutine != null) { StopCoroutine(repetirAudioCoroutine); repetirAudioCoroutine = null; }
         if (botonRepetirAudio != null) botonRepetirAudio.gameObject.SetActive(false);

@@ -357,6 +357,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c78bcdd5d5a91a24989806d6ae1e55ea
+    m_Address: fr-tutorial-step_23_ayuda
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9eecb370712f034883a35809506647d
     m_Address: fr-tutorial-21
     m_ReadOnly: 1
@@ -449,6 +455,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e841624a73d430c4fae9e19fab642baa
     m_Address: fr-tutorial-15
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e94e1bce93736cd48abb71009d0b4636
+    m_Address: fr-tutorial-ayuda_ar_permitido
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr

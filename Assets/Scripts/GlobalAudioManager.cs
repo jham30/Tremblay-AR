@@ -8,6 +8,11 @@ public class GlobalAudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceUI;      // Para efectos UI
     [SerializeField] private AudioSource audioSourceSFX;     // Para efectos de sonido general
     [SerializeField] private AudioSource audioSourceAmbient; // Para sonidos ambientales
+    [Tooltip("Canal de VOZ: narración del tutorial y nombres/colores de los objetos. Va aparte " +
+             "porque es lo único de lo que solo puede sonar UNA cosa a la vez — dos voces " +
+             "superpuestas no se entienden. Usa Play() en vez de PlayOneShot, así se puede " +
+             "parar y se puede saber si está ocupado.")]
+    [SerializeField] private AudioSource audioSourceVoz;      // Narración y nombres de objetos
 
     [Header("Sonidos de Drag & Drop")]
     [SerializeField] private AudioClip sonidoAgarrarItem;
@@ -99,6 +104,14 @@ public class GlobalAudioManager : MonoBehaviour
             audioSourceSFX.playOnAwake = false;
         }
 
+        if (audioSourceVoz == null)
+        {
+            GameObject vozObj = new GameObject("VozAudioSource");
+            vozObj.transform.SetParent(transform);
+            audioSourceVoz = vozObj.AddComponent<AudioSource>();
+            audioSourceVoz.playOnAwake = false;
+        }
+
         if (audioSourceAmbient == null)
         {
             GameObject ambientObj = new GameObject("AmbientAudioSource");
@@ -125,6 +138,12 @@ public class GlobalAudioManager : MonoBehaviour
 
         if (audioSourceSFX != null)
             audioSourceSFX.volume = volumenMaster * volumenSFX * efMul;
+
+        // La voz sigue el volumen de efectos, como hacía antes cuando iba por el canal SFX.
+        // 'volumenVozClip' es el matiz del clip actual (PlayOneShot lo recibía por parámetro;
+        // con Play() hay que guardarlo, o el siguiente ajuste de volumen lo borraría).
+        if (audioSourceVoz != null)
+            audioSourceVoz.volume = volumenMaster * volumenSFX * efMul * volumenVozClip;
 
         if (audioSourceAmbient != null)
             audioSourceAmbient.volume = musicaSilenciada ? 0f : volumenMaster * volumenMusica;
@@ -312,6 +331,51 @@ public class GlobalAudioManager : MonoBehaviour
         {
             if (mostrarDebugLogs) Debug.LogWarning($"🎮 [GlobalAudioManager] ❌ No se pudo reproducir UI - Clip: {clip?.name ?? "null"}");
         }
+    }
+
+    // ==============================================
+    // 🗣️ CANAL DE VOZ (narración y nombres de objetos)
+    // ==============================================
+
+    private float volumenVozClip = 1f;
+
+    /// <summary>¿Hay una voz sonando ahora mismo?</summary>
+    public bool VozOcupada => audioSourceVoz != null && audioSourceVoz.isPlaying;
+
+    /// <summary>Clip que está sonando en el canal de voz (null si no hay ninguno).</summary>
+    public AudioClip ClipVozActual => audioSourceVoz != null && audioSourceVoz.isPlaying
+        ? audioSourceVoz.clip
+        : null;
+
+    /// <summary>
+    /// Reproduce una voz. CORTA la que estuviera sonando: dos voces a la vez no se entienden.
+    /// Quien quiera esperar en vez de cortar, que mire 'VozOcupada' antes de llamar.
+    /// </summary>
+    public void ReproducirVoz(AudioClip clip, float volumen = 1f)
+    {
+        if (clip == null || audioSourceVoz == null)
+        {
+            if (mostrarDebugLogs) Debug.LogWarning($"🗣️ [GlobalAudioManager] ❌ No se pudo reproducir voz - Clip: {clip?.name ?? "null"}");
+            return;
+        }
+
+        volumenVozClip = Mathf.Clamp01(volumen);
+
+        audioSourceVoz.Stop();
+        audioSourceVoz.clip = clip;
+        ActualizarVolumenes();   // aplica master/efectos/mute por el matiz de este clip
+        audioSourceVoz.Play();
+
+        if (mostrarDebugLogs) Debug.Log($"🗣️ [GlobalAudioManager] ✅ Voz reproducida: {clip.name}");
+    }
+
+    /// <summary>Corta la voz actual, si la hay.</summary>
+    public void DetenerVoz()
+    {
+        if (audioSourceVoz == null || !audioSourceVoz.isPlaying) return;
+
+        audioSourceVoz.Stop();
+        if (mostrarDebugLogs) Debug.Log("🗣️ [GlobalAudioManager] ⏹ Voz detenida");
     }
 
     public void ReproducirSonidoSFX(AudioClip clip, float volumen = 1f)

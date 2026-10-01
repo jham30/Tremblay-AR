@@ -39,7 +39,9 @@ public class ObjectInfoAudioController : MonoBehaviour
             return;
         }
 
-        GlobalAudioManager.Instance.ReproducirSonidoSFX(clip, volumenAudioObjetos);
+        // Por el canal de VOZ, no por SFX: el nombre del objeto y la narración del tutorial son
+        // las dos cosas que el niño tiene que ENTENDER, y antes se pisaban entre ellas.
+        GlobalAudioManager.Instance.ReproducirVoz(clip, volumenAudioObjetos);
         if (debugAudio) Debug.Log($"🎵 [{tipo}] ✅ {datos.id} → {clip.name}");
     }
 

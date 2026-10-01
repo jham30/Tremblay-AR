@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f32a918ad9118b54d88f1a7184b51a17
+guid: 42eb3b9424e787844a9ecee18d25e589
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7046576121519674304
-    second: Soltando_0
+      213: -217471987998216751
+    second: Papel_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Soltando_0
+      name: Papel_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2165
-        height: 2296
+        width: 732
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04ce1121a58853e90800000000000000
-      internalID: -7046576121519674304
+      spriteID: 1dda4ce01626bfcf0800000000000000
+      internalID: -217471987998216751
       vertices: []
       indices: 
       edges: []

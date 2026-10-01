@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
-public class InventarioToggleController : MonoBehaviour
+public class InventarioToggleController : MonoBehaviour, IPanelConVisibilidad
 {
     public event Action<bool> OnVisibilityChanged;
     [Header("Referencias")]

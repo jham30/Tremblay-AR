@@ -16,7 +16,7 @@ public enum FiltroMision
     Bloqueada = 4
 }
 
-public class MissionListUI : MonoBehaviour
+public class MissionListUI : MonoBehaviour, IPanelConVisibilidad
 {
     [Header("Referencias")]
     public MissionManager missionManager;

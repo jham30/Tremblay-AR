@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class SettingsPanelManager : MonoBehaviour
+public class SettingsPanelManager : MonoBehaviour, IPanelConVisibilidad
 {
     [Header("🎛️ Control Principal")]
     [SerializeField] private Button botonToggleSettings;

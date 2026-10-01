@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: "8. \xBFO\xEDste c\xF3mo se dice en {0}? Cada vez que toques un objeto oiras su nombre.."
+    m_Localized: "8. \xBFO\xEDste c\xF3mo se dice? Cada vez que toques un objeto oir\xE1s su nombre."
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -539,7 +539,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809634
-    m_Localized: "35. \xA1Eso es todo! Ahora ve a divertirte y a aprender un poco de {0} conmigo. \xA1Nos vemos en el juego!"
+    m_Localized: "35. \xA1Eso es todo! Ahora ve a divertirte y a aprender un poco conmigo. \xA1Nos vemos en el juego!"
     m_Metadata:
       m_Items: []
   - m_Id: 3893288151003136

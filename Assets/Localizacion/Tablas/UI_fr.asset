@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809606
-    m_Localized: 8. Tu as entendu comment on le dit en {0} ? Chaque fois que vous toucherez un objet, vous entendrez son nom.
+    m_Localized: 8. Tu as entendu comment on le dit ? Chaque fois que tu toucheras un objet, tu entendras son nom.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809607
@@ -539,7 +539,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809634
-    m_Localized: 35. C'est tout ! Maintenant va t'amuser et apprendre un peu de {0} avec moi. On se retrouve dans le jeu !
+    m_Localized: 35. C'est tout ! Maintenant va t'amuser et apprendre un peu avec moi. On se retrouve dans le jeu !
     m_Metadata:
       m_Items: []
   - m_Id: 3893288151003136

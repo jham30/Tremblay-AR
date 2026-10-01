@@ -295,7 +295,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20793148813312
-    m_Localized: "Hola! Soy Eliane Tremblay, y esta es MI aventura en la casa de Hollow Street. Te voy a ense\xF1ar a jugar, \xBFvale? \xA1Vamos a pasarlo genial!"
+    m_Localized: "\xA1Hola! Soy Eliane Tremblay, y esta es MI aventura en la casa de Hollow Street. Te voy a ense\xF1ar a jugar, \xBFok? \xA1Vamos a pasarlo genial!"
     m_Metadata:
       m_Items: []
   - m_Id: 26948587728896
@@ -479,7 +479,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809619
-    m_Localized: 21. Arrastra el siguiente objeto
+    m_Localized: 21. Arrastra el siguiente objeto.
     m_Metadata:
       m_Items: []
   - m_Id: 20794918809620

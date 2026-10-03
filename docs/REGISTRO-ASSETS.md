@@ -52,6 +52,34 @@ Fuente: https://pixabay.com/service/license-summary/
 
 ---
 
+### Claude (Anthropic) — código generado
+
+| | |
+|---|---|
+| Propiedad | **Cesión.** "we assign to you all of our right, title, and interest—if any—in Outputs" |
+| Uso comercial | Sin restricciones |
+| Atribución | No exigida |
+| Matiz | El "if any" importa: el contenido generado por máquina puede tener copyright débil o nulo según la jurisdicción. Nadie más lo reclama, y la dirección y revisión humanas sí aportan autoría |
+| A revisar | Las entradas se usan para entrenar modelos salvo que se desactive en los ajustes de la cuenta |
+
+Fuente: https://www.anthropic.com/legal/consumer-terms
+
+### ElevenLabs — audios generados
+
+| | |
+|---|---|
+| Propiedad | **Conservada.** "you retain all rights in and to your Output" (4.c.ii) |
+| **Uso comercial** | **SOLO con plan de pago.** Un Free User "may only use the Services for non-commercial purposes" (1.c) |
+| Licencia que les cedéis | Perpetua, irrevocable, mundial y sublicenciable, sobre entradas y salidas, para mejorar sus servicios y desarrollar productos nuevos (4.d). No exclusiva |
+| Voces clonadas | Hay que estar autorizado a usar esa voz. Las de la Voice Library pueden tener condiciones del propietario |
+
+Fuente: https://elevenlabs.io/terms-of-use
+
+**Publicar el juego en las tiendas bajo una empresa es uso comercial**, aunque la
+descarga sea gratuita. Si la narración se generó con una cuenta gratuita, no hay
+derecho de uso comercial y hay que regenerarla con una suscripción de pago,
+guardando prueba de la fecha y el plan.
+
 ## Paquetes del Unity Asset Store
 
 | Paquete | Carpeta | Autor | Gratis o pago | Cuenta de Unity que lo adquirió | Fecha | Enlace |
@@ -79,6 +107,10 @@ Una fila por archivo o por lote. Sin la URL y la fecha, la prueba no sirve.
 
 ## Pendientes
 
+- [ ] **Confirmar con qué plan de ElevenLabs se generaron los audios de narración.** Si
+      fue el gratuito, no hay derecho de uso comercial y hay que regenerarlos
+- [ ] Revisar si alguna voz de ElevenLabs es clonada o viene de la Voice Library
+- [ ] Decidir si desactivar el uso de entradas para entrenamiento en la cuenta de Anthropic
 - [ ] Rellenar autor, origen y enlace de los cuatro paquetes sin documentar
 - [ ] Confirmar con qué cuenta de Unity se adquirió cada paquete. Si fue una cuenta
       personal, la licenciataria es esa persona y no Hispanic Open Learning Academy Inc.
@@ -100,7 +132,9 @@ Una fila por archivo o por lote. Sin la URL y la fecha, la prueba no sirve.
 Para tenerlo claro al otro lado de la balanza: el código, la historia y sus textos,
 Éliane Tremblay y el resto de personajes, el diseño de las misiones AR, las imágenes
 objetivo de Vuforia, la localización en español, inglés y francés, el diseño de la
-interfaz, y **el juego como obra en conjunto**.
+interfaz, el código generado con Claude (cedido por Anthropic), los audios de
+narración de ElevenLabs si se generaron con plan de pago, y **el juego como obra
+en conjunto**.
 
 Esa combinación es original y protegible, y es también lo que sostiene la condición
 del EULA de Unity sobre incorporar los assets junto a contenido original sustancial.

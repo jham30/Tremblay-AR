@@ -850,11 +850,7 @@ public Mission ObtenerMisionActual()
                 var drag = hijo.GetComponent<DraggableItem>();
                 if (drag == null) continue;
 
-                hijo.SetParent(panelLista, false);
-                Canvas.ForceUpdateCanvases();
-                drag.startParent = panelLista;
-                drag.startPosition = drag.transform.position;
-                hijo.SetAsLastSibling();
+                drag.VolverALista(panelLista); // a su sitio original, no al final
             }
             socket.VaciarSocket();
         }

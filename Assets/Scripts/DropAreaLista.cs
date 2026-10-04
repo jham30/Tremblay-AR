@@ -39,12 +39,8 @@ public class DropAreaLista : MonoBehaviour, IDropHandler
             }
         }
 
-        // Colocar el objeto en la lista
-        item.transform.SetParent(content, true);
-
-        // Actualizar su posición de referencia
-        item.startParent = content;
-        item.startPosition = item.transform.position;
+        // Colocar el objeto en la lista, en el lugar de donde salió (no al final)
+        item.VolverALista(content);
 
         Debug.Log($"Objeto {item.objetoID} devuelto a la lista.");
     }

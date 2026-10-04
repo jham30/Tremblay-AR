@@ -48,8 +48,11 @@ public class DropSocketAvanzado : MonoBehaviour, IDropHandler
             // Si ya había un objeto, devolverlo a la lista
             if (objetoEnSocket != null && objetoEnSocket != nuevoObjeto)
             {
-                objetoEnSocket.transform.SetParent(objetoEnSocket.startParent);
-                objetoEnSocket.transform.position = objetoEnSocket.startPosition;
+                if (!objetoEnSocket.VolverALista())
+                {
+                    objetoEnSocket.transform.SetParent(objetoEnSocket.startParent);
+                    objetoEnSocket.transform.position = objetoEnSocket.startPosition;
+                }
                 objetoEnSocket = null;
             }
 

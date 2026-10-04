@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -22,6 +23,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+
+    // Mientras el ítem está en la lista del inventario, un arrastre a lo largo del eje del
+    // scroll se le pasa al ScrollRect (el ítem no se mueve). Solo un arrastre en el otro eje
+    // agarra el ítem. Sin esto el ítem se quedaba con todos los arrastres y la lista no
+    // podía desplazarse más que tocando huecos vacíos.
+    private ScrollRect scrollReenviado;
 
     void Awake()
     {
@@ -50,6 +57,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        scrollReenviado = null;
+        ScrollRect scroll = ScrollQueDebeRecibir(eventData);
+        if (scroll != null)
+        {
+            scrollReenviado = scroll;
+            ExecuteEvents.Execute(scroll.gameObject, eventData, ExecuteEvents.initializePotentialDrag);
+            ExecuteEvents.Execute(scroll.gameObject, eventData, ExecuteEvents.beginDragHandler);
+            return;
+        }
+
         if (!esArrastrable) return;
 
         startPosition = transform.position;
@@ -68,12 +85,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (scrollReenviado != null)
+        {
+            ExecuteEvents.Execute(scrollReenviado.gameObject, eventData, ExecuteEvents.dragHandler);
+            return;
+        }
+
         if (!esArrastrable) return;
         rectTransform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (scrollReenviado != null)
+        {
+            ExecuteEvents.Execute(scrollReenviado.gameObject, eventData, ExecuteEvents.endDragHandler);
+            scrollReenviado = null;
+            return;
+        }
+
         if (!esArrastrable) return;
 
         canvasGroup.blocksRaycasts = true;
@@ -83,7 +113,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             rectTransform.position = startPosition;
             transform.SetParent(startParent);
-            
+
             // 🎵 SONIDO AL SOLTAR SIN ÉXITO
             if (!reproducirSonidoSoloEnExito)
             {
@@ -105,6 +135,23 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 ReproducirSonidoSoltar(true);
             }
         }
+    }
+
+    /// <summary>
+    /// Devuelve el ScrollRect de la lista si el ítem está dentro de él y el gesto va a lo
+    /// largo de su eje de desplazamiento; null si el gesto debe agarrar el ítem.
+    /// </summary>
+    private ScrollRect ScrollQueDebeRecibir(PointerEventData eventData)
+    {
+        ScrollRect scroll = GetComponentInParent<ScrollRect>();
+        if (scroll == null || transform.parent != scroll.content) return null;
+
+        Vector2 gesto = eventData.position - eventData.pressPosition;
+        bool esHorizontal = Mathf.Abs(gesto.x) > Mathf.Abs(gesto.y);
+
+        if (scroll.horizontal && !scroll.vertical) return esHorizontal ? scroll : null;
+        if (scroll.vertical && !scroll.horizontal) return esHorizontal ? null : scroll;
+        return null; // scroll en ambos ejes: no hay forma de distinguir, se prioriza agarrar
     }
 
     private bool HaySocketEnParent()

@@ -45,6 +45,10 @@ public class InventarioToggleController : MonoBehaviour, IPanelConVisibilidad
     
     [SerializeField] private bool mostrarDebugSwipe = false;
 
+    [Tooltip("Zona extra (opcional) donde también se acepta el swipe, p. ej. la franja superior del panel. " +
+             "NUNCA el panel entero: ahí viven los ítems arrastrables y el scroll, y sus gestos cerraban el panel.")]
+    [SerializeField] private RectTransform asaSwipe;
+
     // 🔄 NUEVO: Rotación de Flecha
     [Header("🔄 Rotación de Flecha")]
     [SerializeField] private bool habilitarRotacionFlecha = true;
@@ -323,10 +327,11 @@ public class InventarioToggleController : MonoBehaviour, IPanelConVisibilidad
                 return true;
         }
 
-        // Zona del panel completo (abierto o cerrado — cubre el handle visible)
-        if (rectTransformPanel != null)
+        // Asa opcional. El panel completo ya no cuenta como zona: devolver un ítem a la lista
+        // o hacer scroll se leía como swipe y cerraba el inventario a mitad de gesto.
+        if (asaSwipe != null)
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(rectTransformPanel, posicionPantalla, cam))
+            if (RectTransformUtility.RectangleContainsScreenPoint(asaSwipe, posicionPantalla, cam))
                 return true;
         }
 

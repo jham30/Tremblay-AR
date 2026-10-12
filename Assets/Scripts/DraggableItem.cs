@@ -21,7 +21,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] private bool reproducirSonidoSoloEnExito = false;
 
     [Header("Hueco en la lista")]
-    [Tooltip("Opacidad de la silueta que queda en la lista mientras el ítem está fuera de ella.")]
+    [Tooltip("Opacidad del dibujo del ítem en el hueco que deja en la lista mientras está fuera de ella. " +
+             "El Marco del hueco se ve siempre completo.")]
     [SerializeField, Range(0f, 1f)] private float alphaHueco = 0.3f;
 
     private Canvas canvas;
@@ -40,6 +41,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private GameObject hueco;
     private Transform ultimaLista;
 
+    // Hijo opcional "Marco" del prefab: el huequito decorativo de la casilla. Viaja con el ítem
+    // para que la decoración haga scroll junto a los objetos (sin un segundo grid sincronizado),
+    // pero solo se muestra mientras el ítem está en la lista: ni al arrastrarlo ni en un socket.
+    private GameObject marco;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -48,8 +54,28 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         canvas = GetComponentInParent<Canvas>();
-        
+
+        Transform t = transform.Find("Marco");
+        if (t != null) marco = t.gameObject;
+
         ConfigurarAudio();
+    }
+
+    void Start()
+    {
+        ActualizarMarco();
+    }
+
+    // Unity lo llama en cada cambio de padre: cubre todos los caminos (drag, socket, VolverALista, reset).
+    void OnTransformParentChanged()
+    {
+        ActualizarMarco();
+    }
+
+    private void ActualizarMarco()
+    {
+        if (marco != null)
+            marco.SetActive(EstaEnLista(transform.parent));
     }
 
     private void ConfigurarAudio()
@@ -220,21 +246,27 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             leHueco.flexibleHeight  = le.flexibleHeight;
         }
 
+        // Primero el Marco (queda detrás) y completo: la casilla se sigue viendo igual.
+        if (marco != null)
+            CopiarHijoConImagen(marco.transform, hueco.transform);
+
+        // Luego el dibujo del ítem, desvanecido.
         Transform sprite = transform.Find("SpriteImage");
         if (sprite != null)
         {
-            var spriteHueco = new GameObject("SpriteImage", typeof(RectTransform));
-            spriteHueco.layer = gameObject.layer;
-            spriteHueco.transform.SetParent(hueco.transform, false);
-            CopiarRect((RectTransform)sprite, (RectTransform)spriteHueco.transform);
-            CopiarImagen(sprite.GetComponent<Image>(), spriteHueco);
+            Image img = CopiarHijoConImagen(sprite, hueco.transform);
+            if (img != null)
+            {
+                Color c = img.color;
+                c.a *= alphaHueco;
+                img.color = c;
+            }
         }
 
         // El hueco SÍ recibe el toque: el Content de la lista no tiene Image, así que un drop solo
         // llega a DropAreaLista si cae sobre un hijo y sube por la jerarquía. Si el hueco fuera
         // transparente al toque, soltar el ítem justo en su hueco (lo natural) no lo devolvía.
         CanvasGroup cg = hueco.AddComponent<CanvasGroup>();
-        cg.alpha = alphaHueco;
         cg.interactable = false;
         cg.blocksRaycasts = true;
     }
@@ -259,15 +291,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         destino.localScale       = origen.localScale;
     }
 
-    private static void CopiarImagen(Image origen, GameObject destino)
+    private Image CopiarHijoConImagen(Transform origen, Transform padre)
     {
-        if (origen == null) return;
+        var copia = new GameObject(origen.name, typeof(RectTransform));
+        copia.layer = gameObject.layer;
+        copia.transform.SetParent(padre, false);
+        CopiarRect((RectTransform)origen, (RectTransform)copia.transform);
+        return CopiarImagen(origen.GetComponent<Image>(), copia);
+    }
+
+    private static Image CopiarImagen(Image origen, GameObject destino)
+    {
+        if (origen == null) return null;
         Image img = destino.AddComponent<Image>();
         img.sprite         = origen.sprite;
         img.type           = origen.type;
         img.preserveAspect = origen.preserveAspect;
         img.color          = origen.color;
         img.raycastTarget  = true; // ver comentario del CanvasGroup en DejarHueco()
+        return img;
     }
 
     void OnDestroy()

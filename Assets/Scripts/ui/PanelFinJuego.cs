@@ -26,6 +26,12 @@ public class PanelFinJuego : MonoBehaviour
     [Tooltip("Escena del selector de cuentos (debe estar en Build Settings).")]
     [SerializeField] private string nombreEscenaSeleccion = "Inicio";
 
+    [Header("Cuento completo (álbum)")]
+    [Tooltip("Reproduce la historia entera. El panel se oculta mientras suena y vuelve al terminar o al salir.")]
+    [SerializeField] private Button botonCuentoCompleto;
+    [Tooltip("Si se deja vacío, se busca en la escena.")]
+    [SerializeField] private AlbumFragmentosUI album;
+
     [Header("Animación de aparición (opcional)")]
     [SerializeField] private RectTransform panelRect;
     [SerializeField] private bool usarPop = true;
@@ -69,6 +75,13 @@ public class PanelFinJuego : MonoBehaviour
             botonSeleccionCuentos.onClick.AddListener(OnIrASeleccionCuentos);
         }
 
+        if (album == null) album = FindObjectOfType<AlbumFragmentosUI>();
+        if (botonCuentoCompleto != null)
+        {
+            botonCuentoCompleto.onClick.RemoveAllListeners();
+            botonCuentoCompleto.onClick.AddListener(OnCuentoCompleto);
+        }
+
         OcultarInmediato();
 
         missionManager = MissionManager.Instance;
@@ -82,6 +95,9 @@ public class PanelFinJuego : MonoBehaviour
     private void Reevaluar()
     {
         if (missionManager == null) missionManager = MissionManager.Instance;
+
+        // Mientras suena el cuento completo el panel espera oculto; el álbum lo devuelve al terminar.
+        if (album != null && album.ReproduciendoCuentoCompleto) return;
 
         bool completo = missionManager != null && missionManager.TodasMisionesCompletadas();
 
@@ -122,9 +138,12 @@ public class PanelFinJuego : MonoBehaviour
             Mostrar();
     }
 
-    private void Mostrar()
+    private void Mostrar(bool sonar = true)
     {
         visible = true;
+
+        if (botonCuentoCompleto != null)
+            botonCuentoCompleto.interactable = album != null && album.TodosDesbloqueados();
 
         if (panelCanvasGroup != null)
         {
@@ -140,7 +159,7 @@ public class PanelFinJuego : MonoBehaviour
             popCR = StartCoroutine(PopCoroutine());
         }
 
-        if (sonarAlAparecer && GlobalAudioManager.Instance != null)
+        if (sonar && sonarAlAparecer && GlobalAudioManager.Instance != null)
             GlobalAudioManager.Instance.ReproducirSonidoExitoGeneral();
     }
 
@@ -173,6 +192,26 @@ public class PanelFinJuego : MonoBehaviour
             resetController.EjecutarResetCompleto();
         else
             Debug.LogWarning("[PanelFinJuego] ResetGameController no asignado; no se pudo reiniciar.");
+    }
+
+    private void OnCuentoCompleto()
+    {
+        if (album == null)
+        {
+            Debug.LogWarning("[PanelFinJuego] No hay AlbumFragmentosUI en la escena; no se puede reproducir el cuento.");
+            return;
+        }
+
+        if (GlobalAudioManager.Instance != null)
+            GlobalAudioManager.Instance.ReproducirSonidoClickBoton();
+
+        // Ocultar mientras suena (el panel es modal y taparía la historia) y volver al terminar.
+        Ocultar();
+        album.ReproducirCuentoCompleto(() =>
+        {
+            if (missionManager != null && missionManager.TodasMisionesCompletadas() && !visible)
+                Mostrar(sonar: false);
+        });
     }
 
     private void OnIrASeleccionCuentos()

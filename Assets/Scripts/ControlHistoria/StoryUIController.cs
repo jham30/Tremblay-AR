@@ -159,7 +159,10 @@ public class StoryUIController : MonoBehaviour
                  $"Diagonal: {diagonal:F1}\" | Resolución: {Screen.width}x{Screen.height}");
     }
 
-    public IEnumerator MostrarFragmento(StoryFragment fragmento, bool esContinuacion = false)
+    /// <param name="permitirContinuacion">False cuando el fragmento se reproduce suelto (álbum):
+    /// aunque tenga siguienteFragmento, el panel se cierra al terminar en vez de quedarse
+    /// esperando el crossfade.</param>
+    public IEnumerator MostrarFragmento(StoryFragment fragmento, bool esContinuacion = false, bool permitirContinuacion = true)
     {
         if (fragmento == null || !fragmento.EsValido())
         {
@@ -247,7 +250,7 @@ public class StoryUIController : MonoBehaviour
             yield return StartCoroutine(EsperarBotonContinuar());
         }
         
-        bool hayContinuacion = !saltado && fragmento.siguienteFragmento != null;
+        bool hayContinuacion = permitirContinuacion && !saltado && fragmento.siguienteFragmento != null;
         PanelListoParaContinuacion = hayContinuacion;
 
         if (hayContinuacion)
@@ -268,30 +271,46 @@ public class StoryUIController : MonoBehaviour
                 yield return StartCoroutine(FadeOut(fragmento.tiempoFadeOut));
             }
 
-            OcultarUI();
-
-            // ✅ RESTAURAR OTROS UI SI ESTABAN ABIERTOS (fin de la cadena)
-            if (respetarOtrosCanvas)
-            {
-                if (inventarioEstabaAbierto && inventarioToggle != null)
-                {
-                    yield return new WaitForSeconds(0.2f); // Pequeña pausa
-                    inventarioToggle.MostrarPanel();
-                    Debug.Log("📖 [StoryUI] Inventario restaurado después de la historia");
-                }
-
-                if (objectInfoEstabaAbierto && objectInfoUI != null)
-                {
-                    objectInfoUI.MostrarCanvasTemporalmente();
-                    Debug.Log("📖 [StoryUI] ObjectInfo restaurado después de la historia");
-                }
-
-                inventarioEstabaAbierto = false;
-                objectInfoEstabaAbierto = false;
-            }
+            yield return StartCoroutine(CerrarYRestaurarOtrosUI());
         }
 
         fragmentoActual = null;
+    }
+
+    /// <summary>
+    /// Cierra un panel que quedó visible esperando la continuación de la cadena, cuando esa
+    /// continuación ya no va a llegar (p. ej. el jugador sale del cuento completo justo entre
+    /// dos fragmentos encadenados).
+    /// </summary>
+    public IEnumerator CerrarPanelPendiente()
+    {
+        if (!PanelListoParaContinuacion) yield break;
+        PanelListoParaContinuacion = false;
+        yield return StartCoroutine(CerrarYRestaurarOtrosUI());
+    }
+
+    // Fin de la cadena: ocultar el panel y devolver los UI que la historia cerró al empezar.
+    private IEnumerator CerrarYRestaurarOtrosUI()
+    {
+        OcultarUI();
+
+        if (!respetarOtrosCanvas) yield break;
+
+        if (inventarioEstabaAbierto && inventarioToggle != null)
+        {
+            yield return new WaitForSeconds(0.2f); // Pequeña pausa
+            inventarioToggle.MostrarPanel();
+            Debug.Log("📖 [StoryUI] Inventario restaurado después de la historia");
+        }
+
+        if (objectInfoEstabaAbierto && objectInfoUI != null)
+        {
+            objectInfoUI.MostrarCanvasTemporalmente();
+            Debug.Log("📖 [StoryUI] ObjectInfo restaurado después de la historia");
+        }
+
+        inventarioEstabaAbierto = false;
+        objectInfoEstabaAbierto = false;
     }
     
     private IEnumerator EsperarFinalizacionFragmento(StoryFragment fragmento, float tiempoInicioAudio)

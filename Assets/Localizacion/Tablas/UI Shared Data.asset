@@ -559,6 +559,30 @@ MonoBehaviour:
     m_Key: tutorial.step_23_ayuda
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903860723712
+    m_Key: album.open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055360
+    m_Key: album.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055361
+    m_Key: album.prologue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055362
+    m_Key: album.play_all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055363
+    m_Key: album.exit_story
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055364
+    m_Key: album.progress
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834160

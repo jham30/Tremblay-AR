@@ -574,6 +574,30 @@ MonoBehaviour:
     m_Localized: 23-a. Check the message about the mission; something isn't where it should be. Swap the positions of the candle <sprite name="vela"> and the pumpkin <sprite name="calabaza">, then press the button I'm pointing out again.
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903860723712
+    m_Localized: Album
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055360
+    m_Localized: Story album
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055361
+    m_Localized: Prologue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055362
+    m_Localized: Watch the whole story
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055363
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055364
+    m_Localized: '{0} of {1}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

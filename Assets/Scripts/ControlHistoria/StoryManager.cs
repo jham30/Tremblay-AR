@@ -26,9 +26,18 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private string nombreArchivoProgreso = "story_progress.json";
     [SerializeField] private bool debugMode = true;
     
+    /// <summary>Se dispara la PRIMERA vez que un fragmento queda visto (el álbum lo desbloquea).</summary>
+    public event System.Action<StoryFragment> OnFragmentoVisto;
+
+    /// <summary>Se dispara al resetear el progreso de la historia (Play Again).</summary>
+    public event System.Action OnProgresoReseteado;
+
     private Queue<StoryFragment> colaFragmentos = new Queue<StoryFragment>();
     private StoryFragment fragmentoActual;
     private bool reproduciendoFragmento = false;
+    // True = la cadena actual no debe seguir a siguienteFragmento (reproducción suelta
+    // desde el álbum, o el jugador cortó la narración).
+    private bool cortarCadena = false;
     private HashSet<string> fragmentosVistos = new HashSet<string>();
     private Coroutine reproduccionActual;
     private StoryProgressData progresoActual;
@@ -111,7 +120,9 @@ public class StoryManager : MonoBehaviour
         }
     }
     
-    public void ReproducirFragmento(StoryFragment fragmento, bool forzarReproduccion = false)
+    /// <param name="encadenar">False = reproducir solo este fragmento, sin su siguienteFragmento
+    /// (lo usa el álbum). Si el fragmento entra en la cola, se reproduce encadenado.</param>
+    public void ReproducirFragmento(StoryFragment fragmento, bool forzarReproduccion = false, bool encadenar = true)
     {
         if (fragmento == null || !fragmento.EsValido())
         {
@@ -139,13 +150,16 @@ public class StoryManager : MonoBehaviour
         if (reproduccionActual != null)
             StopCoroutine(reproduccionActual);
         
-        reproduccionActual = StartCoroutine(ReproducirFragmentoCoroutine(fragmento));
+        reproduccionActual = StartCoroutine(ReproducirFragmentoCoroutine(fragmento, false, encadenar));
     }
-    
-    private IEnumerator ReproducirFragmentoCoroutine(StoryFragment fragmento, bool esContinuacion = false)
+
+    private IEnumerator ReproducirFragmentoCoroutine(StoryFragment fragmento, bool esContinuacion = false, bool encadenar = true)
     {
         reproduciendoFragmento = true;
         fragmentoActual = fragmento;
+
+        if (!esContinuacion)
+            cortarCadena = !encadenar;
 
         if (debugMode)
             Debug.Log($"📖 [StoryManager] ▶️ Reproduciendo: {fragmento.fragmentID} (continuación: {esContinuacion})");
@@ -155,26 +169,39 @@ public class StoryManager : MonoBehaviour
 
         if (storyUI != null)
         {
-            yield return StartCoroutine(storyUI.MostrarFragmento(fragmento, esContinuacion));
+            yield return StartCoroutine(storyUI.MostrarFragmento(fragmento, esContinuacion, !cortarCadena));
         }
         else
         {
             yield return StartCoroutine(ReproducirSoloAudio(fragmento));
         }
 
-        MarcarFragmentoVisto(fragmento.fragmentID);
+        MarcarFragmentoVisto(fragmento);
         GuardarProgreso();
 
-        if (fragmento.siguienteFragmento != null && fragmento.siguienteFragmento.EsValido())
+        bool seguir = !cortarCadena && fragmento.siguienteFragmento != null && fragmento.siguienteFragmento.EsValido();
+        if (seguir)
         {
             // Si el panel quedó visible esperando un crossfade, el siguiente
             // fragmento se reproduce como continuación (sin fade del panel completo).
             bool continuarConCrossfade = storyUI != null && storyUI.PanelListoParaContinuacion;
 
             yield return new WaitForSeconds(fragmento.delayAntesSiguiente);
-            yield return StartCoroutine(ReproducirFragmentoCoroutine(fragmento.siguienteFragmento, continuarConCrossfade));
+
+            if (cortarCadena)
+            {
+                // Se cortó la narración durante la espera: cerrar el panel que quedó abierto.
+                seguir = false;
+                if (storyUI != null)
+                    yield return StartCoroutine(storyUI.CerrarPanelPendiente());
+            }
+            else
+            {
+                yield return StartCoroutine(ReproducirFragmentoCoroutine(fragmento.siguienteFragmento, continuarConCrossfade));
+            }
         }
-        else
+
+        if (!seguir)
         {
             PausarGameplay(false);
         }
@@ -244,15 +271,18 @@ public class StoryManager : MonoBehaviour
         ReproducirFragmento(fragmento);
     }
     
-    private void MarcarFragmentoVisto(string fragmentoID)
+    private void MarcarFragmentoVisto(StoryFragment fragmento)
     {
+        string fragmentoID = fragmento.fragmentID;
         if (!fragmentosVistos.Contains(fragmentoID))
         {
             fragmentosVistos.Add(fragmentoID);
             progresoActual.fragmentosVistos.Add(fragmentoID);
-            
+
             if (debugMode)
                 Debug.Log($"📖 [StoryManager] ✅ Fragmento marcado como visto: {fragmentoID}");
+
+            OnFragmentoVisto?.Invoke(fragmento);
         }
     }
     
@@ -363,6 +393,21 @@ public class StoryManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Corta la narración en curso sin dejar nada colgado: salta el fragmento actual y no sigue
+    /// con su siguienteFragmento. Los fragmentos en cola siguen su curso. A diferencia de
+    /// SaltarFragmentoActual, no detiene la corrutina: la deja terminar para que el panel se
+    /// cierre y el fragmento quede marcado como visto.
+    /// </summary>
+    public void CortarNarracionActual()
+    {
+        if (!reproduciendoFragmento) return;
+
+        cortarCadena = true;
+        if (storyUI != null)
+            storyUI.SaltarFragmento();
+    }
+
     public void LimpiarColaFragmentos()
     {
         colaFragmentos.Clear();
@@ -421,6 +466,8 @@ public class StoryManager : MonoBehaviour
         {
             Debug.LogWarning($"📖 [StoryManager] No se pudo borrar el progreso base: {e.Message}");
         }
+
+        OnProgresoReseteado?.Invoke();
 
         Debug.Log("📖 [StoryManager] Progreso de historia reseteado");
     }

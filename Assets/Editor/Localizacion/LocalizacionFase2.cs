@@ -336,6 +336,15 @@ public static class LocalizacionFase2
         ("missions.state.available", "Disponible para descifrar", "Ready to decipher", "Prête à déchiffrer"),
         ("missions.state.locked", "Bloqueada", "Locked", "Verrouillée"),
         ("missions.state.unknown", "Desconocido", "Unknown", "Inconnu"),
+
+        // Álbum de fragmentos
+        ("album.open", "Álbum", "Album", "Album"),
+        ("album.show_missions", "Misiones", "Missions", "Missions"),
+        ("album.title", "Álbum de la historia", "Story album", "Album de l'histoire"),
+        ("album.prologue", "Prólogo", "Prologue", "Prologue"),
+        ("album.play_all", "Ver el cuento completo", "Watch the whole story", "Voir toute l'histoire"),
+        ("album.exit_story", "Salir", "Exit", "Quitter"),
+        ("album.progress", "{0} de {1}", "{0} of {1}", "{0} sur {1}"),
     };
 
     [MenuItem("Tremblay/Localización/Fase 2 - Sembrar textos de código y fallback de locales")]

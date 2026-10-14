@@ -554,6 +554,30 @@ MonoBehaviour:
     m_Localized: "23-a. V\xE9rifie le message qui appara\xEEt \xE0 propos de la mission, quelque chose n'est pas \xE0 sa place, change la position de la bougie <sprite name=\"vela\"> et de la citrouille <sprite name=\"calabaza\"> et appuie \xE0 nouveau sur le bouton que je te montre."
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903860723712
+    m_Localized: Album
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055360
+    m_Localized: Album de l'histoire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055361
+    m_Localized: Prologue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055362
+    m_Localized: Voir toute l'histoire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055363
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055364
+    m_Localized: '{0} sur {1}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

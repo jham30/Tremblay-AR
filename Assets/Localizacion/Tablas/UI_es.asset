@@ -570,6 +570,30 @@ MonoBehaviour:
     m_Localized: "23-a. Revisa el mensaje que sale sobre la misi\xF3n, algo no est\xE1 donde debe, cambia de posici\xF3n la vela  <sprite name=\"vela\"> y la calabaza <sprite name=\"calabaza\"> y presiona el bot\xF3n que te se\xF1alo de nuevo."
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903860723712
+    m_Localized: "\xC1lbum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055360
+    m_Localized: "\xC1lbum de la historia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055361
+    m_Localized: "Pr\xF3logo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055362
+    m_Localized: Ver el cuento completo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055363
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911055364
+    m_Localized: '{0} de {1}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

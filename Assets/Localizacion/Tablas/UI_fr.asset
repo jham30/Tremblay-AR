@@ -594,6 +594,22 @@ MonoBehaviour:
     m_Localized: J'ai compris
     m_Metadata:
       m_Items: []
+  - m_Id: 3893839580344320
+    m_Localized: Veux-tu vraiment passer le tutoriel ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990445494972416
+    m_Localized: Oui, passer le tutoriel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4990767948869632
+    m_Localized: On joue !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4993154256187392
+    m_Localized: Continuer le tutoriel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

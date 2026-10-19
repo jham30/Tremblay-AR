@@ -578,6 +578,22 @@ MonoBehaviour:
     m_Localized: '{0} sur {1}'
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903911060001
+    m_Localized: Avant de commencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060002
+    m_Localized: "Joue toujours avec un adulte \xE0 tes c\xF4t\xE9s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060003
+    m_Localized: "Fais attention \xE0 ce qui t'entoure et regarde o\xF9 tu marches."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060004
+    m_Localized: J'ai compris
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

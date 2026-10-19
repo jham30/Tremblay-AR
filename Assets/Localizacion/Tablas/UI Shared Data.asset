@@ -583,6 +583,22 @@ MonoBehaviour:
     m_Key: album.progress
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903911060001
+    m_Key: ar.aviso.titulo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060002
+    m_Key: ar.aviso.supervision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060003
+    m_Key: ar.aviso.entorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060004
+    m_Key: ar.aviso.boton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834160

@@ -594,6 +594,22 @@ MonoBehaviour:
     m_Localized: '{0} de {1}'
     m_Metadata:
       m_Items: []
+  - m_Id: 9321903911060001
+    m_Localized: Antes de empezar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060002
+    m_Localized: "Juega siempre con la compa\xF1\xEDa de un adulto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060003
+    m_Localized: "Mira a tu alrededor mientras juegas y cuida por d\xF3nde caminas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9321903911060004
+    m_Localized: Entendido
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

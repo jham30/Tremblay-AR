@@ -614,6 +614,38 @@ MonoBehaviour:
     m_Localized: Got it
     m_Metadata:
       m_Items: []
+  - m_Id: 14002352910479360
+    m_Localized: Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782528
+    m_Localized: 'Remember to find: {0}!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782529
+    m_Localized: 'We still need something: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782530
+    m_Localized: 'Let''s go get this: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782531
+    m_Localized: 'Take {0} to: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782532
+    m_Localized: 'You''ve got it! Now go to: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782533
+    m_Localized: 'Almost there! Finish the mission at: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14015308159234048
+    m_Localized: 'Take this to:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

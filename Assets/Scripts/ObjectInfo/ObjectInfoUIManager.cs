@@ -57,6 +57,14 @@ public class ObjectInfoUIManager : MonoBehaviour
     public Vector2 tamañoSprite = new Vector2(50, 50);
     public Color colorSpriteColocado = Color.white;
 
+    [Header("📡 Cierre por Tracking")]
+    [Tooltip("Cierra el panel solo cuando el jugador ya no ve el objeto que lo abrió (ver reglas abajo).")]
+    [SerializeField] private bool cerrarPorTracking = true;
+    [Tooltip("Segundos que la carta del objeto debe estar sin TRACKED, mientras OTRA carta sí lo está, para cerrar el panel. Evita que un parpadeo lo cierre.")]
+    [SerializeField] private float margenCambioDeCarta = 0.5f;
+    [Tooltip("Segundos sin NINGUNA carta en TRACKED para cerrar el panel.")]
+    [SerializeField] private float tiempoSinCartas = 5f;
+
     [Header("🔧 DEBUG")]
     [SerializeField] private bool debugAndroid = true;
     [SerializeField] private bool debugAgarrarDetallado = true;
@@ -109,6 +117,13 @@ public class ObjectInfoUIManager : MonoBehaviour
     private bool guardarBaseCapturada = false;
     private bool guardarAnimando = false;
 
+    // Estado del cierre por tracking
+    private Vuforia.ObserverBehaviour[] cartasEscena = new Vuforia.ObserverBehaviour[0];
+    private readonly HashSet<Vuforia.ObserverBehaviour> cartasTrackeadas = new HashSet<Vuforia.ObserverBehaviour>();
+    private Vuforia.ObserverBehaviour cartaObjetoActual;
+    private float tiempoSinCartaActual;
+    private float tiempoSinNingunaCarta;
+
     // ✅ Propiedades públicas para acceso externo
     public string ObjetoActualID => objetoActualID;
     public bool CanvasActivo => canvasActivo;
@@ -137,6 +152,8 @@ public class ObjectInfoUIManager : MonoBehaviour
     {
         // Liberar singleton para que la nueva escena pueda registrar su propia instancia
         if (Instance == this) Instance = null;
+
+        DesuscribirCartas();
 
         // ✅ Cancelar cualquier animación en curso
         if (animacionActual != null)
@@ -200,6 +217,9 @@ public class ObjectInfoUIManager : MonoBehaviour
 
         // Configurar botones
         ConfigurarEventosBotones();
+
+        SuscribirCartas();
+        ObtenerAnimaciones(); // asegura que exista desde el inicio (aplica el reposo de los modelos)
 
         Debug.Log("🎯 [ObjectInfoUI] Sistema refactorizado inicializado - Canvas estático listo");
     }
@@ -411,6 +431,13 @@ public class ObjectInfoUIManager : MonoBehaviour
 
         objetoActualID = datos.id;
         objetoActualGO = objeto;
+
+        // Carta (ImageTarget) que contiene el objeto tocado, para el cierre por tracking
+        cartaObjetoActual = objeto != null ? objeto.GetComponentInParent<Vuforia.ObserverBehaviour>() : null;
+        if (cartaObjetoActual == null && cerrarPorTracking)
+            Debug.LogWarning($"🎯 [ObjectInfoUI] '{objeto?.name}' no está dentro de un ImageTarget — su panel no se cerrará por tracking.");
+        tiempoSinCartaActual = 0f;
+        tiempoSinNingunaCarta = 0f;
 
         // Avisar al GrabDrop si el objeto agarrado debe mostrarse centrado/lateral
         if (grabDropController != null)
@@ -646,6 +673,7 @@ public class ObjectInfoUIManager : MonoBehaviour
 
         canvasActivo = false;
         objetoActualID = "";
+        cartaObjetoActual = null;
 
         // Audio feedback
         if (GlobalAudioManager.Instance != null)
@@ -800,6 +828,70 @@ public class ObjectInfoUIManager : MonoBehaviour
     public bool TieneCanvasActivo()
     {
         return canvasActivo;
+    }
+
+    #endregion
+
+    #region Cierre por Tracking
+
+    // El panel se abre solo por toque. Además del botón cerrar, se cierra cuando:
+    //  1. la carta del objeto que lo abrió NO está en TRACKED y OTRA carta sí lo está
+    //     (durante margenCambioDeCarta seguidos), o
+    //  2. no hay NINGUNA carta en TRACKED durante tiempoSinCartas.
+    // Mientras la carta del objeto siga en TRACKED el panel no se cierra, aunque haya otras en cámara.
+
+    private void SuscribirCartas()
+    {
+        cartasEscena = FindObjectsByType<Vuforia.ImageTargetBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var carta in cartasEscena)
+        {
+            carta.OnTargetStatusChanged += OnEstadoCartaCambiado;
+            OnEstadoCartaCambiado(carta, carta.TargetStatus);
+        }
+    }
+
+    private void DesuscribirCartas()
+    {
+        foreach (var carta in cartasEscena)
+            if (carta != null) carta.OnTargetStatusChanged -= OnEstadoCartaCambiado;
+        cartasTrackeadas.Clear();
+    }
+
+    private void OnEstadoCartaCambiado(Vuforia.ObserverBehaviour carta, Vuforia.TargetStatus estado)
+    {
+        // Solo TRACKED, igual que el StatusFilter de las cartas y VuforiaTargetTracker.
+        if (estado.Status == Vuforia.Status.TRACKED) cartasTrackeadas.Add(carta);
+        else cartasTrackeadas.Remove(carta);
+    }
+
+    private void Update()
+    {
+        if (!cerrarPorTracking || !canvasActivo || cartaObjetoActual == null) return;
+
+        // Panel oculto temporalmente (inventario, historia): no cerrarlo a escondidas.
+        if (!CanvasEstaticoValido() || !canvasEstatico.gameObject.activeSelf)
+        {
+            tiempoSinCartaActual = 0f;
+            tiempoSinNingunaCarta = 0f;
+            return;
+        }
+
+        bool cartaActualVista = cartasTrackeadas.Contains(cartaObjetoActual);
+        bool hayOtraVista = cartasTrackeadas.Count > (cartaActualVista ? 1 : 0);
+
+        tiempoSinCartaActual = cartaActualVista ? 0f : tiempoSinCartaActual + Time.deltaTime;
+        tiempoSinNingunaCarta = cartasTrackeadas.Count > 0 ? 0f : tiempoSinNingunaCarta + Time.deltaTime;
+
+        if (!cartaActualVista && hayOtraVista && tiempoSinCartaActual >= margenCambioDeCarta)
+        {
+            Debug.Log($"🎯 [ObjectInfoUI] Cerrando panel de '{objetoActualID}': su carta ya no se ve y otra sí");
+            CerrarCanvas();
+        }
+        else if (tiempoSinNingunaCarta >= tiempoSinCartas)
+        {
+            Debug.Log($"🎯 [ObjectInfoUI] Cerrando panel de '{objetoActualID}': {tiempoSinCartas}s sin ninguna carta");
+            CerrarCanvas();
+        }
     }
 
     #endregion
@@ -1037,15 +1129,21 @@ public class ObjectInfoUIManager : MonoBehaviour
             panelMisiones.gameObject.SetActive(false);
         }
 
-        PlayableDirector timelineMision = BuscarTimelineMision(misionACompletar.nombreTimelineAlCompletar);
+        // 🎬 Animación 3D de la misión (todo el sistema vive en AnimacionesMisionAR)
+        AnimacionesMisionAR animaciones = ObtenerAnimaciones();
+        PlayableDirector timelineMision = animaciones.BuscarDirector(misionACompletar.nombreTimelineAlCompletar, objetoActualGO);
         if (timelineMision != null)
         {
             // Marcar la misión como completada pero esperar a que termine el timeline
             // antes de reproducir el fragmento de historia (si tiene uno).
-            missionManager.CompletarMisionAR(misionACompletar.misionID, false);
+            string misionID = misionACompletar.misionID;
+            missionManager.CompletarMisionAR(misionID, false);
 
-            StartCoroutine(ReproducirTimelineDeMision(
-                timelineMision, misionACompletar.misionID, objetoDestinoID));
+            animaciones.Reproducir(timelineMision, () =>
+            {
+                missionManager.ReproducirFragmentoCompletado(misionID);
+                ActualizarPanelMisionesTrasCompletar(objetoDestinoID);
+            });
 
             Debug.Log($"[ObjectInfoUI] 🎬 Reproduciendo timeline '{misionACompletar.nombreTimelineAlCompletar}' al completar misión");
         }
@@ -1152,176 +1250,15 @@ public class ObjectInfoUIManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Pose local de un Transform, guardada para restaurarla cuando termine un
-    /// Timeline de misión.
-    /// </summary>
-    private struct PoseTransform
+    // Si la escena no tiene AnimacionesMisionAR configurado (p. ej. una escena nueva), se crea
+    // uno vacío aquí: las animaciones siguen funcionando, solo sin poses base configuradas.
+    private AnimacionesMisionAR ObtenerAnimaciones()
     {
-        public Transform transform;
-        public Vector3 posicionLocal;
-        public Quaternion rotacionLocal;
-        public Vector3 escalaLocal;
-    }
+        if (AnimacionesMisionAR.Instance != null) return AnimacionesMisionAR.Instance;
 
-    // Pose de los modelos capturada ANTES de la primera reproducción de cada Timeline.
-    // Es la pose base a la que hay que volver al terminar cada animación de misión.
-    private readonly Dictionary<PlayableDirector, List<PoseTransform>> posesBaseTimelines =
-        new Dictionary<PlayableDirector, List<PoseTransform>>();
-
-    /// <summary>
-    /// Guarda la pose de todos los modelos vinculados a un Timeline, antes de reproducirlo
-    /// por primera vez. Solo captura una vez por director: en reproducciones posteriores la
-    /// pose actual ya podría estar alterada por la animación anterior.
-    /// </summary>
-    private void CapturarPoseBaseTimeline(PlayableDirector director)
-    {
-        if (director == null || director.playableAsset == null) return;
-        if (posesBaseTimelines.ContainsKey(director)) return;
-
-        var poses = new List<PoseTransform>();
-
-        foreach (PlayableBinding binding in director.playableAsset.outputs)
-        {
-            if (binding.sourceObject == null) continue;
-
-            UnityEngine.Object bindeado = director.GetGenericBinding(binding.sourceObject);
-
-            Transform raiz = null;
-            if (bindeado is Animator animator) raiz = animator.transform;
-            else if (bindeado is GameObject go) raiz = go.transform;
-            else if (bindeado is Component componente) raiz = componente.transform;
-
-            if (raiz == null) continue;
-
-            // Se guarda toda la jerarquía: el clip puede animar huesos/hijos, no solo la raíz.
-            foreach (Transform t in raiz.GetComponentsInChildren<Transform>(true))
-            {
-                poses.Add(new PoseTransform
-                {
-                    transform = t,
-                    posicionLocal = t.localPosition,
-                    rotacionLocal = t.localRotation,
-                    escalaLocal = t.localScale
-                });
-            }
-        }
-
-        posesBaseTimelines[director] = poses;
-        Debug.Log($"[ObjectInfoUI] 🎬 Pose base capturada para '{director.name}' ({poses.Count} transforms)");
-    }
-
-    /// <summary>
-    /// Reproduce el Timeline de una misión, espera a que termine, devuelve los modelos a su
-    /// pose base y recién entonces dispara el fragmento de historia y refresca el panel.
-    ///
-    /// No se usa el evento 'stopped' del PlayableDirector: con Wrap Mode = Hold el director
-    /// se queda sosteniendo el último fotograma y el evento no llega, así que la espera se
-    /// hace consultando su estado.
-    /// </summary>
-    private System.Collections.IEnumerator ReproducirTimelineDeMision(
-        PlayableDirector director, string misionID, string objetoDestinoID)
-    {
-        CapturarPoseBaseTimeline(director);
-
-        director.time = 0d;
-        director.Play();
-
-        // Un frame para que el director entre en estado Playing antes de empezar a medir.
-        yield return null;
-
-        while (director != null &&
-               director.state == PlayState.Playing &&
-               director.time < director.duration)
-        {
-            yield return null;
-        }
-
-        if (director == null) yield break;
-
-        RestaurarPoseBaseTimeline(director);
-
-        missionManager.ReproducirFragmentoCompletado(misionID);
-        ActualizarPanelMisionesTrasCompletar(objetoDestinoID);
-    }
-
-    /// <summary>
-    /// Devuelve los modelos vinculados a un Timeline de misión a la pose que tenían antes
-    /// de reproducirlo.
-    ///
-    /// No basta con Stop() + Evaluate(0): al detener el director, Timeline deja los
-    /// transforms con los últimos valores que escribió y no los revierte en runtime. Por eso
-    /// la pose base se captura antes de reproducir y se reescribe a mano aquí.
-    /// </summary>
-    private void RestaurarPoseBaseTimeline(PlayableDirector director)
-    {
-        // Suelta el grafo: mientras siga vivo, la Animation Track pisa cualquier valor que
-        // escribamos (y si el modelo tiene Animator Controller, le devuelve el control).
-        director.Stop();
-
-        // Rebind() devuelve al Animator los valores que tenía al vincularse. Sin esto, un
-        // Animator sin Controller se queda sosteniendo el último fotograma de Timeline.
-        foreach (Animator animator in ObtenerAnimatoresDelTimeline(director))
-        {
-            if (animator == null) continue;
-
-            animator.Rebind();
-            animator.Update(0f);
-        }
-
-        if (!posesBaseTimelines.TryGetValue(director, out List<PoseTransform> poses))
-        {
-            Debug.LogWarning($"[ObjectInfoUI] ⚠️ Sin pose base guardada para '{director.name}'");
-            return;
-        }
-
-        foreach (PoseTransform pose in poses)
-        {
-            if (pose.transform == null) continue;
-
-            pose.transform.localPosition = pose.posicionLocal;
-            pose.transform.localRotation = pose.rotacionLocal;
-            pose.transform.localScale = pose.escalaLocal;
-        }
-
-        Debug.Log($"[ObjectInfoUI] 🎬 Timeline '{director.name}' devuelto a su pose base");
-    }
-
-    /// <summary>
-    /// Animators vinculados a las pistas de animación de un Timeline.
-    /// </summary>
-    private List<Animator> ObtenerAnimatoresDelTimeline(PlayableDirector director)
-    {
-        var animatores = new List<Animator>();
-        if (director == null || director.playableAsset == null) return animatores;
-
-        foreach (PlayableBinding binding in director.playableAsset.outputs)
-        {
-            if (binding.sourceObject == null) continue;
-
-            if (director.GetGenericBinding(binding.sourceObject) is Animator animator)
-                animatores.Add(animator);
-        }
-
-        return animatores;
-    }
-
-    /// <summary>
-    /// Busca un PlayableDirector dentro del objeto AR actual cuyo nombre de GameObject
-    /// o de PlayableAsset coincida con el indicado en la misión.
-    /// </summary>
-    private PlayableDirector BuscarTimelineMision(string nombreTimeline)
-    {
-        if (string.IsNullOrEmpty(nombreTimeline) || objetoActualGO == null) return null;
-
-        PlayableDirector[] directores = objetoActualGO.GetComponentsInChildren<PlayableDirector>(true);
-        foreach (var director in directores)
-        {
-            if (director.gameObject.name == nombreTimeline) return director;
-            if (director.playableAsset != null && director.playableAsset.name == nombreTimeline) return director;
-        }
-
-        return null;
+        Debug.LogWarning("[ObjectInfoUI] No hay AnimacionesMisionAR en la escena; se añade uno sin configurar " +
+                         "al GameController. Ponlo a mano para definir las poses base.");
+        return gameObject.AddComponent<AnimacionesMisionAR>();
     }
 
     public void ActualizarEstadoMisiones()

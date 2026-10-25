@@ -60,9 +60,9 @@ public class VuforiaTargetTracker : MonoBehaviour
 
     private void OnStatusChanged(ObserverBehaviour b, TargetStatus status)
     {
-        bool tracked = status.Status == Status.TRACKED ||
-                       status.Status == Status.EXTENDED_TRACKED ||
-                       status.Status == Status.LIMITED;
+        // Solo TRACKED, igual que el StatusFilter de las cartas: con EXTENDED_TRACKED la carta ya no
+        // se ve (tapada o en la mano) y su modelo está oculto, así que no debe contar como visible.
+        bool tracked = status.Status == Status.TRACKED;
 
         if (tracked)
         {

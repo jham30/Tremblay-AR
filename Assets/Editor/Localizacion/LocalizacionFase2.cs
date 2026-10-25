@@ -345,6 +345,18 @@ public static class LocalizacionFase2
         ("album.play_all", "Ver el cuento completo", "Watch the whole story", "Voir toute l'histoire"),
         ("album.exit_story", "Salir", "Exit", "Quitter"),
         ("album.progress", "{0} de {1}", "{0} of {1}", "{0} sur {1}"),
+
+        // Panel del objeto a llevar (título sobre las filas [objeto] → [destino])
+        ("ar.carry_to", "Lleva esto a:", "Take this to:", "Apporte ça ici :"),
+
+        // Recordatorios de Éliane. {0} = objeto, {1} = destino, ya en idioma meta. Sin artículo
+        // delante: el nombre va en otro idioma y el artículo nativo no casaría.
+        ("eliane.reminder.find.1", "¡Recuerda buscar: {0}!", "Remember to find: {0}!", "N'oublie pas de chercher : {0} !"),
+        ("eliane.reminder.find.2", "Todavía nos falta algo: {0}", "We still need something: {0}", "Il nous manque encore : {0}"),
+        ("eliane.reminder.find.3", "¿Vamos por esto? {0}", "Let's go get this: {0}", "Allons chercher ça : {0}"),
+        ("eliane.reminder.carry.1", "Lleva {0} a: {1}", "Take {0} to: {1}", "Apporte {0} ici : {1}"),
+        ("eliane.reminder.carry.2", "¡Ya lo tienes! Ahora ve a: {1}", "You've got it! Now go to: {1}", "Tu l'as ! Maintenant, va voir : {1}"),
+        ("eliane.reminder.finish.1", "¡Ya casi! Termina la misión en: {1}", "Almost there! Finish the mission at: {1}", "Presque ! Termine la mission ici : {1}"),
     };
 
     [MenuItem("Tremblay/Localización/Fase 2 - Sembrar textos de código y fallback de locales")]

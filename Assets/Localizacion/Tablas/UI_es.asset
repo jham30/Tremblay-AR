@@ -610,6 +610,38 @@ MonoBehaviour:
     m_Localized: Entendido
     m_Metadata:
       m_Items: []
+  - m_Id: 14002352910479360
+    m_Localized: Misiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782528
+    m_Localized: "\xA1Recuerda buscar: {0}!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782529
+    m_Localized: "Todav\xEDa nos falta algo: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782530
+    m_Localized: "\xBFVamos por esto? {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782531
+    m_Localized: 'Lleva {0} a: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782532
+    m_Localized: "\xA1Ya lo tienes! Ahora ve a: {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782533
+    m_Localized: "\xA1Ya casi! Termina la misi\xF3n en: {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14015308159234048
+    m_Localized: 'Lleva esto a:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -599,6 +599,38 @@ MonoBehaviour:
     m_Key: ar.aviso.boton
     m_Metadata:
       m_Items: []
+  - m_Id: 14002352910479360
+    m_Key: album.show_missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782528
+    m_Key: eliane.reminder.find.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782529
+    m_Key: eliane.reminder.find.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782530
+    m_Key: eliane.reminder.find.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782531
+    m_Key: eliane.reminder.carry.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782532
+    m_Key: eliane.reminder.carry.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782533
+    m_Key: eliane.reminder.finish.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14015308159234048
+    m_Key: ar.carry_to
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5297733280970834160

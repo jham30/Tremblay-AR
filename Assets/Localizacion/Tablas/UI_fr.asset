@@ -610,6 +610,38 @@ MonoBehaviour:
     m_Localized: Continuer le tutoriel
     m_Metadata:
       m_Items: []
+  - m_Id: 14002352910479360
+    m_Localized: Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782528
+    m_Localized: 'N''oublie pas de chercher : {0} !'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782529
+    m_Localized: 'Il nous manque encore : {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782530
+    m_Localized: "Allons chercher \xE7a : {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782531
+    m_Localized: 'Apporte {0} ici : {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782532
+    m_Localized: 'Tu l''as ! Maintenant, va voir : {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14002352981782533
+    m_Localized: 'Presque ! Termine la mission ici : {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14015308159234048
+    m_Localized: "Apporte \xE7a ici :"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

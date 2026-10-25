@@ -49,6 +49,9 @@ public class PanelFinJuego : MonoBehaviour
     [SerializeField] private float tiempoEsperaNarracion = 2.5f;
 
     private bool visible = false;
+
+    /// <summary>True mientras el panel de fin de juego está a la vista.</summary>
+    public bool EstaVisible => visible;
     private Vector3 escalaBase = Vector3.one;
     private Coroutine popCR;
     private Coroutine mostrarCR;

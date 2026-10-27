@@ -22,15 +22,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  color:
-    m_TableReference:
-      m_TableCollectionName: GUID:449242646253087458b9314e275643ce
-    m_TableEntryReference:
-      m_KeyId: 206828927430657
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
   audioNombre:
     m_TableReference:
       m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
@@ -39,29 +30,16 @@ MonoBehaviour:
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
-  audioColor:
-    m_TableReference:
-      m_TableCollectionName: GUID:9b61d76604f02b542b70aacdd8e81b03
-    m_TableEntryReference:
-      m_KeyId: 206826528288769
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
+  color: 0
   prefab3D: {fileID: 2569659205156790823, guid: e94df6b633c3aaa45834ff62a0c73674, type: 3}
   sprite2D: {fileID: 21300000, guid: 292ef53d0d4493f4783b369214639357, type: 3}
   cuentos:
   - halloween
-  usarConfiguracionPersonalizada: 0
-  posicionAgarradoPersonalizada: {x: 0, y: -0.2, z: 0.5}
-  rotacionAgarradaPersonalizada: {x: 0, y: 0, z: 0}
-  escalaAgarradaPersonalizada: {x: 1, y: 1, z: 1}
+  usarConfiguracionPersonalizada: 1
+  posicionAgarradoPersonalizada: {x: -0.064, y: -0.138, z: 0.475}
+  rotacionAgarradaPersonalizada: {x: 0.019, y: -6.487, z: -12.482}
+  escalaAgarradaPersonalizada: {x: 0.32825, y: 0.32825, z: 0.32825}
   notasConfiguracion: "Configuraci\xF3n por defecto"
-  prefab3DPathLegacy: Prefabs/halloween/escoba
-  sprite2DPathLegacy: Images/halloween/escoba
-  audioNombreEsLegacy: Sounds/escoba.mp3
-  audioNombreEnLegacy: Sounds/escoba.mp3
-  audioColorEsLegacy: Sounds/escoba.mp3
-  audioColorEnLegacy: Sounds/escoba.mp3
   references:
     version: 2
     RefIds: []
